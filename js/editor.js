@@ -292,7 +292,7 @@ async function openSportsModal() {
     document.getElementById("sports-modal").style.display = "flex";
 };    
 
-const addModal = document.getElementById("sports-modal");
+const sportModal = document.getElementById("sports-modal");
 
 
 //#endregion
