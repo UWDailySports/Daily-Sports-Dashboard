@@ -140,9 +140,9 @@
                     <img class = "settings-icon" src = "/pages/dashboard/settings/editwriter.png">
                     <div class = "settings-title">Edit Writer</div>
                 </div>
-                 <div class = "settings-option">
+                 <div class = "settings-option" onclick = "openSportsModal()">
                     <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Add Sport</div>
+                    <div class = "settings-title">Sports</div>
                 </div>
                 <div class = "settings-option">
                     <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
@@ -374,6 +374,15 @@
         <button id = "add-writer-confirm" class = "add-writer-confirm">Add Writer</button>
     </div>
 </div>    
+
+<div id = "sports-modal" class = "modal">
+    <div class = "sports-modal-content">
+        <div class = "modal-header">
+            <h2>Sports</h2>
+            <span class = "close-button">&times;</span>
+        </div>
+    </div>
+</div>
 
 
 </body>

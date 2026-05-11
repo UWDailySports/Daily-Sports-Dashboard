@@ -287,6 +287,14 @@ document.getElementById("add-writer-confirm").onclick = async () => {
     addWriterModal.style.display = "none";
 };
 
+async function openSportsModal() {
+
+    document.getElementById("sports-modal").style.display = "flex";
+};    
+
+const addModal = document.getElementById("sports-modal");
+
+
 //#endregion
 
 //#region Game Functions (add, edit, delete)

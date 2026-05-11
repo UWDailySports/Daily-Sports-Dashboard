@@ -760,7 +760,6 @@
 }
 /* #endregion */
 
-
 /* #region add-box / edit-box */
 .add-box, .edit-box {
     /* Layout */
@@ -1271,6 +1270,25 @@
 /* #endregion
 
     /* Layout */
+
+/* #region sports-modal-content */
+.sports-modal-content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;   
+
+    /* Size/Shape */
+    width: 80%;
+    height: 50%;
+
+    /* Background */
+    background-color: rgb(238, 238, 238);
+
+    /* Text */ 
+        
+    /* Misc */    
+}   
+
 
     /* Layout */
 
