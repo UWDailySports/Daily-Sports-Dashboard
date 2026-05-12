@@ -203,7 +203,7 @@ document.getElementById("confirm-add").onclick = async () => {
     const opponent = document.getElementById("opponent-input").value;
     const location = document.getElementById("location-input").value;
     const date = document.getElementById("date-input").value;
-    const time = convertTo12Hour(document.getElementById("time-input").value);
+    const time = document.getElementById("time-input").value;
     const notes = document.getElementById("notes-input").value;
 
     if(!sport || !opponent || !location || !date || !time) {
@@ -228,7 +228,7 @@ async function openEditGameModal(gameId) {
     document.getElementById("edit-opponent-input").value = game.opponent;
     document.getElementById("edit-location-input").value = game.location;
     document.getElementById("edit-date-input").value = game.date;
-    document.getElementById("edit-time-input").value = convertTo24Hour(game.time);
+    document.getElementById("edit-time-input").value = game.time;
     document.getElementById("edit-notes-input").value = game.notes || "";
 
     document.getElementById("edit-modal").style.display = "flex";
@@ -241,7 +241,7 @@ document.getElementById("confirm-edit").onclick = async () => {
     const opponent = document.getElementById("edit-opponent-input").value;
     const location = document.getElementById("edit-location-input").value;
     const date = document.getElementById("edit-date-input").value;
-    const time = convertTo12Hour(document.getElementById("edit-time-input").value);
+    const time = document.getElementById("edit-time-input").value;
     const notes = document.getElementById("edit-notes-input").value;
 
     if(!sport || !opponent || !location || !date || !time) {
