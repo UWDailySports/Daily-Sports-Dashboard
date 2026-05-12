@@ -336,6 +336,7 @@ async function openSportsModal() {
 
 const sportModal = document.getElementById("sport-modal");
 
+fetchSportInfo();
 
 //#endregion //
 
