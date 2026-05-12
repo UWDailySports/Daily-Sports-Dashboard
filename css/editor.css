@@ -1294,6 +1294,7 @@
 
 /* #endregion */
 
+/* #region sport-list-title */
 .sport-list-title {
     /* Layout */
     display: flex;
@@ -1314,6 +1315,7 @@
         
     /* Misc */
 }
+/* #endregion */
 
 /* #region sports-list-container */
 .sport-list-container {
@@ -1335,6 +1337,8 @@
     overflow-x: hidden;  
 }
 /* #endregion
+
+/* #region sport-list-entry-container */
 
 /* #region sport-list-entry-container */
 .sport-list-entry-container {
@@ -1381,6 +1385,7 @@
         
     /* Misc */    
 }
+/* #endregion */
 
 
     /* Layout */
