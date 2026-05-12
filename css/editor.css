@@ -1272,14 +1272,17 @@
     /* Layout */
 
 /* #region sports-modal-content */
-.sports-modal-content {
+.sport-modal-content {
     /* Layout */
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;  
 
     /* Size/Shape */
-    width: 80%;
-    height: 50%;
+    width: 75%;
+    height: 60%;
+    padding-top: 2%;
+    padding-left: 5%;
+    border-radius: 25px;
 
     /* Background */
     background-color: rgb(238, 238, 238);
@@ -1288,6 +1291,96 @@
         
     /* Misc */    
 }   
+
+/* #endregion */
+
+.sport-list-title {
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Size/Shape */
+    width: 80%;
+    height: 30px;
+    margin-bottom: 5px;
+    border: black 1px solid;
+
+    /* Background */
+    
+    /* Text */
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: #360f5a;
+        
+    /* Misc */
+}
+
+/* #region sports-list-container */
+.sport-list-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;   
+
+    /* Size/Shape */
+    height: 95%;
+    width: 80%;
+    border: black 1px solid;
+
+    /* Background */
+
+    /* Text */ 
+        
+    /* Misc */
+    overflow-y: auto;  
+    overflow-x: hidden;  
+}
+/* #endregion
+
+/* #region sport-list-entry-container */
+.sport-list-entry-container {
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Size/Shape */
+    width: 100%;
+    height: 30px;
+    margin-bottom: 5px;
+    border: black 1px solid;
+
+    /* Background */
+    
+    /* Text */
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: #360f5a;
+        
+    /* Misc */
+
+}
+/* #endregion */
+
+/* #region sport-list-entry-section */
+.sport-list-entry-section {
+    /* Layout */
+    display: flex;
+    align-items: center;
+
+    /* Size/Shape */
+    box-sizing: border-box;
+    width: 23%;
+    height: 100%;
+    padding-left: 5%;
+
+    /* Background */
+
+    /* Text */
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: black;
+
+        
+    /* Misc */    
+}
 
 
     /* Layout */

@@ -289,10 +289,10 @@ document.getElementById("add-writer-confirm").onclick = async () => {
 
 async function openSportsModal() {
 
-    document.getElementById("sports-modal").style.display = "flex";
+    document.getElementById("sport-modal").style.display = "flex";
 };    
 
-const sportModal = document.getElementById("sports-modal");
+const sportModal = document.getElementById("sport-modal");
 
 
 //#endregion

@@ -2247,6 +2247,8 @@ body {
     z-index: 1000;
     left: 0;
     top: 0;
+    align-items: center;
+    justify-content: center;
 
     /* Size/Shape */
     width: 100%;                 
