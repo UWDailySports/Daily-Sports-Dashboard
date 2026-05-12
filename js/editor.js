@@ -143,7 +143,7 @@ async function fetchAllScheduledGames(writerId, filters = { sports: [], location
     });
 }   
 
-async function fecthSportInfo() {
+async function fetchSportInfo() {
     const response = await fetch("/.netlify/functions/get-sport-info", {
         method: "POST",
         headers: { "Content-Type": "application/json" }
