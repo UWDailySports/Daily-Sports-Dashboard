@@ -330,7 +330,7 @@ document.getElementById("add-writer-confirm").onclick = async () => {
 };
 
 async function openSportsModal() {
-    await fecthSportInfo();
+    await fetchSportInfo();
 
     document.getElementById("sport-modal").style.display = "flex";
 };    
