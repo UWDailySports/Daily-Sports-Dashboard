@@ -168,8 +168,8 @@ async function fetchSportInfo() {
     for (const sport of sports) {
         const sportName = sport.sport;
         const sid = sport.sid;
-        const email = sport.email;
-        const phone = sport.phone;
+        const email = sport.sid_email;
+        const phone = sport.sid_phone;
 
         const sportBox = document.createElement("div");
         sportBox.classList.add("sport-list-entry-container");
