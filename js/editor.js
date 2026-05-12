@@ -142,6 +142,20 @@ async function fetchAllScheduledGames(writerId, filters = { sports: [], location
         });
     });
 }   
+
+async function fecthSportInfo() {
+    const response = await fetch("/.netlify/functions/get-sport-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+    });
+
+    if (!response.ok) {
+        console.log("Failed to fetch sport info. Status:", response.status);
+        return;
+    }
+
+    const data = await response.json();
+} 
 //#endregion      
 
 //#region tabHandlers
@@ -164,7 +178,7 @@ tabHandlers["all-games"] = function() {
 
 //#endregion
 
-//#region Modals
+//#region Modals //
 
 async function openAssignModal(gameId) {
     currGameId = gameId;
@@ -295,7 +309,7 @@ async function openSportsModal() {
 const sportModal = document.getElementById("sport-modal");
 
 
-//#endregion
+//#endregion //
 
 //#region Game Functions (add, edit, delete)
 
