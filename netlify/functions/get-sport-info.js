@@ -22,7 +22,7 @@ exports.handler = async (event) => {
 
         return {
             statusCode: 200,
-            body: JSON.stringify(result.rows)
+            body: JSON.stringify({ sports: result.rows })
         };
     } catch (err) {
         console.error("Error fetching sports:", err);

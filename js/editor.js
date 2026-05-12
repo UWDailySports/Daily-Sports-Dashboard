@@ -155,7 +155,35 @@ async function fecthSportInfo() {
     }
 
     const data = await response.json();
-} 
+    const sports = data.sports;
+
+    if(!sports || sports.length === 0) {
+        console.log("No sports found.");
+        return;
+    }
+
+    const container = document.getElementById("sport-list-container");
+    container.innerHTML = "";
+
+    for (const sport of sports) {
+        const sportName = sport.sport;
+        const sid = sport.sid;
+        const email = sport.email;
+        const phone = sport.phone;
+
+        const sportBox = document.createElement("div");
+        sportBox.classList.add("sport-list-entry-container");
+        sportBox.textContent = sportName;
+        
+        sportBox.innerHTML = `
+            <div class = "sport-list-entry-section">${sportName}</div>
+            <div class = "sport-list-entry-section">${sid}</div>
+            <div class = "sport-list-entry-section">${email}</div>
+            <div class = "sport-list-entry-section">${phone}</div>
+        `;
+        container.appendChild(sportBox);
+    }
+}
 //#endregion      
 
 //#region tabHandlers
