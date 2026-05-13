@@ -169,8 +169,10 @@ async function fetchSportInfo() {
         const sportName = sport.sport;
         const sid = sport.sid;
         const email = sport.sid_email;
-        const phone = sport.sid_phone;
-
+        let phone = sport.sid_phone;
+        if(phone === null) {
+            phone = "";
+        }    
         const sportBox = document.createElement("div");
         sportBox.classList.add("sport-list-entry-container");
         sportBox.textContent = sportName;
@@ -180,6 +182,7 @@ async function fetchSportInfo() {
             <div class = "sport-list-entry-section">${sid}</div>
             <div class = "sport-list-entry-section">${email}</div>
             <div class = "sport-list-entry-section">${phone}</div>
+            <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
         `;
         container.appendChild(sportBox);
     }
