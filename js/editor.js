@@ -193,12 +193,12 @@ async function fetchWriterInfo() {
         <div class = "writer-list-entry-section">${first_name}</div>
         <div class = "writer-list-entry-section">${last_name}</div>
         <div class = "writer-list-entry-section">${position}</div>
-        <div class = "writer-list-entry-section">${email}</div>
-        <div class = "writer-list-entry-section">"${phone}</div>
-        <div class = "writer-list-entry-section">"${x}</div>
-        <div class = "writer-list-entry-section">"${headshot}</div>
-        <div class = "writer-list-entry-section">"${hire_date}</div>
-        <div class = "writer-list-entry-section">"${end_date}</div>
+        <div class = "writer-list-entry-section">${email}</div>      
+        <div class = "writer-list-entry-section">${phone}</div>
+        <div class = "writer-list-entry-section">${x}</div>
+        <div class = "writer-list-entry-section">${headshot}</div>
+        <div class = "writer-list-entry-section">${hire_date}</div>
+        <div class = "writer-list-entry-section">${end_date}</div>
         <div class = "writer-list-entry-section" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
         `
 

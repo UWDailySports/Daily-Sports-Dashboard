@@ -1297,14 +1297,13 @@
 .writer-list-title {
     /* Layout */
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
     box-sizing: border-box;
 
     /* Size/Shape */
-    width: 96%;
+    width: 97%;
     height: 30px;
-    padding-left: 1%;
     padding-right: 1%;
     margin-bottom: 5px;
     border: black 1px solid;
@@ -1346,7 +1345,6 @@
 .writer-list-entry-container {
     /* Layout */
     display: flex;
-    justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
 
@@ -1354,7 +1352,6 @@
     width: 100%;
     min-height: 30px;
     height: 50px;
-    padding-left: 1%;
     margin-bottom: 5px;
     border: black 1px solid;
 
@@ -1377,9 +1374,11 @@
     /* Size/Shape */
     box-sizing: border-box;
     width: 10%;
+    padding-left: 1%;
     height: 100%;
 
     /* Background */
+    border-right: red 1px solid;
 
     /* Text */
     font-size: 16px;
