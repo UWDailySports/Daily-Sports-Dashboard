@@ -236,7 +236,7 @@ async function openAssignModal(gameId) {
 };
 
 async function openAddGameModal(containerId) {
-    const currentContainer = containerId;
+    currentContainer = containerId;
 
     await loadSports("sport-input");
 
