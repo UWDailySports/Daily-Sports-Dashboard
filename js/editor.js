@@ -126,7 +126,7 @@ async function fetchAllScheduledGames(writerId, filters = { sports: [], location
             <div class = "writer">${name}</div>
             <div class = "options-container"> 
                 <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                <button class = "edit" onclick="openEditGameModal(${gameId}, ${currentContainer})">EDIT</button>
+                <button class = "edit" onclick="openEditGameModal(${gameId}, '${currentContainer}')">EDIT</button>
             </div>    
         `;
 
