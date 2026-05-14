@@ -179,31 +179,31 @@ async function fetchWriterInfo() {
             }
         let hire_date = writer.hire_date;
         if(hire_date === null) {
-            start_date = "Shadow";
+            hire_date = "Shadow";
         }
         let end_date = writer.end_date;
             if(end_date === null) {
                 end_date = "Current";
-            }  
+            }
+            
+        const writerBox = document.createElement("div");
+        writerBox.classList.add("writer-list-entry-container");
+
+        writerBox.innerHTML = `
+        <div class = "writer-list-entry-section">${first_name}</div>
+        <div class = "writer-list-entry-section">${last_name}</div>
+        <div class = "writer-list-entry-section">${position}</div>
+        <div class = "writer-list-entry-section">${email}</div>
+        <div class = "writer-list-entry-section>"${phone}</div>
+        <div class = "writer-list-entry-section>"${x}</div>
+        <div class = "writer-list-entry-section>"${headshot}</div>
+        <div class = "writer-list-entry-section>"${hire_date}</div>
+        <div class = "writer-list-entry-section>"${end_date}</div>
+        <div class = "writer-list-entry-section" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+        `
+
+        container.append(writerBox);    
     });
-
-    const writerBox = document.createElement("div");
-    writerBox.classList.add("writer-list-entry-container");
-
-    writerBox.innerHTML = `
-    <div class = "writer-list-entry-section>${first_name}</div>
-    <div class = "writer-list-entry-section>${last_name}</div>
-    <div class = "writer-list-entry-section>${position}</div>
-    <div class = "writer-list-entry-section>${email}</div>
-    <div class = "writer-list-entry-section>${phone}</div>
-    <div class = "writer-list-entry-section>${x}</div>
-    <div class = "writer-list-entry-section>${headshot}</div>
-    <div class = "writer-list-entry-section>${hire_date}</div>
-    <div class = "writer-list-entry-section>${end_date}</div>
-    <div class = "writer-list-entry-section" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
-    `
-
-    container.append(writerBox);
 }
 
 async function fetchSportInfo() {
