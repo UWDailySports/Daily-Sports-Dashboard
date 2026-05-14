@@ -1376,6 +1376,7 @@
 
     /* Size/Shape */
     box-sizing: border-box;
+    width: 10%;
     height: 100%;
 
     /* Background */
