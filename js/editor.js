@@ -143,6 +143,57 @@ async function fetchAllScheduledGames(writerId, filters = { sports: [], location
     });
 }   
 
+async function fetchWriterInfo() {
+    const response = await fetch("/.netlify/functions/get-writer-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+    });
+
+    if(!response.ok) {
+        console.log("Failed to fetch writer info:", response.status);
+        return;
+    }
+
+    const data = await response.json();
+    const writers = data.writers;
+
+    const container = document.getElementById("writer-list-container");
+    container.innerHTML = "";
+
+    writers.forEach(writer => {
+        const first_name = writer.first_name;
+        const last_name = writer.last_name;
+        const position = writer.position;
+        const email = writer.email;
+        const phone = writer.phone;
+        const x = writer.x;
+        const headshot = writer.headshot;
+        const hire_date = writer.hire_date;
+        let end_date = writer.end_date;
+            if(end_date === null) {
+                end_date = "Current";
+            }  
+    });
+
+    const writerBox = document.createElement("div");
+    writerBox.classList.add("writer-list-entry-container");
+
+    writerBox.innerHTML = `
+    <div class = "writer-list-entry-section>${first_name}</div>
+    <div class = "writer-list-entry-section>${last_name}</div>
+    <div class = "writer-list-entry-section>${position}</div>
+    <div class = "writer-list-entry-section>${email}</div>
+    <div class = "writer-list-entry-section>${phone}</div>
+    <div class = "writer-list-entry-section>${x}</div>
+    <div class = "writer-list-entry-section>${headshot}</div>
+    <div class = "writer-list-entry-section>${hire_date}</div>
+    <div class = "writer-list-entry-section>${end_date}</div>
+    <div class = "writer-list-entry-section" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+    `
+
+    container.append(writerBox);
+}
+
 async function fetchSportInfo() {
     const response = await fetch("/.netlify/functions/get-sport-info", {
         method: "POST",
@@ -341,8 +392,16 @@ document.getElementById("delete-game").onclick = async () => {
     }    
 };
 
-async function openAddWriterModal() {
+async function openWritersModal() {
+    await fetchWriterInfo();
 
+    document.getElementById("writers-modal").style.display = "flex"; 
+};
+
+const writersModal = document.getElementById("writers-modal"); 
+
+
+async function openAddWriterModal() {
     document.getElementById("add-writer-modal").style.display = "flex";
 };    
 

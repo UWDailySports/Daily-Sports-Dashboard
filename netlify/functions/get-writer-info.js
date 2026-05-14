@@ -22,8 +22,7 @@ exports.handler = async (event) => {
 
     // Query all writers
     const query = `SELECT * FROM "Writers" 
-                    WHERE end_date IS NULL
-                    ORDER BY last_name, first_name`;
+                    ORDER BY end_date DESC, first_name ASC, last_name ASC`;
     const result = await client.query(query);
 
     await client.end();

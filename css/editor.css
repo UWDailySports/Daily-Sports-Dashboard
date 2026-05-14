@@ -1271,6 +1271,125 @@
 
     /* Layout */
 
+/* #region writer-modal-content */
+.writers-modal-content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;  
+
+    /* Size/Shape */
+    width: 70%;
+    height: 75%;
+    padding-top: 2%;
+    padding-left: 1%;
+    border-radius: 20px;
+
+    /* Background */
+    background-color: rgb(238, 238, 238);
+
+    /* Text */ 
+        
+    /* Misc */    
+}
+/* #endregion
+
+/* #region writer-list-title */
+.writer-list-title {
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    /* Size/Shape */
+    width: 96%;
+    height: 30px;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-bottom: 5px;
+    border: black 1px solid;
+
+    /* Background */
+    
+    /* Text */
+    font-size: 16px;
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: #360f5a;
+        
+    /* Misc */    
+}
+/* #endregion
+
+/* #region writer-list-container */
+.writer-list-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;  
+    box-sizing: border-box; 
+
+    /* Size/Shape */
+    height: 75%;
+    width: 97%;
+    border: black 1px solid;
+
+    /* Background */
+
+    /* Text */ 
+        
+    /* Misc */
+    overflow-y: auto;  
+    overflow-x: hidden;     
+}
+/* #endregion */
+
+/* #region writer-list-entry-container */
+.writer-list-entry-container {
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    /* Size/Shape */
+    width: 100%;
+    min-height: 30px;
+    height: 50px;
+    padding-left: 1%;
+    margin-bottom: 5px;
+    border: black 1px solid;
+
+    /* Background */
+    
+    /* Text */
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: #360f5a;
+        
+    /* Misc */    
+}
+/* #endregion */
+
+/* #region writer-list-entry-section */
+.writer-list-entry-section {
+    /* Layout */
+    display: flex;
+    align-items: center;
+
+    /* Size/Shape */
+    box-sizing: border-box;
+    height: 100%;
+
+    /* Background */
+
+    /* Text */
+    font-size: 16px;
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: black;
+
+        
+    /* Misc */    
+}
+/* #endregion */
+
 /* #region sports-modal-content */
 .sport-modal-content {
     /* Layout */

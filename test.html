@@ -387,9 +387,9 @@
 
         <div id = "settings" class = "tab-content">
             <div class = "settings-container">
-                <div class = "settings-option">
+                <div class = "settings-option" onclick = "openWritersModal()">
                     <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Add Writer</div>
+                    <div class = "settings-title">Writers</div>
                 </div>
                 <div class = "settings-option">
                     <img class = "settings-icon" src = "/pages/dashboard/settings/editwriter.png">
@@ -604,6 +604,28 @@
         <input type = "text" id="invoice-link-input" class = "add-invoice-box" placeholder="Link to Invoice (Optional)">
 
         <button id="confirm-invoice" class = "add-invoice-confirm">Add Invoice</button>
+    </div>
+</div>
+
+<div id = "writers-modal" class = "modal">
+    <div class = "writers-modal-content">
+        <div class = "modal-header">
+            <h2>Writers</h2>
+            <span class = "close-button">&times;</span>
+        </div>
+        <div class = "writer-list-title">
+            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">First Name</div>
+            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Last Name</div>
+            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Position</div>
+            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Email</div>
+            <div class = "writer-list-entry-options" style="font-size: 18px; font-weight: bold;color:#360f5a">Phone</div>
+            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">X</div>
+            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Headshot</div>
+            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Hire Date</div>
+            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">End Date</div>
+            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a"></div>
+        </div>
+        <div class = "writer-list-container"></div>
     </div>
 </div>
 
