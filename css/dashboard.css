@@ -1526,6 +1526,7 @@ body {
     /* Size / Shape */
     width: 90%;
     height: 90%;
+    margin-top: 3%;
     border-color:lightgray;
     border-style: solid;
     border-radius: 15px;

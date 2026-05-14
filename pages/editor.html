@@ -125,20 +125,21 @@
                         <img class="resources-box-icon" src = "/images/resources/handbook.png">
                     </div>
                     <a class = "resources-box-title" href="https://docs.google.com/document/d/1AbVTnk5L6iNMqlh9C_b17tAvUl_IknHFXK7T5YS08dg/edit?tab=t.0" target="_blank">The Daily Handbook</a>
-                </div>  
+                </div> 
+                <div class = "resources-box">
+                    <div class = "resources-box-icon-container">
+                        <img class="resources-box-icon" src = "/images/resources/report-problem.png">
+                    </div>
+                    <a class = "resources-box-title" href="https://docs.google.com/forms/d/e/1FAIpQLSc98LB9Yu3QEjQdDW9DqhK5CnI_7JfeTIdHv6C76-5qVOZ5CQ/viewform?usp=header" target="_blank">Report Problem</a> 
             </div>    
         </div>
-
+        </div>
 
         <div id = "settings" class = "tab-content">
             <div class = "settings-container">
                 <div class = "settings-option" onclick = "openAddWriterModal()">
                     <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Add Writer</div>
-                </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/editwriter.png">
-                    <div class = "settings-title">Edit Writer</div>
+                    <div class = "settings-title">Writers</div>
                 </div>
                  <div class = "settings-option" onclick = "openSportsModal()">
                     <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
@@ -146,23 +147,11 @@
                 </div>
                 <div class = "settings-option">
                     <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Edit Sport</div>
+                    <div class = "settings-title">Add Season (WIP)</div>
                 </div>
                 <div class = "settings-option">
                     <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Add Season</div>
-                </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Search Game</div>
-                </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Contacts</div>
-                </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Report Problem</div>
+                    <div class = "settings-title">Search Game (WIP)</div>
                 </div>                                                                                               
             </div>
         </div>
@@ -170,7 +159,6 @@
         </div>
 
 
-        <!-- Sidebar / Twitter feed -->
         <div class="links-container">
             <div class = "links-box links-dropdown">
             <div class="links-dropdown-header" onclick="toggleDropdown(this)">
@@ -381,6 +369,14 @@
             <h2>Sports</h2>
             <span class = "close-button">&times;</span>
         </div>
+        <div class = "sport-list-title">
+            <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Sport</div>
+            <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">SID</div>
+            <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Email</div>
+            <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Phone</div>
+            <div class = "sport-list-entry-options" style="font-size: 18px; font-weight: bold;color:#360f5a"></div>
+        </div>
+        <div class = "sport-list-container" id = "sport-list-container"></div>
     </div>
 </div>
 

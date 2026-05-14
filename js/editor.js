@@ -142,6 +142,51 @@ async function fetchAllScheduledGames(writerId, filters = { sports: [], location
         });
     });
 }   
+
+async function fetchSportInfo() {
+    const response = await fetch("/.netlify/functions/get-sport-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+    });
+
+    if (!response.ok) {
+        console.log("Failed to fetch sport info. Status:", response.status);
+        return;
+    }
+
+    const data = await response.json();
+    const sports = data.sports;
+
+    if(!sports || sports.length === 0) {
+        console.log("No sports found.");
+        return;
+    }
+
+    const container = document.getElementById("sport-list-container");
+    container.innerHTML = "";
+
+    for (const sport of sports) {
+        const sportName = sport.sport;
+        const sid = sport.sid;
+        const email = sport.sid_email;
+        let phone = sport.sid_phone;
+        if(phone === null) {
+            phone = "";
+        }    
+        const sportBox = document.createElement("div");
+        sportBox.classList.add("sport-list-entry-container");
+        sportBox.textContent = sportName;
+        
+        sportBox.innerHTML = `
+            <div class = "sport-list-entry-section">${sportName}</div>
+            <div class = "sport-list-entry-section">${sid}</div>
+            <div class = "sport-list-entry-section">${email}</div>
+            <div class = "sport-list-entry-section">${phone}</div>
+            <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+        `;
+        container.appendChild(sportBox);
+    }
+}
 //#endregion      
 
 //#region tabHandlers
@@ -164,7 +209,7 @@ tabHandlers["all-games"] = function() {
 
 //#endregion
 
-//#region Modals
+//#region Modals //
 
 async function openAssignModal(gameId) {
     currGameId = gameId;
@@ -311,14 +356,14 @@ document.getElementById("add-writer-confirm").onclick = async () => {
 };
 
 async function openSportsModal() {
+    await fetchSportInfo();
 
     document.getElementById("sport-modal").style.display = "flex";
 };    
 
 const sportModal = document.getElementById("sport-modal");
 
-
-//#endregion
+//#endregion //
 
 //#region Game Functions (add, edit, delete)
 
