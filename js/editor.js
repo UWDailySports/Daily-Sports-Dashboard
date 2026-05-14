@@ -165,10 +165,22 @@ async function fetchWriterInfo() {
         const last_name = writer.last_name;
         const position = writer.position;
         const email = writer.email;
-        const phone = writer.phone;
-        const x = writer.x;
-        const headshot = writer.headshot;
-        const hire_date = writer.hire_date;
+        let phone = writer.phone;
+            if(phone === null) {
+                phone = "None";
+            }
+        let x = writer.x;
+            if(x === null) {
+                x = "";
+            }
+        let headshot = writer.headshot;
+            if(headshot === null){
+                headshot = "";
+            }
+        let hire_date = writer.hire_date;
+        if(hire_date === null) {
+            start_date = "Shadow";
+        }
         let end_date = writer.end_date;
             if(end_date === null) {
                 end_date = "Current";
