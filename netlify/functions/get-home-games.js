@@ -13,11 +13,17 @@ exports.handler = async (event) => {
 
     await client.connect();
 
-    const now = new Date();
+    const nowPT = new Date(
+      new Date().toLocaleString("en-US", {
+        timeZone: "America/Los_Angeles"
+      })
+    );
 
-   const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+    nowPT.setDate(nowPT.getDate() + 1);
 
-    const formattedTomorrow = tomorrow.toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
+    const formattedTomorrow = nowPT.toISOString().split("T")[0];
+
+    console.log("QUERYING FOR:", formattedTomorrow);
 
     console.log(formattedTomorrow); // 
 
