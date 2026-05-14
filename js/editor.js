@@ -126,7 +126,7 @@ async function fetchAllScheduledGames(writerId, filters = { sports: [], location
             <div class = "writer">${name}</div>
             <div class = "options-container"> 
                 <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                <button class = "edit" onclick="openEditGameModal(${gameId}, 'all-scheduled-games-filter')">EDIT</button>
+                <button class = "edit" onclick="openEditGameModal(${gameId}, 'all-games-filter-container')">EDIT</button>
             </div>    
         `;
 
@@ -327,6 +327,18 @@ document.getElementById("delete-game").onclick = async () => {
     await deleteGame(currGameId);
 
     document.getElementById("edit-modal").style.display = "none";
+
+    if (currentContainer === "all-games-filter-container") {
+        fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+    }
+
+    if (currentContainer === "available-games-filter-container") {
+        fetchAvailableGames(availableFilters);
+    }
+
+    if (currentContainer === "scheduled-games-filter-container") {
+        fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+    }    
 };
 
 async function openAddWriterModal() {
