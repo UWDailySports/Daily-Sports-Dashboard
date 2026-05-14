@@ -126,7 +126,7 @@ async function fetchAllScheduledGames(writerId, filters = { sports: [], location
             <div class = "writer">${name}</div>
             <div class = "options-container"> 
                 <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                <button class = "edit" onclick="openEditGameModal(${gameId})">EDIT</button>
+                <button class = "edit" onclick="openEditGameModal(${gameId}, ${currentContainer})">EDIT</button>
             </div>    
         `;
 
@@ -190,7 +190,9 @@ async function openAssignModal(gameId) {
     assignModal.style.display = "none";
 };
 
-async function openAddGameModal() {
+async function openAddGameModal(containerId) {
+    const currentContainer = containerId;
+
     await loadSports("sport-input");
 
     document.getElementById("add-modal").style.display = "flex";
@@ -213,10 +215,23 @@ document.getElementById("confirm-add").onclick = async () => {
     await addGame(sport, opponent, date, time, location, notes);
     
     addModal.style.display = "none";
+
+    if (currentContainer === "all-games-filter-container") {
+        fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+    }
+
+    if (currentContainer === "scheduled-games-filter-container") {
+        fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+    }
+
+    if (currentContainer === "available-games-filter-container") {
+        fetchAvailableGames(availableFilters);
+    }
 };
 
-async function openEditGameModal(gameId) {
+async function openEditGameModal(gameId, containerId) {
     currGameId = gameId;
+    currentContainer = containerId;
 
     const data = await loadGameInfo(gameId);
     console.log("GAME DATA:", data);
@@ -251,6 +266,14 @@ document.getElementById("confirm-edit").onclick = async () => {
     await editGame(currGameId, sport, opponent, date, time, location, notes);
 
     editModal.style.display = "none";
+
+    if (currentContainer === "all-games-filter-container") {
+        fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+    }
+
+    if (currentContainer === "available-games-filter-container") {
+        fetchAvailableGames(availableFilters);
+    }
 };
 
 document.getElementById("delete-game").onclick = async () => {

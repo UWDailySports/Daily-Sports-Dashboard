@@ -1,5 +1,6 @@
 let currWriter = null;
 let currGameId = null;
+let currentContainer = null;
 let activeFilters = { sports: [], locations: [] };
 let myScheduleFilters = { sports: [], locations: [] };
 let availableFilters = { sports: [], locations: [] };
@@ -250,7 +251,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
             <div class = "options-container"> 
                 <button class = "add" data-game-id = "${gameId}">ADD</button>
                 <button class= "assign" onclick="openAssignModal(${gameId})">ASSIGN</button>
-                <button class = "edit" onclick="openEditGameModal(${gameId})">EDIT</button>
+                <button class = "edit" onclick="openEditGameModal(${gameId}, ${currentContainer})">EDIT</button>
             </div>    
             `;``
         }
@@ -410,6 +411,10 @@ function createGamesFilter(containerId, filters, onFilterChange) {
 
     const template = document.getElementById("games-filter-template");
     const clone = template.content.cloneNode(true);
+    const addGameButton = clone.querySelector(".add-game");
+    addGameButton.dataset.container = containerId;
+    addGameButton.onclick = () => openAddGameModal(containerId);
+
     container.appendChild(clone);
 
     const boxes = container.querySelectorAll(".filter-box");
