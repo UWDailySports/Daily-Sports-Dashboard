@@ -251,7 +251,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
             <div class = "options-container"> 
                 <button class = "add" data-game-id = "${gameId}">ADD</button>
                 <button class= "assign" onclick="openAssignModal(${gameId})">ASSIGN</button>
-                <button class = "edit" onclick="openEditGameModal(${gameId}, '${currentContainer}')">EDIT</button>
+                <button class = "edit" onclick="openEditGameModal(${gameId}, 'available-games-filter')">EDIT</button>
             </div>    
             `;``
         }
