@@ -223,12 +223,37 @@ async function fetchWriterInfo() {
         }
         <div class = "writer-list-entry-section">${hire_date_formatted}</div>
         <div class = "writer-list-entry-section">${end_date_formatted}</div>
-        <div class = "writer-list-entry-section" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+        <div class="writer-options">
+            <button>Edit</button>
+            <button>Remove</button>
+        </div>
+        <button class = "writer-list-entry-section writer-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
         `
 
+        const optionsBtn = writerBox.querySelector(".writer-options-button");
+        const options = writerBox.querySelector(".writer-options");
+
+        optionsBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            document.querySelectorAll(".writer-options").forEach(m => {
+                if (m !== options) m.style.display = "none";
+    });
+
+    options.style.display =
+        options.style.display === "flex" ? "none" : "flex";
+});
+
         container.append(writerBox);    
+
     });
 }
+
+document.addEventListener("click", () => {
+    document.querySelectorAll(".writer-options").forEach(menu => {
+        menu.style.display = "none";
+    });
+});
 
 async function fetchSportInfo() {
     const response = await fetch("/.netlify/functions/get-sport-info", {
