@@ -1432,6 +1432,10 @@
 .writer-options button:hover {
     background: #eee;
 }
+
+.edit-writer, .delete-writer {
+    color: #360f5a;
+}
 /* #endregion */
 
 /* #region edit-writer-modal-content */
