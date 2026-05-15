@@ -860,7 +860,7 @@
 /* #endregion */
 
 /* #region confirm-add / confirm-edit */
-.confirm-add, .confirm-edit, .add-writer-confirm {
+.confirm-add, .confirm-edit, .add-writer-confirm, .edit-writer-confirm {
     /* Layout */
 
     /* Size/Shape */
@@ -1431,6 +1431,53 @@
 
 .writer-options button:hover {
     background: #eee;
+}
+/* #endregion */
+
+/* #region edit-writer-modal-content */
+.end-writer-modal-content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2%;
+
+    /* Size/Shape */
+    width: 30%;
+    margin: 5% auto;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 16px;
+    border-color: #360f5a;
+
+    /* Background */
+    background: white;
+
+    /* Text */ 
+    
+    color: black;
+        
+    /* Misc */    
+}
+/* #endregion */
+
+/* #region edit-writer-box */
+.edit-writer-box {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 80%;
+    height: 8%;
+    padding-left: 2%;
+    border-radius: 10px;
+    border-color: black;
+
+    /* Background */
+
+    /* Text */ 
+    
+        
+    /* Misc */    
 }
 /* #endregion */
 
