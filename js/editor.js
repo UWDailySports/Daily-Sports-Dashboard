@@ -472,43 +472,56 @@ async function openWritersModal() {
 const writersModal = document.getElementById("writers-modal"); 
 
 async function openEditWriterModal(writer) {
+    const editWriterModal = document.getElementById("edit-writer-modal");
 
-    document.getElementById("edit-writer-first-name").value = writer.first_name;
-    document.getElementById("edit-writer-last-name").value = writer.last_name;
-    document.getElementById("edit-writer-position").value = writer.position;
-    document.getElementById("edit-writer-email").value = writer.email;
+    // Fill inputs
+    document.getElementById("edit-writer-first-name").value = writer.first_name || "";
+    document.getElementById("edit-writer-last-name").value = writer.last_name || "";
+    document.getElementById("edit-writer-position").value = writer.position || "";
+    document.getElementById("edit-writer-email").value = writer.email || "";
     document.getElementById("edit-writer-phone").value = writer.phone || "";
     document.getElementById("edit-writer-x").value = writer.x || "";
     document.getElementById("edit-writer-headshot").value = writer.headshot || "";
     document.getElementById("edit-writer-hire-date").value = writer.hire_date || "";
-    document.getElementById("edit-writer-end_date").value = writer.end_date || "";
+    document.getElementById("edit-writer-end-date").value = writer.end_date || "";
 
-    document.getElementById("edit-writer-modal").style.display = "flex";
-   
+    // Show modal
+    editWriterModal.style.display = "flex";
 
-const editWriterModal = document.getElementById("edit-writer-modal");
+    // Confirm button behavior
+    document.getElementById("confirm-edit").onclick = async () => {
+        const first_name = document.getElementById("edit-writer-first-name").value;
+        const last_name = document.getElementById("edit-writer-last-name").value;
+        const position = document.getElementById("edit-writer-position").value;
+        const email = document.getElementById("edit-writer-email").value;
+        const phone = document.getElementById("edit-writer-phone").value || null;
+        const x = document.getElementById("edit-writer-x").value || null;
+        const headshot = document.getElementById("edit-writer-headshot").value || null;
+        const hire_date = document.getElementById("edit-writer-hire-date").value || null;
+        const end_date = document.getElementById("edit-writer-end-date").value || null;
 
-document.getElementById("edit-writer-confirm").onclick = async () => {
-    const first_name = document.getElementById("edit-writer-first-name").value = writer.first_name;
-    const last_name = document.getElementById("edit-writer-last-name").value = writer.last_name;
-    const position = document.getElementById("edit-writer-position").value = writer.position;
-    const email = document.getElementById("edit-writer-email").value = writer.email;
-    const phone = document.getElementById("edit-writer-phone").value = writer.phone || null;
-    const x = document.getElementById("edit-writer-x").value = writer.x || null;
-    const headshot = document.getElementById("edit-writer-headshot").value = writer.headshot || null;
-    const hire_date = document.getElementById("edit-writer-hire-date").value = writer.hire_date || null;
-    const end_date = document.getElementById("edit-writer-end_date").value = writer.end_date || null;
+        if (!first_name || !last_name || !position || !email) {
+            alert("Please fill in all required fields");
+            return;
+        }
 
-    if(!first_name || !last_name || !position || !email || !phone) {
-        alert("Please fill in all required fields");
-    } 
+        await editWriter(
+            writer.writer_id,
+            first_name,
+            last_name,
+            position,
+            email,
+            phone,
+            x,
+            headshot,
+            hire_date,
+            end_date
+        );
 
-    await editWriter(writer.writer_id, first_name, last_name, position, email, phone, x, headshot, hire_date, end_date);
+        editWriterModal.style.display = "none";
 
-    editWriterModal.style.display = "none";
-
-    fetchWriterInfo();
-    }
+        await fetchWriterInfo();
+    };
 }
 
 
