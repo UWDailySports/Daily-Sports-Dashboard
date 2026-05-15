@@ -1336,7 +1336,7 @@
         
     /* Misc */
     overflow-y: auto;  
-    overflow-x: hidden;     
+    overflow-x: visible;     
 }
 /* #endregion */
 
