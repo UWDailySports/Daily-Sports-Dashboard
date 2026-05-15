@@ -232,7 +232,7 @@ async function fetchWriterInfo() {
 
         writerBox.querySelector(".edit-writer").addEventListener("click", () => openEditWriterModal(writer));
 
-        writerBox.querySelector(".remove-writer").addEventListener("click", () => deleteWriter(writer.writer_id));
+        writerBox.querySelector(".delete-writer").addEventListener("click", () => deleteWriter(writer.writer_id));
 
         const optionsBtn = writerBox.querySelector(".writer-options-button");
         const options = writerBox.querySelector(".writer-options");
@@ -651,6 +651,39 @@ async function deleteGame(gameId) {
         console.error("Error:", error);
         alert("Error editing writer.");
     }   
+ }
+
+ async function deleteWriter(writer_id) {
+     try {
+        const response = await fetch("/.netlify/functions/delete-writer", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ writer_id })
+        });
+
+            const text = await response.text();
+
+    console.log("NETLIFY RAW RESPONSE:", text);
+
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch {
+        data = { message: text };
+    }
+
+        if (data.success) {
+            showToast("Writer successfully deleted!", "success");
+        } else {
+            showToast("Failed to delete writer", "error");
+        }
+    }  
+    catch (error) {
+        console.error("Error:", error);
+        alert("Error deleting writer.");
+    }    
  }
 
  async function addWriter(first_name, last_name, email, phone, hire_date, x, headshot) {
