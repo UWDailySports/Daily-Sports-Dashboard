@@ -474,7 +474,6 @@ const writersModal = document.getElementById("writers-modal");
 async function openEditWriterModal(writer) {
     const editWriterModal = document.getElementById("edit-writer-modal");
 
-    // Fill inputs
     document.getElementById("edit-writer-first-name").value = writer.first_name || "";
     document.getElementById("edit-writer-last-name").value = writer.last_name || "";
     document.getElementById("edit-writer-position").value = writer.position || "";

@@ -1439,7 +1439,7 @@
 /* #endregion */
 
 /* #region edit-writer-modal-content */
-.end-writer-modal-content {
+.edit-writer-modal-content {
     /* Layout */
     display: flex;
     flex-direction: column;
