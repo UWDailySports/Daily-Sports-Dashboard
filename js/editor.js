@@ -482,14 +482,10 @@ async function openEditWriterModal(writer) {
     document.getElementById("edit-writer-x").value = writer.x || "";
     document.getElementById("edit-writer-headshot").value = writer.headshot || "";
     document.getElementById("edit-writer-hire-date").value =
-        writer.hire_date
-            ? new Date(writer.hire_date).toISOString().split("T")[0]
-            : "";
+        writer.hire_date ? writer.hire_date.slice(0, 10) : "";
 
     document.getElementById("edit-writer-end-date").value =
-        writer.end_date
-            ? new Date(writer.end_date).toISOString().split("T")[0]
-            : "";
+        writer.end_date ? writer.end_date.slice(0, 10) : "";
 
     // Show modal
     editWriterModal.style.display = "flex";
