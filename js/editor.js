@@ -230,11 +230,9 @@ async function fetchWriterInfo() {
         <button class = "writer-list-entry-section writer-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
         `
 
-        writerBox.querySelector(".edit-writer")
-        .addEventListener("click", () => openEditWriterModal(writer));
+        writerBox.querySelector(".edit-writer").addEventListener("click", () => openEditWriterModal(writer));
 
-        writerBox.querySelector(".remove-writer")
-        .addEventListener("click", () => deleteWriter(writer.writer_id));
+        writerBox.querySelector(".remove-writer").addEventListener("click", () => deleteWriter(writer.writer_id));
 
         const optionsBtn = writerBox.querySelector(".writer-options-button");
         const options = writerBox.querySelector(".writer-options");
