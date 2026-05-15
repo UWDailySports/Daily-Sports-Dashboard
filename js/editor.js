@@ -167,23 +167,41 @@ async function fetchWriterInfo() {
         const email = writer.email;
         let phone = writer.phone;
             if(phone === null) {
-                phone = "None";
+                phone = "";
             }
         let x = writer.x;
+        let x_short = "";
             if(x === null) {
                 x = "";
+            } else {
+                x_short = x.replace("https://x.com/", "@");
             }
+            
         let headshot = writer.headshot;
             if(headshot === null){
                 headshot = "";
             }
         let hire_date = writer.hire_date;
-        if(hire_date === null) {
-            hire_date = "Shadow";
+        let hire_date_formatted = ""; 
+            if(hire_date === null) {
+                hire_date_formatted = "Shadow";
+            } else {
+                hire_date_formatted = new Date(hire_date).toLocaleDateString("en-US", {
+                                                                                month: "long",
+                                                                                day: "numeric",
+                                                                                year: "numeric"
+                                                                            });
         }
         let end_date = writer.end_date;
+        let end_date_formatted = "";
             if(end_date === null) {
-                end_date = "Current";
+                end_date_formatted = "Current";
+            } else {
+                end_date_formatted = new Date(end_date).toLocaleDateString("en-US", {
+                                                                            month: "long",
+                                                                            day: "numeric",
+                                                                            year: "numeric"
+                                                                        });
             }
             
         const writerBox = document.createElement("div");
@@ -195,10 +213,16 @@ async function fetchWriterInfo() {
         <div class = "writer-list-entry-section">${position}</div>
         <div class = "writer-list-entry-section">${email}</div>      
         <div class = "writer-list-entry-section">${phone}</div>
-        <div class = "writer-list-entry-section">${x}</div>
-        <div class = "writer-list-entry-section">${headshot}</div>
-        <div class = "writer-list-entry-section">${hire_date}</div>
-        <div class = "writer-list-entry-section">${end_date}</div>
+        ${x
+            ? `<a class="writer-list-entry-section" href="${x}" target="_blank">${x_short}</a>`
+            : `<div class="writer-list-entry-section"></div>`
+        }
+        ${headshot
+            ? `<a class="writer-list-entry-section" href="${headshot}" target="_blank">Link</a>`
+            : `<div class="writer-list-entry-section"></div>`
+        }
+        <div class = "writer-list-entry-section">${hire_date_formatted}</div>
+        <div class = "writer-list-entry-section">${end_date_formatted}</div>
         <div class = "writer-list-entry-section" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
         `
 
