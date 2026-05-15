@@ -1409,7 +1409,7 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 
     flex-direction: column;
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .writer-options button {
