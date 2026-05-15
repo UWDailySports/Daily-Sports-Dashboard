@@ -481,14 +481,21 @@ async function openEditWriterModal(writer) {
     document.getElementById("edit-writer-phone").value = writer.phone || "";
     document.getElementById("edit-writer-x").value = writer.x || "";
     document.getElementById("edit-writer-headshot").value = writer.headshot || "";
-    document.getElementById("edit-writer-hire-date").value = writer.hire_date || "";
-    document.getElementById("edit-writer-end-date").value = writer.end_date || "";
+    document.getElementById("edit-writer-hire-date").value =
+        writer.hire_date
+            ? new Date(writer.hire_date).toISOString().split("T")[0]
+            : "";
+
+    document.getElementById("edit-writer-end-date").value =
+        writer.end_date
+            ? new Date(writer.end_date).toISOString().split("T")[0]
+            : "";
 
     // Show modal
     editWriterModal.style.display = "flex";
 
     // Confirm button behavior
-    document.getElementById("confirm-edit").onclick = async () => {
+    document.getElementById("edit-writer-confirm").onclick = async () => {
         const first_name = document.getElementById("edit-writer-first-name").value;
         const last_name = document.getElementById("edit-writer-last-name").value;
         const position = document.getElementById("edit-writer-position").value;
