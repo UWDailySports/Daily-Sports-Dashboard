@@ -1302,7 +1302,7 @@
     box-sizing: border-box;
 
     /* Size/Shape */
-    width: 100%;
+    width: 98%;
     height: 30px;
     margin-bottom: 5px;
     border: black 1px solid;
@@ -1327,7 +1327,7 @@
 
     /* Size/Shape */
     height: 75%;
-    width: 100%;
+    width: 98%;
     border: black 1px solid;
 
     /* Background */
@@ -1377,7 +1377,6 @@
     height: 100%;
 
     /* Background */
-    border-right: red 1px solid;
 
     /* Text */
     font-size: 14px;
