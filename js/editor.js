@@ -488,9 +488,9 @@ async function openEditWriterModal(writer) {
 
 const editWriterModal = document.getElementById("edit-writer-modal");
 
-document.getElementById("confirm-edit").onclick = async () => {
+document.getElementById("edit-writer-confirm").onclick = async () => {
     const first_name = document.getElementById("edit-writer-first-name").value = writer.first_name;
-    const late_name = document.getElementById("edit-writer-last-name").value = writer.last_name;
+    const last_name = document.getElementById("edit-writer-last-name").value = writer.last_name;
     const position = document.getElementById("edit-writer-position").value = writer.position;
     const email = document.getElementById("edit-writer-email").value = writer.email;
     const phone = document.getElementById("edit-writer-phone").value = writer.phone || null;
