@@ -233,6 +233,9 @@ async function fetchWriterInfo() {
         const optionsBtn = writerBox.querySelector(".writer-options-button");
         const options = writerBox.querySelector(".writer-options");
 
+        if (!optionsBtn) console.log("button not found");
+        if (!options) console.log("menu not found");
+
         optionsBtn.addEventListener("click", (e) => {
             e.stopPropagation();
 
@@ -250,8 +253,8 @@ async function fetchWriterInfo() {
 }
 
 document.addEventListener("click", () => {
-    document.querySelectorAll(".writer-options").forEach(menu => {
-        menu.style.display = "none";
+    document.querySelectorAll(".writer-options").forEach(options => {
+        options.style.display = "none";
     });
 });
 
