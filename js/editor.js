@@ -483,7 +483,7 @@ async function openEditWriterModal(writer) {
     document.getElementById("edit-writer-hire-date").value = writer.hire_date || "";
     document.getElementById("edit-writer-end_date").value = writer.end_date || "";
 
-    document.getElementById("edit-modal").style.display = "flex";
+    document.getElementById("edit-writer-modal").style.display = "flex";
    
 
 const editWriterModal = document.getElementById("edit-writer-modal");
@@ -508,10 +508,8 @@ document.getElementById("confirm-edit").onclick = async () => {
     editWriterModal.style.display = "none";
 
     fetchWriterInfo();
+    }
 }
-}
-
-const editWriterModal = document.getElementById("edit-writer-modal");
 
 
 async function openAddWriterModal() {
