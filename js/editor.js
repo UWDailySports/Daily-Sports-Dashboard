@@ -211,7 +211,7 @@ async function fetchWriterInfo() {
         <div class = "writer-list-entry-section">${first_name}</div>
         <div class = "writer-list-entry-section">${last_name}</div>
         <div class = "writer-list-entry-section">${position}</div>
-        <div class = "writer-list-entry-section">${email}</div>      
+        <div class = "writer-list-entry-section" style = "width: 15%;">${email}</div>      
         <div class = "writer-list-entry-section">${phone}</div>
         ${x
             ? `<a class="writer-list-entry-section" href="${x}" target="_blank">${x_short}</a>`
@@ -223,7 +223,7 @@ async function fetchWriterInfo() {
         }
         <div class = "writer-list-entry-section">${hire_date_formatted}</div>
         <div class = "writer-list-entry-section">${end_date_formatted}</div>
-        <div class = "writer-list-entry-section" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+        <div class = "writer-list-entry-section" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
         `
 
         container.append(writerBox);    
