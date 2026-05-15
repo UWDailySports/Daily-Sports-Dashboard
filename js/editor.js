@@ -236,16 +236,19 @@ async function fetchWriterInfo() {
         if (!optionsBtn) console.log("button not found");
         if (!options) console.log("menu not found");
 
+        options.addEventListener("click", e => e.stopPropagation());
+
         optionsBtn.addEventListener("click", (e) => {
+            console.log("clicked");
             e.stopPropagation();
 
             document.querySelectorAll(".writer-options").forEach(m => {
                 if (m !== options) m.style.display = "none";
-    });
+            });
 
-    options.style.display =
-        options.style.display === "flex" ? "none" : "flex";
-});
+            options.style.display =
+                options.style.display === "flex" ? "none" : "flex";
+        });
 
         container.append(writerBox);    
 
