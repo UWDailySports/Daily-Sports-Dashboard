@@ -224,8 +224,8 @@ async function fetchWriterInfo() {
         <div class = "writer-list-entry-section">${hire_date_formatted}</div>
         <div class = "writer-list-entry-section">${end_date_formatted}</div>
         <div class="writer-options">
-            <button>Edit</button>
-            <button>Remove</button>
+            <button onclick = "openEditWriterModal(writer)">Edit</button>
+            <button onclick = "deleteWriter(writer.writer_id)">Remove</button>
         </div>
         <button class = "writer-list-entry-section writer-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
         `
@@ -467,10 +467,52 @@ async function openWritersModal() {
 
 const writersModal = document.getElementById("writers-modal"); 
 
+async function openEditWriterModal(writer) {
+
+    document.getElementById("edit-writer-first-name").value = writer.first_name;
+    document.getElementById("edit-writer-last-name").value = writer.last_name;
+    document.getElementById("edit-writer-position").value = writer.position;
+    document.getElementById("edit-writer-email").value = writer.email;
+    document.getElementById("edit-writer-phone").value = writer.phone || "";
+    document.getElementById("edit-writer-x").value = writer.x || "";
+    document.getElementById("edit-writer-headshot").value = writer.headshot || "";
+    document.getElementById("edit-writer-hire-date").value = writer.hire_date || "";
+    document.getElementById("edit-writer-end_date").value = writer.end_date || "";
+
+    document.getElementById("edit-modal").style.display = "flex";
+   
+
+const editWriterModal = document.getElementById("edit-writer-modal");
+
+document.getElementById("confirm-edit").onclick = async () => {
+    const first_name = document.getElementById("edit-writer-first-name").value = writer.first_name;
+    const late_name = document.getElementById("edit-writer-last-name").value = writer.last_name;
+    const position = document.getElementById("edit-writer-position").value = writer.position;
+    const email = document.getElementById("edit-writer-email").value = writer.email;
+    const phone = document.getElementById("edit-writer-phone").value = writer.phone || null;
+    const x = document.getElementById("edit-writer-x").value = writer.x || null;
+    const headshot = document.getElementById("edit-writer-headshot").value = writer.headshot || null;
+    const hire_date = document.getElementById("edit-writer-hire-date").value = writer.hire_date || null;
+    const end_date = document.getElementById("edit-writer-end_date").value = writer.end_date || null;
+
+    if(!first_name || !last_name || !position || !email || !phone) {
+        alert("Please fill in all required fields");
+    } 
+
+    await editWriter(writer.writer_id, first_name, last_name, position, email, phone, x, headshot, hire_date, end_date);
+
+    editWriterModal.style.display = "none";
+
+    fetchWriterInfo();
+}
+}
+
+const editWriterModal = document.getElementById("edit-writer-modal");
+
 
 async function openAddWriterModal() {
     document.getElementById("add-writer-modal").style.display = "flex";
-};    
+}    
 
 const addWriterModal = document.getElementById("add-writer-modal");
 
@@ -503,7 +545,7 @@ const sportModal = document.getElementById("sport-modal");
 
 //#endregion //
 
-//#region Game Functions (add, edit, delete)
+//#region Functions (add, edit, delete)
 
 async function addGame(sport, opponent, date, time, location, notes) {
     try {
@@ -572,6 +614,39 @@ async function deleteGame(gameId) {
         console.error("Error:", error);
         alert("Error deleting game.");
     }
+ }
+
+ async function editWriter(writer_id, first_name, last_name, position, email, phone, x, headshot, hire_date, end_date) {
+     try {
+        const response = await fetch("/.netlify/functions/edit-writer", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ writer_id, first_name, last_name, position, email, phone, x, headshot, hire_date, end_date })
+        });
+
+            const text = await response.text();
+
+    console.log("NETLIFY RAW RESPONSE:", text);
+
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch {
+        data = { message: text };
+    }
+
+        if (data.success) {
+            showToast("Writer successfully edited!", "success");
+        } else {
+            showToast("Failed to edit writer", "error");
+        }
+    }  
+    catch (error) {
+        console.error("Error:", error);
+        alert("Error editing writer.");
+    }   
  }
 
  async function addWriter(first_name, last_name, email, phone, hire_date, x, headshot) {

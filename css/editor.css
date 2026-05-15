@@ -1294,6 +1294,8 @@
 /* #endregion
 
 /* #region writer-list-title */
+
+/* #region writer-list-title */
 .writer-list-title {
     /* Layout */
     display: flex;
@@ -1319,6 +1321,8 @@
 /* #endregion
 
 /* #region writer-list-container */
+
+/* #region writer-region-container */
 .writer-list-container {
     /* Layout */
     display: flex;
@@ -1388,6 +1392,7 @@
 }
 /* #endregion */
 
+/* #region writer-options-button */
 .writer-options-button {
     border: none;
     background: none;
@@ -1427,6 +1432,7 @@
 .writer-options button:hover {
     background: #eee;
 }
+/* #endregion */
 
 /* #region sports-modal-content */
 .sport-modal-content {
