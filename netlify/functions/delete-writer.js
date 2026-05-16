@@ -13,7 +13,7 @@ exports.handler = async (event) => {
         
         const updateAssignmentsQuery = `
             UPDATE "Assignments"
-            SET writer_id = 0
+            SET writer_id = NULL
             WHERE writer_id = $1
             RETURNING *;
         `;
