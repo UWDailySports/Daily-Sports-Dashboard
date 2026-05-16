@@ -593,8 +593,8 @@ async function openEditSportModal(sport) {
 
     document.getElementById("edit-sport-name").value = sport.sport || "";
     document.getElementById("edit-sport-sid").value = sport.sid || "";
-    document.getElementById("edit-sport-email").value = sport.email || "";
-    document.getElementById("edit-sport-phone").value = sport.phone || "";
+    document.getElementById("edit-sport-email").value = sport.sid_email || "";
+    document.getElementById("edit-sport-phone").value = sport.sid_phone || "";
 
     // Show modal
     editSportModal.style.display = "flex";
