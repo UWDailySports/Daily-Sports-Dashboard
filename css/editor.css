@@ -1565,6 +1565,7 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    position: relative;
 
     /* Size/Shape */
     width: 100%;
