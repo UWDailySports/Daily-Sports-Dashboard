@@ -761,7 +761,7 @@
 /* #endregion */
 
 /* #region add-box / edit-box */
-.add-box, .edit-box {
+.add-box, .edit-box, .edit-sport-box {
     /* Layout */
 
     /* Size/Shape */
@@ -778,7 +778,7 @@
 }
 
 @media screen and (max-width: 768px){
-    .add-box, .edit-box {
+    .add-box, .edit-box, .edit-sport-box {
         /* Layout */
 
         /* Size/Shape */
@@ -799,7 +799,7 @@
 }
 
 @media screen and (min-width: 769px) and (max-width: 1800px){
-    .add-box, .edit-box {
+    .add-box, .edit-box, .edit-sport-box {
         /* Layout */
 
         /* Size/Shape */
@@ -819,7 +819,7 @@
 }
 
 @media screen and (min-width: 1801px){
-    .add-box, .edit-box {
+    .add-box, .edit-box, .edit-sport-box {
         /* Layout */
 
         /* Size/Shape */
@@ -860,7 +860,7 @@
 /* #endregion */
 
 /* #region confirm-add / confirm-edit */
-.confirm-add, .confirm-edit, .add-writer-confirm, .edit-writer-confirm {
+.confirm-add, .confirm-edit, .add-writer-confirm, .edit-writer-confirm, .edit-sport-confirm {
     /* Layout */
 
     /* Size/Shape */
@@ -879,13 +879,13 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#confirm-add:hover, #confirm-edit:hover, #add-writer-confirm:hover {
+#confirm-add:hover, #confirm-edit:hover, #add-writer-confirm:hover, #edit-writer-confirm:hover, #edit-sport-confirm:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 
 @media screen and (max-width: 768px){
-    .confirm-add, .confirm-edit, .add-writer-confirm {
+    .confirm-add, .confirm-edit, .add-writer-confirm, .edit-writer-confirm, .edit-sport-confirm {
         /* Layout */
 
         /* Size/Shape */
@@ -905,7 +905,7 @@
 }
 
 @media screen and (min-width: 769px) and (max-width: 1800px){
-    .confirm-add, .confirm-edit, .add-writer-confirm {
+    .confirm-add, .confirm-edit, .add-writer-confirm, .edit-writer-confirm, .edit-sport-confirm {
         /* Layout */
 
         /* Size/Shape */
@@ -924,7 +924,7 @@
 }
 
 @media screen and (min-width: 1801px){
-    .confirm-add, .confirm-edit, .add-writer-confirm {
+    .confirm-add, .confirm-edit, .add-writer-confirm, .edit-writer-confirm, .edit-sport-confirm {
         /* Layout */
 
         /* Size/Shape */
@@ -1393,14 +1393,14 @@
 /* #endregion */
 
 /* #region writer-options-button */
-.writer-options-button {
+.writer-options-button, .sport-options-button {
     border: none;
     background: none;
     cursor: pointer;
     font-size: 28px;
 }
 
-.writer-options {
+.writer-options, .sport-options {
     display: none;
     position: absolute;
 
@@ -1421,7 +1421,7 @@
     gap: 6px;
 }
 
-.writer-options button {
+.writer-options button, .sport-options button {
     border: none;
     background: white;
     padding: 10px;
@@ -1429,17 +1429,17 @@
     text-align: left;
 }
 
-.writer-options button:hover {
+.writer-options button:hover, .sport-options button:hover {
     background: #eee;
 }
 
-.edit-writer, .delete-writer {
+.edit-writer, .delete-writer, .edit-sport {
     color: #360f5a;
 }
 /* #endregion */
 
 /* #region edit-writer-modal-content */
-.edit-writer-modal-content {
+.edit-writer-modal-content, .edit-sport-modal-content {
     /* Layout */
     display: flex;
     flex-direction: column;

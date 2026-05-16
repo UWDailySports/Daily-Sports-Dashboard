@@ -304,8 +304,36 @@ async function fetchSportInfo() {
             <div class = "sport-list-entry-section">${sid}</div>
             <div class = "sport-list-entry-section">${email}</div>
             <div class = "sport-list-entry-section">${phone}</div>
+            <div class="sport-options">
+                <button class = "edit-sport">Edit</button>
+                <button class = "delete-sport">Delete</button>
+            </div>
             <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
-        `;
+        `
+        sportBox.querySelector(".edit-sport").addEventListener("click", () => openEditSportModal(sport));
+
+        sportBox.querySelector(".delete-sport").addEventListener("click", () => deleteSport(sport.sport_id));
+
+        const optionsBtn = sportBox.querySelector(".sport-options-button");
+        const options = sportBox.querySelector(".sport-options");
+
+        if (!optionsBtn) console.log("button not found");
+        if (!options) console.log("menu not found");
+
+        options.addEventListener("click", e => e.stopPropagation());
+
+        optionsBtn.addEventListener("click", (e) => {
+            console.log("clicked");
+            e.stopPropagation();
+
+            document.querySelectorAll(".sport-options").forEach(m => {
+                if (m !== options) m.style.display = "none";
+            });
+
+            options.style.display =
+                options.style.display === "flex" ? "none" : "flex";
+        });
+
         container.appendChild(sportBox);
     }
 }
@@ -560,6 +588,45 @@ async function openSportsModal() {
 
 const sportModal = document.getElementById("sport-modal");
 
+async function openEditSportModal(sport) {
+    const editSportModal = document.getElementById("edit-sport-modal");
+
+    document.getElementById("edit-sport-name").value = sport.sport || "";
+    document.getElementById("edit-sport-sid").value = sport.sid || "";
+    document.getElementById("edit-sport-email").value = sport.email || "";
+    document.getElementById("edit-sport-phone").value = sport.phone || "";
+
+    // Show modal
+    editSportModal.style.display = "flex";
+
+    // Confirm button behavior
+    document.getElementById("edit-sport-confirm").onclick = async () => {
+        const name = document.getElementById("edit-sport-name").value;
+        const sid = document.getElementById("edit-sport-sid").value;
+        const email = document.getElementById("edit-sport-email").value;
+        const phone = document.getElementById("edit-sport-phone").value;
+
+        if (!name || !sid || !email) {
+            alert("Please fill in all required fields");
+            return;
+        }
+
+        await editSport(
+            sport.sport_id, 
+            name,
+            sid,
+            email,
+            phone
+        );
+
+        editSportModal.style.display = "none";
+
+        await fetchSportInfo();
+    };
+}
+
+
+
 //#endregion //
 
 //#region Functions (add, edit, delete)
@@ -667,6 +734,7 @@ async function deleteGame(gameId) {
  }
 
  async function deleteWriter(writer_id) {
+    if (!confirm("Are you sure you want to delete this writer?")) return;
      try {
         const response = await fetch("/.netlify/functions/delete-writer", {
             method: "POST",
@@ -763,6 +831,36 @@ async function deleteGame(gameId) {
     }
 }
 
+async function editSport(sport_id,name, sid, email, phone) {
+    try {
+        const response = await fetch("/.netlify/functions/edit-sport", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ sport_id, name, sid, email, phone })
+        });
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error editing sport.");
+    }
+}
+
+async function deleteSport(sport_id) {
+    if (!confirm("Are you sure you want to delete this sport?")) return;
+    try {
+        const response = await fetch("/.netlify/functions/delete-sport", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ sport_id })
+        });
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error deleting sport.");
+    }
+}
 //#endregion 
 
 
