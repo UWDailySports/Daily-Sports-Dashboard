@@ -1393,14 +1393,14 @@
 /* #endregion */
 
 /* #region writer-options-button */
-.writer-options-button, .sport-options-button {
+.list-options-button {
     border: none;
     background: none;
     cursor: pointer;
     font-size: 28px;
 }
 
-.writer-options, .sport-options {
+.list-options {
     display: none;
     position: absolute;
 
@@ -1421,7 +1421,7 @@
     gap: 6px;
 }
 
-.writer-options button, .sport-options button {
+.list-options button {
     border: none;
     background: white;
     padding: 10px;
@@ -1429,7 +1429,7 @@
     text-align: left;
 }
 
-.writer-options button:hover, .sport-options button:hover {
+.list-options button:hover {
     background: #eee;
 }
 

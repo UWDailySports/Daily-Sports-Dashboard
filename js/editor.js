@@ -223,19 +223,19 @@ async function fetchWriterInfo() {
         }
         <div class = "writer-list-entry-section">${hire_date_formatted}</div>
         <div class = "writer-list-entry-section">${end_date_formatted}</div>
-        <div class="writer-options">
+        <div class="list-options">
             <button class = "edit-writer">Edit</button>
             <button class = "delete-writer">Delete</button>
         </div>
-        <button class = "writer-list-entry-section writer-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
+        <button class = "writer-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
         `
 
         writerBox.querySelector(".edit-writer").addEventListener("click", () => openEditWriterModal(writer));
 
         writerBox.querySelector(".delete-writer").addEventListener("click", () => deleteWriter(writer.writer_id));
 
-        const optionsBtn = writerBox.querySelector(".writer-options-button");
-        const options = writerBox.querySelector(".writer-options");
+        const optionsBtn = writerBox.querySelector(".list-options-button");
+        const options = writerBox.querySelector(".list-options");
 
         if (!optionsBtn) console.log("button not found");
         if (!options) console.log("menu not found");
@@ -246,7 +246,7 @@ async function fetchWriterInfo() {
             console.log("clicked");
             e.stopPropagation();
 
-            document.querySelectorAll(".writer-options").forEach(m => {
+            document.querySelectorAll(".list-options").forEach(m => {
                 if (m !== options) m.style.display = "none";
             });
 
@@ -260,7 +260,7 @@ async function fetchWriterInfo() {
 }
 
 document.addEventListener("click", () => {
-    document.querySelectorAll(".writer-options").forEach(options => {
+    document.querySelectorAll(".list-options").forEach(options => {
         options.style.display = "none";
     });
 });
@@ -304,18 +304,18 @@ async function fetchSportInfo() {
             <div class = "sport-list-entry-section">${sid}</div>
             <div class = "sport-list-entry-section">${email}</div>
             <div class = "sport-list-entry-section">${phone}</div>
-            <div class="sport-options">
+            <div class="list-options">
                 <button class = "edit-sport">Edit</button>
                 <button class = "delete-sport">Delete</button>
             </div>
-            <div class = "sport-options-button" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+            <div class = "list-options-button" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
         `
         sportBox.querySelector(".edit-sport").addEventListener("click", () => openEditSportModal(sport));
 
         sportBox.querySelector(".delete-sport").addEventListener("click", () => deleteSport(sport.sport_id));
 
-        const optionsBtn = sportBox.querySelector(".sport-options-button");
-        const options = sportBox.querySelector(".sport-options");
+        const optionsBtn = sportBox.querySelector(".list-options-button");
+        const options = sportBox.querySelector(".list-options");
 
         if (!optionsBtn) console.log("button not found");
         if (!options) console.log("menu not found");
@@ -326,7 +326,7 @@ async function fetchSportInfo() {
             console.log("clicked");
             e.stopPropagation();
 
-            document.querySelectorAll(".sport-options").forEach(m => {
+            document.querySelectorAll(".list-options").forEach(m => {
                 if (m !== options) m.style.display = "none";
             });
 
@@ -339,7 +339,7 @@ async function fetchSportInfo() {
 }
 
     document.addEventListener("click", () => {
-        document.querySelectorAll(".sport-options").forEach(options => {
+        document.querySelectorAll(".list-options").forEach(options => {
             options.style.display = "none";
         });
     });
