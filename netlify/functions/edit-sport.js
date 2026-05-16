@@ -13,7 +13,7 @@ exports.handler = async (event) => {
 
         const query = `
             UPDATE "Sports"
-            SET sport = $2, sid = $3, email = $4, phone = $5
+            SET sport = $2, sid = $3, sid_email = $4, sid_phone = $5
             WHERE sport_id = $1
             RETURNING *;
         `;
