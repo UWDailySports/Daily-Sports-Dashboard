@@ -783,7 +783,7 @@ async function deleteGame(gameId) {
             body: JSON.stringify({ first_name, last_name, email, phone, hire_date, x, headshot })
         });
 
-            const text = await response.text();
+    const text = await response.text();
 
     console.log("NETLIFY RAW RESPONSE:", text);
 
@@ -862,6 +862,23 @@ async function deleteSport(sport_id) {
             },
             body: JSON.stringify({ sport_id })
         });
+
+        const text = await response.text();
+
+    console.log("NETLIFY RAW RESPONSE:", text);
+
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch {
+        data = { message: text };
+    }
+
+        if (data.success) {
+            showToast("Sport successfully deleted!", "success");
+        } else {
+            showToast("Failed to delete sport", "error");
+        }
     } catch (error) {
         console.error("Error:", error);
         alert("Error deleting sport.");
