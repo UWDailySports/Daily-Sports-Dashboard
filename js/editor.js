@@ -337,6 +337,12 @@ async function fetchSportInfo() {
         container.appendChild(sportBox);
     }
 }
+
+    document.addEventListener("click", () => {
+        document.querySelectorAll(".sport-options").forEach(options => {
+            options.style.display = "none";
+        });
+    });
 //#endregion      
 
 //#region tabHandlers
