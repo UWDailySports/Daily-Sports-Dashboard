@@ -308,7 +308,7 @@ async function fetchSportInfo() {
                 <button class = "edit-sport">Edit</button>
                 <button class = "delete-sport">Delete</button>
             </div>
-            <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+            <div class = "sport-options-button" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
         `
         sportBox.querySelector(".edit-sport").addEventListener("click", () => openEditSportModal(sport));
 
