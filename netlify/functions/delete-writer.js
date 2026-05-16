@@ -17,12 +17,12 @@ exports.handler = async (event) => {
             WHERE writer_id = $1
             RETURNING *;
         `;
-        await client.query(updateGameQuery, [writer_id]);
+        await client.query(updateAssignmentsQuery, [writer_id]);
 
         const deleteWriterQuery = `
         DELETE 
         FROM "Writers"
-        WHERE game_id = $1`;
+        WHERE writer_id = $1`;
         await client.query(deleteWriterQuery, [writer_id]);
 
         return {
