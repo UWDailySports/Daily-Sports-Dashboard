@@ -405,7 +405,7 @@
                     <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
                     <div class = "settings-title">Edit Sport</div>
                 </div>
-                <div class = "settings-option">
+                <div class = "settings-option" onclick = "openAddSeasonModal()">
                     <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
                     <div class = "settings-title">Add Season</div>
                 </div>
@@ -772,6 +772,29 @@
                 <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>              
             </div>                                                                                                                                                                               
         </div>
+    </div>
+</div>
+
+<div id="add-season-modal" class="modal">
+    <div class="add-season-modal-content">
+        <div class="modal-header">
+            <h2>Add Season</h2>
+            <span class="close-button">&times;</span>
+        </div>
+
+        <div id="season-drop-zone" class="season-drop-zone">
+            <p>Browse or drop files here</p>
+            <input 
+                type="file" 
+                id="season-file-input"
+                accept=".xlsx,.xls,.csv"
+                hidden
+            >
+        </div>
+
+        <button id="add-season-confirm" class="add-season-confirm">
+            Add Season
+        </button>
     </div>
 </div>
 
