@@ -1,0 +1,956 @@
+let allScheduledFilters = { sports: [], locations: [] };
+
+//#region Load Methods
+
+async function loadWriters() {
+    const response = await fetch("/.netlify/functions/get-writers");
+    const data = await response.json();
+    const writers = data.writers;   
+
+    const select = document.getElementById("writer-select");
+    select.innerHTML = ""; 
+
+    writers.forEach(writer => {
+        const option = document.createElement("option");
+
+        option.value = writer.writer_id;  
+        option.textContent = writer.first_name + " " + writer.last_name;
+
+        select.appendChild(option);
+    });
+}
+
+async function loadSports(selectId) {
+    const response = await fetch("/.netlify/functions/get-sports");
+    const data = await response.json();
+    const sports = data.sports;
+
+    const select = document.getElementById(selectId);
+    select.innerHTML = "";
+
+    sports.forEach(sport => {
+        const option = document.createElement("option");
+        option.value = sport.sport;
+        option.textContent = sport.sport;
+        select.appendChild(option);
+    });
+}
+
+async function loadGameInfo(gameId) {
+    const response = await fetch("/.netlify/functions/get-game-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ gameId })
+    });
+
+    const gameInfo = await response.json();
+
+    return gameInfo;
+}
+//#endregion        
+       
+//#region Fetch Methods
+
+async function fetchAllScheduledGames(writerId, filters = { sports: [], locations: [] }) {
+    const response = await fetch("/.netlify/functions/all-schedule", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ writerId, filters }) 
+    });
+
+    if (!response.ok) {
+        console.log("Failed to fetch all scheduled games. Status:", response.status);
+        return;
+    }
+
+    const data = await response.json();
+    const games = data.games;
+
+    const container = document.getElementById("all-games-container");
+    container.innerHTML = "";
+
+    if (!games || games.length === 0) {
+    console.log("No scheduled games found.");
+
+    const noGames = document.createElement("div");
+        
+    noGames.innerHTML = `
+    <div class = "no-games">No Scheduled Games</div>
+    `;
+
+        container.appendChild(noGames);
+    }
+
+    games.forEach(game => {
+        const gameId = game.game_id;
+        const sport = game.sport;
+        const opp = game.opponent;
+        const location = game.location;
+        const date = game.date;
+        const time = game.time;
+        const notes = game.notes;
+        const name = game.first_name + " " + game.last_name;
+        let where = "";
+        let recap = "";
+        let recap_css = "";
+                                
+        if(location == "Seattle, Wash. " || location == "Seattle, Wash."){
+            where = "vs";
+            recap_css = "home-recap"
+        } else {
+            where = "@";
+            recap_css = "away-recap"
+        }
+
+        const gameBox = document.createElement("div");
+        gameBox.classList.add("game-box");
+
+        gameBox.innerHTML = `
+            <div class = "sport-container">
+                <div class = "sport-box">${sport}</div>
+                <div class = "notes-box">${notes}</div> 
+            </div>
+            <div class = "matchup-container">
+                <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
+                <div class = "where">${where}</div>
+                <img class="opp-icon" src="/images/schools/${opp}.webp" alt="${opp}">
+            </div>
+            <div class = "recap-container">
+                <div class="${recap_css}"></div>
+                <p class="recap-location">${location}</p>
+            </div>
+            <div class = "when-container">
+                <div class = "date">${formatDate(date)}</div>
+                <div class = "time">${time}</div>
+            </div>
+            <div class = "writer">${name}</div>
+            <div class = "options-container"> 
+                <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
+                <button class = "edit" onclick="openEditGameModal(${gameId}, 'all-games-filter-container')">EDIT</button>
+            </div>    
+        `;
+
+        container.appendChild(gameBox);
+
+        const removeButton = gameBox.querySelector(".remove");
+        removeButton.addEventListener("click", async (e) => {
+            const gameId = e.target.getAttribute("data-game-id");
+
+            await remove(gameId);
+
+            fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+        });
+    });
+}   
+
+async function fetchWriterInfo() {
+    const response = await fetch("/.netlify/functions/get-writer-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+    });
+
+    if(!response.ok) {
+        console.log("Failed to fetch writer info:", response.status);
+        return;
+    }
+
+    const data = await response.json();
+    const writers = data.writers;
+
+    const container = document.getElementById("writer-list-container");
+    container.innerHTML = "";
+
+    writers.forEach(writer => {
+        const first_name = writer.first_name;
+        const last_name = writer.last_name;
+        const position = writer.position;
+        const email = writer.email;
+        let phone = writer.phone;
+            if(phone === null) {
+                phone = "";
+            }
+        let x = writer.x;
+        let x_short = "";
+            if(x === null) {
+                x = "";
+            } else {
+                x_short = x.replace("https://x.com/", "@");
+            }
+            
+        let headshot = writer.headshot;
+            if(headshot === null){
+                headshot = "";
+            }
+        let hire_date = writer.hire_date;
+        let hire_date_formatted = ""; 
+            if(hire_date === null) {
+                hire_date_formatted = "Shadow";
+            } else {
+                hire_date_formatted = new Date(hire_date).toLocaleDateString("en-US", {
+                                                                                month: "long",
+                                                                                day: "numeric",
+                                                                                year: "numeric"
+                                                                            });
+        }
+        let end_date = writer.end_date;
+        let end_date_formatted = "";
+            if(end_date === null) {
+                end_date_formatted = "Current";
+            } else {
+                end_date_formatted = new Date(end_date).toLocaleDateString("en-US", {
+                                                                            month: "long",
+                                                                            day: "numeric",
+                                                                            year: "numeric"
+                                                                        });
+            }
+            
+        const writerBox = document.createElement("div");
+        writerBox.classList.add("writer-list-entry-container");
+
+        writerBox.innerHTML = `
+        <div class = "writer-list-entry-section">${first_name}</div>
+        <div class = "writer-list-entry-section">${last_name}</div>
+        <div class = "writer-list-entry-section">${position}</div>
+        <div class = "writer-list-entry-section" style = "width: 15%;">${email}</div>      
+        <div class = "writer-list-entry-section">${phone}</div>
+        ${x
+            ? `<a class="writer-list-entry-section" href="${x}" target="_blank">${x_short}</a>`
+            : `<div class="writer-list-entry-section"></div>`
+        }
+        ${headshot
+            ? `<a class="writer-list-entry-section" href="${headshot}" target="_blank">Link</a>`
+            : `<div class="writer-list-entry-section"></div>`
+        }
+        <div class = "writer-list-entry-section">${hire_date_formatted}</div>
+        <div class = "writer-list-entry-section">${end_date_formatted}</div>
+        <div class="list-options">
+            <button class = "edit-writer">Edit</button>
+            <button class = "delete-writer">Delete</button>
+        </div>
+        <button class = "writer-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
+        `
+
+        writerBox.querySelector(".edit-writer").addEventListener("click", () => openEditWriterModal(writer));
+
+        writerBox.querySelector(".delete-writer").addEventListener("click", () => deleteWriter(writer.writer_id));
+
+        const optionsBtn = writerBox.querySelector(".list-options-button");
+        const options = writerBox.querySelector(".list-options");
+
+        if (!optionsBtn) console.log("button not found");
+        if (!options) console.log("menu not found");
+
+        options.addEventListener("click", e => e.stopPropagation());
+
+        optionsBtn.addEventListener("click", (e) => {
+            console.log("clicked");
+            e.stopPropagation();
+
+            document.querySelectorAll(".list-options").forEach(m => {
+                if (m !== options) m.style.display = "none";
+            });
+
+            options.style.display =
+                options.style.display === "flex" ? "none" : "flex";
+        });
+
+        container.append(writerBox);    
+
+    });
+}
+
+document.addEventListener("click", () => {
+    document.querySelectorAll(".list-options").forEach(options => {
+        options.style.display = "none";
+    });
+});
+
+async function fetchSportInfo() {
+    const response = await fetch("/.netlify/functions/get-sport-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+    });
+
+    if (!response.ok) {
+        console.log("Failed to fetch sport info. Status:", response.status);
+        return;
+    }
+
+    const data = await response.json();
+    const sports = data.sports;
+
+    if(!sports || sports.length === 0) {
+        console.log("No sports found.");
+        return;
+    }
+
+    const container = document.getElementById("sport-list-container");
+    container.innerHTML = "";
+
+    for (const sport of sports) {
+        const sportName = sport.sport;
+        const sid = sport.sid;
+        const email = sport.sid_email;
+        let phone = sport.sid_phone;
+        if(phone === null) {
+            phone = "";
+        }    
+        const sportBox = document.createElement("div");
+        sportBox.classList.add("sport-list-entry-container");
+        sportBox.textContent = sportName;
+        
+        sportBox.innerHTML = `
+            <div class = "sport-list-entry-section">${sportName}</div>
+            <div class = "sport-list-entry-section">${sid}</div>
+            <div class = "sport-list-entry-section">${email}</div>
+            <div class = "sport-list-entry-section">${phone}</div>
+            <div class="list-options">
+                <button class = "edit-sport">Edit</button>
+                <button class = "delete-sport">Delete</button>
+            </div>
+            <div class = "list-options-button" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+        `
+        sportBox.querySelector(".edit-sport").addEventListener("click", () => openEditSportModal(sport));
+
+        sportBox.querySelector(".delete-sport").addEventListener("click", () => deleteSport(sport.sport_id));
+
+        const optionsBtn = sportBox.querySelector(".list-options-button");
+        const options = sportBox.querySelector(".list-options");
+
+        if (!optionsBtn) console.log("button not found");
+        if (!options) console.log("menu not found");
+
+        options.addEventListener("click", e => e.stopPropagation());
+
+        optionsBtn.addEventListener("click", (e) => {
+            console.log("clicked");
+            e.stopPropagation();
+
+            document.querySelectorAll(".list-options").forEach(m => {
+                if (m !== options) m.style.display = "none";
+            });
+
+            options.style.display =
+                options.style.display === "flex" ? "none" : "flex";
+        });
+
+        container.appendChild(sportBox);
+    }
+}
+
+    document.addEventListener("click", () => {
+        document.querySelectorAll(".list-options").forEach(options => {
+            options.style.display = "none";
+        });
+    });
+//#endregion      
+
+//#region tabHandlers
+
+tabHandlers["all-games"] = function() {
+    const container = document.getElementById("all-games-filter-container");
+
+    if (!container.hasChildNodes()) {
+        createGamesFilter(
+            "all-games-filter-container",
+            allScheduledFilters,
+            filters => {
+                fetchAllScheduledGames(currWriter.writer_id, filters);
+            });
+    }
+
+    fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+};
+
+
+//#endregion
+
+//#region Modals //
+
+async function openAssignModal(gameId) {
+    currGameId = gameId;
+
+    await loadWriters();
+
+    document.getElementById("assign-modal").style.display = "flex";
+    }   
+
+    const assignModal = document.getElementById("assign-modal");
+
+    document.getElementById("confirm-assign").onclick = async () => {
+
+    const writerId = document.getElementById("writer-select").value;
+
+    if (!writerId) {
+        alert("Please select a writer");
+        return;
+    }
+
+    await signup(currGameId, writerId);
+
+    assignModal.style.display = "none";
+};
+
+async function openAddGameModal(containerId) {
+    currentContainer = containerId;
+
+    await loadSports("sport-input");
+
+    document.getElementById("add-modal").style.display = "flex";
+};    
+
+const addModal = document.getElementById("add-modal");
+
+document.getElementById("confirm-add").onclick = async () => {
+    const sport = document.getElementById("sport-input").value;
+    const opponent = document.getElementById("opponent-input").value;
+    const location = document.getElementById("location-input").value;
+    const date = document.getElementById("date-input").value;
+    const time = document.getElementById("time-input").value;
+    const notes = document.getElementById("notes-input").value;
+
+    if(!sport || !opponent || !location || !date || !time) {
+        alert("Please fill in all required fields");
+    } 
+
+    await addGame(sport, opponent, date, time, location, notes);
+    
+    addModal.style.display = "none";
+
+    if (currentContainer === "all-games-filter-container") {
+        fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+    }
+
+    if (currentContainer === "scheduled-games-filter-container") {
+        fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+    }
+
+    if (currentContainer === "available-games-filter-container") {
+        fetchAvailableGames(availableFilters);
+    }
+};
+
+async function openEditGameModal(gameId, containerId) {
+    currGameId = gameId;
+    currentContainer = containerId;
+
+    const data = await loadGameInfo(gameId);
+    console.log("GAME DATA:", data);
+    const game = data.game;
+
+    await loadSports("edit-sport-input");
+
+    document.getElementById("edit-sport-input").value = game.sport;
+    document.getElementById("edit-opponent-input").value = game.opponent;
+    document.getElementById("edit-location-input").value = game.location;
+    document.getElementById("edit-date-input").value = game.date;
+    document.getElementById("edit-time-input").value = game.time;
+    document.getElementById("edit-notes-input").value = game.notes || "";
+
+    document.getElementById("edit-modal").style.display = "flex";
+};    
+
+const editModal = document.getElementById("edit-modal");
+
+document.getElementById("confirm-edit").onclick = async () => {
+    const sport = document.getElementById("edit-sport-input").value;
+    const opponent = document.getElementById("edit-opponent-input").value;
+    const location = document.getElementById("edit-location-input").value;
+    const date = document.getElementById("edit-date-input").value;
+    const time = document.getElementById("edit-time-input").value;
+    const notes = document.getElementById("edit-notes-input").value;
+
+    if(!sport || !opponent || !location || !date || !time) {
+        alert("Please fill in all required fields");
+    } 
+
+    await editGame(currGameId, sport, opponent, date, time, location, notes);
+
+    editModal.style.display = "none";
+
+    if (currentContainer === "all-games-filter-container") {
+        fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+    }
+
+    if (currentContainer === "available-games-filter-container") {
+        fetchAvailableGames(availableFilters);
+    }
+};
+
+document.getElementById("delete-game").onclick = async () => {
+    if (!confirm("Are you sure you want to delete this game?")) return;
+
+    await deleteGame(currGameId);
+
+    document.getElementById("edit-modal").style.display = "none";
+
+    if (currentContainer === "all-games-filter-container") {
+        fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+    }
+
+    if (currentContainer === "available-games-filter-container") {
+        fetchAvailableGames(availableFilters);
+    }
+
+    if (currentContainer === "scheduled-games-filter-container") {
+        fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+    }    
+};
+
+async function openWritersModal() {
+    await fetchWriterInfo();
+
+    document.getElementById("writers-modal").style.display = "flex"; 
+};
+
+const writersModal = document.getElementById("writers-modal"); 
+
+async function openEditWriterModal(writer) {
+    const editWriterModal = document.getElementById("edit-writer-modal");
+
+    document.getElementById("edit-writer-first-name").value = writer.first_name || "";
+    document.getElementById("edit-writer-last-name").value = writer.last_name || "";
+    document.getElementById("edit-writer-position").value = writer.position || "";
+    document.getElementById("edit-writer-email").value = writer.email || "";
+    document.getElementById("edit-writer-phone").value = writer.phone || "";
+    document.getElementById("edit-writer-x").value = writer.x || "";
+    document.getElementById("edit-writer-headshot").value = writer.headshot || "";
+    document.getElementById("edit-writer-hire-date").value =
+        writer.hire_date ? writer.hire_date.slice(0, 10) : "";
+
+    document.getElementById("edit-writer-end-date").value =
+        writer.end_date ? writer.end_date.slice(0, 10) : "";
+
+    // Show modal
+    editWriterModal.style.display = "flex";
+
+    // Confirm button behavior
+    document.getElementById("edit-writer-confirm").onclick = async () => {
+        const first_name = document.getElementById("edit-writer-first-name").value;
+        const last_name = document.getElementById("edit-writer-last-name").value;
+        const position = document.getElementById("edit-writer-position").value;
+        const email = document.getElementById("edit-writer-email").value;
+        const phone = document.getElementById("edit-writer-phone").value || null;
+        const x = document.getElementById("edit-writer-x").value || null;
+        const headshot = document.getElementById("edit-writer-headshot").value || null;
+        const hire_date = document.getElementById("edit-writer-hire-date").value || null;
+        const end_date = document.getElementById("edit-writer-end-date").value || null;
+
+        if (!first_name || !last_name || !position || !email) {
+            alert("Please fill in all required fields");
+            return;
+        }
+
+        await editWriter(
+            writer.writer_id,
+            first_name,
+            last_name,
+            position,
+            email,
+            phone,
+            x,
+            headshot,
+            hire_date,
+            end_date
+        );
+
+        editWriterModal.style.display = "none";
+
+        await fetchWriterInfo();
+    };
+}
+
+
+async function openAddWriterModal() {
+    document.getElementById("add-writer-modal").style.display = "flex";
+}    
+
+const addWriterModal = document.getElementById("add-writer-modal");
+
+document.getElementById("add-writer-confirm").onclick = async () => {
+    const first_name = document.getElementById("new-writer-first-name").value;
+    const last_name = document.getElementById("new-writer-last-name").value;
+    const email = document.getElementById("new-writer-email").value;
+    const phone = document.getElementById("new-writer-phone").value;
+    const hire_date = document.getElementById("new-writer-hire-date").value;
+    const x  = document.getElementById("new-writer-x").value;
+    const headshot = document.getElementById("new-writer-headshot").value;
+
+    if(!first_name || !last_name || !email || !phone || !hire_date || !x || !headshot) {
+        alert("Please fill in all required fields");
+        return;
+    } 
+
+    await addWriter(first_name, last_name, email, phone, hire_date, x, headshot);
+
+    addWriterModal.style.display = "none";
+};
+
+async function openSportsModal() {
+    await fetchSportInfo();
+
+    document.getElementById("sport-modal").style.display = "flex";
+};    
+
+const sportModal = document.getElementById("sport-modal");
+
+async function openEditSportModal(sport) {
+    const editSportModal = document.getElementById("edit-sport-modal");
+
+    document.getElementById("edit-sport-name").value = sport.sport || "";
+    document.getElementById("edit-sport-sid").value = sport.sid || "";
+    document.getElementById("edit-sport-email").value = sport.sid_email || "";
+    document.getElementById("edit-sport-phone").value = sport.sid_phone || "";
+
+    // Show modal
+    editSportModal.style.display = "flex";
+
+    // Confirm button behavior
+    document.getElementById("edit-sport-confirm").onclick = async () => {
+        const name = document.getElementById("edit-sport-name").value;
+        const sid = document.getElementById("edit-sport-sid").value;
+        const email = document.getElementById("edit-sport-email").value;
+        const phone = document.getElementById("edit-sport-phone").value;
+
+        if (!name || !sid || !email) {
+            alert("Please fill in all required fields");
+            return;
+        }
+
+        await editSport(
+            sport.sport_id, 
+            name,
+            sid,
+            email,
+            phone
+        );
+
+        editSportModal.style.display = "none";
+
+        await fetchSportInfo();
+    };
+}
+
+async function openAddSeasonModal() {
+    const addSeasonModal = document.getElementById("add-season-modal");
+    addSeasonModal.style.display = "flex";
+
+} 
+
+const dropZone = document.getElementById("season-drop-zone");
+const fileInput = document.getElementById("season-file-input");
+
+let selectedFile = null;
+
+// click to browse
+dropZone.addEventListener("click", () => {
+    fileInput.click();
+});
+
+// file selected manually
+fileInput.addEventListener("change", (e) => {
+    selectedFile = e.target.files[0];
+    showFileName();
+});
+
+// drag over
+dropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZone.classList.add("dragover");
+});
+
+// drag leave
+dropZone.addEventListener("dragleave", () => {
+    dropZone.classList.remove("dragover");
+});
+
+// drop file
+dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.classList.remove("dragover");
+
+    selectedFile = e.dataTransfer.files[0];
+    showFileName();
+});
+
+function showFileName() {
+    if (selectedFile) {
+        dropZone.innerHTML = `<p>${selectedFile.name}</p>`;
+    }
+}
+
+document.getElementById("add-season-confirm").addEventListener("click", async () => {
+    if (!selectedFile) {
+        alert("Please upload a file");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+
+    const response = await fetch("/.netlify/functions/upload-season", {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await response.json();
+    console.log(data);
+});
+
+//#endregion //
+
+//#region Functions (add, edit, delete)
+
+async function addGame(sport, opponent, date, time, location, notes) {
+    try {
+        const response = await fetch("/.netlify/functions/add-game", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ sport, opponent, date, time, location, notes })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            showToast("New game successfully added!", "success")
+        } else {
+            showToast("Failed to add new game", "error")
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error adding game to schedule.");
+    }
+};
+
+async function editGame(gameId, sport, opponent, date, time, location, notes) {
+    try {
+        const response = await fetch("/.netlify/functions/edit-game", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ gameId, sport, opponent, date, time, location, notes })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            showToast("Game successfully edited!", "success");
+        } else {
+            showToast("Failed to edit game", "error");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error editing game.");
+    }
+}; 
+    
+async function deleteGame(gameId) {
+    try {
+        const response = await fetch("/.netlify/functions/delete-game", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ gameId })
+        });
+
+       const data = await response.json();
+
+        if (data.success) {
+            showToast("Game successfully deleted!", "success");
+        } else {
+            showToast("Failed to delete game");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error deleting game.");
+    }
+ }
+
+ async function editWriter(writer_id, first_name, last_name, position, email, phone, x, headshot, hire_date, end_date) {
+     try {
+        const response = await fetch("/.netlify/functions/edit-writer", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ writer_id, first_name, last_name, position, email, phone, x, headshot, hire_date, end_date })
+        });
+
+            const text = await response.text();
+
+    console.log("NETLIFY RAW RESPONSE:", text);
+
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch {
+        data = { message: text };
+    }
+
+        if (data.success) {
+            showToast("Writer successfully edited!", "success");
+        } else {
+            showToast("Failed to edit writer", "error");
+        }
+    }  
+    catch (error) {
+        console.error("Error:", error);
+        alert("Error editing writer.");
+    }   
+ }
+
+ async function deleteWriter(writer_id) {
+    if (!confirm("Are you sure you want to delete this writer?")) return;
+     try {
+        const response = await fetch("/.netlify/functions/delete-writer", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ writer_id })
+        });
+
+            const text = await response.text();
+
+    console.log("NETLIFY RAW RESPONSE:", text);
+
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch {
+        data = { message: text };
+    }
+
+        if (data.success) {
+            showToast("Writer successfully deleted!", "success");
+        } else {
+            showToast("Failed to delete writer", "error");
+        }
+    }  
+    catch (error) {
+        console.error("Error:", error);
+        alert("Error deleting writer.");
+    }    
+ }
+
+ async function addWriter(first_name, last_name, email, phone, hire_date, x, headshot) {
+    try {
+        const response = await fetch("/.netlify/functions/add-writer", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ first_name, last_name, email, phone, hire_date, x, headshot })
+        });
+
+    const text = await response.text();
+
+    console.log("NETLIFY RAW RESPONSE:", text);
+
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch {
+        data = { message: text };
+    }
+
+        if (data.success) {
+            showToast("New writer successfully added!", "success");
+        } else {
+            showToast("Failed to add new writer", "error");
+        }
+    }  
+    catch (error) {
+        console.error("Error:", error);
+        alert("Error adding new writer.");
+    }
+ }
+ 
+ async function inviteWriter(first_name, last_name, email) {
+
+    if (!email || !first_name || !last_name) {
+        alert("Missing fields");
+        return;
+    }
+
+    const response = await fetch("/.netlify/functions/invite-writer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ first_name, last_name, email })
+    });
+
+    const text = await response.text();
+
+    console.log("NETLIFY RAW RESPONSE:", text);
+
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch {
+        data = { message: text };
+    }
+
+    if (response.ok) {
+        alert("Invite sent!");
+    } else {
+        alert("Error: " + data.error);
+    }
+}
+
+async function editSport(sport_id,name, sid, email, phone) {
+    try {
+        const response = await fetch("/.netlify/functions/edit-sport", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ sport_id, name, sid, email, phone })
+        });
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error editing sport.");
+    }
+}
+
+async function deleteSport(sport_id) {
+    if (!confirm("Are you sure you want to delete this sport?")) return;
+    try {
+        const response = await fetch("/.netlify/functions/delete-sport", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ sport_id })
+        });
+
+        const text = await response.text();
+
+    console.log("NETLIFY RAW RESPONSE:", text);
+
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch {
+        data = { message: text };
+    }
+
+        if (data.success) {
+            showToast("Sport successfully deleted!", "success");
+        } else {
+            showToast("Failed to delete sport", "error");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error deleting sport.");
+    }
+}
+//#endregion 
+
+
+
+ 
+ 
