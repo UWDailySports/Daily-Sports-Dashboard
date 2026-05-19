@@ -5,7 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/css/dashboard.css">
-<link rel="icon" type="image/x-icon" href="/images/favicon.ico?v=2">
+<link rel = "stylesheet" href = "/css/content.css">
+<link rel="stylesheet" href="/css/quick-links.css">
+<link rel="stylesheet" href="/css/filters.css">
+<link rel="stylesheet" href="/css/game.css">
+<link rel="stylesheet" href="/css/invoice.css">
+<link rel="stylesheet" href="/css/resources.css">
+<link rel="stylesheet" href="/css/modal.css">
+<link rel="stylesheet" href="/css/toast.css">
+<link rel="icon" type="image/x-icon" href="./images/favicon.ico?v=2">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <meta charset="UTF-8">
@@ -15,11 +23,11 @@
         <p id = "greetingHeader">Hi Test Page!</p>
         <button id = "logout" class = "logout" onclick="logout()">Logout</button>
     </div>
-<div class="page">
+    <div class="page">
 
     <div class="tab-container">
         <button class="tab-button" onclick="showTab(event, 'production')">Production</button>
-        <button class="tab-button" onclick="showTab(event, 'scheduled-games')">Schedule</button>
+        <button class="tab-button" onclick="showTab(event, 'scheduled-games')">My Schedule</button>
         <button class="tab-button" onclick="showTab(event, 'available-games')">Available Games</button>
         <button class="tab-button" onclick="showTab(event, 'invoices')">Invoices</button>
         <button class="tab-button" onclick="showTab(event, 'history')">History</button>
@@ -27,26 +35,26 @@
     </div>
 
     <div class="main">
-    <div class="content">
+        <div class="content">
 
-        <div id="production" class="tab-content">
-            <iframe 
+            <div id="production" class="tab-content">
+                <iframe 
                 src="https://docs.google.com/spreadsheets/d/1ReZfEgHbrBQnmULJR40Ko-4otU7xScpkCjUSmtFUXQI/edit"
                 width="100%" 
                 height="100%" 
                 style="border:none;">
-            </iframe>
-        </div>     
+                </iframe>
+            </div>          
 
-    <div id="scheduled-games" class="tab-content">
-        <div id="scheduled-games-filter-container" class="games-filter-container"></div>       
-        <div id = "scheduled-games-container" class = "games-container"></div>
-    </div>
+            <div id="scheduled-games" class="tab-content">
+                <div id="scheduled-games-filter-container" class="games-filter-container"></div>       
+                <div id = "scheduled-games-container" class = "games-container"></div>
+            </div>
 
-    <div id = "available-games" class="tab-content">
-        <div id="available-games-filter-container" class="games-filter-container"></div>
-        <div id = "available-games-container" class = "games-container"></div>
-    </div>
+            <div id = "available-games" class="tab-content">
+                <div id="available-games-filter-container" class="games-filter-container"></div>
+                <div id = "available-games-container" class = "games-container"></div>
+            </div>
 
         <div id="invoices" class="tab-content">
             <div class = "invoice-container">
@@ -79,10 +87,10 @@
             </div>
         </div>
 
-     <div id="history" class="tab-content">
-        <div id = "history-filter-container" class = "history-filter-container"></div>
-        <div id ="history-container" class = "games-container"></div>
-    </div>
+            <div id="history" class="tab-content">
+                <div id = "history-filter-container" class = "history-filter-container"></div>
+                <div id ="history-container" class = "games-container"></div>
+            </div>
 
         <div id = "resources" class = "tab-content">
             <div class = "resources-container">
@@ -117,14 +125,19 @@
                         <img class="resources-box-icon" src = "/images/resources/handbook.png">
                     </div>
                     <a class = "resources-box-title" href="https://docs.google.com/document/d/1AbVTnk5L6iNMqlh9C_b17tAvUl_IknHFXK7T5YS08dg/edit?tab=t.0" target="_blank">The Daily Handbook</a>
-                </div>  
+                </div> 
+                <div class = "resources-box">
+                    <div class = "resources-box-icon-container">
+                        <img class="resources-box-icon" src = "/images/resources/report-problem.png">
+                    </div>
+                    <a class = "resources-box-title" href="https://docs.google.com/forms/d/e/1FAIpQLSc98LB9Yu3QEjQdDW9DqhK5CnI_7JfeTIdHv6C76-5qVOZ5CQ/viewform?usp=header" target="_blank">Report Problem</a> 
             </div>    
+        </div>
+        </div>
+
         </div>
 
 
-    </div> <!-- CLOSE .content HERE -->
-
-        <!-- Sidebar / Twitter feed -->
         <div class="links-container">
             <div class = "links-box links-dropdown">
             <div class="links-dropdown-header" onclick="toggleDropdown(this)">
@@ -137,16 +150,20 @@
             </div>
                 <div class="links-dropdown-content">
                     <a href="https://www.dailyuw.com/" target="_blank">The Daily UW</a>
+                    <a href = "https://ceo3.getsnworks.com" target = "_blank">CEO by SNworks</a>
                     <a href="https://statbroadcast.com/events/statmonitr.php?gid=wash" target="_blank">Stat Broadcast</a>
                     <a href="https://docs.google.com/document" target="_blank">Google Docs</a>
+                    <a href = "https://drive.google.com/drive/u/0/home" target = "_blank">Google Drive</a>
                     <a href="https://x.com/UWDailySports" target="_blank">X</a>
                     <a href="https://www.instagram.com/uwdailysports/" target="_blank">Instagram</a>
+                    <a href = "schools.html" target="_blank">Schools</a>
                 </div>  
             </div>        
         </div>
-        </div> <!-- CLOSE .main -->
-</div>
+
+    </div> 
 <div id = "toast-container"></div>    
+</div>
 
 <div class="bottom">
     <p>The Daily Sports 2026</p>
@@ -154,7 +171,6 @@
 
 <template id="games-filter-template">
     <div class="games-filter">
-
         <div id = "filter-section-sport" class="filter-section">
             <div class="filter-title">Sport</div>
             <div id = "filter-options-sport" class="filter-options sport-options">
@@ -186,7 +202,7 @@
                 <div class="filter-box" data-value="Away">Away</div>
             </div>
         </div>
-
+        <button class = "add-game"></button>
     </div>
 </template>
 
@@ -219,8 +235,8 @@
         <div class="filter-section">
             <div class="filter-title">Location</div>
             <div class="history-location-section location-options">
-                <div class="filter-box" data-value="Home">Home</div>
-                <div class="filter-box" data-value="Away">Away</div>
+                <div class="history-location-box" data-value="Home">Home</div>
+                <div class="history-location-box" data-value="Away">Away</div>
             </div>
         </div>
 
@@ -256,14 +272,18 @@
 
         <button id="confirm-invoice" class = "add-invoice-confirm">Add Invoice</button>
     </div>
-</div>
+</div>   
 
-<!---- Java Scripts--> 
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script src="/js/dashboard.js"></script>
 </body>
 
-</html>
+<!---- Java Scripts--> 
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="/js/dashboard.js"></script>
+<script src = "/js/filters.js"></script>
+<script src = "/js/tabs.js"></script>
+<script src = "/js/games.js"></script>
+<script src = "/js/invoice.js"></script>
+<script src = "/js/history.js"></script>
+<script src = "/js/tools.js"></script>
 
-
+ 
