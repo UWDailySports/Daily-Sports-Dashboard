@@ -1,0 +1,265 @@
+
+/* #region tab-container */
+.tab-container {
+    /* Layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Size/Shape */
+    width: 78%;
+    margin-bottom: 1%;
+    padding: 1%;
+    gap: 1%;
+    border: #e6e8ef;
+
+    /* Background */
+    background-color: #ffffff;
+
+    /* Text */ 
+
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px) {
+    .tab-container {
+        /* Layout */
+        display: grid;
+        grid-template-columns: repeat(2, 49%);
+        align-items: center;
+        justify-content: center;
+
+
+        /* Size/Shape */
+        height: 15%;
+        width: 100%;
+        padding-bottom: 3%;
+        gap: 2%;
+
+        /* Background */
+
+        /* Text */ 
+
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1800px) {
+    .tab-container {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 60px;
+        border-radius: 15px;
+
+        /* Background */
+
+        /* Text */ 
+
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px) {
+    .tab-container {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 5%;
+        border-radius: 15px;
+
+        /* Background */
+
+        /* Text */ 
+
+        /* Misc */
+    }
+}
+
+/* #endregion */         
+
+/* #region tab-content */
+.tab-content {
+    /* Layout */
+
+    display: none;
+    flex-direction: column;
+            
+    /* Size/Shape */
+    height: 100%;
+    min-height: 0;
+
+    /* Background */ 
+
+    /* Text */ 
+        
+    /* Misc */    
+}
+
+#production {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+#production iframe {
+    flex: 1;     
+    display: block;         
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border: none;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .tab-content {
+        /* Layout */
+        position: relative;
+    }
+}
+
+/* #endregion */
+
+/* #region tab-button */
+.tab-button {
+    /* Layout */
+    flex: 1;
+
+    /* Size/Shape */
+    height: 100%;
+    border: 1px solid #ccc;
+
+    /* Background */
+    background: #eee;
+    
+    /* Text */ 
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: black;
+    
+        
+    /* Misc */
+    cursor: pointer;
+
+}
+
+.tab-button:hover {
+    background: #ddd;
+}
+
+@media screen and (max-width: 768px){
+    .tab-button {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 2px;
+        border-radius: 10px;
+
+        /* Background */
+
+        /* Text */
+        font-size: large; 
+        
+        /* Misc */
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .tab-button {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 8px;
+        border-radius: 10px;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 18px;
+        
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px){
+    .tab-button {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 15px; 
+        border-radius: 15px;
+
+        /* Background */
+
+        /* Text */
+        font-size: 18px; 
+        
+        /* Misc */
+    }
+}        
+
+
+/* #endregion */        
+
+/* #region active-tab */
+.active-tab {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+        background-color: #360f5a;        
+
+        /* Text */ 
+        color: white;
+        
+        /* Misc */    
+}
+/* #endregion */
+
+/* #region content */
+.content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+
+    /* Size/Shape */
+    width: 78%;
+    height: 83%;
+    min-height: 0;
+    max-height: 100%;
+    margin-right: 3%;
+    padding: 1%;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    border: #e6e8ef;
+
+    /* Background */
+    background-color: #ffffff;
+
+    /* Text */ 
+        
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        /* Layout */
+        flex: 1;
+
+        /* Size/Shape */
+        width: 100%;
+    }
+}
+@media screen and (min-width: 1801px) {
+    .content {
+        /* Size / Shape */
+        height: 87%;
+        border-radius: 15px;
+    }
+}
+ 
+/* #endregion */

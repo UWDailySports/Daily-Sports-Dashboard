@@ -1,0 +1,100 @@
+
+/* #region writer */
+.writer {
+    /* Layout */
+    flex: 1;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+    /* Size/Shape */
+    height: 90%;
+
+    /* Background */
+
+    /* Text */ 
+    text-align: center;
+    font-size: large;
+    
+    color: black;
+        
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px) {
+    .writer {
+        /* Text */
+        font-size: small;
+    }
+}
+/* #endregion */
+
+/* #region add / assign / edit / remove */
+.add, .assign, .edit, .remove {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+
+    /* Size/Shape */
+    width: 100%;
+    border: none;
+
+    /* Background */
+    background-color: transparent;
+
+    /* Text */ 
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: #360f5a;
+        
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px){
+    .add, .assign, .edit, .remove {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 12px;
+        
+        /* Misc */
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .add, .assign, .edit, .remove {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 20px;
+        
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px){
+    .add, .assign, .edit, .remove {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 20px;
+        
+        /* Misc */
+    }
+}
+
+/* #endregion */

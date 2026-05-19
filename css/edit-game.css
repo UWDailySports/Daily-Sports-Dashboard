@@ -1,0 +1,381 @@
+
+/* #region edit-modal-content */
+.edit-modal-content {
+    /* Layout */
+
+    /* Size/Shape */
+    max-width: 90%;
+    margin: 5% auto;
+    border-radius: 16px;
+    border-color: #360f5a;
+
+    /* Background */
+    background: white;
+
+    /* Text */ 
+    
+    color: black;
+        
+    /* Misc */    
+}
+
+.edit-modal-content h2 {
+    /* Layout */
+
+    /* Size/Shape */
+    margin-top: 0;
+
+    /* Background */
+
+    /* Text */ 
+    text-align: center;
+    font-weight: 600;
+    
+    color: black;
+        
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px){
+    .edit-modal-content {
+        /* Layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        /* Size/Shape */
+        height: 90%;
+        width: 90%;
+        padding: 8px 6px;
+        border-width: 2px;
+
+        /* Background */
+
+        /* Text */ 
+        
+        /* Misc */
+    }
+
+    .edit-modal-content h2 {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 24px;
+            
+        /* Misc */         
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .edit-modal-content {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 80%;
+        width: 450px;
+        padding: 30px 25px;
+        border-width: 10px;
+
+        /* Background */
+
+        /* Text */ 
+        
+        /* Misc */
+    }
+
+    .edit-modal-content h2 {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 24px;
+            
+        /* Misc */         
+    }
+}
+
+@media screen and (min-width: 1801px){
+    .edit-modal-content {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 55%;
+        width: 450px;
+        padding: 30px 25px;
+        border-width: 10px;
+
+        /* Background */
+
+        /* Text */ 
+        
+        /* Misc */
+    }
+
+    .edit-modal-content h2 {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 24px;
+            
+        /* Misc */    
+    }
+}
+/* #endregion */
+
+/* #region edit-box */
+.edit-box {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 50%;
+    border-radius: 10px;
+    border-color: black;
+
+    /* Background */
+
+    /* Text */ 
+    
+        
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px){
+    .edit-box {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 10%;
+        width: 60%;
+        margin: 2px 0;
+        padding: 2px;
+        border-width: 2px;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 18px;
+        
+            
+        /* Misc */    
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .edit-box {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 40px;
+        margin: 10px 0;
+        padding: 10px;
+        border-width: 2px;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+            
+        /* Misc */    
+    }
+}
+
+@media screen and (min-width: 1801px){
+    .edit-box {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 40px;
+        margin: 10px 0;
+        padding: 10px;
+        border-width: 2px;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+            
+        /* Misc */    
+    }
+}
+/* #endregion */
+
+/* #region delete-game */
+.delete-game {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+
+    /* Background */
+    background-color: rgba(255, 0, 0, 0.676);
+
+    /* Text */ 
+    color: white;
+        
+    /* Misc */    
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#delete-game:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+@media screen and (max-width: 768px){
+    .delete-game {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 10%;
+        width: 60%;
+        margin-top: 2px;
+        padding: 1px 0;        
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 24px;
+        
+        /* Misc */
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .delete-game {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 50px;
+        margin-top: 10px;
+        padding: 4px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px){
+    .delete-game {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 50px;
+        margin-top: 10px;
+        padding: 4px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+        /* Misc */
+    }
+}
+/* #endregion
+
+    /* Layout */
+
+/* #region confirm-edit */
+.confirm-edit {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+
+    /* Background */
+    background-color: #360f5a;
+
+    /* Text */
+    color: white;
+        
+    /* Misc */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#confirm-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+@media screen and (max-width: 768px){
+    .confirm-edit {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 10%;
+        width: 60%;
+        margin-top: 10px;                       
+        padding: 3px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 24px;
+        
+        /* Misc */
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .confirm-edit {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 50px;
+        width: 80%;
+        margin-top: 20px;                       
+        padding: 12px 0;
+
+        /* Background */
+
+        /* Text */
+        font-size: 16px; 
+        
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px){
+    .confirm-edit {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 50px;
+        margin-top: 50px;                       
+        padding: 12px 0;
+
+        /* Background */
+
+        /* Text */
+        font-size: 16px; 
+        
+        /* Misc */
+    }
+}
+/* #endregion */ 

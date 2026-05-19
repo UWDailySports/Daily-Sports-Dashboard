@@ -1,0 +1,80 @@
+/* #region add-season-modal-content */
+.add-season-modal-content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+
+    /* Size/Shape */
+    width: 25%;
+    height: 40%;
+    margin: 5% auto;
+    border-radius: 16px;
+    border-color: #360f5a;
+
+    /* Background */
+    background: white;
+
+    /* Text */ 
+    
+    color: black;
+        
+    /* Misc */    
+}
+/* #endregion */
+
+/* #region add-season-input-container */
+.season-drop-zone {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    /* Size/Shape */
+    width: 80%;
+    height: 50%;
+    border-radius: 10px;
+    border: 1px solid black;
+
+    /* Background */
+    background-color: lightgrey;
+
+    /* Text */ 
+    color: black;
+    text-align: center;
+    
+        
+    /* Misc */
+}
+
+.season-drop-zone.dragover {
+    background: #f3eef9;
+    border-color: #B7A57A;
+}
+/* #endregion */  
+
+/* #region add-season-confirm */
+.add-season-confirm {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 50%;
+    height: 10%;
+    border: none;
+    border-radius: 12px;
+
+    /* Background */
+    background-color: #360f5a;
+
+    /* Text */ 
+    color: white;
+        
+    /* Misc */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+/* #endregion */

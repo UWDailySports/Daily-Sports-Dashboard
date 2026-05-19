@@ -1,0 +1,383 @@
+/* #region sport-input / edit-sport-input */
+#sport-input, #edit-sport-input {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 100%;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: black;
+    outline: none;
+
+    /* Background */
+    background-color: #fff;
+
+    /* Text */ 
+    color: black;
+        
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px){
+    #sport-input, #edit-sport-input {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 10%;
+        width: 60%;
+        padding: 1px;
+        margin: 2px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 18px;
+        
+        /* Misc */
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    #sport-input, #edit-sport-input {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 5px;
+        margin: 10px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px){
+    #sport-input, #edit-sport-input {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 5px;
+        margin: 10px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+        /* Misc */
+    }
+}
+/* #endregion */
+
+/* #region sports-modal-content */
+.sport-modal-content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;  
+
+    /* Size/Shape */
+    width: 70%;
+    height: 75%;
+    padding-top: 2%;
+    padding-left: 1%;
+    border-radius: 20px;
+
+    /* Background */
+    background-color: rgb(238, 238, 238);
+
+    /* Text */ 
+        
+    /* Misc */    
+}   
+
+/* #endregion */
+
+/* #region sport-list-title */
+.sport-list-title {
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    /* Size/Shape */
+    width: 96%;
+    height: 30px;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-bottom: 5px;
+    border: black 1px solid;
+
+    /* Background */
+    
+    /* Text */
+    font-size: 16px;
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: #360f5a;
+        
+    /* Misc */
+}
+/* #endregion */
+
+/* #region sports-list-container */
+.sport-list-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;  
+    box-sizing: border-box; 
+
+    /* Size/Shape */
+    height: 75%;
+    width: 97%;
+    border: black 1px solid;
+
+    /* Background */
+
+    /* Text */ 
+        
+    /* Misc */
+    overflow-y: auto;  
+    overflow-x: hidden;  
+}
+
+/* #endregion */
+
+/* #region sport-list-entry-container */
+.sport-list-entry-container {
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+
+    /* Size/Shape */
+    width: 100%;
+    min-height: 30px;
+    height: 50px;
+    padding-left: 1%;
+    margin-bottom: 5px;
+    border: black 1px solid;
+
+    /* Background */
+    
+    /* Text */
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: #360f5a;
+        
+    /* Misc */
+
+}
+/* #endregion */
+
+/* #region sport-list-entry-section */
+.sport-list-entry-section {
+    /* Layout */
+    display: flex;
+    align-items: center;
+
+    /* Size/Shape */
+    box-sizing: border-box;
+    width: 14%;
+    height: 100%;
+
+    /* Background */
+
+    /* Text */
+    font-size: 16px;
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: black;
+
+        
+    /* Misc */    
+}
+/* #endregion */
+
+/* #region sport-list-entry-options */
+.sport-list-entry-options {
+    /* Layout */
+    display: flex;
+    align-items: center;
+
+    /* Size/Shape */
+    width: 5%;
+    height: 100%;
+
+    /* Background */
+
+    /* Text */ 
+    font-size: 16px;
+    text-align: center;
+    color: #360f5a;
+        
+    /* Misc */
+    cursor: pointer;
+}
+/* #endregion */  
+
+/* #region edit-sport-box */
+
+.edit-sport-box {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 50%;
+    border-radius: 10px;
+    border-color: black;
+
+    /* Background */
+
+    /* Text */ 
+    
+        
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px){
+    .edit-sport-box {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 10%;
+        width: 60%;
+        margin: 2px 0;
+        padding: 2px;
+        border-width: 2px;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 18px;
+        
+            
+        /* Misc */    
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .edit-sport-box {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 40px;
+        margin: 10px 0;
+        padding: 10px;
+        border-width: 2px;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+            
+        /* Misc */    
+    }
+}
+
+@media screen and (min-width: 1801px){
+    .edit-sport-box {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 40px;
+        margin: 10px 0;
+        padding: 10px;
+        border-width: 2px;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+            
+        /* Misc */    
+    }
+}
+/* #endregion */
+
+/* #region edit-sport-confirm */
+.edit-sport-confirm {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+
+    /* Background */
+    background-color: #360f5a;
+
+    /* Text */
+    color: white;
+        
+    /* Misc */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#edit-sport-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+@media screen and (max-width: 768px){
+    .edit-sport-confirm {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 10%;
+        width: 60%;
+        margin-top: 10px;                       
+        padding: 3px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 24px;
+        
+        /* Misc */
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .edit-sport-confirm {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 50px;
+        width: 80%;
+        margin-top: 20px;                       
+        padding: 12px 0;
+
+        /* Background */
+
+        /* Text */
+        font-size: 16px; 
+        
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px){
+    .edit-sport-confirm {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 50px;
+        margin-top: 50px;                       
+        padding: 12px 0;
+
+        /* Background */
+
+        /* Text */
+        font-size: 16px; 
+        
+        /* Misc */
+    }
+}
+/* #endregion */ 

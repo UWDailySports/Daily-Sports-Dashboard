@@ -1,0 +1,141 @@
+
+/* #region resources-container */
+.resources-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+
+    /* Size / Shape */
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: 100%;
+
+    /* Misc */
+    overflow-y: auto;
+}
+/* #endregion */
+
+/* #region resources-box */
+.resources-box {
+    /* Layout */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+
+    /* Size/ Shape */
+    width: 98%;
+    height: 120px;
+    border-radius: 10px;
+
+    /* Background */
+    background-color: #360f5a;
+}
+
+
+/* #region resources-box-icon */
+.resources-box-icon-container {
+    /* Size / Shape */
+    height: 60%;
+    width: 200px;
+    margin-left: 1%;
+    margin-right: 15%;
+
+}
+
+.resources-box-icon {
+    /*Size / Shape */
+    height: 100%;
+    width: auto;
+}
+
+.resources-box-title {
+    /* Size / Shape */
+
+    /* Text */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 35px;
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: white;
+}
+/* #endregion
+
+/* #region dropdown*/
+.resources-dropdown {
+    position: relative;
+}
+
+/* Top clickable row */
+.resources-dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 35px;
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    color: white;
+
+}
+
+/* Hidden dropdown */
+.resources-dropdown-content {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 10px;
+    padding: 10px;
+
+    background: white;
+    border-radius: 10px;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    gap: 15px;
+
+    z-index: 10;
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    transform: translateY(-10px);
+    transition: 
+        max-height 0.35s ease,
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Show dropdown */
+.resources-dropdown.open .resources-dropdown-content {
+    max-height: 800px; /* big enough to fit content */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Links inside dropdown */
+.resources-dropdown-content a {
+    padding: 8px;
+    text-decoration: none;
+    color: #360f5a;
+    font-size: 22px;
+}
+
+.resources-dropdown-content a:hover {
+    background: #eee;
+    border-radius: 5px;
+}
+
+/* #endregion */

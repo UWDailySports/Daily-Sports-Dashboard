@@ -1,0 +1,283 @@
+
+/* #region assign-modal-content */
+.assign-modal-content {
+    /* Layout */
+
+    /* Size/Shape */
+    height: 25%;
+    max-width: 90%;
+    margin: 8% auto;
+    border-color: #360f5a;
+
+    /* Background */
+    background: white;
+
+    /* Text */ 
+    
+    color: black;
+        
+    /* Misc */    
+}
+
+.assign-modal-content h2 {
+    /* Layout */
+
+    /* Size/Shape */
+    margin-top: 0;
+
+    /* Background */
+
+    /* Text */
+    text-align: center;
+    font-weight: 600; 
+        
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px){
+    .assign-modal-content {
+        /* Layout */
+
+        /* Size/Shape */
+        width: 250px; 
+        padding: 3px 2px;
+        border-radius: 16px;
+        border-width: 1px;
+
+        /* Background */
+
+        /* Text */ 
+        
+        /* Misc */
+
+    }
+
+    .assign-modal-content h2 {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+
+        /* Text */
+        font-size: 4px; 
+            
+        /* Misc */        
+    }    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .assign-modal-content {
+        /* Layout */
+
+        /* Size/Shape */
+        width: 450px;
+        padding: 15px 23px;
+        border-radius: 8px;
+        border-width: 5px;
+
+        /* Background */
+
+        /* Text */ 
+        
+        /* Misc */
+    }
+
+    .assign-modal-content h2 {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+
+        /* Text */
+        font-size: 24px; 
+            
+        /* Misc */        
+    }    
+}
+
+@media screen and (min-width: 1801px){
+    .assign-modal-content {
+        /* Layout */
+
+        /* Size/Shape */
+        width: 450px;
+        padding: 30px 25px;
+        border-radius: 16px;
+        border-width: 10px;
+
+        /* Background */
+
+        /* Text */ 
+        
+        /* Misc */
+    }
+
+    .assign-modal-content h2 {
+        /* Layout */
+
+        /* Size/Shape */
+
+        /* Background */
+
+        /* Text */
+        font-size: 24px; 
+            
+        /* Misc */        
+    }
+}
+/* #endregion */
+
+/* #region writer-select */
+#writer-select {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 100%;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: black;
+    outline: none;
+
+    /* Background */
+    background-color: #fff;
+
+    /* Text */ 
+    color: black;
+        
+    /* Misc */    
+}
+
+@media screen and (max-width: 768px){
+    #writer-select {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 1px;
+        margin: 2px 0;
+
+        /* Background */
+
+        /* Text */
+        font-size: 6px; 
+        
+        /* Misc */
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    #writer-select {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 5px;
+        margin: 10px 0;
+
+        /* Background */
+
+        /* Text */
+        font-size: 15px; 
+        
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px){
+    #writer-select {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 10px;
+        margin: 20px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+        /* Misc */
+    }
+}
+/* #endregion */
+
+/* #region confirm-assign */
+#confirm-assign {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 100%;
+    margin-top: 10%;
+    border: none;
+    border-radius: 12px;
+
+    /* Background */
+    background-color: #360f5a;
+
+    /* Text */ 
+    color: white;
+    font-weight: bold; 
+        
+    /* Misc */ 
+    cursor: pointer; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;  
+}
+
+#confirm-assign:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+@media screen and (max-width: 768px){
+    #confirm-assign {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 2px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 6px;
+        
+        /* Misc */
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    #confirm-assign {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 6px 0;
+        height: 50px;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px){
+    #confirm-assign {
+        /* Layout */
+
+        /* Size/Shape */
+        padding: 12px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 16px;
+        
+        /* Misc */
+    }
+}
+/* #endregion */
+
+
