@@ -11,7 +11,10 @@ exports.handler = async (event) => {
     try {
         const { Event, 'Start Date': date, 'Start Time': time, Location: location, 'Category': sport } = JSON.parse(event.body); 
 
-        const opponent = Event.split("vs ")[1].trim();
+        
+        const cleaned = Event.replace(`${sport} `, "");
+        const match = cleaned.match(/(vs|at)\s(.+)/);
+        const opponent = match ? match[2].trim() : null;
 
         // Step 1: Add the game to the Games table
         const insertGameQuery = `

@@ -49,6 +49,7 @@
     
         
     /* Misc */
+    cursor: pointer;
 }
 
 .season-drop-zone.dragover {
