@@ -19,9 +19,11 @@ function createGamesFilter(containerId, filters, onFilterChange) {
 
     const template = document.getElementById("games-filter-template");
     const clone = template.content.cloneNode(true);
-    const addGameButton = clone.querySelector(".add-game");
-    addGameButton.dataset.container = containerId;
-    addGameButton.onclick = () => openAddGameModal(containerId);
+    if(currWriter.position === "Editor"){
+        const addGameButton = clone.querySelector(".add-game");
+        addGameButton.dataset.container = containerId;
+        addGameButton.onclick = () => openAddGameModal(containerId);
+    }
 
     container.appendChild(clone);
 
