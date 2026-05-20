@@ -62,10 +62,14 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
     const sheetName = workbook.SheetNames[0];
     const sheet = workbook.Sheets[sheetName];
 
-    const rows = XLSX.utils.sheet_to_json(sheet);
+    const rows = XLSX.utils.sheet_to_json(sheet, {defval: ""});
     console.log(Object.keys(rows[0]));
 
     rows.forEach(row => {
+        if (!row['Event']) {
+            console.warn("Skipping bad row:", row);
+            return;
+        }
         let date = row['Start Date'];
 
         if (!date) return;
@@ -99,7 +103,7 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
         if(time != "TBD" && time != "TBA" && time != "All Day"){
             time = time.replace(/(\d)(\s?)(am|pm)/i, "$1 $3");
         }
-        
+
         row['Start Time'] = time;
     });
 
