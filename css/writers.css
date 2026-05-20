@@ -213,6 +213,37 @@
 }
 /* #endregion */
 
+/* #region add-writer-button */
+.add-writer-button {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 150px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: transparent 1px solid;
+    margin-left: auto;
+    margin-right: 1%;
+
+    /* Background */
+    background-color: transparent;
+
+    /* Text */
+    color: #360f5a;
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    font-size: 24px;
+        
+    /* Misc */   
+    cursor: pointer; 
+}
+
+.add-writer-button:hover {
+    background-color: #360f5a;
+    color: white;
+}
+/* #endregion */
+
 /* #region add-writer-model-content */
 .add-writer-modal-content {
     /* Layout */

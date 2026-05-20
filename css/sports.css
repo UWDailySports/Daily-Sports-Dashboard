@@ -300,6 +300,7 @@
 /* #endregion */
 
 /* #region edit-sport-confirm */
+
 .edit-sport-confirm {
     /* Layout */
 
@@ -365,6 +366,167 @@
 
 @media screen and (min-width: 1801px){
     .edit-sport-confirm {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 50px;
+        margin-top: 50px;                       
+        padding: 12px 0;
+
+        /* Background */
+
+        /* Text */
+        font-size: 16px; 
+        
+        /* Misc */
+    }
+}
+/* #endregion */ 
+
+/* #region add-sport-button */
+.add-sport-button {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 150px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: transparent 1px solid;
+    margin-left: auto;
+    margin-right: 1%;
+
+    /* Background */
+    background-color: transparent;
+
+    /* Text */
+    color: #360f5a;
+    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    font-size: 24px;
+        
+    /* Misc */   
+    cursor: pointer; 
+}
+
+.add-sport-button:hover {
+    background-color: #360f5a;
+    color: white;
+}
+/* #endregion */
+
+/* #region add-sport-modal-content */
+.add-sport-modal-content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2%;
+
+    /* Size/Shape */
+    width: 30%;
+    margin: 5% auto;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 16px;
+    border-color: #360f5a;
+
+    /* Background */
+    background: white;
+
+    /* Text */ 
+    
+    color: black;
+        
+    /* Misc */    
+}
+/* #endregion */
+
+/* #region add-sport-box */
+.add-sport-box {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 80%;
+    height: 8%;
+    padding-left: 2%;
+    border-radius: 10px;
+    border-color: black;
+
+    /* Background */
+
+    /* Text */ 
+    
+        
+    /* Misc */    
+}
+/* #endregion */
+
+/* #region add-sport-confirm  */
+.add-sport-confirm, .edit-sport-confirm {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+
+    /* Background */
+    background-color: #360f5a;
+
+    /* Text */
+    color: white;
+        
+    /* Misc */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#add-sport-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+@media screen and (max-width: 768px){
+    .add-sport-confirm {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 10%;
+        width: 60%;
+        margin-top: 10px;                       
+        padding: 3px 0;
+
+        /* Background */
+
+        /* Text */ 
+        font-size: 24px;
+        
+        /* Misc */
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .add-sport-confirm {
+        /* Layout */
+
+        /* Size/Shape */
+        height: 50px;
+        width: 80%;
+        margin-top: 20px;                       
+        padding: 12px 0;
+
+        /* Background */
+
+        /* Text */
+        font-size: 16px; 
+        
+        /* Misc */
+    }
+}
+
+@media screen and (min-width: 1801px){
+    .add-sport-confirm {
         /* Layout */
 
         /* Size/Shape */

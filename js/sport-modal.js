@@ -106,15 +106,69 @@ async function fetchSportInfo() {
 // #endregion //
 
 
-// TODO //
+// Function: addSportModal
+// Purpose: Opens the modal for adding a sport
+// Returns: None
+// Parameters: None
 // #region addSportModal() //
+
+async function openAddSportModal() {
+    document.getElementById("add-sport-modal").style.display = "flex";
+}    
+
+const addSportModal = document.getElementById("add-sport-modal");
+
+document.getElementById("add-sport-confirm").onclick = async () => {
+    const sport_name = document.getElementById("new-sport-name").value;
+    const sid = document.getElementById("new-sport-sid").value;
+    const sid_email = document.getElementById("new-sport-email").value;
+    const sid_phone = document.getElementById("new-sport-phone").value;
+
+    if(!sport_name || !sid || !sid_email) {
+        alert("Please fill in all required fields");
+        return;
+    } 
+
+    await addSport(sport_name, sid, sid_email, sid_phone);
+
+    addSportModal.style.display = "none";
+};
+
 // #endregion //
 
 
-// TODO //
-// #region addSport() //
-// #endregion
+async function addSport(sport_name, sid, sid_email, sid_phone) {
+    try {
+        const response = await fetch("/.netlify/functions/add-sport", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ sport_name, sid, sid_email, sid_phone })
+        });
 
+        const text = await response.text();
+
+        console.log("NETLIFY RAW RESPONSE:", text);
+
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch {
+            data = { message: text };
+        }
+
+        if (data.success) {
+            showToast("New sport successfully added!", "success");
+        } else {
+            showToast("Failed to add new sport", "error");
+        }
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error adding new sport.");
+    }
+}
 
 // Function: openeditSportModal
 // Purpose: Opens the modal for editing a sport's info
