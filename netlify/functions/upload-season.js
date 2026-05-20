@@ -22,10 +22,25 @@ exports.handler = async (event) => {
 
             if (!Event) continue;
 
-            const cleaned = Event.replace(`${sport} `, "");
+            let opponent = null;
 
-            const match = cleaned.match(/(vs|at)\s(.+)/i);
-            const opponent = match ? match[2].trim() : null;
+            if (typeof Event === "string") {
+
+                // remove sport prefix safely
+                let cleaned = Event.startsWith(sport + " ")
+                    ? Event.slice(sport.length).trim()
+                    : Event;
+
+                // match vs / at formats
+                const match = cleaned.match(/^(vs|at)\s+(.+)/i);
+
+                if (match) {
+                    opponent = match[2].trim();
+                } else {
+                    // fallback: no vs/at → treat whole string as opponent/location
+                    opponent = cleaned.trim();
+                }
+            }
 
             await client.query(
                 `INSERT INTO "Season" (sport, opponent, date, time, location, notes, available)
