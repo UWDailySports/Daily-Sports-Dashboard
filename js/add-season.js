@@ -96,7 +96,10 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
         }
 
         let time = row['Start Time'];
-        time = time.replace(/(\d)(\s?)(am|pm)/i, "$1 $3");
+        if(time != "TBD" && time != "TBA" && time != "All Day"){
+            time = time.replace(/(\d)(\s?)(am|pm)/i, "$1 $3");
+        }
+        
         row['Start Time'] = time;
     });
 
