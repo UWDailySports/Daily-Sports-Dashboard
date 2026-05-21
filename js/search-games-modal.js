@@ -68,7 +68,11 @@ async function fetchSearchGameInfo() {
             <div class = "search-games-list-entry-section" style="width: 5%;">${notes || ""}</div>
             <div class = "search-games-list-entry-section" style="width: 15%;">${name}</div>
             <div class = "search-games-list-entry-section" style="width: 5%;">${covered}</div>
-            <div class = "list-options-button" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+            <div class="list-options">
+                <button class = "edit-writer">Edit</button>
+                <button class = "delete-writer">Delete</button>
+            </div>
+            <button class = "writer-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
          `;
 
         gameBox.querySelector(".list-options-button").addEventListener("click", () => openEditGameModal(id));
