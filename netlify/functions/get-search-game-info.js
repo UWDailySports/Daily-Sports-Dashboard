@@ -19,9 +19,9 @@ exports.handler = async (event) => {
 
 
     console.log("Final query:", query);
-    console.log("Values:", values);
+    console.log("Values:");
 
-    const result = await client.query(query, values);
+    const result = await client.query(query);
     await client.end();
 
     return {
