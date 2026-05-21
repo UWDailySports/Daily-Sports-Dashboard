@@ -2,11 +2,6 @@ const { Client } = require("pg");
 
 exports.handler = async (event) => {
   try {
-    const body = JSON.parse(event.body);
-    const { filters = {} } = body;
-    const { sports = [], locations = [] } = filters;
-
-    console.log("Request body:", body);
 
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
