@@ -53,7 +53,7 @@ async function fetchSearchGameInfo() {
         const opponent = game.opponent;
         const location = game.location;
         const time = game.time;
-        const notes = game.notes;
+        const notes = game.notes || "";
         const name = (game.first_name + " " + game.last_name) || "";
         const covered = game.available ? "No" : "Yes";
 
