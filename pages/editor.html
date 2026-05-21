@@ -366,7 +366,7 @@
     <div class = "writers-modal-content">
         <div class = "modal-header">
             <h2>Writers</h2>
-            <span class = "close-button">&times;</span>
+            <span class = "close-button" onclick = "closeModal('writers-modal')">&times;</span>
         </div>
         <button class = "add-writer-button" onclick = "openAddWriterModal()">+ Add Writer</button>
         <div class = "writer-list-title">
@@ -381,7 +381,20 @@
             <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">End Date</div>
             <div class = "writer-list-entry-section" style="width: 5%; font-size: 18px; font-weight: bold;color:#360f5a"></div>
         </div>
-        <div id = "writer-list-container" class = "writer-list-container"></div>
+        <div id = "writer-list-container" class = "writer-list-container">
+            <div class = "writer-list-entry-container">
+                <div class = "writer-list-entry-section">Andrew</div>
+                <div class = "writer-list-entry-section">Soozay</div>
+                <div class = "writer-list-entry-section">editor</div>
+                <div class = "writer-list-entry-section" style="width: 15%;">sousa21@uw.edu</div>
+                <div class = "writer-list-entry-section">925-394-8406</div>
+                <div class = "writer-list-entry-section">@andrew_soozay</div>
+                <div class = "writer-list-entry-section">Link</div>
+                <div class = "writer-list-entry-section">01/06/2023</div>
+                <div class = "writer-list-entry-section">01/04/2026</div>
+                <div class = "writer-list-entry-section" style="width: 5%;">&hellip;</div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -518,8 +531,8 @@
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="/js/dashboard.js"></script>
-<script src = "/js/filters.js"></script>
 <script src = "/js/tabs.js"></script>
+<script src = "/js/filters.js"></script>
 <script src = "/js/games.js"></script>
 <script src = "/js/all-scheduled-games.js"></script>
 <script src = "/js/game-editor.js"></script>

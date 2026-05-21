@@ -20,7 +20,6 @@ document.addEventListener("click", () => {
         options.style.display = "none";
     });
 });
-
 // #endregion //
 
 
@@ -375,10 +374,9 @@ async function openEditWriterModal(writer) {
 
 
 
-
-
-
-
+function closeModal(modal) {
+    modal.style.display = "none";
+}
 
 
 

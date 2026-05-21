@@ -40,7 +40,7 @@ window.showTab = function(event, tabId) {
 tabHandlers["production"] = function() {
     const container = document.getElementById("production");
 
-    if (!container.hasChildNodes()) {
+    /*if (!container.hasChildNodes()) {
         const iframe = document.createElement("iframe");
         iframe.src = "https://docs.google.com/spreadsheets/d/1ReZfEgHbrBQnmULJR40Ko-4otU7xScpkCjUSmtFUXQI/edit?gid=1543249032#gid=1543249032";
         iframe.style.width = "100%";
@@ -48,7 +48,7 @@ tabHandlers["production"] = function() {
         iframe.style.border = "none";
 
         container.appendChild(iframe);
-    }
+    }*/
 };
 
 
@@ -124,3 +124,4 @@ tabHandlers["history"] = function() {
 
     fetchHistoryGames(currWriter.writer_id, historyFilters);
 };
+

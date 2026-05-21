@@ -54,7 +54,7 @@ async function fetchSearchGameInfo() {
         const location = game.location;
         const time = game.time;
         const notes = game.notes;
-        const name = game.first_name + " " + game.last_name;
+        const name = (game.first_name + " " + game.last_name) || "";
         const covered = game.available ? "No" : "Yes";
 
         const gameBox = document.createElement("div");
