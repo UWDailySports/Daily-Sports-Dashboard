@@ -10,12 +10,29 @@ exports.handler = async (event) => {
 
     await client.connect();
 
-    let query = `
-      SELECT * FROM "Games"
-      LEFT JOIN "Assignments" ON "Assignments".game_id = "Games".game_id
-      LEFT JOIN "Writers" ON "Writers".writer_id = "Assignments".writer_id
-      ORDER BY date DESC, time DESC;
-    `;
+    let query = `SELECT
+    "Games".game_id AS game_id,
+    "Games".date,
+    "Games".time,
+    "Games".sport,
+    "Games".opponent,
+    "Games".location,
+    "Games".notes,
+    "Games".available,
+
+    "Assignments".assignment_id,
+
+    "Writers".writer_id,
+    "Writers".first_name,
+    "Writers".last_name
+
+    FROM "Games"
+    LEFT JOIN "Assignments"
+        ON "Assignments".game_id = "Games".game_id
+    LEFT JOIN "Writers"
+        ON "Writers".writer_id = "Assignments".writer_id
+    ORDER BY "Games".date DESC, "Games".time DESC;;
+        `;
 
 
     console.log("Final query:", query);
