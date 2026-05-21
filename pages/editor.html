@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="/css/writers.css">
 <link rel="stylesheet" href="/css/sports.css">
 <link rel="stylesheet" href="/css/add-season.css">
+<link rel="stylesheet" href="/css/search-games.css">
 <link rel="stylesheet" href="/css/modal.css">
 <link rel="stylesheet" href="/css/toast.css">
 <link rel="icon" type="image/x-icon" href="./images/favicon.ico?v=2">
@@ -153,19 +154,19 @@
         <div id = "settings" class = "tab-content">
             <div class = "settings-container">
                 <div class = "settings-option" onclick = "openWritersModal()">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
+                    <img class = "settings-icon" src = "/images/settings/writers.png">
                     <div class = "settings-title">Writers</div>
                 </div>
                  <div class = "settings-option" onclick = "openSportsModal()">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
+                    <img class = "settings-icon" src = "/images/settings/sports.png">
                     <div class = "settings-title">Sports</div>
                 </div>
                 <div class = "settings-option" onclick = "openAddSeasonModal()">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Add Season (WIP)</div>
+                    <img class = "settings-icon" src = "/images/settings/add-season.png">
+                    <div class = "settings-title">Add Season</div>
                 </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
+                <div class = "settings-option" onclick = "openSearchGamesModal()">
+                    <img class = "settings-icon" src = "/images/settings/search.png">
                     <div class = "settings-title">Search Game (WIP)</div>
                 </div>                                                                                               
             </div>
@@ -489,6 +490,41 @@
     </div>
 </div>   
 
+<div id = "search-games-modal" class = "modal">
+    <div class = "search-games-modal-content">
+        <div class = "modal-header">
+            <h2>Search Games</h2>
+            <span class = "close-button">&times;</span>
+        </div>
+        <div class = "search-games-list-title">
+            <div class = "search-games-list-entry-section" style="width: 5%; padding-left: 1%; font-size: 16px; font-weight: bold;color:#360f5a">ID</div>
+            <div class = "search-games-list-entry-section" style="width: 10%; font-size: 16px; font-weight: bold;color:#360f5a">Date</div>
+            <div class = "search-games-list-entry-section" style="width: 15%; font-size: 16px; font-weight: bold;color:#360f5a">Sport</div>
+            <div class = "search-games-list-entry-section" style="width: 15%; font-size: 16px; font-weight: bold;color:#360f5a">Opponent</div>
+            <div class = "search-games-list-entry-section" style="width: 15%; font-size: 16px; font-weight: bold;color:#360f5a">Location</div>
+            <div class = "search-games-list-entry-section" style="width: 10%; font-size: 16px; font-weight: bold;color:#360f5a">Time</div>
+            <div class = "search-games-list-entry-section" style="width: 5%; font-size: 16px; font-weight: bold;color:#360f5a">Notes</div>
+            <div class = "search-games-list-entry-section" style="width: 15%; font-size: 16px; font-weight: bold;color:#360f5a">Writer</div>
+            <div class = "search-games-list-entry-section" style="width: 5%; font-size: 16px; font-weight: bold;color:#360f5a">Covered</div>
+            <div class = "search-games-list-entry-section" style="width: 5%; font-size: 16px; font-weight: bold;color:#360f5a"></div>
+        </div>
+        <div class = "search-games-list-container" id = "search-games-list-container">
+                <div class = "search-games-list-entry-container">
+                    <div class = "search-games-list-entry-section" style="width: 5%; padding-left: 1%">2</div>
+                    <div class = "search-games-list-entry-section" style="width: 10%;">01/01/2024</div>
+                    <div class = "search-games-list-entry-section" style="width: 15%;">Women's Basketball</div>
+                    <div class = "search-games-list-entry-section" style="width: 15%;">Oregon</div>
+                    <div class = "search-games-list-entry-section" style="width: 15%;">Indianapolis, Ind.</div>
+                    <div class = "search-games-list-entry-section" style="width: 10%;">7:00 PM</div>
+                    <div class = "search-games-list-entry-section" style="width: 5%;">i</div>
+                    <div class = "search-games-list-entry-section" style="width: 15%;">Andrew Soozay</div>
+                    <div class = "search-games-list-entry-section" style="width: 5%;">No</div>
+                    <button class = "list-options" style="width: 5%;">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </body>
 
@@ -506,6 +542,7 @@
 <script src = "/js/writer-modal.js"></script>
 <script src = "/js/sport-modal.js"></script>
 <script src = "/js/add-season.js"></script>
+<script src = "/js/search-games-modal.js"></script>
 <script src = "/js/tools.js"></script>
 
  

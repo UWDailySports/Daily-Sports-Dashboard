@@ -43,7 +43,7 @@ exports.handler = async (event) => {
             }
 
             await client.query(
-                `INSERT INTO "Season" (sport, opponent, date, time, location, notes, available)
+                `INSERT INTO "Games" (sport, opponent, date, time, location, notes, available)
                  VALUES ($1, $2, $3, $4, $5, $6, TRUE)`,
                 [sport, opponent, date, time, location, null]
             );

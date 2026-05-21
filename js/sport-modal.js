@@ -136,7 +136,16 @@ document.getElementById("add-sport-confirm").onclick = async () => {
 
 // #endregion //
 
-
+// Function: addSport
+// Purpose: adds a new sport to the DB with the given info
+// Returns: None
+// Parameters: (1) sport_name: name of sport to add
+//             (2) sid: name of sid for sport
+//             (3) sid_email: email of sid for sport
+//             (4) sid_phone: phone number of sid for sport (optional)
+// errors: (1) error if DB URL not set
+//         (2) statusCode 500 if error in DB query
+// #region addSport() //
 async function addSport(sport_name, sid, sid_email, sid_phone) {
     try {
         const response = await fetch("/.netlify/functions/add-sport", {
@@ -169,6 +178,7 @@ async function addSport(sport_name, sid, sid_email, sid_phone) {
         alert("Error adding new sport.");
     }
 }
+// #endregion //
 
 // Function: openeditSportModal
 // Purpose: Opens the modal for editing a sport's info
