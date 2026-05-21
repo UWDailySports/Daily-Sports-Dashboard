@@ -54,20 +54,22 @@ async function fetchSearchGameInfo() {
         const location = game.location;
         const time = game.time;
         const notes = game.notes || "";
-        const name = (game.first_name + " " + game.last_name) || "";
+        const name = (game.first_name || "") + " " + (game.last_name || "");
         const covered = game.available ? "No" : "Yes";
 
         const gameBox = document.createElement("div");
         gameBox.classList.add("search-games-list-entry-container");
         gameBox.innerHTML = `
+            <div class = "search-games-list-entry-section" style="width: 5%; padding-left: 1%;">${id}</div>
+            <div class = "search-games-list-entry-section" style="width: 10%;">${date}</div>
             <div class = "search-games-list-entry-section" style="width: 15%;">${sport}</div>
             <div class = "search-games-list-entry-section" style="width: 15%;">${opponent}</div>
             <div class = "search-games-list-entry-section" style="width: 15%;">${location}</div>
-            <div class = "search-games-list-entry-section" style="width: 15%;">${date}</div>
-            <div class = "search-games-list-entry-section" style="width: 15%;">${time}</div>
+            <div class = "search-games-list-entry-section" style="width: 10%;">${time}</div>
             <div class = "search-games-list-entry-section" style="width: 5%;">${notes || ""}</div>
             <div class = "search-games-list-entry-section" style="width: 15%;">${name}</div>
             <div class = "search-games-list-entry-section" style="width: 5%;">${covered}</div>
+            <div class = "search-games-list-entry-section" style="width: 5%; font-size: 16px; font-weight: bold;color:#360f5a">&hellip;</div>
             <div class="list-options">
                 <button class = "edit-game">Edit</button>
                 <button class = "delete-game">Delete</button>
