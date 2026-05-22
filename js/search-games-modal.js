@@ -108,5 +108,18 @@ async function fetchSearchGameInfo() {
         
         container.appendChild(gameBox);
     }   
+
+    const searchInput = document.getElementById("search-games-input");
+
+    searchInput.oninput = () => {
+        const term = searchInput.value.toLowerCase();
+
+        document.querySelectorAll(".search-games-list-entry-container").forEach(game => {
+            game.style.display =
+                game.textContent.toLowerCase().includes(term)
+                    ? "flex"
+                    : "none";
+        });
+    };
 }     
 // #endregion //

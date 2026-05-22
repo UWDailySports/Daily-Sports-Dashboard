@@ -119,47 +119,97 @@
 }
 /* #endregion */
 
+/* #region search-games-list-notes-container */
 .search-games-list-notes-container {
-    position: relative;
-    width: 5%;
+    /* Layout */
+    position: relative;  
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
+    /* Size/Shape */
+    width: 5%;
+}
+/* #endregion */
+
+/* #region notes-icon */
 .notes-icon {
+    /* Layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Size/Shape */
     width: 22px;
     height: 22px;
     border-radius: 50%;
+
+    /* Background */
     background: #360f5a;
+
+    /* Text */
     color: white;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    /* Misc */
     cursor: pointer;
 }
+/* #endregion */
 
+/* #region notes-modal */
 .notes-modal {
+    /* Layout */
     display: none;
     position: absolute;
     top: 30px;
     left: 50%;
-    transform: translateX(-50%);
+    z-index: 999;
+
+    /* Size/Shape */    
     min-width: 200px;
     max-width: 300px;
     padding: 10px;
-    border-radius: 8px;
-    background: white;
+    border-radius: 8px;    
     border: 2px solid #360f5a;
+
+    /* Background */
+    background: white;
+
+    /* Misc */
+    transform: translateX(-50%);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 999;
     white-space: normal;
 }
+/* #endregion */
 
+/* #region hovering over notes container */
 .search-games-list-notes-container:hover .notes-modal {
     display: block;
 }
+/* #endregion */
+
+
+/* #region search-games-input */
+.search-games-input {
+    /* Layout */
+    display: block;
+
+    /* Size/Shape */
+    width: 96%;
+    margin: 10px auto;
+    padding: 12px;
+    border: 2px solid #360f5a;
+    border-radius: 8px;   
+    outline: none;
+
+    /* Text */
+    font-size: 16px;
+}
+
+.search-games-input:focus {
+    box-shadow: 0 0 6px rgba(54,15,90,0.25);
+}
+/* #endregion */
 
 /* #region edit-search-games-modal-content */
 .edit-search-games-modal-content, .edit-search-games-modal-content {
