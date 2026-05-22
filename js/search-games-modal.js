@@ -66,7 +66,12 @@ async function fetchSearchGameInfo() {
             <div class = "search-games-list-entry-section" style="width: 15%;">${opponent}</div>
             <div class = "search-games-list-entry-section" style="width: 15%;">${location}</div>
             <div class = "search-games-list-entry-section" style="width: 10%;">${time}</div>
-            <div class = "search-games-list-entry-section" style="width: 5%;">${notes || ""}</div>
+            ${notes ? `
+                <div class="search-games-list-notes-container">
+                    <div class="notes-icon">i</div>
+                    <div class="notes-modal">${notes}</div>
+                </div>
+            ` : `<div></div>`}
             <div class = "search-games-list-entry-section" style="width: 15%;">${name}</div>
             <div class = "search-games-list-entry-section" style="width: 5%;">${covered}</div>
             <div class="list-options">
@@ -74,7 +79,7 @@ async function fetchSearchGameInfo() {
                 <button class = "delete-game">Delete</button>
             </div>
             <button class = "search-games-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
-         `;
+         `;       
 
         gameBox.querySelector(".edit-game").addEventListener("click", () => openEditGameModal(id));
         gameBox.querySelector(".delete-game").addEventListener("click", () => deleteGame(id));

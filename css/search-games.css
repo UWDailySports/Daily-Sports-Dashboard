@@ -119,6 +119,48 @@
 }
 /* #endregion */
 
+.search-games-list-notes-container {
+    position: relative;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #360f5a;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.notes-modal {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    background: white;
+    border: 2px solid #360f5a;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 999;
+    white-space: normal;
+}
+
+.search-games-list-notes-container:hover .notes-modal {
+    display: block;
+}
+
 /* #region edit-search-games-modal-content */
 .edit-search-games-modal-content, .edit-search-games-modal-content {
     /* Layout */
