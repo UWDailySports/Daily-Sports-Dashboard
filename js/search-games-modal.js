@@ -55,7 +55,9 @@ async function fetchSearchGameInfo() {
         const time = game.time;
         const notes = game.notes || "";
         const name = (game.first_name || "") + " " + (game.last_name || "");
-        const covered = game.available ? "No" : "Yes";
+        const covered = game.available
+            ? `<span style="color: red;">&#10006;</span>`
+            : `<span style="color: green;">&#10004;</span>`;
 
         const gameBox = document.createElement("div");
         gameBox.classList.add("search-games-list-entry-container");
@@ -73,7 +75,7 @@ async function fetchSearchGameInfo() {
                 </div>
             ` : `<div class = "search-games-list-notes-container"></div>`}
             <div class = "search-games-list-entry-section" style="width: 15%;">${name}</div>
-            <div class = "search-games-list-entry-section" style="width: 5%;">${covered}</div>
+            <div class = "search-games-list-entry-section" style="width: 15%;">${covered}</div>
             <div class="list-options">
                 <button class = "edit-game">Edit</button>
                 <button class = "delete-game">Delete</button>
