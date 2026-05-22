@@ -188,7 +188,6 @@
 }
 /* #endregion */
 
-
 /* #region search-games-input */
 .search-games-input {
     /* Layout */
@@ -197,7 +196,7 @@
     /* Size/Shape */
     width: 15%;
     margin-left: auto;
-    margin-right: 1%;
+    margin-right: 2%;
     padding: 12px;
     border: 2px solid #360f5a;
     border-radius: 8px;   
