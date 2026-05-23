@@ -27,8 +27,8 @@
 
     <div class="tab-container">
         <button class="tab-button" onclick="showTab(event, 'production')">Production</button>
-        <button class="tab-button" onclick="showTab(event, 'scheduled-games')">My Schedule</button>
-        <button class="tab-button" onclick="showTab(event, 'available-games')">Available Games</button>
+        <button class="tab-button" onclick="showTab(event, 'scheduled-games')">My Games</button>
+        <button class="tab-button" onclick="showTab(event, 'available-games')">Available</button>
         <button class="tab-button" onclick="showTab(event, 'invoices')">Invoices</button>
         <button class="tab-button" onclick="showTab(event, 'history')">History</button>
         <button class="tab-button" onclick ="showTab(event, 'resources')">Resources</button>
@@ -75,8 +75,8 @@
                             <img class="invoice-icon" src="/pages/dashboard/invoice/Upload.png" alt="Invoice 1">Submit Invoice</a>
                         </div>
                         <div class="invoice-option">
-                            <button class="invoice-option-box" onclick = "openInvoiceModal()">
-                            <img class="invoice-icon" src="/pages/dashboard/invoice/History.png" alt="Invoice 1">Add to History</button>
+                            <div class="invoice-option-box" onclick = "openInvoiceModal()">
+                            <img class="invoice-icon" src="/pages/dashboard/invoice/History.png" alt="Invoice 1">Add to History</div>
                         </div>
                         <div class="invoice-option">
                             <a class="invoice-option-box" href="/pages/dashboard/invoice/Pay-Scale.png" target="_blank">

@@ -69,7 +69,109 @@
 
             <div id = "available-games" class="tab-content">
                 <div id="available-games-filter-container" class="games-filter-container"></div>
-                <div id = "available-games-container" class = "games-container"></div>
+                <div id = "available-games-container" class = "games-container">
+
+                    <div class = "game-box">
+                        <div class = "sport-container">
+                            <div class = "sport-box">Men's Basketball</div>
+                            <div class = "notes-box">NCAA Tournament: Round of 32</div> 
+                        </div>
+                        <div class = "matchup-container">
+                            <img class = "school-icon" src = "/images/schools/Washington.webp" alt = "UW">
+                            <div class = "where">@</div>
+                            <img class="school-icon" src="/images/schools/Oregon.webp" alt="Ore">
+                        </div>
+                        <div class = "recap-container">
+                            <div class="away-recap"></div>
+                            <p class="recap-location">Chicago, Ill.</p>
+                        </div>
+                        <div class = "when-container">
+                            <div class = "date">Sunday, March 26</div>
+                            <div class = "time">7:00 PM</div>
+                        </div>    
+                        <div class = "options-container">
+                            <button class = "game-option" data-game-id = "${gameId}">ADD</button>
+                            <button class = "game-option" data-game-id = "${gameId}">ASSIGN</button>
+                            <button class = "game-option" data-game-id = "${gameId}">EDIT</button>
+                        </div>
+                    </div>
+
+                    <div class = "game-box">
+                        <div class = "sport-container">
+                            <div class = "sport-box">Men's Basketball</div>
+                            <div class = "notes-box">NCAA Tournament: Round of 32</div> 
+                        </div>
+                        <div class = "matchup-container">
+                            <img class = "school-icon" src = "/images/schools/Washington.webp" alt = "UW">
+                            <div class = "where">@</div>
+                            <img class="school-icon" src="/images/schools/Oregon.webp" alt="Ore">
+                        </div>
+                        <div class = "recap-container">
+                            <div class="away-recap"></div>
+                            <p class="recap-location">Chicago, Ill.</p>
+                        </div>
+                        <div class = "when-container">
+                            <div class = "date">Sunday, March 26</div>
+                            <div class = "time">7:00 PM</div>
+                        </div>    
+                        <div class = "options-container">
+                            <button class = "game-option" data-game-id = "${gameId}">ADD</button>
+                            <button class = "game-option" data-game-id = "${gameId}">ASSIGN</button>
+                            <button class = "game-option" data-game-id = "${gameId}">EDIT</button>
+                        </div>
+                    </div>
+
+                    <div class = "game-box">
+                        <div class = "sport-container">
+                            <div class = "sport-box">Men's Basketball</div>
+                            <div class = "notes-box">NCAA Tournament: Round of 32</div> 
+                        </div>
+                        <div class = "matchup-container">
+                            <img class = "school-icon" src = "/images/schools/Washington.webp" alt = "UW">
+                            <div class = "where">@</div>
+                            <img class="school-icon" src="/images/schools/Oregon.webp" alt="Ore">
+                        </div>
+                        <div class = "recap-container">
+                            <div class="away-recap"></div>
+                            <p class="recap-location">Chicago, Ill.</p>
+                        </div>
+                        <div class = "when-container">
+                            <div class = "date">Sunday, March 26</div>
+                            <div class = "time">7:00 PM</div>
+                        </div>    
+                        <div class = "options-container">
+                            <button class = "game-option" data-game-id = "${gameId}">ADD</button>
+                            <button class = "game-option" data-game-id = "${gameId}">ASSIGN</button>
+                            <button class = "game-option" data-game-id = "${gameId}">EDIT</button>
+                        </div>
+                    </div>
+                    
+                    <div class = "game-box">
+                        <div class = "sport-container">
+                            <div class = "sport-box">Men's Basketball</div>
+                            <div class = "notes-box">NCAA Tournament: Round of 32</div> 
+                        </div>
+                        <div class = "matchup-container">
+                            <img class = "school-icon" src = "/images/schools/Washington.webp" alt = "UW">
+                            <div class = "where">@</div>
+                            <img class="school-icon" src="/images/schools/Oregon.webp" alt="Ore">
+                        </div>
+                        <div class = "recap-container">
+                            <div class="away-recap"></div>
+                            <p class="recap-location">Chicago, Ill.</p>
+                        </div>
+                        <div class = "when-container">
+                            <div class = "date">Sunday, March 26</div>
+                            <div class = "time">7:00 PM</div>
+                        </div>    
+                        <div class = "options-container">
+                            <button class = "game-option" data-game-id = "${gameId}">ADD</button>
+                            <button class = "game-option" data-game-id = "${gameId}">ASSIGN</button>
+                            <button class = "game-option" data-game-id = "${gameId}">EDIT</button>
+                        </div>
+                    </div>                    
+
+                </div>
             </div>
 
         <div id="invoices" class="tab-content">
@@ -78,7 +180,12 @@
                 <div class = "invoice-sections-container">
                     <div class = "invoice-history-container">
                         <div class = "invoice-history-title">Invoice History</div>
-                        <div id = "invoice-entries-container" class = "invoice-entries-container"></div>
+                        <div id = "invoice-entries-container" class = "invoice-entries-container">
+                            <div class = "invoice-entry-box">
+                                <div class = "invoice-entry-box-date">May 1, 2026</div>
+                                <div class = "invoice-entry-box-total">$506</div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="invoice-options-container">
@@ -91,8 +198,8 @@
                             <img class="invoice-icon" src="/pages/dashboard/invoice/Upload.png" alt="Invoice 1">Submit Invoice</a>
                         </div>
                         <div class="invoice-option">
-                            <button class="invoice-option-box" onclick = "openInvoiceModal()">
-                            <img class="invoice-icon" src="/pages/dashboard/invoice/History.png" alt="Invoice 1">Add to History</button>
+                            <div class="invoice-option-box" onclick = "openInvoiceModal()">
+                            <img class="invoice-icon" src="/pages/dashboard/invoice/History.png" alt="Invoice 1">Add to History</div>
                         </div>
                         <div class="invoice-option">
                             <a class="invoice-option-box" href="/pages/dashboard/invoice/Pay-Scale.png" target="_blank">
