@@ -29,8 +29,9 @@ window.showTab = function(event, tabId) {
     for (let tab of tabs) tab.style.display = "none";
     for (let btn of buttons) btn.classList.remove("active-tab");
 
-    document.getElementById(tabId).style.display = "flex";
     event.currentTarget.classList.add("active-tab");
+    document.getElementById(tabId).style.display = "flex";
+    
 
     if (tabHandlers[tabId]) {
         tabHandlers[tabId]();

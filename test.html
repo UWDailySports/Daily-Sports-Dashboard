@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="/css/writers.css">
 <link rel="stylesheet" href="/css/sports.css">
 <link rel="stylesheet" href="/css/add-season.css">
+<link rel="stylesheet" href="/css/search-games.css">
 <link rel="stylesheet" href="/css/modal.css">
 <link rel="stylesheet" href="/css/toast.css">
 <link rel="icon" type="image/x-icon" href="./images/favicon.ico?v=2">
@@ -31,13 +32,12 @@
         <p id = "greetingHeader">Hi Test Page!</p>
         <button id = "logout" class = "logout" onclick="logout()">Logout</button>
     </div>
-
-<div class="page">
+    <div class="page">
 
     <div class="tab-container">
-        <button class="tab-button" onclick="showTab(event, 'production-tab')">Production</button>
-        <button class="tab-button" onclick="showTab(event, 'all-games')">All Scheduled</button> 
-        <button class="tab-button" onclick="showTab(event, 'scheduled-games')">My Schedule</button>
+        <button class="tab-button" onclick="showTab(event, 'production')">Production</button>
+        <button class="tab-button" onclick="showTab(event, 'all-games')">Schedule</button> 
+        <button class="tab-button" onclick="showTab(event, 'scheduled-games')">My Games</button>
         <button class="tab-button" onclick="showTab(event, 'available-games')">Available</button>
         <button class="tab-button" onclick="showTab(event, 'invoices')">Invoices</button>
         <button class="tab-button" onclick="showTab(event, 'history')">History</button>
@@ -46,271 +46,39 @@
     </div>
 
     <div class="main">
-    <div class="content">
+        <div class="content">
 
-        <div id="production" class="tab-content"></div> 
+            <div id="production" class="tab-content">
+                <iframe 
+                src="https://docs.google.com/spreadsheets/d/1ReZfEgHbrBQnmULJR40Ko-4otU7xScpkCjUSmtFUXQI/edit"
+                width="100%" 
+                height="100%" 
+                style="border:none;">
+                </iframe>
+            </div>        
     
-        <div id = "all-games" class = "tab-content">
-            <div id = "all-games-filter-container" class = "games-filter-container"></div>
-            <div id = "all-games-container" class = "games-container">
-                <img src = "https://drive.google.com/file/d/1lml57SgM6cMYJlDBn7owSzvRMEwxHu2L/preview">
+            <div id = "all-games" class = "tab-content">
+                <div id = "all-games-filter-container" class = "games-filter-container"></div>
+                <div id = "all-games-container" class = "games-container"></div>
+            </div>    
+
+            <div id="scheduled-games" class="tab-content">
+                <div id="scheduled-games-filter-container" class="games-filter-container"></div>       
+                <div id = "scheduled-games-container" class = "games-container"></div>
             </div>
-        </div>    
 
-        <div id="scheduled-games" class="tab-content">
-            <div id="scheduled-games-filter-container" class="games-filter-container"></div>       
-            <div id = "scheduled-games-container" class = "games-container">
-                <div class = "no-games">No Scheduled Games</div>
+            <div id = "available-games" class="tab-content">
+                <div id="available-games-filter-container" class="games-filter-container"></div>
+                <div id = "available-games-container" class = "games-container"></div>
             </div>
-        </div>
-
-        <div id = "available-games" class="tab-content">
-            <div id="available-games-filter-container" class="games-filter-container"></div>
-            <div id = "available-games-container" class = "games-container">
-
-                <div class = "game-box">
-                    <div class = "sport-container">
-                        <div class = "sport-box">Football</div>
-                        <div class = "notes-box">Big Ten Championship</div> 
-                    </div>
-                    <div class = "matchup-container">
-                        <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
-                        <div class = "where">@</div>
-                        <img class="opp-icon" src="/images/schools/Oregon.webp" alt="UO">
-                    </div>    
-                    <div class = "recap-container">
-                        <div class="away-recap"></div>
-                        <p class="recap-location">Indianapolis, Ind.</p>
-                    </div>
-                    <div class = "when-container">
-                        <div class = "date">Friday, December 3</div>
-                        <div class = "time">5:00 PM</div>
-                    </div>
-                    <div class = "writer">Tom Yoo</div>
-                    <div class = "options-container"> 
-                        <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                        <button class = "edit">EDIT</button>
-                    </div> 
-                </div>
-
-                <div class = "game-box">
-                    <div class = "sport-container">
-                        <div class = "sport-box">Football</div>
-                        <div class = "notes-box">Big Ten Championship</div> 
-                    </div>
-                    <div class = "matchup-container">
-                        <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
-                        <div class = "where">@</div>
-                        <img class="opp-icon" src="/images/schools/Oregon.webp" alt="UO">
-                    </div>    
-                    <div class = "recap-container">
-                        <div class="away-recap"></div>
-                        <p class="recap-location">Indianapolis, Ind.</p>
-                    </div>
-                    <div class = "when-container">
-                        <div class = "date">Friday, December 3</div>
-                        <div class = "time">5:00 PM</div>
-                    </div>
-                    <div class = "writer">Andrew Sousa</div>
-                    <div class = "options-container"> 
-                        <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                        <button class = "edit">EDIT</button>
-                        <button class = "assign">ASSIGN</button>
-                    </div> 
-                </div>
-                
-                <div class = "game-box">
-                    <div class = "sport-container">
-                        <div class = "sport-box">Football</div>
-                        <div class = "notes-box">Big Ten Championship</div> 
-                    </div>
-                    <div class = "matchup-container">
-                        <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
-                        <div class = "where">@</div>
-                        <img class="opp-icon" src="/images/schools/Oregon.webp" alt="UO">
-                    </div>    
-                    <div class = "recap-container">
-                        <div class="away-recap"></div>
-                        <p class="recap-location">Indianapolis, Ind.</p>
-                    </div>
-                    <div class = "when-container">
-                        <div class = "date">Friday, December 3</div>
-                        <div class = "time">5:00 PM</div>
-                    </div>
-                    <div class = "writer">Tom Yoo</div>
-                    <div class = "options-container"> 
-                        <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                        <button class = "edit">EDIT</button>
-                    </div> 
-                </div>
-                
-                <div class = "game-box">
-                    <div class = "sport-container">
-                        <div class = "sport-box">Football</div>
-                        <div class = "notes-box">Big Ten Championship</div> 
-                    </div>
-                    <div class = "matchup-container">
-                        <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
-                        <div class = "where">@</div>
-                        <img class="opp-icon" src="/images/schools/Oregon.webp" alt="UO">
-                    </div>    
-                    <div class = "recap-container">
-                        <div class="home-recap"></div>
-                        <p class="recap-location">Indianapolis, Ind.</p>
-                    </div>
-                    <div class = "when-container">
-                        <div class = "date">Friday, December 3</div>
-                        <div class = "time">5:00 PM</div>
-                    </div>
-                    <div class = "writer">Tom Yoo</div>
-                    <div class = "options-container"> 
-                        <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                        <button class = "edit">EDIT</button>
-                    </div> 
-                </div>
-                
-                <div class = "game-box">
-                    <div class = "sport-container">
-                        <div class = "sport-box">Football</div>
-                        <div class = "notes-box">Big Ten Championship</div> 
-                    </div>
-                    <div class = "matchup-container">
-                        <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
-                        <div class = "where">@</div>
-                        <img class="opp-icon" src="/images/schools/Oregon.webp" alt="UO">
-                    </div>    
-                    <div class = "recap-container">
-                        <div class="home-recap"></div>
-                        <p class="recap-location">Indianapolis, Ind.</p>
-                    </div>
-                    <div class = "when-container">
-                        <div class = "date">Friday, December 3</div>
-                        <div class = "time">5:00 PM</div>
-                    </div>
-                    <div class = "writer">Tom Yoo</div>
-                    <div class = "options-container"> 
-                        <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                        <button class = "edit">EDIT</button>
-                    </div> 
-                </div>
-                
-                <div class = "game-box">
-                    <div class = "sport-container">
-                        <div class = "sport-box">Football</div>
-                        <div class = "notes-box">Big Ten Championship</div> 
-                    </div>
-                    <div class = "matchup-container">
-                        <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
-                        <div class = "where">@</div>
-                        <img class="opp-icon" src="/images/schools/Oregon.webp" alt="UO">
-                    </div>    
-                    <div class = "recap-container">
-                        <div class="home-recap"></div>
-                        <p class="recap-location">Indianapolis, Ind.</p>
-                    </div>
-                    <div class = "when-container">
-                        <div class = "date">Friday, December 3</div>
-                        <div class = "time">5:00 PM</div>
-                    </div>
-                    <div class = "writer">Tom Yoo</div>
-                    <div class = "options-container"> 
-                        <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                        <button class = "edit">EDIT</button>
-                    </div> 
-                </div>
-                
-                <div class = "game-box">
-                    <div class = "sport-container">
-                        <div class = "sport-box">Football</div>
-                        <div class = "notes-box">Big Ten Championship</div> 
-                    </div>
-                    <div class = "matchup-container">
-                        <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
-                        <div class = "where">@</div>
-                        <img class="opp-icon" src="/images/schools/Oregon.webp" alt="UO">
-                    </div>    
-                    <div class = "recap-container">
-                        <div class="home-recap"></div>
-                        <p class="recap-location">Indianapolis, Ind.</p>
-                    </div>
-                    <div class = "when-container">
-                        <div class = "date">Friday, December 3</div>
-                        <div class = "time">5:00 PM</div>
-                    </div>
-                    <div class = "writer">Tom Yoo</div>
-                    <div class = "options-container"> 
-                        <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                        <button class = "edit">EDIT</button>
-                    </div> 
-                </div>
-                
-                <div class = "game-box">
-                    <div class = "sport-container">
-                        <div class = "sport-box">Football</div>
-                        <div class = "notes-box">Big Ten Championship</div> 
-                    </div>
-                    <div class = "matchup-container">
-                        <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
-                        <div class = "where">@</div>
-                        <img class="opp-icon" src="/images/schools/Oregon.webp" alt="UO">
-                    </div>    
-                    <div class = "recap-container">
-                        <div class="home-recap"></div>
-                        <p class="recap-location">Indianapolis, Ind.</p>
-                    </div>
-                    <div class = "when-container">
-                        <div class = "date">Friday, December 3</div>
-                        <div class = "time">5:00 PM</div>
-                    </div>
-                    <div class = "writer">Tom Yoo</div>
-                    <div class = "options-container"> 
-                        <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                        <button class = "edit">EDIT</button>
-                    </div> 
-                </div>            
-
-            </div>   
-        </div>
 
         <div id="invoices" class="tab-content">
             <div class = "invoice-container">
-                <div class = "pay-period">Current Pay Period: Spring 1</div>
+                <div class = "pay-period">Current Pay Period: Spring 2</div>
                 <div class = "invoice-sections-container">
                     <div class = "invoice-history-container">
                         <div class = "invoice-history-title">Invoice History</div>
                         <div id = "invoice-entries-container" class = "invoice-entries-container"></div>
-                            <div class = "invoice-entry-box">
-                                <div class = "invoice-entry-box-date">May 9, 2025</div>
-                                <div class = "invoice-entry-box-total">$196</div>
-                            </div>
-                            <div class = "invoice-entry-box">
-                                <div class = "invoice-entry-box-date">May 9, 2025</div>
-                                <div class = "invoice-entry-box-total">$196</div>
-                            </div>
-                            <div class = "invoice-entry-box">
-                                <div class = "invoice-entry-box-date">May 9, 2025</div>
-                                <div class = "invoice-entry-box-total">$196</div>
-                            </div>
-                            <div class = "invoice-entry-box">
-                                <div class = "invoice-entry-box-date">May 9, 2025</div>
-                                <div class = "invoice-entry-box-total">$196</div>
-                            </div>
-                            <div class = "invoice-entry-box">
-                                <div class = "invoice-entry-box-date">May 9, 2025</div>
-                                <div class = "invoice-entry-box-total">$196</div>
-                            </div>
-                            <div class = "invoice-entry-box">
-                                <div class = "invoice-entry-box-date">May 9, 2025</div>
-                                <div class = "invoice-entry-box-total">$196</div>
-                            </div>
-                            <div class = "invoice-entry-box">
-                                <div class = "invoice-entry-box-date">May 9, 2025</div>
-                                <div class = "invoice-entry-box-total">$196</div>
-                            </div>
-                            <div class = "invoice-entry-box">
-                                <div class = "invoice-entry-box-date">May 9, 2025</div>
-                                <div class = "invoice-entry-box-total">$196</div>
-                            </div>                                                                                                                                                                                                    
                     </div>
 
                     <div class="invoice-options-container">
@@ -335,42 +103,17 @@
             </div>
         </div>
 
-        <div id="history" class="tab-content">
-            <div id = "history-filter-container" class = "history-filter-container"></div>
-            <div id ="history-container" class = "games-container">
-                <div class = "game-box">
-                    <div class = "sport-container">
-                        <div class = "sport-box">Football</div>
-                        <div class = "notes-box">Big Ten Championship</div> 
-                    </div>
-                    <div class = "matchup-container">
-                        <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
-                        <div class = "where">@</div>
-                        <img class="opp-icon" src="/images/schools/Oregon.webp" alt="UO">
-                    </div>    
-                    <div class = "recap-container">
-                        <div class="away-recap"></div>
-                        <p class="recap-location">Indianapolis, Ind.</p>
-                    </div>
-                    <div class = "when-container">
-                        <div class = "date">Friday, December 3</div>
-                        <div class = "time">5:00 PM</div>
-                    </div>
-                    <div class = "writer">Tom Yoo</div>
-                    <div class = "options-container"> 
-                        <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
-                        <button class = "edit">EDIT</button>
-                    </div> 
-                </div>                
+            <div id="history" class="tab-content">
+                <div id = "history-filter-container" class = "history-filter-container"></div>
+                <div id ="history-container" class = "games-container"></div>
             </div>
-        </div>
 
         <div id = "resources" class = "tab-content">
             <div class = "resources-container">
 
                 <div class = "resources-box resources-dropdown">
                     <div class = "resources-box-icon-container">
-                        <img class = "resources-box-icon" src="images/daily_logo.png">
+                        <img class = "resources-box-icon" src="/images/daily_logo.png">
                     </div>
                     <div class = "resources-dropdown-header" onclick = "toggleDropdown(this)">
                         <span> Sports Development Slides</span>
@@ -395,54 +138,43 @@
 
                 <div class = "resources-box">
                     <div class = "resources-box-icon-container">
-                        <img class="resources-box-icon" src = "images/resources/handbook.png">
+                        <img class="resources-box-icon" src = "/images/resources/handbook.png">
                     </div>
                     <a class = "resources-box-title" href="https://docs.google.com/document/d/1AbVTnk5L6iNMqlh9C_b17tAvUl_IknHFXK7T5YS08dg/edit?tab=t.0" target="_blank">The Daily Handbook</a>
-                </div>  
+                </div> 
+                <div class = "resources-box">
+                    <div class = "resources-box-icon-container">
+                        <img class="resources-box-icon" src = "/images/resources/report-problem.png">
+                    </div>
+                    <a class = "resources-box-title" href="https://docs.google.com/forms/d/e/1FAIpQLSc98LB9Yu3QEjQdDW9DqhK5CnI_7JfeTIdHv6C76-5qVOZ5CQ/viewform?usp=header" target="_blank">Report Problem</a> 
             </div>    
+        </div>
         </div>
 
         <div id = "settings" class = "tab-content">
             <div class = "settings-container">
                 <div class = "settings-option" onclick = "openWritersModal()">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
+                    <img class = "settings-icon" src = "/images/settings/writers.png">
                     <div class = "settings-title">Writers</div>
                 </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/editwriter.png">
-                    <div class = "settings-title">Edit Writer</div>
-                </div>
                  <div class = "settings-option" onclick = "openSportsModal()">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
+                    <img class = "settings-icon" src = "/images/settings/sports.png">
                     <div class = "settings-title">Sports</div>
                 </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Edit Sport</div>
-                </div>
                 <div class = "settings-option" onclick = "openAddSeasonModal()">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
+                    <img class = "settings-icon" src = "/images/settings/add-season.png">
                     <div class = "settings-title">Add Season</div>
                 </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
+                <div class = "settings-option" onclick = "openSearchGamesModal()">
+                    <img class = "settings-icon" src = "/images/settings/search.png">
                     <div class = "settings-title">Search Game</div>
-                </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Contacts</div>
-                </div>
-                <div class = "settings-option">
-                    <img class = "settings-icon" src = "/pages/dashboard/settings/addwriter.png">
-                    <div class = "settings-title">Report Problem</div>
                 </div>                                                                                               
             </div>
         </div>
-     
-    </div>    
-         <!-- CLOSE .content HERE -->
 
-        <!-- Sidebar / Twitter feed -->
+        </div>
+
+
         <div class="links-container">
             <div class = "links-box links-dropdown">
             <div class="links-dropdown-header" onclick="toggleDropdown(this)">
@@ -461,12 +193,13 @@
                     <a href = "https://drive.google.com/drive/u/0/home" target = "_blank">Google Drive</a>
                     <a href="https://x.com/UWDailySports" target="_blank">X</a>
                     <a href="https://www.instagram.com/uwdailysports/" target="_blank">Instagram</a>
+                    <a href = "schools.html" target="_blank">Schools</a>
                 </div>  
             </div>        
         </div>
-    </div> <!-- CLOSE .main -->
 
-    <div id = "toast-container"></div>    
+    </div> 
+<div id = "toast-container"></div>    
 </div>
 
 <div class="bottom">
@@ -506,7 +239,7 @@
                 <div class="filter-box" data-value="Away">Away</div>
             </div>
         </div>
-        <button class = "add-game" onclick = "openAddGameModal()"></button>
+        <button class = "add-game"></button>
     </div>
 </template>
 
@@ -565,10 +298,11 @@
 </template>
 
 <div id="assign-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>Assign Writer</h2>
-
+    <div class="assign-modal-content">
+        <div class = "modal-header">
+            <h2>Assign Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
         <select id="writer-select">
             <option value="">Select a writer</option>
         </select>
@@ -579,15 +313,17 @@
 
 <div id="add-modal" class="modal">
     <div class="add-modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>Game Information</h2>
+        <div class = "modal-header">
+            <h2>Add Game</h2>
+            <span class="close-button">&times;</span>
+        </div>
         <select id="sport-input" class = "add-box">
             <option value="">Select a sport</option>
         </select>  
         <input type="text" id="opponent-input" class = "add-box" placeholder="Opponent">
         <input type="text" id="location-input" class = "add-box" placeholder="Location">
         <input type="date" id="date-input" class = "add-box">
-        <input type="time" id="time-input" class = "add-box">
+        <input type="text" id="time-input" class = "add-box" placeholder="Time">
         <input type="text" id="notes-input" class = "add-box" placeholder="Notes">
         <button id="confirm-add" class = "confirm-add">Add Game</button>
     </div>
@@ -595,15 +331,17 @@
 
 <div id="edit-modal" class="modal">
     <div class="edit-modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>Game Information</h2>
+        <div class = "modal-header">
+            <h2>Edit Game</h2>
+            <span class="close-button">&times;</span>
+        </div>
         <select id="edit-sport-input" class = "edit-box">
             <option value="">Select a sport</option>
         </select>  
         <input type="text" id="edit-opponent-input" class = "edit-box" placeholder="Opponent">
         <input type="text" id="edit-location-input" class = "edit-box" placeholder="Location">
         <input type="date" id="edit-date-input" class = "edit-box">
-        <input type="time" id="edit-time-input" class = "edit-box">
+        <input type="text" id="edit-time-input" class = "edit-box" placeholder="Time">
         <input type="text" id="edit-notes-input" class = "edit-box" placeholder="Notes">
         <button id = "confirm-edit" class = "confirm-edit">Edit Game</button>
         <button id ="delete-game" class = "delete-game">Delete Game</button>
@@ -615,7 +353,7 @@
         <div class = "modal-header">
             <h2>Add Invoice</h2>
             <span class="close-button">&times;</span>
-        </div>
+    </div>
         <input type = "date" id="invoice-date-input" class = "add-invoice-box" placeholder="Date">
         <input type = "number" id="invoice-total-input" class = "add-invoice-box" placeholder="Total Amount">
         <input type = "text" id="invoice-link-input" class = "add-invoice-box" placeholder="Link to Invoice (Optional)">
@@ -628,23 +366,73 @@
     <div class = "writers-modal-content">
         <div class = "modal-header">
             <h2>Writers</h2>
-            <span class = "close-button">&times;</span>
+            <span class = "close-button" onclick = "closeModal('writers-modal')">&times;</span>
         </div>
+        <button class = "add-writer-button" onclick = "openAddWriterModal()">+ Add Writer</button>
         <div class = "writer-list-title">
             <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">First Name</div>
             <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Last Name</div>
             <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Position</div>
-            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Email</div>
+            <div class = "writer-list-entry-section" style="width: 15%; font-size: 18px; font-weight: bold;color:#360f5a">Email</div>
             <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Phone</div>
             <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">X</div>
             <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Headshot</div>
             <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Hire Date</div>
             <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">End Date</div>
-            <div class = "writer-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a"></div>
+            <div class = "writer-list-entry-section" style="width: 5%; font-size: 18px; font-weight: bold;color:#360f5a"></div>
         </div>
-        <div class = "writer-list-container"></div>
+        <div id = "writer-list-container" class = "writer-list-container">
+            <div class = "writer-list-entry-container">
+                <div class = "writer-list-entry-section">Andrew</div>
+                <div class = "writer-list-entry-section">Soozay</div>
+                <div class = "writer-list-entry-section">editor</div>
+                <div class = "writer-list-entry-section" style="width: 15%;">sousa21@uw.edu</div>
+                <div class = "writer-list-entry-section">925-394-8406</div>
+                <div class = "writer-list-entry-section">@andrew_soozay</div>
+                <div class = "writer-list-entry-section">Link</div>
+                <div class = "writer-list-entry-section">01/06/2023</div>
+                <div class = "writer-list-entry-section">01/04/2026</div>
+                <div class = "writer-list-entry-section" style="width: 5%;">&hellip;</div>
+            </div>
+        </div>
     </div>
 </div>
+
+<div id = "edit-writer-modal" class = "modal">
+    <div class = "edit-writer-modal-content">
+        <div class = "modal-header">
+            <h2>Edit Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <input type = "text" id = "edit-writer-first-name" class = "edit-writer-box" placeholder="First Name">
+        <input type = "text" id = "edit-writer-last-name" class = "edit-writer-box" placeholder="Last Name">
+        <input type = "text" id = "edit-writer-position" class = "edit-writer-box" placeholder="Position">
+        <input type = "text" id = "edit-writer-email" class = "edit-writer-box" placeholder="Email">
+        <input type = "text" id = "edit-writer-phone" class = "edit-writer-box" placeholder="Phone">
+        <input type = "text" id = "edit-writer-x" class = "edit-writer-box" placeholder="Writer X">
+        <input type = "text" id = "edit-writer-headshot" class = "edit-writer-box" placeholder="Writer Headshot">
+        <input type = "date" id = "edit-writer-hire-date" class = "edit-writer-box" placeholder="Hire Date">
+        <input type = "date" id = "edit-writer-end-date" class = "edit-writer-box" placeholder="End Date">
+        <button id = "edit-writer-confirm" class = "edit-writer-confirm">Confirm Edits</button>
+    </div>
+</div> 
+
+<div id = "add-writer-modal" class = "modal">
+    <div class = "add-writer-modal-content">
+        <div class = "modal-header">
+            <h2>Add Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <input type = "text" id = "new-writer-first-name" class = "add-writer-box" placeholder="First Name">
+        <input type = "text" id = "new-writer-last-name" class = "add-writer-box" placeholder="Last Name">
+        <input type = "text" id = "new-writer-email" class = "add-writer-box" placeholder="Writer Email">
+        <input type = "text" id = "new-writer-phone" class = "add-writer-box" placeholder="Writer Phone">
+        <input type = "text" id = "new-writer-x" class = "add-writer-box" placeholder="Writer X">
+        <input type = "text" id = "new-writer-headshot" class = "add-writer-box" placeholder="Writer Headshot">
+        <input type = "date" id = "new-writer-hire-date" class = "add-writer-box" placeholder="Hire Date">
+        <button id = "add-writer-confirm" class = "add-writer-confirm">Add Writer</button>
+    </div>
+</div>    
 
 <div id = "sport-modal" class = "modal">
     <div class = "sport-modal-content">
@@ -652,6 +440,7 @@
             <h2>Sports</h2>
             <span class = "close-button">&times;</span>
         </div>
+        <button class = "add-sport-button" onclick = "openAddSportModal()">+ Add Sport</button>
         <div class = "sport-list-title">
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Sport</div>
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">SID</div>
@@ -659,136 +448,37 @@
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Phone</div>
             <div class = "sport-list-entry-options" style="font-size: 18px; font-weight: bold;color:#360f5a"></div>
         </div>
-        <div class = "sport-list-container">
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Baseball</div>
-                <div class = "sport-list-entry-section">Jack Larkin</div>
-                <div class = "sport-list-entry-section">jplark@uw.edu</div>
-                <div class = "sport-list-entry-section"></div>  
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>              
-            </div>
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Beach Volleyball</div>
-                <div class = "sport-list-entry-section">Karalee Bergsma</div>
-                <div class = "sport-list-entry-section">kbergsman@uw.edu</div>
-                <div class = "sport-list-entry-section"></div>  
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>              
-            </div> 
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Cross Country</div>
-                <div class = "sport-list-entry-section">Mike Bruscas</div>
-                <div class = "sport-list-entry-section">mburscas@uw.edu</div>
-                <div class = "sport-list-entry-section">206-714-5556</div>
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>                
-            </div> 
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Football</div>
-                <div class = "sport-list-entry-section">Jeff Bechtold</div>
-                <div class = "sport-list-entry-section">bechtold@uw.edu</div>
-                <div class = "sport-list-entry-section">206-685-7910</div> 
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>               
-            </div>  
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Gymnastics</div>
-                <div class = "sport-list-entry-section">Karalee Bergsma</div>
-                <div class = "sport-list-entry-section">kbergsman@uw.edu</div>
-                <div class = "sport-list-entry-section"></div>  
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>              
-            </div> 
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Men's Basketball</div>
-                <div class = "sport-list-entry-section">Mitch Praxl</div>
-                <div class = "sport-list-entry-section">mpraxl@uw.edu</div>
-                <div class = "sport-list-entry-section">662-816-9914</div>   
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>             
-            </div>   
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Men's Golf</div>
-                <div class = "sport-list-entry-section">Hailee Roe</div>
-                <div class = "sport-list-entry-section">hroe2@uw.edu</div>
-                <div class = "sport-list-entry-section"></div>   
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>             
-            </div>      
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Men's Rowing</div>
-                <div class = "sport-list-entry-section">Jeff Bechtold</div>
-                <div class = "sport-list-entry-section">bechtold@uw.edu</div>
-                <div class = "sport-list-entry-section">206-685-7910</div>  
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>              
-            </div>
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Men's Soccer</div>
-                <div class = "sport-list-entry-section">Jack Larkin</div>
-                <div class = "sport-list-entry-section">jplark@uw.edu</div>
-                <div class = "sport-list-entry-section">206-206-2066</div>     
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>           
-            </div>  
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Men's Tennis</div>
-                <div class = "sport-list-entry-section">Mike Bruscas</div>
-                <div class = "sport-list-entry-section">mburscas@uw.edu</div>
-                <div class = "sport-list-entry-section">206-714-5556</div>
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>                
-            </div> 
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Softball</div>
-                <div class = "sport-list-entry-section">Emily Solomon</div>
-                <div class = "sport-list-entry-section">emsol23@uw.edu</div>
-                <div class = "sport-list-entry-section"></div>
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>                
-            </div>       
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Track & Field</div>
-                <div class = "sport-list-entry-section">Mike Bruscas</div>
-                <div class = "sport-list-entry-section">mburscas@uw.edu</div>
-                <div class = "sport-list-entry-section">206-714-5556</div>  
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>              
-            </div>
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Volleyball</div>
-                <div class = "sport-list-entry-section">Mike Bruscas</div>
-                <div class = "sport-list-entry-section">mburscas@uw.edu</div>
-                <div class = "sport-list-entry-section">206-714-5556</div>
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>                
-            </div> 
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Women's Basketball</div>
-                <div class = "sport-list-entry-section">Ty Gilstrap</div>
-                <div class = "sport-list-entry-section">tygilst@uw.edu</div>
-                <div class = "sport-list-entry-section">760-213-7855</div>  
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>              
-            </div> 
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Women's Golf</div>
-                <div class = "sport-list-entry-section">Emily Solomon</div>
-                <div class = "sport-list-entry-section">emsol23@uw.edu</div>
-                <div class = "sport-list-entry-section"></div>   
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>             
-            </div>  
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Women's Rowing</div>
-                <div class = "sport-list-entry-section">Jeff Bechtold</div>
-                <div class = "sport-list-entry-section">bechtold@uw.edu</div>
-                <div class = "sport-list-entry-section">206-685-7910</div>
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>                
-            </div>  
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Women's Soccer</div>
-                <div class = "sport-list-entry-section">Mitch Praxl</div>
-                <div class = "sport-list-entry-section">mpraxl@uw.edu</div>
-                <div class = "sport-list-entry-section">662-816-9914</div> 
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>               
-            </div>
-            <div class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section">Women's Tennis</div>
-                <div class = "sport-list-entry-section">Hailee Roe</div>
-                <div class = "sport-list-entry-section">hroe2@uw.edu</div>
-                <div class = "sport-list-entry-section">206-206-2066</div>  
-                <div class = "sport-list-entry-options" style="font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>              
-            </div>                                                                                                                                                                               
-        </div>
+        <div class = "sport-list-container" id = "sport-list-container"></div>
     </div>
 </div>
+
+<div id = "edit-sport-modal" class = "modal">
+    <div class = "edit-sport-modal-content">
+        <div class = "modal-header">
+            <h2>Edit Sport</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <input type = "text" id = "edit-sport-name" class = "edit-sport-box" placeholder="Sport Name">
+        <input type = "text" id = "edit-sport-sid" class = "edit-sport-box" placeholder="SID">
+        <input type = "text" id = "edit-sport-email" class = "edit-sport-box" placeholder="Email">
+        <input type = "text" id = "edit-sport-phone" class = "edit-sport-box" placeholder="Phone">
+        <button id = "edit-sport-confirm" class = "edit-sport-confirm">Confirm Edits</button>
+    </div>
+</div>
+
+<div id = "add-sport-modal" class = "modal">
+    <div class = "add-sport-modal-content">
+        <div class = "modal-header">
+            <h2>Add Sport</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <input type = "text" id = "new-sport-name" class = "add-sport-box" placeholder="Sport Name">
+        <input type = "text" id = "new-sport-sid" class = "add-sport-box" placeholder="SID">
+        <input type = "text" id = "new-sport-email" class = "add-sport-box" placeholder="Email">
+        <input type = "text" id = "new-sport-phone" class = "add-sport-box" placeholder="Phone">
+        <button id = "add-sport-confirm" class = "add-sport-confirm">Add Sport</button>
+    </div>
+</div> 
 
 <div id="add-season-modal" class="modal">
     <div class="add-season-modal-content">
@@ -811,15 +501,41 @@
             Add Season
         </button>
     </div>
+</div>   
+
+<div id = "search-games-modal" class = "modal">
+    <div class = "search-games-modal-content">
+        <div class = "modal-header">
+            <h2>Search Games</h2>
+            <span class = "close-button">&times;</span>
+        </div>
+        <input id="search-games-input" type="text" placeholder="Search Games" class="search-games-input"/>        
+        <div class = "search-games-list-title">
+            <div class = "search-games-list-entry-section" style="width: 5%; padding-left: 1%; font-size: 16px; font-weight: bold;color:#360f5a">ID</div>
+            <div class = "search-games-list-entry-section" style="width: 10%; font-size: 16px; font-weight: bold;color:#360f5a">Date</div>
+            <div class = "search-games-list-entry-section" style="width: 15%; font-size: 16px; font-weight: bold;color:#360f5a">Sport</div>
+            <div class = "search-games-list-entry-section" style="width: 15%; font-size: 16px; font-weight: bold;color:#360f5a">Opponent</div>
+            <div class = "search-games-list-entry-section" style="width: 15%; font-size: 16px; font-weight: bold;color:#360f5a">Location</div>
+            <div class = "search-games-list-entry-section" style="width: 10%; font-size: 16px; font-weight: bold;color:#360f5a">Time</div>
+            <div class = "search-games-list-entry-section" style="width: 5%; font-size: 16px; font-weight: bold;color:#360f5a">Notes</div>
+            <div class = "search-games-list-entry-section" style="width: 15%; font-size: 16px; font-weight: bold;color:#360f5a">Writer</div>
+            <div class = "search-games-list-entry-section" style="width: 5%; font-size: 16px; font-weight: bold;color:#360f5a">Covered</div>
+            <div class = "list-options"></div>
+            <div class="search-games-list-entry-section" style="width: 5%;"></div>
+        </div>
+        <div id = "search-games-list-container" class = "search-games-list-container"></div>
+    </div>
 </div>
+
 
 </body>
 
 <!---- Java Scripts--> 
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="/js/dashboard.js"></script>
-<script src = "/js/filters.js"></script>
 <script src = "/js/tabs.js"></script>
+<script src = "/js/filters.js"></script>
 <script src = "/js/games.js"></script>
 <script src = "/js/all-scheduled-games.js"></script>
 <script src = "/js/game-editor.js"></script>
@@ -828,6 +544,7 @@
 <script src = "/js/writer-modal.js"></script>
 <script src = "/js/sport-modal.js"></script>
 <script src = "/js/add-season.js"></script>
+<script src = "/js/search-games-modal.js"></script>
 <script src = "/js/tools.js"></script>
 
  
