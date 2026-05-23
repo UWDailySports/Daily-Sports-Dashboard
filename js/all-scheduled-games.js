@@ -99,19 +99,18 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [] }) {
             </div>
             <div class = "writer">${name}</div>
             <div class = "options-container"> 
-                <button class = "game-option" data-game-id = "${gameId}">REMOVE</button>
+                <button class = "game-option" data-game-id = "${gameId}" data-action="remove">REMOVE</button>
                 <button class = "game-option" onclick="openEditGameModal(${gameId}, 'all-games-filter-container')">EDIT</button>
             </div>    
         `;
 
         container.appendChild(gameBox);
 
-        const removeButton = gameBox.querySelector(".remove");
+        const removeButton = gameBox.querySelector('[data-action="remove"]');
         removeButton.addEventListener("click", async (e) => {
             const gameId = e.target.getAttribute("data-game-id");
 
             await remove(gameId);
-
             fetchAllScheduledGames(allScheduledFilters);
         });
     });
