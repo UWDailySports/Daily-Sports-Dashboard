@@ -4,7 +4,7 @@
     /* Layout */
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 10px;
 
     /* Size/Shape */
     width: 100%;
@@ -13,7 +13,7 @@
     padding: 1% 0 0 1px;
 
     /* Misc */  
-    overflow-y: scroll;   
+    overflow-y: auto;   
 }
 /* #endregion */
 
@@ -24,6 +24,7 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    flex-shrink: 0;
 
     /* Size/Shape */
     width: 100%;
