@@ -75,9 +75,9 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [] }
                 <div class = "notes-box">${notes}</div> 
             </div>
             <div class = "matchup-container">
-                <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
+                <img class = "sport-icon" src = "/images/schools/Washington.webp" alt = "UW">
                 <div class = "where">${where}</div>
-                <img class="opp-icon" src="/images/schools/${opp}.webp" alt="${opp}">
+                <img class="sport-icon" src="/images/schools/${opp}.webp" alt="${opp}">
             </div>
             <div class = "recap-container">
                 <div class="${recap_css}"></div>
@@ -88,7 +88,7 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [] }
                 <div class = "time">${time}</div>
             </div>    
             <div class = "options-container">
-                <button class = "remove" data-game-id = "${gameId}">REMOVE</button>
+                <button class = "game-option" data-game-id = "${gameId}">REMOVE</button>
             </div>
             `;
 

@@ -52,14 +52,6 @@
 
 /* #region no-games */
 .no-games {
-    /* Layout */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    justify-self: center;
-    flex-shrink: 0;
-
     /* Size / Shape */
     width: 90%;
     height: 90%;
@@ -72,6 +64,7 @@
     background-color: #e6e8ef;
 
     /* Text */
+    text-align: center;
     font-size: 24px;
     color: gray;
 }
