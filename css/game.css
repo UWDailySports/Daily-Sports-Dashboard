@@ -126,13 +126,13 @@
 .matchup-container {
     /* Layout */
     display: flex;
-    flex: 2;
+    flex: 0 0 clamp(140px, 18%, 280px);
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
 
     /* Size/Shape */
-    height: 80%;
+    min-width: 0;
 }
 /* #endregion */
 
