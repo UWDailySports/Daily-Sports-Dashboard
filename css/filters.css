@@ -10,13 +10,10 @@
     /* Size/Shape */
     height: 60px;
     width: 100%;
-    padding-left: 40px;
+    padding-left: 30px;
 
     /* Background */
     background-color: #360f5a;
-    /* Text */ 
-        
-    /* Misc */
 }
 
 .filter-dropdown {
@@ -30,6 +27,15 @@
     background: white;
     cursor: pointer;
     font-weight: 600;
+    font-family: "Segoe UI", system-ui, sans-serif;;
+}
+
+.filter-dropdown-button:hover {
+    /* Background */
+    background: #fafafa;
+
+    /* Misc */
+    transition: background 0.1s ease;
 }
 
 .filter-dropdown-menu {

@@ -20,7 +20,7 @@ tabHandlers["all-games"] = async function () {
 //         (2) statusCode 500 if error in DB query
 // #region fetchAllScheduledGames //
 
-async function fetchAllScheduledGames(filters = { sports: [], locations: [] }) {
+async function fetchAllScheduledGames(filters = { sports: [], locations: [], months: [] }) {
     const response = await fetch("/.netlify/functions/all-schedule", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
