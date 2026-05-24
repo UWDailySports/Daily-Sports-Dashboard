@@ -5,7 +5,7 @@ exports.handler = async (event) => {
     const body = JSON.parse(event.body);
     const writerId = body.writerId;
     const { filters = {} } = body;
-    const { sports = [], locations = [] } = filters;
+    const { sports = [], locations = [], months = [] } = filters;
 
     console.log("Request body:", body);
 
@@ -45,6 +45,11 @@ exports.handler = async (event) => {
       } else if (locations[0] === "Away") {
         query += ` AND location != 'Seattle, Wash.'`;
       }
+    }
+
+    if (months.length > 0) {
+        values.push(months);
+        query += ` AND SUBSTRING(date, 6, 2) = ANY($${values.length})`;
     }
 
     query += ` ORDER BY date, time`;

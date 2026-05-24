@@ -4,7 +4,7 @@ exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body);
     const { filters = {} } = body;
-    const { sports = [], locations = [] } = filters;
+    const { sports = [], locations = [], months = [] } = filters;
 
     console.log("Request body:", body);
 
@@ -43,7 +43,12 @@ exports.handler = async (event) => {
         query += ` AND "Games".location != 'Seattle, Wash.'`;
       }
     }
-
+    
+    if (months.length > 0) {
+        values.push(months);
+        query += ` AND SUBSTRING(date, 6, 2) = ANY($${values.length})`;
+    }
+    
     query += ` ORDER BY "Games".date, "Games".time`;
 
     console.log("Final query:", query);

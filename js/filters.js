@@ -95,14 +95,20 @@ function createFilterDropdown(containerId, title, options, activeFilters, filter
             </button>
 
             <div class="filter-dropdown-menu">
-                ${options.map(option => `
-                    <label class="filter-option">
-                        <input type="checkbox"
-                               value="${option}"
-                               ${activeFilters[filterKey].includes(option) ? "checked" : ""}>
-                        ${option}
-                    </label>
-                `).join("")}
+                ${options.map(option => {
+                    const label = option.label || option;
+                    const value = option.value || option;
+
+                    return `
+                        <label class="filter-option">
+                            <input type="checkbox"
+                                value="${value}"
+                                ${(activeFilters[filterKey] || []).includes(value) ? "checked" : ""}
+                            >
+                            ${label}
+                        </label>
+                    `;
+                }).join("")}
             </div>
         </div>
     `;
@@ -163,7 +169,18 @@ async function buildFilters(containerId, filters, fetchFn) {
     createFilterDropdown(
         `${containerId}-month`,
         "Month",
-        ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        [{ label: "January", value: 1 },
+            { label: "February", value: 2 },
+            { label: "March", value: 3 },
+            { label: "April", value: 4 },
+            { label: "May", value: 5 },
+            { label: "June", value: 6 },
+            { label: "July", value: 7 },
+            { label: "August", value: 8 },
+            { label: "September", value: 9 },
+            { label: "October", value: 10 },
+            { label: "November", value: 11 },
+            { label: "December", value: 12}],
         filters,
         "months",
         fetchFn

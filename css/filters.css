@@ -2,9 +2,10 @@
 .games-filter-container {
     /* Layout */
     display: flex;
+    justify-content: space-between;
 
     /* Size/Shape */
-    height: 60px;
+    height: 80px;
     width: 100%;
 
     /* Background */

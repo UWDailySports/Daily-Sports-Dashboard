@@ -4,7 +4,7 @@ exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body);
     const { filters = {} } = body;   // default to empty object
-    const { sports = [], locations = [] } = filters;  // default to empty arrays
+    const { sports = [], locations = [], months = [] } = filters;  // default to empty arrays
 
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
@@ -27,10 +27,9 @@ exports.handler = async (event) => {
 }).format(new Date());
     let values = [today];
 
-    // Filter by sports if any
-    if (sports.length > 0) {
+     if (sports.length > 0) {
       values.push(sports);
-      query += ` AND sport = ANY($${values.length})`;  // $1, $2, etc.
+      query += ` AND sport = ANY($${values.length})`; 
     }
 
     // Filter by locations
@@ -41,7 +40,11 @@ exports.handler = async (event) => {
         query += ` AND location != 'Seattle, Wash.'`;
       }
     }
-    // if locations.length === 0 or 2, no location filter applied
+
+    if (months.length > 0) {
+        values.push(months);
+        query += ` AND SUBSTRING(date, 6, 2) = ANY($${values.length})`;
+    }
 
     // Ordering
     query += ` ORDER BY date, time`;
