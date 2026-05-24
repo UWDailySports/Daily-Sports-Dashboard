@@ -84,17 +84,79 @@ function toggleFilterValue(array, value) {
 // #endregion //
 
 
-// Function: loadHistoryFilters
-// Purpose: Loads the filters for the history tab
-// Returns: None
-// Parameters: None
-// #region loadHistoryFilters() //
-function loadHistoryFilters() {
-    const template = document.getElementById("history-filter-template");
-    const container = document.getElementById("history-filter-container");
 
-    container.innerHTML = "";
-    const clone = template.content.cloneNode(true);
-    container.appendChild(clone);
+function createFilterDropdown(containerId, title, options, activeFilters, filterKey, onChange) {
+    const container = document.getElementById(containerId);
+
+    container.innerHTML = `
+        <div class="filter-dropdown">
+            <button class="filter-dropdown-button">
+                ${title} (${activeFilters[filterKey].length}) ▼
+            </button>
+
+            <div class="filter-dropdown-menu">
+                ${options.map(option => `
+                    <label class="filter-option">
+                        <input type="checkbox"
+                               value="${option}"
+                               ${activeFilters[filterKey].includes(option) ? "checked" : ""}>
+                        ${option}
+                    </label>
+                `).join("")}
+            </div>
+        </div>
+    `;
+
+    const button = container.querySelector(".filter-dropdown-button");
+    const menu = container.querySelector(".filter-dropdown-menu");
+
+    button.addEventListener("click", () => {
+        menu.classList.toggle("open");
+    });
+
+    menu.querySelectorAll("input").forEach(input => {
+        input.addEventListener("change", () => {
+
+            activeFilters[filterKey] =
+                [...menu.querySelectorAll("input:checked")]
+                    .map(i => i.value);
+
+            button.textContent =
+                `${title} (${activeFilters[filterKey].length}) ▼`;
+
+            onChange(activeFilters);
+        });
+    });
 }
-// #endregion //
+
+async function buildFilters(containerId, filters, fetchFn) {
+    const sports = await getSports();
+
+    createFilterDropdown(
+        `${containerId}-sport`,
+        "Sport",
+        sports,
+        filters,
+        "sports",
+        fetchFn
+    );
+
+    createFilterDropdown(
+        `${containerId}-location`,
+        "Location",
+        ["Home", "Away"],
+        filters,
+        "locations",
+        fetchFn
+    );
+
+    createFilterDropdown(
+        `${containerId}-month`,
+        "Month",
+        months,
+        filters,
+        "months",
+        fetchFn
+    );
+
+}

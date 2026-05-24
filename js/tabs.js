@@ -41,7 +41,7 @@ window.showTab = function(event, tabId) {
 tabHandlers["production"] = function() {
     const container = document.getElementById("production");
 
-    /*if (!container.hasChildNodes()) {
+    if (!container.hasChildNodes()) {
         const iframe = document.createElement("iframe");
         iframe.src = "https://docs.google.com/spreadsheets/d/1ReZfEgHbrBQnmULJR40Ko-4otU7xScpkCjUSmtFUXQI/edit?gid=1543249032#gid=1543249032";
         iframe.style.width = "100%";
@@ -49,38 +49,27 @@ tabHandlers["production"] = function() {
         iframe.style.border = "none";
 
         container.appendChild(iframe);
-    }*/
+    }
 };
 
 
-tabHandlers["scheduled-games"] = function() {
-    const container = document.getElementById("scheduled-games-filter-container");
-
-    if (!container.hasChildNodes()) {
-        createGamesFilter(
-            "scheduled-games-filter-container",
-            myScheduleFilters,
-            filters => {
-                fetchMySchedule(currWriter.writer_id, filters);
-            });
-    }
+tabHandlers["scheduled-games"] = async function () {
+    await buildFilters(
+        "scheduled-games-filter-container",
+        myScheduleFilters,
+        filters => fetchMySchedule(currWriter.writer_id, filters)
+    );
 
     fetchMySchedule(currWriter.writer_id, myScheduleFilters);
 };
 
 
-tabHandlers["available-games"] = function () {
-    const container = document.getElementById("available-games-filter-container");
-
-    if (!container.hasChildNodes()) {
-        createGamesFilter(
-            "available-games-filter-container",
-            availableFilters,
-            filters => {
-                fetchAvailableGames(filters);
-            }
-        );
-    }
+tabHandlers["available-games"] = async function () {
+    await buildFilters(
+        "available-games-filter-container",
+        availableFilters,
+        fetchAvailableGames
+    );
 
     fetchAvailableGames(availableFilters);
 };
@@ -91,37 +80,11 @@ tabHandlers["invoices"] = function() {
 };
 
 
-tabHandlers["history"] = function() {
-    const filterContainer = document.getElementById("history-filter-container");
-
-    if (!filterContainer.hasChildNodes()) {
-        loadHistoryFilters(); 
-
-        const container = document.getElementById("history-filter-container");
-        const boxes = container.querySelectorAll(".filter-box, .history-month-box, .history-location-box");
-
-        boxes.forEach(box => {
-            box.addEventListener("click", () => {
-                box.classList.toggle("active");
-
-                const value = box.dataset.value;
-
-                if (box.closest(".sport-options")) {
-                    toggleFilterValue(historyFilters.sports, value);
-                }
-
-                if (box.closest(".location-options")) {
-                    toggleFilterValue(historyFilters.locations, value);
-                }
-
-                if (box.closest(".month-options")) {
-                    toggleFilterValue(historyFilters.months, value);
-                }
-
-                fetchHistoryGames(currWriter.writer_id, historyFilters);
-            });
-        });
-    }
+tabHandlers["history"] = async function () {
+    await buildFilters(
+        "history-filter-container",
+        historyFilters,
+        filters => fetchHistoryGames(currWriter.writer_id, filters));
 
     fetchHistoryGames(currWriter.writer_id, historyFilters);
 };

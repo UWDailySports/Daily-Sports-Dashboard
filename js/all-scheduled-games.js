@@ -2,19 +2,14 @@
 
 let allScheduledFilters = { sports: [], locations: [] };
 
-tabHandlers["all-games"] = function() {
-    const container = document.getElementById("all-games-filter-container");
+tabHandlers["all-games"] = async function () {
+    await buildFilters(
+        "all-games-filter-container",
+        allScheduledFilters,
+        filters => fetchAllScheduledGames(currWriter.writer_id, filters)
+    );
 
-    if (!container.hasChildNodes()) {
-        createGamesFilter(
-            "all-games-filter-container",
-            allScheduledFilters,
-            filters => {
-                fetchAllScheduledGames(filters);
-            });
-    }
-
-    fetchAllScheduledGames(allScheduledFilters);
+    fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
 };
 
 // Function: fetchAllScheduledGames

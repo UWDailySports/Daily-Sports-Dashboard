@@ -56,20 +56,11 @@ document.getElementById("confirm-add").onclick = async () => {
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region loadSports() //
-async function loadSports(selectId) {
+async function getSports() {
     const response = await fetch("/.netlify/functions/get-sports");
     const data = await response.json();
-    const sports = data.sports;
 
-    const select = document.getElementById(selectId);
-    select.innerHTML = "";
-
-    sports.forEach(sport => {
-        const option = document.createElement("option");
-        option.value = sport.sport;
-        option.textContent = sport.sport;
-        select.appendChild(option);
-    });
+    return data.sports.map(s => s.sport);
 }
 // #endregion //
 

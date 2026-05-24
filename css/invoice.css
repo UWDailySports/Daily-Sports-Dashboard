@@ -184,12 +184,20 @@
         
     /* Misc */
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;  
+    transition: transform 0.1s ease, 
+                box-shadow 0.1s ease,
+                background 0.1s ease;      
 }
 
-.invoice-option-box:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0,0,0,.15);
+.invoice-option-box:hover {   
+    /* Background */
+    background: #4a1a7a;
+    box-shadow:
+        0 14px 35px rgba(0,0,0,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+
+    /* Misc */    
+    transform: translateY(-4px);    
 }
 /* #endregion */
 
