@@ -170,9 +170,9 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
                 <div class = "notes-box">${notes}</div> 
             </div>
             <div class = "matchup-container">
-                <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
+                <img class = "school-icon" src = "/images/schools/Washington.webp" alt = "UW">
                 <div class = "where">${where}</div>
-                <img class="opp-icon" src="/images/schools/${opp}.webp" alt="${opp}">
+                <img class="school-icon" src="/images/schools/${opp}.webp" alt="${opp}">
             </div>    
             <div class = "recap-container">
                 <div class="${recap_css}"></div>
@@ -183,7 +183,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
                 <div class = "time">${time}</div>
             </div>    
             <div class = "options-container"> 
-                <button class = "add" data-game-id = "${gameId}">ADD</button>
+                <button class = "game-option" onclick = "signup(${gameId}, currWriter.writer_id)>ADD</button>
             </div>    
             `;``
         }
@@ -195,9 +195,9 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
                 <div class = "notes-box">${notes}</div> 
             </div>
             <div class = "matchup-container">
-                <img class = "washington-icon" src = "/images/schools/Washington.webp" alt = "UW">
+                <img class = "school-icon" src = "/images/schools/Washington.webp" alt = "UW">
                 <div class = "where">${where}</div>
-                <img class="opp-icon" src="/images/schools/${opp}.webp" alt="${opp}">
+                <img class="school-icon" src="/images/schools/${opp}.webp" alt="${opp}">
             </div>    
             <div class = "recap-container">
                 <div class="${recap_css}"></div>
@@ -208,7 +208,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
                 <div class = "time">${time}</div>
             </div>    
             <div class = "options-container"> 
-                <button class = "add" data-game-id = "${gameId}">ADD</button>
+                <button class = "game-option" onclick = signup(${gameId}, currWriter.writerId)>ADD</button>
                 <button class= "assign" onclick="openAssignModal(${gameId})">ASSIGN</button>
                 <button class = "edit" onclick="openEditGameModal(${gameId}, 'available-games-filter-container')">EDIT</button>
             </div>    
@@ -216,13 +216,6 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
         }
         
         container.appendChild(gameBox);
-
-        const addButton = gameBox.querySelector(".add");
-        addButton.addEventListener("click", async (e) => {
-            const gameId = e.target.getAttribute("data-game-id");
-
-            await signup(gameId, currWriter.writer_id);
-        });
     });
 }
 // #endregion //

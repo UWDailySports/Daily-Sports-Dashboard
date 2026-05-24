@@ -25,9 +25,10 @@
     justify-content: space-between;
     box-sizing: border-box;
     flex-shrink: 0;
+    gap: 10px;
 
     /* Size/Shape */
-    width: 100%;
+    width: 98%;
     height: 150px;
     padding: 12px 14px;
     border: 1px solid #e6e6e6;
@@ -74,14 +75,15 @@
 .sport-container {
     /* Layout */
     display: flex;
-    flex: 1;
+    flex: 0.5;
     flex-direction: column;
     justify-content: center;
 
     /* Size/Shape */
+    height: 90%;
     min-width: 0;
     gap: 4px;
-
+  
     /* Background */
     background-color: transparent;
 }
@@ -90,28 +92,41 @@
 /* #region sport-box */
 .sport-box {
     /* Layout */
-    flex: 1.5;
+    flex: 1;
+
+    /* Size/Shape */
+    min-width: 0;
 
     /* Text */    
     font-size: clamp(1rem, 1.35vw, 1.5rem);
     font-weight: 600;  
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 
+    /* Misc */
+    overflow: hidden;
 }  
 /* #endregion */
 
 /* #region notes-box */
 .notes-box {
     /* Layout */
-    flex: 1;
+    flex: 1.5;
+
+    /* Size/Shape */
+    min-width: 0;
 
     /* Text */
     font-size: clamp(0.8rem, 1vw, 1.1rem);
     font-style: italic;
     color: #666;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+
+    /* Misc */
+    overflow: hidden;
 }
 /* #endregion */
 
@@ -119,10 +134,10 @@
 .matchup-container {
     /* Layout */
     display: flex;
-    flex: 0 0 clamp(140px, 18%, 280px);
+    flex: 0.7;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
 
     /* Size/Shape */
     min-width: 0;
@@ -135,9 +150,10 @@
     flex-shrink: 0;
     object-fit: contain;
 
-    /* Size/Shape */
-    width: clamp(48px, 5vw, 96px);
-    height: auto;
+    /* Size/Shape */ 
+    height: 100%;
+    aspect-ratio: 1/1;
+    min-width: 0;
 } 
 /* #endregion */ 
 
@@ -159,18 +175,17 @@
 /* #region recap-container */
 .recap-container {
     /* Layout */
-    flex: 0.8;
+    flex: 0.6;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-
+    box-sizing: border-box;
+  
     /* Size/Shape */
-    height: 80%;
-    width: clamp(100px, 18%, 300px);
+    margin-top: 25px;
     min-width: 0;
-
+    
     /* Text */
     text-align: center;
     font-weight: 600;
@@ -180,13 +195,14 @@
 /* #region home-recap / away-recap */
 .home-recap, .away-recap {
     /* Layout */
-    flex: 2;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
  
     /* Size/Shape */
     width: 100%;
+    min-width: 0;
     border-radius: 8px;
 
     /* Text */ 
@@ -227,31 +243,35 @@
 /* #region recap-location */
 .recap-location {
     /* Layout */
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
+    flex: 0 0 auto;
+    display: block;
 
     /* Size/Shape */
     min-width: 0;
+    padding: 2px 4px; 
 
     /* Text */ 
-    font-size: clamp(1rem, 1.35vw, 1.5rem);
+    font-size: clamp(0.8rem, 1vw, 1.5rem);
     text-align: center;
     font-style: italic;
+    color: #555;
+
+    /* Misc */
     
-    color: grey;
 }
 /* #endregion */
  
 /* #region when-container */
 .when-container {
     /* Layout */
-    flex: 1.5;
+    flex: 0.6;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 4px;
+
+    /* Size / Shape */
+    min-width: 0;
 
     /* Text */ 
     text-align: center;
@@ -261,22 +281,36 @@
 
 /* #region date */
 .date {
+    /* Size /Shape */
+    min-width: 0;
+
     /* Text */ 
     font-size: clamp(1rem, 1.35vw, 1.5rem);
     font-weight: 600;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+
+    /* Misc */
+    overflow: hidden;
 }
 
 /* #endregion */    
 
 /* #region time */
 .time {
+    /* Size / Shape */
+    min-width: 0;
+
     /* Text */ 
     font-size: clamp(1rem, 1.35vw, 1.5rem);
     color: #555;
-    white-space: nowrap;
-    text-overflow: ellipsis;    
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    
+    /* Misc */
+    overflow: hidden;
 }
 
 /* #endregion */
@@ -284,7 +318,7 @@
 /* #region options-container */
 .options-container {
     /* Layout */
-    flex: 1;
+    flex: 0.25;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -293,6 +327,7 @@
     
     /* Size / Shape */
     height: 90%;
+    min-width: 0;
 }
  .options-container button {
     /* Layout */
@@ -300,6 +335,7 @@
     /* Size/Shape */
     min-height: 20px;
     z-index: 10;
+    min-width: 0;
         
     /* Misc */
     cursor: pointer;   
@@ -309,6 +345,7 @@
 /* #region game-option */
 .game-option {
     /* Size/Shape */
+    min-width: 0;
     padding: 4px 6px;
     border: none;
 
