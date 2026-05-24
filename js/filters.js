@@ -130,6 +130,16 @@ function createFilterDropdown(containerId, title, options, activeFilters, filter
 }
 
 async function buildFilters(containerId, filters, fetchFn) {
+    const container = document.getElementById(containerId);
+
+    container.innerHTML = `
+        <div class="games-filter-container">
+            <div id="${containerId}-sport"></div>
+            <div id="${containerId}-location"></div>
+            <div id="${containerId}-month"></div>
+        </div>
+    `;
+
     const sports = await getSports();
 
     createFilterDropdown(
@@ -158,5 +168,4 @@ async function buildFilters(containerId, filters, fetchFn) {
         "months",
         fetchFn
     );
-
 }
