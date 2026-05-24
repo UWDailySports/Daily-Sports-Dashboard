@@ -147,7 +147,6 @@
 /* #region school-icon */
 .school-icon {
     /* Layout */
-    flex-shrink: 0;
     object-fit: contain;
 
     /* Size/Shape */ 
