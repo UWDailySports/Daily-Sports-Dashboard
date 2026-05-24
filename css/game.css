@@ -147,11 +147,12 @@
 /* #region school-icon */
 .school-icon {
     /* Layout */
+    flex-shrink: 0;
     object-fit: contain;
 
     /* Size/Shape */ 
-    height: 100%;
-    aspect-ratio: 1/1;
+    width: clamp(50px, 3vw, 140px);
+    height: clamp(50px, 3vw, 140px);
     min-width: 0;
 } 
 /* #endregion */ 
@@ -317,7 +318,7 @@
 /* #region options-container */
 .options-container {
     /* Layout */
-    flex: 0.25;
+    flex: 0.15;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -329,8 +330,6 @@
     min-width: 0;
 }
  .options-container button {
-    /* Layout */
-
     /* Size/Shape */
     min-height: 20px;
     z-index: 10;
@@ -343,10 +342,16 @@
 
 /* #region game-option */
 .game-option {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     /* Size/Shape */
     min-width: 0;
     padding: 4px 6px;
     border: none;
+    border-radius: 10px;
 
     /* Background */
     background: transparent;
@@ -354,9 +359,22 @@
     /* Text */ 
     font-size: clamp(0.75rem, 1.2vw, 1.35rem);
     font-family: "Segoe UI", system-ui, sans-serif;
+    text-align: center;
 
     /* Misc */
     cursor: pointer;
+}
+
+.game-option:hover {
+    /* Background */
+    background: #360f5a;
+
+    /* Text */
+    color: white;
+
+    /* Misc */
+    transition: ease-in 0.2s;
+
 }
 
 /* #endregion */
