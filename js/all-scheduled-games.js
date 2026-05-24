@@ -6,7 +6,7 @@ tabHandlers["all-games"] = async function () {
     await buildFilters(
         "all-games-filter-container",
         allScheduledFilters,
-        filters => fetchAllScheduledGames(currWriter.writer_id, filters)
+        filters => fetchAllScheduledGames(filters)
     );
 
     fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
