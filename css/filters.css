@@ -4,11 +4,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    box-sizing: border-box;
     gap: 30px;
 
     /* Size/Shape */
     height: 60px;
     width: 100%;
+    padding-left: 40px;
 
     /* Background */
     background-color: #360f5a;
