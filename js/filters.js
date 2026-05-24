@@ -1,8 +1,8 @@
 // Initialization and Functions for Filters
 
-let activeFilters = { sports: [], locations: [] };
-let myScheduleFilters = { sports: [], locations: [] };
-let availableFilters = { sports: [], locations: [] };
+let activeFilters = { sports: [], locations: [], months: [] };
+let myScheduleFilters = { sports: [], locations: [], months: [] };
+let availableFilters = { sports: [], locations: [], months: [] };
 let historyFilters = { sports: [], locations: [], months: [] };
 
 // Function: createGamesFilter
