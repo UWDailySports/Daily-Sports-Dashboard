@@ -1,6 +1,6 @@
 // Filters and Functions for All Scheduled Games
 
-let allScheduledFilters = { sports: [], locations: [] };
+let allScheduledFilters = { sports: [], locations: [], months = [] };
 
 tabHandlers["all-games"] = async function () {
     await buildFilters(

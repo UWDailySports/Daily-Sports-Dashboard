@@ -85,6 +85,16 @@ function toggleFilterValue(array, value) {
 
 
 
+// Function: createFilterDropdown
+// Purpose: Creates the filter dropdown for different filter section
+// Returns: None
+// Parameters: (1) containerId: id for filter section
+//             (2) title: title for filter section
+//             (3) options: filter options
+//             (4) activeFilters: filters currently in use
+//             (5) filterKey: section key for filters 
+//             (6) onChange: filter function to do when filters change    
+// #region createFilterDropdown // 
 function createFilterDropdown(containerId, title, options, activeFilters, filterKey, onChange) {
     const container = document.getElementById(containerId);
 
@@ -134,7 +144,16 @@ function createFilterDropdown(containerId, title, options, activeFilters, filter
         });
     });
 }
+// #endregion //
 
+
+// Function: buildFilters
+// Purpose: Builds the filters for a section
+// Returns: None
+// Parameters: (1) containerId: id for filter section
+//             (2) filters: filters to add to section
+//             (3) fetchFn: filter function  
+// #region buildFilters //
 async function buildFilters(containerId, filters, fetchFn) {
     const container = document.getElementById(containerId);
 
@@ -148,23 +167,9 @@ async function buildFilters(containerId, filters, fetchFn) {
 
     const sports = await getSports();
 
-    createFilterDropdown(
-        `${containerId}-sport`,
-        "Sport",
-        sports,
-        filters,
-        "sports",
-        fetchFn
-    );
+    createFilterDropdown(`${containerId}-sport`, "Sport", sports, filters, "sports", fetchFn);
 
-    createFilterDropdown(
-        `${containerId}-location`,
-        "Location",
-        ["Home", "Away"],
-        filters,
-        "locations",
-        fetchFn
-    );
+    createFilterDropdown(`${containerId}-location`, "Location", ["Home", "Away"], filters, "locations", fetchFn);
 
     createFilterDropdown(
         `${containerId}-month`,
@@ -186,3 +191,4 @@ async function buildFilters(containerId, filters, fetchFn) {
         fetchFn
     );
 }
+// #endregion //

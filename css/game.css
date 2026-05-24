@@ -332,7 +332,6 @@
  .options-container button {
     /* Size/Shape */
     min-height: 20px;
-    z-index: 10;
     min-width: 0;
         
     /* Misc */

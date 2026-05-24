@@ -2,10 +2,12 @@
 .games-filter-container {
     /* Layout */
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
 
     /* Size/Shape */
-    height: 80px;
+    height: 60px;
     width: 100%;
 
     /* Background */
