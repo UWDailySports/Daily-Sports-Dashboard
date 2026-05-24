@@ -163,7 +163,7 @@ async function buildFilters(containerId, filters, fetchFn) {
     createFilterDropdown(
         `${containerId}-month`,
         "Month",
-        months,
+        ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         filters,
         "months",
         fetchFn
