@@ -117,7 +117,7 @@
     /* Text */
     font-size: 16px;
     font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
-    color: #360f5a;
+    color: var(--husky_purple);
         
     /* Misc */
 }
@@ -167,7 +167,7 @@
     
     /* Text */
     font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
-    color: #360f5a;
+    color: var(--husky_purple);
         
     /* Misc */
 
@@ -212,7 +212,7 @@
     /* Text */ 
     font-size: 16px;
     text-align: center;
-    color: #360f5a;
+    color: var(--husky_purple);
         
     /* Misc */
     cursor: pointer;
@@ -310,7 +310,7 @@
     border-radius: 12px;
 
     /* Background */
-    background-color: #360f5a;
+    background-color: var(--husky_purple);
 
     /* Text */
     color: white;
@@ -400,7 +400,7 @@
     background-color: transparent;
 
     /* Text */
-    color: #360f5a;
+    color: var(--husky_purple);
     font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
     font-size: 24px;
         
@@ -409,7 +409,7 @@
 }
 
 .add-sport-button:hover {
-    background-color: #360f5a;
+    background-color: var(--husky_purple);
     color: white;
 }
 /* #endregion */
@@ -428,7 +428,7 @@
     padding-top: 2%;
     padding-bottom: 2%;
     border-radius: 16px;
-    border-color: #360f5a;
+    border-color: var(--husky_purple);
 
     /* Background */
     background: white;
@@ -471,7 +471,7 @@
     border-radius: 12px;
 
     /* Background */
-    background-color: #360f5a;
+    background-color: var(--husky_purple);
 
     /* Text */
     color: white;

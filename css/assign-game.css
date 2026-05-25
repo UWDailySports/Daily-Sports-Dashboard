@@ -7,7 +7,7 @@
     height: 25%;
     max-width: 90%;
     margin: 8% auto;
-    border-color: #360f5a;
+    border-color: var(--husky_purple);
 
     /* Background */
     background: white;
@@ -213,7 +213,7 @@
     border-radius: 12px;
 
     /* Background */
-    background-color: #360f5a;
+    background-color: var(--husky_purple);
 
     /* Text */ 
     color: white;

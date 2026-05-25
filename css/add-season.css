@@ -12,7 +12,7 @@
     height: 40%;
     margin: 5% auto;
     border-radius: 16px;
-    border-color: #360f5a;
+    border-color: var(--husky_purple);
 
     /* Background */
     background: white;
@@ -54,7 +54,7 @@
 
 .season-drop-zone.dragover {
     background: #f3eef9;
-    border-color: #B7A57A;
+    border-color: var(--husky_gold);
 }
 /* #endregion */  
 
@@ -69,7 +69,7 @@
     border-radius: 12px;
 
     /* Background */
-    background-color: #360f5a;
+    background-color: var(--husky_purple);
 
     /* Text */ 
     color: white;

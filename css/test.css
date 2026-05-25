@@ -1,10 +1,10 @@
 /* ===== COLOR SYSTEM ===== */
 :root {
-    --purple: #360f5a;
+    --purple: var(--husky_purple);
     --purple-hover: #4c1d7a;
     --purple-light: #ede9f5;
 
-    --gold: #B7A57A;
+    --gold: var(--husky_gold);
 
     --bg: #f6f7fb;
     --surface: #ffffff;

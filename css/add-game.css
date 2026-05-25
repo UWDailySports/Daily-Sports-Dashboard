@@ -16,7 +16,7 @@
     font-size: medium;
     font-weight: bold;
     
-    color: #360f5a;
+    color: var(--husky_purple);
 
     /* Misc */   
     cursor: pointer;
@@ -90,7 +90,7 @@
     max-width: 90%;
     margin: 5% auto;
     border-radius: 16px;
-    border-color: #360f5a;
+    border-color: var(--husky_purple);
 
     /* Background */
     background: white;
@@ -306,7 +306,7 @@
     border-radius: 12px;
 
     /* Background */
-    background-color: #360f5a;
+    background-color: var(--husky_purple);
 
     /* Text */
     color: white;

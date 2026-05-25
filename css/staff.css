@@ -1,5 +1,5 @@
        body {
-            background-color: #360f5a;
+            background-color: var(--husky_purple);
             background-size: cover;
             background-attachment: fixed;
             font-family: 'Avenir Next', sans-serif;
@@ -10,7 +10,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color:#360f5a;
+        background-color:var(--husky_purple);
         color:#ccc;
         font-family: 'figtree', sans-serif;
         text-align: center;
@@ -192,7 +192,7 @@
     }
 
     .bottom{
-        background-color:#360f5a;
+        background-color:var(--husky_purple);
         background-attachment: fixed;
         color: white;
         text-align: center;

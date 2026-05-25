@@ -76,7 +76,7 @@
     /* Background */
 
     /* Text */ 
-    color: #360f5a;
+    color: var(--husky_purple);
         
     /* Misc */
     cursor: pointer;
@@ -84,7 +84,7 @@
 }
 
 .close-button:hover {
-    color: #360f5a;
+    color: var(--husky_purple);
 } 
 
 @media screen and (max-width: 768px){

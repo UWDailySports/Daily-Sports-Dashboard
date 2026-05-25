@@ -13,7 +13,7 @@
     padding-left: 30px;
 
     /* Background */
-    background-color: #360f5a;
+    background-color: var(--husky_purple);
 }
 
 .filter-dropdown {
