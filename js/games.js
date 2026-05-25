@@ -39,10 +39,8 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [] }
         console.log("No scheduled games found.");
 
         const noGames = document.createElement("div");
-        
-        noGames.innerHTML = `
-        <div class = "no-games">No Scheduled Games</div>
-        `;
+        noGames.classList.add("no-games");
+        noGames.textContent = "No Games in Schedule";
 
         container.appendChild(noGames);
     }
@@ -132,10 +130,8 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
         console.log("No available games found.");
 
         const noGames = document.createElement("div");
-        
-        noGames.innerHTML = `
-        <div class = "no-games">No Available Games</div>
-        `;
+        noGames.classList.add("no-games");
+        noGames.textContent = "No Games Available";
 
         container.appendChild(noGames);
     }
@@ -247,10 +243,8 @@ async function fetchHistoryGames(writerId, filters = { sports: [], locations: []
         console.log("No history  found.");
 
         const noGames = document.createElement("div");
-            
-        noGames.innerHTML = `
-        <div class = "no-games">No History Found</div>
-        `;
+        noGames.classList.add("no-games");
+        noGames.textContent = "No Games in History";
 
         container.appendChild(noGames);
     }

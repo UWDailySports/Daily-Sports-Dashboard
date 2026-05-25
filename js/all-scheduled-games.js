@@ -42,13 +42,11 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
     if (!games || games.length === 0) {
         console.log("No scheduled games found.");
 
-        const noGames = document.createElement("div");
-        
-        noGames.innerHTML = `
-        <div class = "no-games">No Scheduled Games</div>
-        `;
+    const noGames = document.createElement("div");
+    noGames.classList.add("no-games");
+    noGames.textContent = "No Games Scheduled";
 
-        container.appendChild(noGames);
+    container.appendChild(noGames);
     }
 
     games.forEach(game => {
