@@ -88,7 +88,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,.05);
 
     /* Misc */  
-    transition: transform .1s ease, box-shadow .1s ease;  
+    transition: box-shadow .1s ease;  
 }
 
 .writer-list-entry-container:hover {
