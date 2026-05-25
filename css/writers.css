@@ -169,6 +169,7 @@
 
     /* Size / Shape */
     width: 420px;
+    max-height: 800px;
     margin: 5% auto;
     padding: 32px;
     border-radius: 24px;

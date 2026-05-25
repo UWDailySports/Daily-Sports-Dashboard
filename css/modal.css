@@ -37,13 +37,7 @@
         /* Size/Shape */
         width: 100%;
         margin-top: 2%;
-        margin-bottom: 30px;
-
-        /* Background */
-
-        /* Text */ 
-            
-        /* Misc */      
+        margin-bottom: 30px; 
 }
 
 .modal-header h2 {
@@ -51,8 +45,6 @@
 
     /* Size/Shape */
      margin: 0 auto;
-
-    /* Background */
 
     /* Text */
     text-align: center;
