@@ -219,6 +219,12 @@
 }
 /* #endregion */  
 
+/* #region edit-writer / delete-writer */
+.edit-sport, .delete-sport {
+    color: var(--husky_purple);
+}
+/* #endregion */
+
 /* #region edit-sport-box */
 
 .edit-sport-box {
