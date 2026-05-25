@@ -225,12 +225,13 @@
     /* Misc */
     cursor: pointer;
     transition:
-        transform .22s ease,
-        box-shadow .22s ease;
+        transform .1s ease,
+        box-shadow .1s ease;
 }
 
 .add-writer-confirm:hover, .edit-writer-confirm:hover {
     /* Background */
+    background: var(--hp_hover);
     box-shadow:
         0 10px 22px rgba(54,15,90,.22);
 

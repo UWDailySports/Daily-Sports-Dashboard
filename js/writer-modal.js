@@ -94,8 +94,8 @@ async function fetchWriterInfo() {
         writerBox.innerHTML = `
         <div class = "writer-list-entry-section">${first_name}</div>
         <div class = "writer-list-entry-section">${last_name}</div>
-        <div class = "writer-list-entry-section" style = "width: 5%;">${position}</div>
-        <div class = "writer-list-entry-section" style = "width: 20%;">${email}</div>      
+        <div class = "writer-list-entry-section" style = "width: 7%;">${position}</div>
+        <div class = "writer-list-entry-section" style = "width: 18%;">${email}</div>      
         <div class = "writer-list-entry-section">${phone}</div>
         ${x
             ? `<a class="writer-list-entry-section" href="${x}" target="_blank">${x_short}</a>`
