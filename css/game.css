@@ -12,6 +12,7 @@
     width: 100%;
     min-height: 0;
     padding: 1% 0 0 1px;
+    background: green;
 
     /* Misc */  
     overflow-y: auto;   
