@@ -111,7 +111,7 @@ async function fetchWriterInfo() {
             <button class = "edit-writer">Edit</button>
             <button class = "delete-writer">Delete</button>
         </div>
-        <button class = "writer-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
+        <button class = "writer-list-entry-section list-options-button" style="width: 5%; font-size: 30px;">&hellip;</button>
         `
 
         writerBox.querySelector(".edit-writer").addEventListener("click", () => openEditWriterModal(writer));

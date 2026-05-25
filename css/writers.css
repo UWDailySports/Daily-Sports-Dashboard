@@ -24,32 +24,6 @@
 
 /* #region writer-list-title */
 
-/* #region writer-list-title */
-.writer-list-title {
-    /* Layout */
-    display: flex;
-    align-items: center;
-
-    /* Size/Shape */
-    width: 100%;
-    height: 52px;
-    padding: 0 18px;
-    margin-bottom: 16px;
-    border-radius: 14px;
-
-    /* Background */
-    background: linear-gradient(135deg, var(--husky_purple),#4d247e);
-    
-    /* Text */
-    color: white;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: .4px;   
-}
-/* #endregion
-
-/* #region writer-list-container */
-
 /* #region writer-list-container */
 .writer-list-container {
     /* Layout */
@@ -111,7 +85,7 @@
 
     /* Text */
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     color: #2c2c2c;
 }
 /* #endregion */
@@ -164,13 +138,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
-
+    gap: 15px;
+    box-sizing: border-box;
 
     /* Size / Shape */
-    width: 420px;
-    max-height: 800px;
-    margin: 5% auto;
+    width: 500px;
+    max-height: 1000px;
     padding: 32px;
     border-radius: 24px;
     border: none;
@@ -181,8 +154,47 @@
 }
 /* #endregion */
 
+/* #region add-writer-section  / edit-writer-section*/
+.add-writer-section, .edit-writer-section {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    /* Size / Shape */
+    width: 100%;
+}
+/* #endregion */
+
+/* #region add-writer-box-title, edit-writer-box-title */
+.add-writer-box-title, .edit-writer-box-title {
+    /* Layout */
+    display: flex;
+    box-sizing: border-box;
+
+    /* Text */
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--husky_purple);
+
+    /* Size / Shape */
+    padding-left: 4px;
+}
+
+.required {
+    margin-left: 4px;
+    color: #e53935;
+    font-weight: 700;
+    font-size: 16px;
+    vertical-align: middle;
+}
+/* #endregion */
+
 /* #region add-writer-box, edit-writer-box */
 .add-writer-box, .edit-writer-box {
+    /* Layout */
+    box-sizing: border-box;
+
     /* Size / Shape */
     width: 100%;
     height: 52px;
@@ -204,6 +216,11 @@
     /* Misc */
     outline: none;
     border-color: var(--husky_purple);
+}
+
+#new-writer-hire-date, #edit-writer-hire-date, #edit-writer-end-date {
+    /* Text */
+    font-family: "Segoe UI", system-ui, sans-serif;
 }
 /* #endregion */
 
