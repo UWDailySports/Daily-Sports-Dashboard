@@ -416,12 +416,12 @@
             <span class = "close-button">&times;</span>
         </div>
         <button class = "add-sport-button" onclick = "openAddSportModal()">+ Add Sport</button>
-        <div class = "sport-list-title">
+        <div class = "sport-list-entry-container" style = "background: #360f5a; color: white">
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Sport</div>
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">SID</div>
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Email</div>
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a">Phone</div>
-            <div class = "sport-list-entry-options" style="font-size: 18px; font-weight: bold;color:#360f5a"></div>
+            <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:#360f5a"></div>
         </div>
         <div class = "sport-list-container" id = "sport-list-container"></div>
     </div>
@@ -443,17 +443,71 @@
 
 <div id = "add-sport-modal" class = "modal">
     <div class = "add-sport-modal-content">
-        <div class = "modal-header">
+        <div class = "modal-header" style = "margin-bottom: 15px;">
             <h2>Add Sport</h2>
             <span class="close-button">&times;</span>
         </div>
-        <input type = "text" id = "new-sport-name" class = "add-sport-box" placeholder="Sport Name">
-        <input type = "text" id = "new-sport-sid" class = "add-sport-box" placeholder="SID">
-        <input type = "text" id = "new-sport-email" class = "add-sport-box" placeholder="Email">
-        <input type = "text" id = "new-sport-phone" class = "add-sport-box" placeholder="Phone">
+        <div class = "add-sport-section-container">
+            <div class = "add-sport-section">
+                <div class="add-sport-box-title">
+                    Sport <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-sport-name" class = "add-sport-box" placeholder="Sport Name">
+            </div>
+            <div class = "add-sport-section">
+                <div class="add-sport-box-title">
+                    SID <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-sport-sid" class = "add-sport-box" placeholder="SID Name">
+            </div>
+            <div class = "add-sport-section">
+                <div class="add-sport-box-title">
+                    SID Email <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-sport-email" class = "add-sport-box" placeholder="SID Email">
+            </div>
+            <div class = "add-sport-section">
+                <div class = "add-sport-box-title">SID Phone</div>
+                <input type = "text" id = "new-sport-phone" class = "add-sport-box" placeholder="SID Phone">
+            </div>
+        </div>    
         <button id = "add-sport-confirm" class = "add-sport-confirm">Add Sport</button>
-    </div>
-</div> 
+    </div>  
+</div>
+
+<div id = "edit-sport-modal" class = "modal">
+    <div class = "edit-sport-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 15px;">
+            <h2>Edit Sport</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "edit-sport-section-container">
+            <div class = "edit-sport-section">
+                <div class="edit-sport-box-title">
+                    Sport <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-sport-name" class = "edit-sport-box" placeholder="Sport Name">
+            </div>
+            <div class = "edit-sport-section">
+                <div class="edit-sport-box-title">
+                    SID <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-sport-sid" class = "edit-sport-box" placeholder="SID Name">
+            </div>
+            <div class = "edit-sport-section">
+                <div class="edit-sport-box-title">
+                    SID Email <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-sport-email" class = "edit-sport-box" placeholder="SID Email">
+            </div>
+            <div class = "edit-sport-section">
+                <div class = "edit-sport-box-title">SID Phone</div>
+                <input type = "text" id = "edit-sport-phone" class = "edit-sport-box" placeholder="SID Phone">
+            </div>
+        </div>    
+        <button id = "edit-sport-confirm" class = "edit-sport-confirm">Edit Sport</button>
+    </div>  
+</div>
 
 <div id="add-season-modal" class="modal">
     <div class="add-season-modal-content">

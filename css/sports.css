@@ -1,176 +1,76 @@
-/* #region sport-input / edit-sport-input */
-#sport-input, #edit-sport-input {
-    /* Layout */
 
-    /* Size/Shape */
-    width: 100%;
-    border-radius: 5px;
-    border-width: 1px;
-    border-color: black;
-    outline: none;
-
-    /* Background */
-    background-color: #fff;
-
-    /* Text */ 
-    color: black;
-        
-    /* Misc */    
-}
-
-@media screen and (max-width: 768px){
-    #sport-input, #edit-sport-input {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 10%;
-        width: 60%;
-        padding: 1px;
-        margin: 2px 0;
-
-        /* Background */
-
-        /* Text */ 
-        font-size: 18px;
-        
-        /* Misc */
-
-    }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1800px){
-    #sport-input, #edit-sport-input {
-        /* Layout */
-
-        /* Size/Shape */
-        padding: 5px;
-        margin: 10px 0;
-
-        /* Background */
-
-        /* Text */ 
-        font-size: 16px;
-        
-        /* Misc */
-    }
-}
-
-@media screen and (min-width: 1801px){
-    #sport-input, #edit-sport-input {
-        /* Layout */
-
-        /* Size/Shape */
-        padding: 5px;
-        margin: 10px 0;
-
-        /* Background */
-
-        /* Text */ 
-        font-size: 16px;
-        
-        /* Misc */
-    }
-}
-/* #endregion */
-
-/* #region sports-modal-content */
+/* #region sport-modal-content */
 .sport-modal-content {
     /* Layout */
     display: flex;
     flex-direction: column;  
 
     /* Size/Shape */
-    width: 90%;
-    height: 75%;
-    padding-top: 2%;
-    padding-left: 1%;
-    border-radius: 20px;
+    width: 92%;
+    height: 82%;
+    padding: 24px;
+    border-radius: 24px;
 
     /* Background */
-    background-color: rgb(238, 238, 238);
+    background: white;
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.15),
+        inset 0 1px 1px rgba(255,255,255,0.6);
 
-    /* Text */ 
-        
-    /* Misc */    
-}   
-
-/* #endregion */
-
-/* #region sport-list-title */
-.sport-list-title {
-    /* Layout */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-
-    /* Size/Shape */
-    width: 96%;
-    height: 30px;
-    padding-left: 1%;
-    padding-right: 1%;
-    margin-bottom: 5px;
-    border: black 1px solid;
-
-    /* Background */
-    
-    /* Text */
-    font-size: 16px;
-    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
-    color: var(--husky_purple);
-        
-    /* Misc */
+    /* Misc */ 
+    overflow: hidden;  
+    animation: modalPop 220ms cubic-bezier(.16,1,.3,1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    contain: paint; 
 }
-/* #endregion */
+/* #endregion
 
-/* #region sports-list-container */
+/* #region sport-list-container */
 .sport-list-container {
     /* Layout */
+    flex: 1;
     display: flex;
-    flex-direction: column;  
-    box-sizing: border-box; 
+    flex-direction: column;   
 
     /* Size/Shape */
-    height: 75%;
-    width: 97%;
-    border: black 1px solid;
+    width: 100%;
+    gap: 10px;
+    border-radius: 18px;
 
     /* Background */
-
-    /* Text */ 
+    background: #f8f9fc;
         
     /* Misc */
-    overflow-y: auto;  
-    overflow-x: hidden;  
+    overflow-y: auto;   
 }
-
 /* #endregion */
 
 /* #region sport-list-entry-container */
 .sport-list-entry-container {
     /* Layout */
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
     position: relative;
 
     /* Size/Shape */
-    width: 100%;
-    min-height: 30px;
-    height: 50px;
-    padding-left: 1%;
-    margin-bottom: 5px;
-    border: black 1px solid;
+    min-height: 64px;
+    padding: 0 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(54,15,90,.08);
 
     /* Background */
-    
-    /* Text */
-    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
-    color: var(--husky_purple);
-        
-    /* Misc */
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
 
+    /* Misc */  
+    transition: box-shadow .1s ease;  
+}
+
+.sport-list-entry-container:hover {
+    /* Background */
+    box-shadow:
+        0 8px 20px rgba(54,15,90,.10);
 }
 /* #endregion */
 
@@ -181,371 +81,194 @@
     align-items: center;
 
     /* Size/Shape */
-    box-sizing: border-box;
-    width: 14%;
+    width: 10%;
     height: 100%;
-
-    /* Background */
+    padding-left: 12px;
 
     /* Text */
-    font-size: 16px;
-    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
-    color: black;
-
-        
-    /* Misc */    
+    font-size: 14px;
+    font-weight: 400;
+    color: #2c2c2c;
 }
 /* #endregion */
 
-/* #region sport-list-entry-options */
-.sport-list-entry-options {
-    /* Layout */
-    display: flex;
-    align-items: center;
-
-    /* Size/Shape */
-    width: 5%;
-    height: 100%;
-
-    /* Background */
-
-    /* Text */ 
-    font-size: 16px;
-    text-align: center;
-    color: var(--husky_purple);
-        
-    /* Misc */
-    cursor: pointer;
-}
-/* #endregion */  
-
-/* #region edit-writer / delete-writer */
+/* #region edit-sport / delete-sport */
 .edit-sport, .delete-sport {
     color: var(--husky_purple);
 }
 /* #endregion */
 
-/* #region edit-sport-box */
-
-.edit-sport-box {
-    /* Layout */
-
-    /* Size/Shape */
-    width: 50%;
-    border-radius: 10px;
-    border-color: black;
-
-    /* Background */
-
-    /* Text */ 
-    
-        
-    /* Misc */    
-}
-
-@media screen and (max-width: 768px){
-    .edit-sport-box {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 10%;
-        width: 60%;
-        margin: 2px 0;
-        padding: 2px;
-        border-width: 2px;
-
-        /* Background */
-
-        /* Text */ 
-        font-size: 18px;
-        
-            
-        /* Misc */    
-    }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1800px){
-    .edit-sport-box {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 40px;
-        margin: 10px 0;
-        padding: 10px;
-        border-width: 2px;
-
-        /* Background */
-
-        /* Text */ 
-        font-size: 16px;
-        
-            
-        /* Misc */    
-    }
-}
-
-@media screen and (min-width: 1801px){
-    .edit-sport-box {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 40px;
-        margin: 10px 0;
-        padding: 10px;
-        border-width: 2px;
-
-        /* Background */
-
-        /* Text */ 
-        font-size: 16px;
-        
-            
-        /* Misc */    
-    }
-}
-/* #endregion */
-
-/* #region edit-sport-confirm */
-
-.edit-sport-confirm {
-    /* Layout */
-
-    /* Size/Shape */
-    width: 100%;
+/* #region add-sport-button */
+.add-sport-button {
+    /* Size / Shape */
+    width: 180px;
+    height: 48px;
+    margin-left: auto;
+    margin-bottom: 18px;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
 
     /* Background */
-    background-color: var(--husky_purple);
+    background: var(--husky_purple);
+    box-shadow: 0 8px 18px rgba(54,15,90,.18);
 
     /* Text */
     color: white;
-        
+    font-size: 17px;
+    font-weight: 700;
+
     /* Misc */
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-#edit-sport-confirm:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-}
-
-@media screen and (max-width: 768px){
-    .edit-sport-confirm {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 10%;
-        width: 60%;
-        margin-top: 10px;                       
-        padding: 3px 0;
-
-        /* Background */
-
-        /* Text */ 
-        font-size: 24px;
-        
-        /* Misc */
-
-    }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1800px){
-    .edit-sport-confirm {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 50px;
-        width: 80%;
-        margin-top: 20px;                       
-        padding: 12px 0;
-
-        /* Background */
-
-        /* Text */
-        font-size: 16px; 
-        
-        /* Misc */
-    }
-}
-
-@media screen and (min-width: 1801px){
-    .edit-sport-confirm {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 50px;
-        margin-top: 50px;                       
-        padding: 12px 0;
-
-        /* Background */
-
-        /* Text */
-        font-size: 16px; 
-        
-        /* Misc */
-    }
-}
-/* #endregion */ 
-
-/* #region add-sport-button */
-.add-sport-button {
-    /* Layout */
-
-    /* Size/Shape */
-    width: 150px;
-    height: 30px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: transparent 1px solid;
-    margin-left: auto;
-    margin-right: 1%;
-
-    /* Background */
-    background-color: transparent;
-
-    /* Text */
-    color: var(--husky_purple);
-    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
-    font-size: 24px;
-        
-    /* Misc */   
-    cursor: pointer; 
+    transition:
+        transform .1s ease,
+        box-shadow .1s ease;
 }
 
 .add-sport-button:hover {
-    background-color: var(--husky_purple);
-    color: white;
+    /* Background */
+    background: var(--hp_hover);
+    box-shadow: 0 14px 24px rgba(54,15,90,.25);
+
+    /* Misc */
+    transform: translateY(-2px);
 }
 /* #endregion */
 
-/* #region add-sport-modal-content */
-.add-sport-modal-content {
+/* #region add-sport-model-content / edit-sport-modal-content */
+.add-sport-modal-content, .edit-sport-modal-content {
     /* Layout */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2%;
+    gap: 40px;
+    box-sizing: border-box;
 
-    /* Size/Shape */
-    width: 30%;
-    margin: 5% auto;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    border-radius: 16px;
-    border-color: var(--husky_purple);
+    /* Size / Shape */
+    width: 500px;
+    height: 50%;
+    max-height: 1000px;
+    padding: 20px;
+    border-radius: 24px;
+    border: none;
 
     /* Background */
     background: white;
+    box-shadow: 0 20px 45px rgba(0,0,0,.18);  
 
-    /* Text */ 
-    
-    color: black;
-        
-    /* Misc */    
+    /* Misc */
+    animation: modalPop 220ms cubic-bezier(.16,1,.3,1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    contain: paint;
 }
 /* #endregion */
 
-/* #region add-sport-box */
-.add-sport-box {
+/* #region add-sport-sections-container, edit-sport-sections-container */
+.add-sport-section-container, .edit-sport-section-container {
     /* Layout */
-
-    /* Size/Shape */
-    width: 80%;
-    height: 8%;
-    padding-left: 2%;
-    border-radius: 10px;
-    border-color: black;
-
-    /* Background */
-
-    /* Text */ 
-    
-        
-    /* Misc */    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 /* #endregion */
 
-/* #region add-sport-confirm  */
-.add-sport-confirm, .edit-sport-confirm {
+/* #region add-sport-section  / edit-sport-section*/
+.add-sport-section, .edit-sport-section {
     /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 
-    /* Size/Shape */
+    /* Size / Shape */
     width: 100%;
-    border: none;
-    border-radius: 12px;
+    min-width: 400px;
+}
+/* #endregion */
+
+/* #region add-sport-box-title, edit-sport-box-title */
+.add-sport-box-title, .edit-sport-box-title {
+    /* Layout */
+    display: flex;
+    box-sizing: border-box;
+
+    /* Text */
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--husky_purple);
+
+    /* Size / Shape */
+    padding-left: 4px;
+}
+
+.required {
+    margin-left: 4px;
+    color: #e53935;
+    font-weight: 700;
+    font-size: 16px;
+    vertical-align: middle;
+}
+/* #endregion */
+
+/* #region add-sport-box, edit-sport-box */
+.add-sport-box, .edit-sport-box {
+    /* Layout */
+    box-sizing: border-box;
+
+    /* Size / Shape */
+    height: 52px;
+    padding-left: 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(54,15,90,.15);
 
     /* Background */
-    background-color: var(--husky_purple);
+    background: #f8f9fc;
+
+    /* Text */
+    font-size: 15px;
+
+    /* Misc */
+    transition: border-color .2s ease;
+}
+
+.add-sport-box:focus, .edit-sport-box:focus {
+    /* Misc */
+    outline: none;
+    border-color: var(--husky_purple);
+}
+/* #endregion */
+
+/* #region add-sport-confirm, edit-sport-confirm */
+.add-sport-confirm, .edit-sport-confirm {
+    /* Size / Shape */
+    width: 60%;
+    height: 52px;
+    border: none;
+    border-radius: 16px;
+
+    /* Background */
+    background: var(--husky_purple);
 
     /* Text */
     color: white;
-        
+    font-size: 16px;
+    font-weight: 700;
+
     /* Misc */
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        transform .1s ease,
+        box-shadow .1s ease;
 }
 
-#add-sport-confirm:hover {
+.add-sport-confirm:hover, .edit-sport-confirm:hover {
+    /* Background */
+    background: var(--hp_hover);
+    box-shadow:
+        0 10px 22px rgba(54,15,90,.22);
+
+    /* Misc */
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
-
-@media screen and (max-width: 768px){
-    .add-sport-confirm {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 10%;
-        width: 60%;
-        margin-top: 10px;                       
-        padding: 3px 0;
-
-        /* Background */
-
-        /* Text */ 
-        font-size: 24px;
-        
-        /* Misc */
-
-    }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1800px){
-    .add-sport-confirm {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 50px;
-        width: 80%;
-        margin-top: 20px;                       
-        padding: 12px 0;
-
-        /* Background */
-
-        /* Text */
-        font-size: 16px; 
-        
-        /* Misc */
-    }
-}
-
-@media screen and (min-width: 1801px){
-    .add-sport-confirm {
-        /* Layout */
-
-        /* Size/Shape */
-        height: 50px;
-        margin-top: 50px;                       
-        padding: 12px 0;
-
-        /* Background */
-
-        /* Text */
-        font-size: 16px; 
-        
-        /* Misc */
-    }
-}
-/* #endregion */ 
+/* #endregion */
