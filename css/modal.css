@@ -36,19 +36,19 @@
 
         /* Size/Shape */
         width: 100%;
-        margin-top: 2%;
-        margin-bottom: 30px; 
+        margin-bottom: 50px;
 }
 
 .modal-header h2 {
     /* Layout */
 
     /* Size/Shape */
-     margin: 0 auto;
+    margin: 0 auto;
 
     /* Text */
     text-align: center;
     font-weight: bold; 
+    color: var(--husky_purple);
         
     /* Misc */    
 }
@@ -57,25 +57,29 @@
 /* #region close-button */
 .close-button {
     /* Layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     right: 0;
 
     /* Size/Shape */
-    margin-left: auto;
-    padding-right: 1%;
-    padding-bottom: 5%;
-
-    /* Background */
+    width: 30px;
+    height: 30px;
 
     /* Text */ 
     color: var(--husky_purple);
         
     /* Misc */
     cursor: pointer;
-    transition: color 0.2s;
+    transition: color 0.2s, background 0.1s ease;
 }
 
 .close-button:hover {
+    /*Background */
+    background: rgba(54,15,90,.08);
+
+    /* Text */
     color: var(--husky_purple);
 } 
 
