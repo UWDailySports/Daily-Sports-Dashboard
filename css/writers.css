@@ -163,6 +163,11 @@
     backface-visibility: hidden;
     contain: paint;
 }
+
+.edit-modal-content {
+    /* Shape / Size */
+    height: 80%;
+}
 /* #endregion */
 
 /* #region add-writer-sections-container, edit-writer-sections-container */
