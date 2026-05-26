@@ -18,7 +18,11 @@
         inset 0 1px 1px rgba(255,255,255,0.6);
 
     /* Misc */ 
-     overflow: hidden;   
+    overflow: hidden;  
+    animation: modalPop 220ms cubic-bezier(.16,1,.3,1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    contain: paint; 
 }
 /* #endregion
 
@@ -138,19 +142,42 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 40px;
     box-sizing: border-box;
 
     /* Size / Shape */
-    width: 500px;
+    width: 700px;
+    height: 75%;
     max-height: 1000px;
-    padding: 32px;
+    padding: 20px;
     border-radius: 24px;
     border: none;
 
     /* Background */
     background: white;
     box-shadow: 0 20px 45px rgba(0,0,0,.18);  
+
+    /* Misc */
+    animation: modalPop 220ms cubic-bezier(.16,1,.3,1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    contain: paint;
+}
+
+.edit-writer-modal-content {
+    /* Shape / Size */
+    height: 85%;
+}
+/* #endregion */
+
+/* #region add-writer-sections-container, edit-writer-sections-container */
+.add-writer-section-container, .edit-writer-section-container {
+    /* Layout */
+    flex: 1;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 /* #endregion */
 
@@ -196,7 +223,6 @@
     box-sizing: border-box;
 
     /* Size / Shape */
-    width: 100%;
     height: 52px;
     padding-left: 16px;
     border-radius: 14px;
@@ -227,7 +253,7 @@
 /* #region add-writer-confirm, edit-writer-confirm */
 .add-writer-confirm, .edit-writer-confirm {
     /* Size / Shape */
-    width: 100%;
+    width: 60%;
     height: 52px;
     border: none;
     border-radius: 16px;

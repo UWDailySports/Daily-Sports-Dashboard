@@ -111,7 +111,7 @@ async function fetchWriterInfo() {
             <button class = "edit-writer">Edit</button>
             <button class = "delete-writer">Delete</button>
         </div>
-        <button class = "writer-list-entry-section list-options-button" style="width: 5%; font-size: 30px;">&hellip;</button>
+        <button class = "writer-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1%;">&hellip;</button>
         `
 
         writerBox.querySelector(".edit-writer").addEventListener("click", () => openEditWriterModal(writer));
@@ -233,7 +233,7 @@ async function addWriter(first_name, last_name, email, phone, x, headshot, hire_
 // Returns: None
 // Parameters: (1) writer: writer object to get/edit info for
 // errors: (1) statusCode 500 if error sending edited info to DB
-// #region openeditWriterModal() //
+// #region openEditWriterModal() //
 
 async function openEditWriterModal(writer) {
     const editWriterModal = document.getElementById("edit-writer-modal");

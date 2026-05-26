@@ -309,68 +309,105 @@
     </div>
 </div>
 
-<div id = "edit-writer-modal" class = "modal">
-    <div class = "edit-writer-modal-content">
-        <div class = "modal-header">
-            <h2>Edit Writer</h2>
-            <span class="close-button">&times;</span>
-        </div>
-        <input type = "text" id = "edit-writer-first-name" class = "edit-writer-box" placeholder="First Name">
-        <input type = "text" id = "edit-writer-last-name" class = "edit-writer-box" placeholder="Last Name">
-        <input type = "text" id = "edit-writer-position" class = "edit-writer-box" placeholder="Position">
-        <input type = "text" id = "edit-writer-email" class = "edit-writer-box" placeholder="Email">
-        <input type = "text" id = "edit-writer-phone" class = "edit-writer-box" placeholder="Phone">
-        <input type = "text" id = "edit-writer-x" class = "edit-writer-box" placeholder="Writer X">
-        <input type = "text" id = "edit-writer-headshot" class = "edit-writer-box" placeholder="Writer Headshot">
-        <input type = "date" id = "edit-writer-hire-date" class = "edit-writer-box" placeholder="Hire Date">
-        <input type = "date" id = "edit-writer-end-date" class = "edit-writer-box" placeholder="End Date">
-        <button id = "edit-writer-confirm" class = "edit-writer-confirm">Confirm Edits</button>
-    </div>
-</div> 
-
 <div id = "add-writer-modal" class = "modal">
     <div class = "add-writer-modal-content">
-        <div class = "modal-header">
+        <div class = "modal-header" style = "margin-bottom: 30px;">
             <h2>Add Writer</h2>
             <span class="close-button">&times;</span>
         </div>
-        <div class = "add-writer-section">
-            <div class="add-writer-box-title">
-                First Name <span class="required">*</span>
+        <div class = "add-writer-section-container">
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">
+                    First Name <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-writer-first-name" class = "add-writer-box" placeholder="First Name">
             </div>
-            <input type = "text" id = "new-writer-first-name" class = "add-writer-box" placeholder="First Name">
-        </div>
-        <div class = "add-writer-section">
-            <div class="add-writer-box-title">
-                Last Name <span class="required">*</span>
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">
+                    Last Name <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-writer-last-name" class = "add-writer-box" placeholder="Last Name">
             </div>
-            <input type = "text" id = "new-writer-last-name" class = "add-writer-box" placeholder="Last Name">
-        </div>
-        <div class = "add-writer-section">
-            <div class="add-writer-box-title">
-                Email <span class="required">*</span>
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">
+                    Email <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-writer-email" class = "add-writer-box" placeholder="Writer Email">
             </div>
-            <input type = "text" id = "new-writer-email" class = "add-writer-box" placeholder="Writer Email">
-        </div>
-        <div class = "add-writer-section">
-            <div class = "add-writer-box-title">Phone</div>
-            <input type = "text" id = "new-writer-phone" class = "add-writer-box" placeholder="Writer Phone">
-        </div>
-        <div class = "add-writer-section">
-            <div class = "add-writer-box-title">X</div>
-            <input type = "text" id = "new-writer-x" class = "add-writer-box" placeholder="Writer X">
-        </div>
-        <div class = "add-writer-section">
-            <div class = "add-writer-box-title">Headshot</div>
-            <input type = "text" id = "new-writer-headshot" class = "add-writer-box" placeholder="Writer Headshot">
-        </div>
-        <div class = "add-writer-section">
-            <div class = "add-writer-box-title">Hire Date</div>
-            <input type = "date" id = "new-writer-hire-date" class = "add-writer-box" placeholder="Hire Date">
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">Phone</div>
+                <input type = "text" id = "new-writer-phone" class = "add-writer-box" placeholder="Writer Phone">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">X</div>
+                <input type = "text" id = "new-writer-x" class = "add-writer-box" placeholder="Writer X">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">Headshot</div>
+                <input type = "text" id = "new-writer-headshot" class = "add-writer-box" placeholder="Writer Headshot">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">Hire Date</div>
+                <input type = "date" id = "new-writer-hire-date" class = "add-writer-box" placeholder="Hire Date">
+            </div>
         </div>
         <button id = "add-writer-confirm" class = "add-writer-confirm">Add Writer</button>
     </div>
-</div>    
+</div> 
+
+<div id = "edit-writer-modal" class = "modal">
+    <div class = "edit-writer-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 15px;">
+            <h2>Edit Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "edit-writer-section-container">
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">
+                    First Name <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-writer-first-name" class = "edit-writer-box" placeholder="First Name">
+            </div>
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">
+                    Last Name <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-writer-last-name" class = "edit-writer-box" placeholder="Last Name">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">
+                    Email<span class="required">*</span>
+                </div>
+                <input type= "text" id = "edit-writer-email" class = "edit-writer-box" placeholder="Email">
+            </div>
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">Position</div>
+                <input type = "text" id = "edit-writer-position" class = "edit-writer-box" placeholder="Position">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">Phone</div>
+                <input type = "text" id = "edit-writer-phone" class = "edit-writer-box" placeholder="Phone">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">X</div>
+                <input type = "text" id = "edit-writer-x" class = "edit-writer-box" placeholder="X">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">Headshot</div>
+                <input type = "text" id = "edit-writer-headshot" class = "edit-writer-box" placeholder="Headshot">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">Hire Date</div>
+                <input type = "date" id = "edit-writer-hire-date" class = "edit-writer-box" placeholder="Hire Date">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">End Date</div>
+                <input type = "date" id = "edit-writer-end-date" class = "edit-writer-box" placeholder="End Date">
+            </div>
+        </div>
+        <button id = "edit-writer-confirm" class = "edit-writer-confirm">Edit Writer</button>
+    </div>
+</div>   
 
 <div id = "sport-modal" class = "modal">
     <div class = "sport-modal-content">

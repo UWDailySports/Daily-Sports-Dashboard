@@ -283,6 +283,11 @@
     background: white;
     box-shadow: 0 0 0 4px rgba(54,15,90,.08);
 }
+
+#invoice-modal {
+    /* Text */
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
 /* #endregion */
 
 /* #region add-invoice-confirm */
