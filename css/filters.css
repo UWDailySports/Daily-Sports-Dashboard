@@ -79,11 +79,20 @@
 /* #endregion */
 
 /* #region Mobile Styles */
-.games-filter-container {
-    /* Layout */
-    gap: 20px;
+@media screen and (max-width: 768px){
+    .games-filter-container {
+        /* Layout */
+        gap: 20px;
 
-    /* Size / Shape */
-    width: 40px;
+        /* Size / Shape */
+        padding-left: 5px;
+    }
+
+    .filter-dropdown-button {
+        /* Size / Shape */
+        width: 40px;
+    }
 }
 /* #endregion */
+
+

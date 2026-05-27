@@ -207,5 +207,9 @@
         /* Size / Shape */
         height: 150px;
     }
+
+    .resources-box-title {
+        font-size: 18px;
+    }
 }
 /* #endregion */
