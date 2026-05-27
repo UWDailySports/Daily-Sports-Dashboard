@@ -104,11 +104,12 @@
 @media screen and (max-width: 768px){
     .settings-container {
         /* Layout */
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 18px;
 
         /* Size/ Shape */
-        padding: 18px;
+        width: 100%;
+        padding: 18px; 
     }
 
     .settings-option {

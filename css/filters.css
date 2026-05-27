@@ -15,7 +15,9 @@
     /* Background */
     background-color: var(--husky_purple);
 }
+/* #endregion */
 
+/* #region filter-dropdown */ 
 .filter-dropdown {
     position: relative;
 }
@@ -26,6 +28,7 @@
     border-radius: 8px;
     background: white;
     cursor: pointer;
+    color: black;
     font-weight: 600;
     font-family: "Segoe UI", system-ui, sans-serif;;
 }
@@ -42,6 +45,7 @@
     position: absolute;
     top: 110%;
     left: 0;
+    z-index: 10000;
 
     display: flex;
     flex-direction: column;
@@ -72,3 +76,4 @@
     gap: 8px;
     cursor: pointer;
 }
+/* #endregion */

@@ -192,3 +192,15 @@
 }
 
 /* #endregion */
+
+/* #region Mobile Styles */
+@media screen and (max-width: 768px){
+    .resoures-container {
+    /* Layout */
+    grid-template-columns: repeat(1, 1fr);
+
+    /* Size / Shape */
+    width: 100%;
+    }
+}
+/* #endregion */
