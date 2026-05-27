@@ -147,7 +147,7 @@
 
     /* Size / Shape */
     width: 700px;
-    height: 75%;
+    height: 60%;
     max-height: 1000px;
     padding: 20px;
     border-radius: 24px;
@@ -166,7 +166,7 @@
 
 .edit-writer-modal-content {
     /* Shape / Size */
-    height: 85%;
+    height: 80%;
 }
 /* #endregion */
 
