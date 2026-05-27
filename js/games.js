@@ -187,7 +187,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
             <div class = "options-container"> 
                 <button class = "game-option" onclick = "signup(${gameId}, currWriter.writer_id")>ADD</button>
             </div>    
-            `;``
+            `;
         }
 
         if(currWriter.position == "Editor"){
