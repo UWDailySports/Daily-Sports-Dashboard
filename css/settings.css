@@ -12,6 +12,9 @@
 
     /* Size/Shape */
     width: 100%; 
+
+    /* Misc */
+    overflow-y: auto;
 }
 /* #endregion */
 
@@ -105,28 +108,21 @@
     .settings-container {
         /* Layout */
         grid-template-columns: repeat(1, 1fr);
-        gap: 18px;
+        gap: 10px;
 
         /* Size/ Shape */
         width: 100%;
-        padding: 18px; 
+        padding: 6px; 
     }
 
     .settings-option {
         /* Size / Shape */
-        height: 180px;
         border-radius: 18px;
-    }
-
-    .settings-icon {
-        /* Size / Shape */
-        width: 52px;
-        height: 52px;
     }
 
     .settings-title {
         /* Text */
-        font-size: 15px;
+        font-size: 18px;
     }
 
 }

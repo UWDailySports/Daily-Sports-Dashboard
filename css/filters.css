@@ -77,3 +77,13 @@
     cursor: pointer;
 }
 /* #endregion */
+
+/* #region Mobile Styles */
+.games-filter-container {
+    /* Layout */
+    gap: 20px;
+
+    /* Size / Shape */
+    width: 40px;
+}
+/* #endregion */
