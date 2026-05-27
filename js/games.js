@@ -2,6 +2,21 @@
 
 let currGameId = null;
 
+// Function: get Sports
+// Purpose: returns the sports in the db
+// Returns: data: sports in the db
+// Parameters: None
+// errors: (1) error if DB URL not set
+//         (2) statusCode 500 if error in DB query
+// #region loadSports() //
+async function getSports() {
+    const response = await fetch("/.netlify/functions/get-sports");
+    const data = await response.json();
+
+    return data.sports.map(s => s.sport);
+}
+// #endregion //
+
 // Function: fetchMySchedule
 // Purpose: Fetches the info for the games the user is scheduled to cover and shows games in dashboard
 // Returns: None

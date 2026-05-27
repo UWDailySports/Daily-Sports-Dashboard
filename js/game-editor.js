@@ -48,23 +48,6 @@ document.getElementById("confirm-add").onclick = async () => {
 };
 // #endregion //
 
-
-// Function: loadSports
-// Purpose: Loads sports into a select element in the add/edit game modals
-// Returns: None
-// Parameters: (1) selectId: id of select element to load sports into
-// errors: (1) error if DB URL not set
-//         (2) statusCode 500 if error in DB query
-// #region loadSports() //
-async function getSports() {
-    const response = await fetch("/.netlify/functions/get-sports");
-    const data = await response.json();
-
-    return data.sports.map(s => s.sport);
-}
-// #endregion //
-
-
 // Function: addGame
 // Purpose: Adds the new game into the DB
 // Returns: None
