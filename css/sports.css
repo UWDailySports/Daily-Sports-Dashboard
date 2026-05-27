@@ -24,7 +24,7 @@
     backface-visibility: hidden;
     contain: paint; 
 }
-/* #endregion
+/* #endregion */
 
 /* #region sport-list-container */
 .sport-list-container {
@@ -146,6 +146,7 @@
     /* Size / Shape */
     width: 500px;
     height: 50%;
+    min-height: 625px;
     max-height: 1000px;
     padding: 20px;
     border-radius: 24px;
@@ -226,7 +227,7 @@
     background: #f8f9fc;
 
     /* Text */
-    font-size: 15px;
+    font-size: 18px;
 
     /* Misc */
     transition: border-color .2s ease;
