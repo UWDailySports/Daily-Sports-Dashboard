@@ -83,23 +83,6 @@
     color: var(--husky_purple);
 } 
 
-@media screen and (max-width: 768px){
-    .close-button {
-        /* Layout */
-
-        /* Size/Shape */
-        margin-right: 5px;
-
-        /* Background */
-
-        /* Text */
-        font-size: 10px; 
-        
-        /* Misc */
-
-    }
-}
-
 @media screen and (min-width: 769px) and (max-width: 1800px){
     .close-button {
         /* Layout */

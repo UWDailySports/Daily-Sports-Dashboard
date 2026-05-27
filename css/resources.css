@@ -159,6 +159,7 @@
     
     /* Misc */
     opacity: 1;
+    overflow-y: auto;
     transform: translateY(0);
 }
 
@@ -206,6 +207,11 @@
     .resources-box {
         /* Size / Shape */
         height: 150px;
+    }
+
+    .resources-dropdown-header {
+        /* Text*/
+        font-size: 18px;
     }
 
     .resources-box-title {
