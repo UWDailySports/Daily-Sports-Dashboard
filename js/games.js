@@ -25,7 +25,7 @@ async function getSports() {
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region fetchMySchedule() //
-async function fetchMySchedule(writerId, filters = { sports: [], locations: [] }) {
+async function fetchMySchedule(writerId, filters = { sports: [], locations: [], months: [] }) {
     if (!writerId) {
         console.log("Writer ID is missing!");
 
@@ -101,20 +101,11 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [] }
                 <div class = "time">${time}</div>
             </div>    
             <div class = "options-container">
-                <button class = "game-option" data-game-id = "${gameId}">REMOVE</button>
+                <button class = "game-option" onclick = "remove(${gameId})">REMOVE</button>
             </div>
             `;
 
         container.appendChild(gameBox);
-
-        const removeButton = gameBox.querySelector(".remove");
-        removeButton.addEventListener("click", async (e) => {
-            const gameId = e.target.getAttribute("data-game-id");
-
-            await remove(gameId);
-
-            fetchMySchedule(currWriter.writer_id, { sports: [], locations: [] });
-        });
     });
 }
 // #endregion //
@@ -194,7 +185,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
                 <div class = "time">${time}</div>
             </div>    
             <div class = "options-container"> 
-                <button class = "game-option" onclick = "signup(${gameId}, currWriter.writer_id)>ADD</button>
+                <button class = "game-option" onclick = "signup(${gameId}, currWriter.writer_id")>ADD</button>
             </div>    
             `;``
         }
