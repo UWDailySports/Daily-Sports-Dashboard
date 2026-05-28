@@ -2,6 +2,14 @@
 
 let currGameId = null;
 
+
+async function getSports() {
+    const response = await fetch("/.netlify/functions/get-sports");
+    const data = await response.json();
+
+    return data;
+}
+
 // Function: get Sports
 // Purpose: returns the sports in the db
 // Returns: data: sports in the db
@@ -9,7 +17,7 @@ let currGameId = null;
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region loadSports() //
-async function getSports() {
+async function getSportNames() {
     const response = await fetch("/.netlify/functions/get-sports");
     const data = await response.json();
 

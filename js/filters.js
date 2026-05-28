@@ -165,7 +165,7 @@ async function buildFilters(containerId, filters, fetchFn) {
         </div>
     `;
 
-    const sports = await getSports();
+    const sports = await getSportNames();
 
     createFilterDropdown(`${containerId}-sport`, "Sport", sports, filters, "sports", fetchFn);
 
