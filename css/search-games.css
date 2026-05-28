@@ -6,67 +6,43 @@
     flex-direction: column;  
 
     /* Size/Shape */
-    width: 90%;
-    height: 75%;
-    padding-top: 2%;
-    padding-left: 1%;
-    border-radius: 20px;
+    width: 92%;
+    height: 82%;
+    padding: 24px;
+    border-radius: 24px;
 
     /* Background */
-    background-color: rgb(238, 238, 238);
+    background: white;
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.15),
+        inset 0 1px 1px rgba(255,255,255,0.6);
 
-    /* Text */ 
-        
-    /* Misc */    
+    /* Misc */ 
+    overflow: hidden;  
+    animation: modalPop 220ms cubic-bezier(.16,1,.3,1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    contain: paint;   
 }
 /* #endregion
-
-/* #region writer-list-title */
-
-/* #region search-games-list-title */
-.search-games-list-title {
-    /* Layout */
-    display: flex;
-
-    align-items: center;
-    box-sizing: border-box;
-
-    /* Size/Shape */
-    width: 98%;
-    height: 30px;
-    margin-bottom: 5px;
-
-    /* Background */
-    
-    /* Text */
-    font-size: 16px;
-    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
-    color: var(--husky_purple);
-        
-    /* Misc */    
-}
-/* #endregion
-
-/* #region writer-list-container */
 
 /* #region search-games-list-container */
 .search-games-list-container {
     /* Layout */
+    flex: 1;
     display: flex;
-    flex-direction: column;  
-    box-sizing: border-box; 
+    flex-direction: column;   
 
     /* Size/Shape */
-    height: 75%;
-    width: 98%;
-    border: black 1px solid;
+    width: 100%;
+    gap: 10px;
+    border-radius: 18px;
 
     /* Background */
-
-    /* Text */ 
+    background: #f8f9fc;
         
     /* Misc */
-    overflow-y: auto;   
+    overflow-y: auto;  
 }
 /* #endregion */
 
@@ -75,23 +51,26 @@
     /* Layout */
     display: flex;
     align-items: center;
-    box-sizing: border-box;
     position: relative;
 
     /* Size/Shape */
-    width: 100%;
-    min-height: 30px;
-    height: 50px;
-    margin-bottom: 5px;
-    border: black 1px solid;
+    min-height: 64px;
+    padding: 0 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(54,15,90,.08);
 
     /* Background */
-    
-    /* Text */
-    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
-    color: var(--husky_purple);
-        
-    /* Misc */    
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+
+    /* Misc */  
+    transition: box-shadow .1s ease;   
+}
+
+.search-games-list-entry-container {
+    /* Background */
+    box-shadow:
+        0 8px 20px rgba(54,15,90,.10);
 }
 /* #endregion */
 
@@ -100,22 +79,16 @@
     /* Layout */
     display: flex;
     align-items: center;
-    flex: 0 0 auto;
 
     /* Size/Shape */
-    box-sizing: border-box;
     width: 10%;
     height: 100%;
-
-    /* Background */
+    padding-left: 12px;
 
     /* Text */
-    font-size: 14px;
-    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
-    color: black;
-
-        
-    /* Misc */    
+    font-size: 12px;
+    font-weight: 400;
+    color: #2c2c2c; 
 }
 /* #endregion */
 
