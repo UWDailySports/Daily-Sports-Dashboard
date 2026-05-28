@@ -88,7 +88,7 @@
 /* #endregion */
 
 /* #region add-game-sections-container, edit-game-sections-container */
-.add-game-section-container, .edit-game-section-container {
+.add-game-sections-container, .edit-game-sections-container {
     /* Layout */
     flex: 1;
     display: grid;
