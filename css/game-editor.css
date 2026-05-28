@@ -34,23 +34,25 @@
     /* Size/Shape */
     border: none;
     margin-left: auto;
+    border-radius: 14px;
 
     /* Background */
-    background-color: white;
+    background-color: var(--husky_purple);
 
     /* Text */ 
     text-align: center;
-    font-size: medium;
+    font-size: 22px;
     font-weight: bold;
-    
-    color: var(--husky_purple);
+    color: white;
 
     /* Misc */   
     cursor: pointer;
+    transition: background 0.1s ease;
 }    
 
-.add-game::before {
-    content: "+ Add Game";
+.add-game:hover {
+    /* Background */
+    background: var(--hp_hover);
 }
 /* #endregion */
 
