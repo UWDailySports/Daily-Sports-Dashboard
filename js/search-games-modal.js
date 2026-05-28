@@ -63,19 +63,19 @@ async function fetchSearchGameInfo() {
         gameBox.classList.add("search-games-list-entry-container");
         gameBox.innerHTML = `
             <div class = "search-games-list-entry-section" style="width: 5%;">${id}</div>
-            <div class = "search-games-list-entry-section" style="width: 10%;">${date}</div>
+            <div class = "search-games-list-entry-section" style="width: 15%;">${date}</div>
             <div class = "search-games-list-entry-section" style="width: 15%;">${sport}</div>
             <div class = "search-games-list-entry-section" style="width: 15%;">${opponent}</div>
             <div class = "search-games-list-entry-section" style="width: 15%;">${location}</div>
-            <div class = "search-games-list-entry-section" style="width: 10%;">${time}</div>
+            <div class = "search-games-list-entry-section" style="width: 5%;">${time}</div>
             ${notes ? `
-                <div class="search-games-list-notes-container" style = "width: 5%;">
+                <div class="search-games-list-notes-container">
                     <div class="notes-icon">i</div>
                     <div class="notes-modal">${notes}</div>
                 </div>
             ` : `<div class = "search-games-list-notes-container"></div>`}
             <div class = "search-games-list-entry-section" style="width: 15%;">${name}</div>
-            <div class = "search-games-list-entry-section" style="width: 5%;">${covered}</div>
+            <div class = "search-games-list-entry-section" style="width: 5%; justify-content: center; font-size: 18px;">${covered}</div>
             <div class="list-options">
                 <button class = "edit-game">Edit</button>
                 <button class = "delete-game">Delete</button>
