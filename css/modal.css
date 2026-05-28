@@ -129,7 +129,13 @@
     color: var(--husky_purple);
 
     /* Misc */
-    cursor: pointer;    
+    cursor: pointer;
+    transition: background 0.1s ease;    
+}
+
+.list-options-button:hover, .list-options-button.active {
+    /* Background */
+    background: rgba(54,15,90,.08);
 }
 /* #endregion */
 

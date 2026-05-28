@@ -162,9 +162,13 @@
 }
 /* #endregion */
 
-
 /* #region add-game-confirm, edit-game-confirm */
 .add-game-confirm, .edit-game-confirm, .delete-game-confirm {
+    /* Layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     /* Size / Shape */
     width: 60%;
     height: 50px;
