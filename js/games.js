@@ -9,6 +9,7 @@ async function getSportNames() {
 
     return data.sports.map(s => s.sport);
 }
+
 async function getSports() {
     const response = await fetch("/.netlify/functions/get-sports");
 

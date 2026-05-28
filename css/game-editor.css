@@ -22,4 +22,98 @@
     /* Misc */    
 }
 
+/* #endregion */
 
+/* #region add-game */
+.add-game {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Size/Shape */
+    border: none;
+    margin-left: auto;
+
+    /* Background */
+    background-color: white;
+
+    /* Text */ 
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    
+    color: var(--husky_purple);
+
+    /* Misc */   
+    cursor: pointer;
+}    
+
+.add-game::before {
+    content: "+ Add Game";
+}
+/* #endregion */
+
+/* #region add-modal-content */
+.add-modal-content {
+    /* Size/Shape */
+    max-width: 90%;
+    margin: 5% auto;
+    border-radius: 16px;
+    border-color: var(--husky_purple);
+
+    /* Background */
+    background: white;
+
+    /* Text */    
+    color: black;
+}
+
+.add-modal-content h2 {
+    /* Layout */
+
+    /* Size/Shape */
+    margin-top: 0;
+
+    /* Text */ 
+    text-align: center;
+    font-weight: 600;
+    
+    color: black;
+}
+/* #endregion */
+
+/* #region add-box */
+.add-box {
+    /* Size/Shape */
+    width: 50%;
+    border-radius: 10px;
+    border-color: black;
+}
+/* #endregion */
+
+/* #region confirm-add  */
+.confirm-add {
+    /* Layout */
+
+    /* Size/Shape */
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+
+    /* Background */
+    background-color: var(--husky_purple);
+
+    /* Text */
+    color: white;
+        
+    /* Misc */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#confirm-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+/* #endregion */ 

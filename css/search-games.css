@@ -162,6 +162,16 @@
 }
 /* #endregion */
 
+/* #region search-options-container */
+.search-options-container {
+    /* Layout */
+    display: flex;
+
+    /* Size / Shape */
+    width: 100%;
+    height: 30px;
+}
+/* #endregion */
 /* #region search-games-input */
 .search-games-input {
     /* Layout */
@@ -169,7 +179,6 @@
 
     /* Size/Shape */
     width: 15%;
-    margin-left: auto;
     padding: 12px;
     border: 2px solid var(--husky_purple);
     border-radius: 8px;   

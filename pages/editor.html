@@ -11,9 +11,6 @@
 <link rel="stylesheet" href="/css/filters.css">
 <link rel="stylesheet" href="/css/game.css">
 <link rel="stylesheet" href="/css/game-editor.css"> 
-<link rel="stylesheet" href="/css/add-game.css">
-<link rel="stylesheet" href="/css/edit-game.css">
-<link rel="stylesheet" href="/css/assign-game.css">
 <link rel="stylesheet" href="/css/invoice.css">
 <link rel="stylesheet" href="/css/resources.css">
 <link rel="stylesheet" href="/css/settings.css">
@@ -511,7 +508,10 @@
             <h2>Search Games</h2>
             <span class = "close-button">&times;</span>
         </div>
-        <input id="search-games-input" type="text" placeholder="Search Games" class="search-games-input"/>        
+        <div class = "search-options-container">
+            <input id="search-games-input" type="text" placeholder="Search Games" class="search-games-input"/>  
+            <div class = "add-game"></div>
+        </div>      
         <div class = "search-games-list-title-container" style = "background: #360f5a;">
             <div class = "search-games-list-entry-section" style="width: 5%;  font-weight: bold;color:white">ID</div>
             <div class = "search-games-list-entry-section" style="width: 15%; font-weight: bold;color:white">Date</div>
