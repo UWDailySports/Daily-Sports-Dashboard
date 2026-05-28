@@ -155,29 +155,25 @@
     box-shadow:
         0 12px 28px rgba(0,0,0,.18);
 }
+/* #endregion */
 
-.list-options button {
+/* #region list-option */
+.list-option {
     /* Size / Shape */
-    border: none;
-    border-radius: 10px;
-    padding: 12px;
+    padding: 2px;
     
-    /* Background */
-    background: transparent;
-
     /* Text */
-    text-align: left;
-    font-weight: 600;
+    font-size: 14px;
     color: var(--husky_purple);
+    text-align: left;
 
     /* Misc */
-    cursor: pointer;
-    transition: background .18s ease;
+    transition: background 0.1s ease;
 }
 
-.list-options button:hover {
+.list-option:hover {
     /* Background */
-    background: rgba(54,15,90,.08);
+    background: var(--hp_hover);
 }
 /* #endregion */
 
