@@ -65,6 +65,7 @@
     margin: 5% auto;
     border-radius: 16px;
     border-color: var(--husky_purple);
+    z-index: 2000;
 
     /* Background */
     background: white;
