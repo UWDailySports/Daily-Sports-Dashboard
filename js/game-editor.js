@@ -175,6 +175,7 @@ document.getElementById("edit-game-confirm").onclick = async () => {
 
     if(!sport || !opponent || !location || !date || !time) {
         alert("Please fill in all required fields");
+        return;
     } 
 
     await editGame(currGameId, sport, opponent, date, time, location, notes);
