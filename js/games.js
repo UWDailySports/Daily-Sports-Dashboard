@@ -3,6 +3,12 @@
 let currGameId = null;
 
 
+async function getSportNames() {
+    const response = await fetch("/.netlify/functions/get-sports");
+    const data = await response.json();
+
+    return data.sports.map(s => s.sport);
+}
 async function getSports() {
     const response = await fetch("/.netlify/functions/get-sports");
 
