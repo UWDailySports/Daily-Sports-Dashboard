@@ -58,67 +58,162 @@
 }
 /* #endregion */
 
-/* #region add-modal-content */
-.add-modal-content {
-    /* Size/Shape */
-    max-width: 90%;
-    margin: 5% auto;
-    border-radius: 16px;
-    border-color: var(--husky_purple);
-    z-index: 2000;
+/* #region add-game-model-content / edit-game-modal-content */
+.add-game-modal-content, .edit-game-modal-content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    box-sizing: border-box;
+
+    /* Size / Shape */
+    width: 700px;
+    height: 50%;
+    max-height: 1000px;
+    padding: 20px;
+    border-radius: 24px;
+    border: none;
 
     /* Background */
     background: white;
+    box-shadow: 0 20px 45px rgba(0,0,0,.18);  
 
-    /* Text */    
-    color: black;
+    /* Misc */
+    animation: modalPop 220ms cubic-bezier(.16,1,.3,1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    contain: paint;
 }
+/* #endregion */
 
-.add-modal-content h2 {
+/* #region add-game-sections-container, edit-game-sections-container */
+.add-game-section-container, .edit-game-section-container {
     /* Layout */
+    flex: 1;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+/* #endregion */
 
-    /* Size/Shape */
-    margin-top: 0;
+/* #region add-game-section  / edit-game-section*/
+.add-game-section, .edit-game-section {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 
-    /* Text */ 
-    text-align: center;
+    /* Size / Shape */
+    width: 100%;
+}
+/* #endregion */
+
+/* #region add-game-box-title, edit-game-box-title */
+.add-game-box-title, .edit-game-box-title {
+    /* Layout */
+    display: flex;
+    box-sizing: border-box;
+
+    /* Text */
+    font-size: 20px;
     font-weight: 600;
-    
-    color: black;
+    color: var(--husky_purple);
+
+    /* Size / Shape */
+    padding-left: 4px;
+}
+
+.required {
+    margin-left: 4px;
+    color: #e53935;
+    font-weight: 700;
+    font-size: 16px;
+    vertical-align: middle;
 }
 /* #endregion */
 
-/* #region add-box */
-.add-box {
-    /* Size/Shape */
-    width: 50%;
-    border-radius: 10px;
-    border-color: black;
-}
-/* #endregion */
-
-/* #region confirm-add  */
-.confirm-add {
+/* #region add-game-box, edit-game-box */
+.add-game-box, .edit-game-box {
     /* Layout */
+    box-sizing: border-box;
+
+    /* Size / Shape */
+    height: 52px;
+    padding-left: 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(54,15,90,.15);
+
+    /* Background */
+    background: #f8f9fc;
+
+    /* Text */
+    font-size: 15px;
+
+    /* Misc */
+    transition: border-color .2s ease;
+}
+
+.add-game-box:focus, .edit-game-box:focus {
+    /* Misc */
+    outline: none;
+    border-color: var(--husky_purple);
+}
+/* #endregion */
+
+/* #region game-options-container */
+.game-options-container {
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
 
     /* Size/Shape */
     width: 100%;
+    height: 50px;
+}
+/* #endregion */
+
+/* #region add-game-confirm, edit-game-confirm */
+.add-game-confirm, .edit-game-confirm, .delete-game-confirm {
+    /* Size / Shape */
+    width: 40%;
+    height: 100%;
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
 
     /* Background */
-    background-color: var(--husky_purple);
+    background: var(--husky_purple);
 
     /* Text */
     color: white;
-        
+    font-size: 16px;
+    font-weight: 700;
+
     /* Misc */
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        transform .1s ease,
+        box-shadow .1s ease;
 }
 
-#confirm-add:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+.delete-game.confirm {
+    /* Background */
+    background: darkred;
 }
-/* #endregion */ 
+
+.add-game-confirm:hover, .edit-game-confirm:hover, .delete-game-confirm:hover {
+    /* Background */
+    background: var(--hp_hover);
+    box-shadow:
+        0 10px 22px rgba(54,15,90,.22);
+
+    /* Misc */
+    transform: translateY(-2px);
+}
+
+.delete-game-confirm:hover {
+    /* Background */
+    background: rgb(190, 24, 24);
+}
+/* #endregion */

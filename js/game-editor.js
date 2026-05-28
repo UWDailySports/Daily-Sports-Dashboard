@@ -13,12 +13,12 @@ async function openAddGameModal(containerId) {
 
     await loadSports("sport-input");
 
-    document.getElementById("add-modal").style.display = "flex";
+    document.getElementById("add-game-modal").style.display = "flex";
 };    
 
-const addModal = document.getElementById("add-modal");
+const addModal = document.getElementById("add-game-modal");
 
-document.getElementById("confirm-add").onclick = async () => {
+document.getElementById("add-game-confirm").onclick = async () => {
     const sport = document.getElementById("sport-input").value;
     const opponent = document.getElementById("opponent-input").value;
     const location = document.getElementById("location-input").value;
@@ -163,12 +163,12 @@ async function openEditGameModal(gameId, containerId) {
     document.getElementById("edit-time-input").value = game.time;
     document.getElementById("edit-notes-input").value = game.notes || "";
 
-    document.getElementById("edit-modal").style.display = "flex";
+    document.getElementById("edit-game-modal").style.display = "flex";
 };    
 
-const editModal = document.getElementById("edit-modal");
+const editModal = document.getElementById("edit-game-modal");
 
-document.getElementById("confirm-edit").onclick = async () => {
+document.getElementById("edit-game-confirm").onclick = async () => {
     const sport = document.getElementById("edit-sport-input").value;
     const opponent = document.getElementById("edit-opponent-input").value;
     const location = document.getElementById("edit-location-input").value;
@@ -193,7 +193,7 @@ document.getElementById("confirm-edit").onclick = async () => {
     }
 };
 
-document.getElementById("delete-game").onclick = async () => {
+document.getElementById("delete-game-confirm").onclick = async () => {
     if (!confirm("Are you sure you want to delete this game?")) return;
 
     await deleteGame(currGameId);
