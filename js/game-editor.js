@@ -147,12 +147,9 @@ async function loadWriters() {
 // Parameters: (1) gameId: id of game to edit
 //             (2) containerId: container id to determine tab refresh
 // #region openeditGameModal //
-async function openEditGameModal(gameId, containerId) {
+async function openEditGameModal(game, containerId) {
     currGameId = gameId;
     currentContainer = containerId;
-
-    const data = await loadGameInfo(gameId);
-    const game = data.game;
 
     await loadSports("edit-sport-input");
 
@@ -191,6 +188,10 @@ document.getElementById("edit-game-confirm").onclick = async () => {
     if (currentContainer === "available-games-filter-container") {
         fetchAvailableGames(availableFilters);
     }
+
+    if (currentContainer === "search-games") {
+        fetchSearchGameInfo();
+    }
 };
 
 document.getElementById("delete-game-confirm").onclick = async () => {
@@ -210,7 +211,11 @@ document.getElementById("delete-game-confirm").onclick = async () => {
 
     if (currentContainer === "scheduled-games-filter-container") {
         fetchMySchedule(currWriter.writer_id, myScheduleFilters);
-    }    
+    }
+    
+    if (currentContainer === "search-games") {
+        fetchSearchGameInfo();
+    }
 };
 // #endregion //
 

@@ -83,8 +83,8 @@ async function fetchSearchGameInfo() {
             <button class = "search-games-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1%;">&hellip;</button>
          `;       
          
-        gameBox.querySelector(".edit-game-option").addEventListener("click", () => openEditGameModal(game)); 
-        gameBox.querySelector(".delete-game-option").addEventListener("click", () => deleteGame(game.game_id));
+        gameBox.querySelector(".edit-game-option").addEventListener("click", () => openEditGameModal(game, "search-games")); 
+        gameBox.querySelector(".delete-game-option").addEventListener("click", () => deleteGame(game.game_id, "search-games"));
 
         const optionsButton = gameBox.querySelector(".list-options-button");
         const options = gameBox.querySelector(".list-options");
