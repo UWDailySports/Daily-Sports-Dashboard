@@ -11,7 +11,7 @@ let currentContainer = null;
 async function openAddGameModal(containerId) {
     currentContainer = containerId;
 
-    await loadSports("sport-input");
+    await getSports("sport-input");
 
     document.getElementById("add-modal").style.display = "flex";
 };    
@@ -155,7 +155,7 @@ async function openEditGameModal(gameId, containerId) {
     console.log("GAME DATA:", data);
     const game = data.game;
 
-    await loadSports("edit-sport-input");
+    await getSports("edit-sport-input");
 
     document.getElementById("edit-sport-input").value = game.sport;
     document.getElementById("edit-opponent-input").value = game.opponent;
