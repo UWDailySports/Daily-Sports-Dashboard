@@ -7,21 +7,23 @@ async function getSports() {
     const response = await fetch("/.netlify/functions/get-sports");
     const data = await response.json();
 
-    return data;
+    return data.sports;
 }
 
-// Function: get Sports
-// Purpose: returns the sports in the db
-// Returns: data: sports in the db
-// Parameters: None
-// errors: (1) error if DB URL not set
-//         (2) statusCode 500 if error in DB query
-// #region loadSports() //
-async function getSportNames() {
-    const response = await fetch("/.netlify/functions/get-sports");
-    const data = await response.json();
+async function loadSports(selectId) {
+    const sports = await getSports();
 
-    return data.sports.map(s => s.sport);
+    const select = document.getElementById(selectId);
+    select.innerHTML = "";
+
+    sports.forEach(sport => {
+        const option = document.createElement("option");
+
+        option.value = sport.sport;
+        option.textContent = sport.sport;
+
+        select.appendChild(option);
+    });
 }
 // #endregion //
 
