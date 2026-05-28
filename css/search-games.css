@@ -3,7 +3,8 @@
 .search-games-modal-content {
     /* Layout */
     display: flex;
-    flex-direction: column;  
+    flex-direction: column; 
+    gap: 20px; 
 
     /* Size/Shape */
     width: 92%;
@@ -47,7 +48,7 @@
 /* #endregion */
 
 /* #region search-games-list-entry-container */
-.search-games-list-entry-container {
+.search-games-list-entry-container, .search-games-list-title-container {
     /* Layout */
     display: flex;
     align-items: center;
@@ -169,7 +170,6 @@
     /* Size/Shape */
     width: 15%;
     margin-left: auto;
-    margin-right: 2%;
     padding: 12px;
     border: 2px solid var(--husky_purple);
     border-radius: 8px;   
