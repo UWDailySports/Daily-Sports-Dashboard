@@ -114,7 +114,7 @@ async function fetchWriterInfo() {
         <button class = "writer-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1%;">&hellip;</button>
         `
 
-        writerBox.querySelector(".edit-writer").addEventListener("click", () => openEditWritereModal(writer)); 
+        writerBox.querySelector(".edit-writer").addEventListener("click", () => openEditWriterModal(writer)); 
         writerBox.querySelector(".delete-writer").addEventListener("click", () => deleteWriter(writer.writer_id));
 
         const optionsBtn = writerBox.querySelector(".list-options-button");
