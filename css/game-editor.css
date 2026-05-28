@@ -94,7 +94,7 @@
     display: grid;
     align-self: stretch;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 20px;
 }
 /* #endregion */
 

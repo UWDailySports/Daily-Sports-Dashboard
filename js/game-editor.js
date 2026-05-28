@@ -198,7 +198,7 @@ document.getElementById("delete-game-confirm").onclick = async () => {
 
     await deleteGame(currGameId);
 
-    document.getElementById("edit-modal").style.display = "none";
+    document.getElementById("edit-game-modal").style.display = "none";
 
     if (currentContainer === "all-games-filter-container") {
         fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
