@@ -77,14 +77,14 @@ async function fetchSearchGameInfo() {
             <div class = "search-games-list-entry-section" style="width: 15%;">${name}</div>
             <div class = "search-games-list-entry-section" style="width: 5%; justify-content: center; font-size: 18px;">${covered}</div>
             <div class="list-options">
-                <div class = "list-option edit-game">Edit</div>
-                <div class = "list-option delete-game">Delete</div>
+                <div class = "list-option edit-game-option">Edit</div>
+                <div class = "list-option delete-game-option">Delete</div>
             </div>
             <button class = "search-games-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1%;">&hellip;</button>
          `;       
          
-        gameBox.querySelector(".edit-game").addEventListener("click", () => openEditGameModal(game)); 
-        gameBox.querySelector(".delete-game").addEventListener("click", () => deleteGame(game.game_id));
+        gameBox.querySelector(".edit-game-option").addEventListener("click", () => openEditGameModal(game)); 
+        gameBox.querySelector(".delete-game-option").addEventListener("click", () => deleteGame(game.game_id));
 
         const optionsButton = gameBox.querySelector(".list-options-button");
         const options = gameBox.querySelector(".list-options");
