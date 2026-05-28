@@ -162,23 +162,12 @@
 }
 /* #endregion */
 
-/* #region game-options-container */
-.game-options-container {
-    /* Layout */
-    display: flex;
-    justify-content: space-between;
-
-    /* Size/Shape */
-    width: 100%;
-    height: 50px;
-}
-/* #endregion */
 
 /* #region add-game-confirm, edit-game-confirm */
 .add-game-confirm, .edit-game-confirm, .delete-game-confirm {
     /* Size / Shape */
-    width: 40%;
-    height: 100%;
+    width: 60%;
+    height: 50px;
     border: none;
     border-radius: 16px;
 
