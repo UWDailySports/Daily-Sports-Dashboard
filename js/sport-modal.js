@@ -73,13 +73,11 @@ async function fetchSportInfo() {
             <div class = "sport-list-entry-section">${phone}</div>
             <div class = "sport-list-entry-section" style = "width:15%;"></div>
             <div class="list-options">
-                <button class = "edit-sport">Edit</button>
-                <button class = "delete-sport">Delete</button>
+                <div class = "list-option" onclick = "openEditSportModal(sport)">Edit</div>
+                <div class = "list-option" onclick = "deleteSport(sport.sport_id)">Delete</div>
             </div>
             <div class = "list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
         `
-        sportBox.querySelector(".edit-sport").addEventListener("click", () => openEditSportModal(sport));
-        sportBox.querySelector(".delete-sport").addEventListener("click", () => deleteSport(sport.sport_id));
 
         const optionsBtn = sportBox.querySelector(".list-options-button");
         const options = sportBox.querySelector(".list-options");

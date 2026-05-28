@@ -77,8 +77,8 @@ async function fetchSearchGameInfo() {
             <div class = "search-games-list-entry-section" style="width: 15%;">${name}</div>
             <div class = "search-games-list-entry-section" style="width: 5%; justify-content: center; font-size: 18px;">${covered}</div>
             <div class="list-options">
-                <button class = "list-option" onclick = "openEditGameModal(id)">Edit</button>
-                <button class = "list-option" onclick = "deleteGame(id)">Delete</button>
+                <div class = "list-option" onclick = "openEditGameModal(id)">Edit</div>
+                <div class = "list-option" onclick = "deleteGame(id)">Delete</div>
             </div>
             <button class = "search-games-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</button>
          `;       
