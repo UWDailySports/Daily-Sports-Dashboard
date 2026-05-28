@@ -12,7 +12,7 @@ async function openAddGameModal(containerId) {
     currentContainer = containerId;
 
     document.getElementById("sport-input").value = "Select a Sport";
-    await getSports("sport-input");
+    await loadSports("sport-input");
 
     document.getElementById("add-modal").style.display = "flex";
 };    

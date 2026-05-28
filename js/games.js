@@ -5,7 +5,12 @@ let currGameId = null;
 
 async function getSports() {
     const response = await fetch("/.netlify/functions/get-sports");
+
+    console.log("response:", response);
+
     const data = await response.json();
+
+    console.log("sports data:", data);
 
     return data.sports;
 }
@@ -13,10 +18,17 @@ async function getSports() {
 async function loadSports(selectId) {
     const sports = await getSports();
 
+    console.log("sports:", sports);
+
     const select = document.getElementById(selectId);
+
+    console.log("select:", select);
+
     select.innerHTML = "";
 
     sports.forEach(sport => {
+        console.log("adding:", sport);
+
         const option = document.createElement("option");
 
         option.value = sport.sport;
