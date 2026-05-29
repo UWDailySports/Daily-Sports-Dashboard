@@ -270,6 +270,7 @@
 #confirm-assign {
     /* Size/Shape */
     width: 60%;
+    height: 40px;
     border: none;
     border-radius: 16px;
 
