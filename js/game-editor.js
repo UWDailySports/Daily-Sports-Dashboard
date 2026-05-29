@@ -129,6 +129,14 @@ async function loadWriters() {
     const select = document.getElementById("writer-select");
     select.innerHTML = ""; 
 
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = "Select a writer";
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+
+    select.appendChild(defaultOption);
+
     writers.forEach(writer => {
         const option = document.createElement("option");
 
