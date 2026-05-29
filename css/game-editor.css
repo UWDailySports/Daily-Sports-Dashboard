@@ -224,9 +224,10 @@
 
     /* Size / Shape */
     width: 350px;
-    min-height: 350px;
+    min-height: 250px;
     padding: 20px;
     border-radius: 24px;
+    margin-bottom: 200px;
     border: none;
 
     /* Background */
