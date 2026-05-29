@@ -333,6 +333,8 @@
     /* Size / Shape */
     height: 90%;
     min-width: 0;
+    margin-right: 5px;
+    background: green;
 }
  .options-container button {
     /* Size/Shape */
