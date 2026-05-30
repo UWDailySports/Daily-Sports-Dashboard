@@ -445,7 +445,7 @@ async function remove(gameId) {
     }
 }   
 
-async function resetCaches() {
+function resetCaches() {
     myScheduleLoaded= false;
     availableGamesLoaded = false;
     historyLoaded = false;

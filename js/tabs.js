@@ -52,7 +52,7 @@ tabHandlers["production"] = function() {
 
 let myScheduleLoaded = false;
 tabHandlers["scheduled-games"] = async function () {
-    if(myScheduledLoaded === false){
+    if(myScheduleLoaded === false){
         await buildFilters(
             "scheduled-games-filter-container",
             myScheduleFilters,
@@ -83,7 +83,7 @@ tabHandlers["available-games"] = async function () {
 
 
 let invoicesLoaded = false;
-tabHandlers["invoices"] = function() {
+tabHandlers["invoices"] = async function() {
     if(invoicesLoaded === false) {
         await fetchInvoices(currWriter.writer_id);
 
