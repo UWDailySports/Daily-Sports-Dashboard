@@ -7,19 +7,16 @@ window.onload = async function() {
 
     if (!user) return;
 
-    await fetchWriterData(user); 
-            
-    const scheduledTabId = "all-games";
-    const scheduledButton = document.querySelector(`button[onclick="showTab(event, '${scheduledTabId}')"]`);
-    const scheduledTab = document.getElementById(scheduledTabId);
+    await fetchWriterData(user);
 
-    const allTabs = document.getElementsByClassName("tab-content");
-    const allButtons = document.getElementsByClassName("tab-button");
-    for (let tab of allTabs) tab.style.display = "none";
-    for (let btn of allButtons) btn.classList.remove("active-tab");
+    const button = document.querySelector(
+        `button[onclick="showTab(event, 'all-games')"]`
+    );
 
-    scheduledTab.style.display = "flex";
-    scheduledButton.classList.add("active-tab");
+    showTab(
+        { currentTarget: button },
+        "all-games"
+    );
 };
 
 window.showTab = function(event, tabId) {

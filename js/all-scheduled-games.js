@@ -9,7 +9,7 @@ tabHandlers["all-games"] = async function () {
         filters => fetchAllScheduledGames(filters)
     );
 
-    fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+    fetchAllScheduledGames(allScheduledFilters);
 };
 
 // Function: fetchAllScheduledGames
