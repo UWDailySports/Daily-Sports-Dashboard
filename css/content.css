@@ -42,7 +42,6 @@
 #production {
     /* Layout */
     flex: 1;
-    display: flex;
 
     /* Size / Shape */
     width: 100%;
