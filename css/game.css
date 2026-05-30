@@ -248,7 +248,7 @@
 /* #endregion */    
 
 /* #region home-recap / away-recap */
-.home-recap {
+.home-recap, .away-recap {
     /* Layout */
     flex: 0 0 auto;
     display: flex;
