@@ -241,11 +241,17 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
             <div class = "options-container"> 
                 <button class = "game-option" onclick = "signup(${gameId}, currWriter.writer_id)">ADD</button>
                 <button class= "game-option" onclick="openAssignModal(${gameId})">ASSIGN</button>
+                <button class = "game-option" data-action = "edit">EDIT</button>
             </div>    
             `;
         }
         
         container.appendChild(gameBox);
+
+        const editButton = gameBox.querySelector('[data-action="edit"]');
+        editButton.addEventListener("click", async (e) => {
+            openEditGameModal(game, "all-games-filter-container");
+        });
     });
 }
 // #endregion //
