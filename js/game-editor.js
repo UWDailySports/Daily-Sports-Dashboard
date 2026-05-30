@@ -34,6 +34,8 @@ document.getElementById("add-game-confirm").onclick = async () => {
     
     addModal.style.display = "none";
 
+    resetCaches();
+
     if (currentContainer === "all-games-filter-container") {
         fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
     }
@@ -72,7 +74,7 @@ async function addGame(sport, opponent, date, time, location, notes) {
         const data = await response.json();
 
         if (data.success) {
-            showToast("New game successfully added!", "success")
+            showToast("New game successfully added!", "success");
         } else {
             showToast("Failed to add new game", "error")
         }
@@ -111,6 +113,8 @@ document.getElementById("confirm-assign").onclick = async () => {
     await signup(currGameId, writerId);
 
     assignModal.style.display = "none";
+    
+    resetCaches();
 };
 // #endregion //
 
@@ -190,6 +194,8 @@ document.getElementById("edit-game-confirm").onclick = async () => {
 
     editModal.style.display = "none";
 
+    resetCaches();
+
     if (currentContainer === "all-games-filter-container") {
         fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
     }
@@ -209,6 +215,8 @@ document.getElementById("delete-game-confirm").onclick = async () => {
     await deleteGame(currGameId);
 
     document.getElementById("edit-game-modal").style.display = "none";
+
+    resetCaches();
 
     if (currentContainer === "all-games-filter-container") {
         fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);

@@ -397,6 +397,7 @@ async function signup(gameId, writerId) {
 
         if (data.success) {
             showToast("Successfully added game to schedule!", "success");
+            resetCaches();
             fetchAvailableGames(availableFilters);
         } else {
             showToast("Failed to add game to schedule", "error");
@@ -431,7 +432,8 @@ async function remove(gameId) {
         const data = await response.json();
 
         if (data.success) {
-            showToast("Game removed from schedule", "success")
+            showToast("Game removed from schedule", "success");
+            resetCaches();
             fetchMySchedule(currWriter.writer_id, myScheduleFilters);
         } else {
             showToast("Failed to remove game from schedule", "error")
@@ -441,5 +443,12 @@ async function remove(gameId) {
         console.error("Error:", error);
         alert("Error removing game from assignments.");
     }
-}     
+}   
+
+async function resetCaches() {
+    myScheduleLoaded= false;
+    availableGamesLoaded = false;
+    historyLoaded = false;
+    allScheduledGamesLoaded = false;
+}
 // #endregion //

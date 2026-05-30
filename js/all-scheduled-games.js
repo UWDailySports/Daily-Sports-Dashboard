@@ -2,14 +2,19 @@
 
 let allScheduledFilters = { sports: [], locations: [], months: [] };
 
+let allScheduledGamesLoaded = false;
 tabHandlers["all-games"] = async function () {
-    await buildFilters(
-        "all-games-filter-container",
-        allScheduledFilters,
-        filters => fetchAllScheduledGames(filters)
-    );
+    if(allScheduledGamesLoaded === false){
+        await buildFilters(
+            "all-games-filter-container",
+            allScheduledFilters,
+            filters => fetchAllScheduledGames(filters)
+        );
 
-    fetchAllScheduledGames(allScheduledFilters);
+        await fetchAllScheduledGames(allScheduledFilters);
+
+        allScheduledGamesLoaded = true;
+    }
 };
 
 // Function: fetchAllScheduledGames

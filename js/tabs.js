@@ -50,39 +50,58 @@ tabHandlers["production"] = function() {
 };
 
 
+let myScheduleLoaded = false;
 tabHandlers["scheduled-games"] = async function () {
-    await buildFilters(
-        "scheduled-games-filter-container",
-        myScheduleFilters,
-        filters => fetchMySchedule(currWriter.writer_id, filters)
-    );
+    if(myScheduledLoaded === false){
+        await buildFilters(
+            "scheduled-games-filter-container",
+            myScheduleFilters,
+            filters => fetchMySchedule(currWriter.writer_id, filters)
+        );
 
-    fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+        await fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+
+        myScheduleLoaded = true;
+    }
 };
 
 
+let availableGamesLoaded = false;
 tabHandlers["available-games"] = async function () {
-    await buildFilters(
-        "available-games-filter-container",
-        availableFilters,
-        fetchAvailableGames
-    );
+    if (availableGamesLoaded === false) {
+        await buildFilters(
+            "available-games-filter-container",
+            availableFilters,
+            fetchAvailableGames
+        );
 
-    fetchAvailableGames(availableFilters);
+        await fetchAvailableGames(availableFilters);
+
+        availableGamesLoaded = true;
+    }
 };
 
 
+let invoicesLoaded = false;
 tabHandlers["invoices"] = function() {
-    fetchInvoices(currWriter.writer_id);
-};
+    if(invoicesLoaded === false) {
+        await fetchInvoices(currWriter.writer_id);
 
+        invoicesLoaded = true;
+    }
+};    
 
+let historyLoaded = false;
 tabHandlers["history"] = async function () {
-    await buildFilters(
-        "history-filter-container",
-        historyFilters,
-        filters => fetchHistoryGames(currWriter.writer_id, filters));
+    if(historyLoaded === false) {
+        await buildFilters(
+            "history-filter-container",
+            historyFilters,
+            filters => fetchHistoryGames(currWriter.writer_id, filters));
 
-    fetchHistoryGames(currWriter.writer_id, historyFilters);
+        await fetchHistoryGames(currWriter.writer_id, historyFilters);
+
+        historyLoaded = true;
+    }
 };
 
