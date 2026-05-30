@@ -42,7 +42,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
     const data = await response.json();
     const games = data.games;
 
-    const container = document.getElementById("all-games-container");
+    container = document.getElementById("all-games-container");
     container.innerHTML = "";
 
     // Special box if no games are scheduled

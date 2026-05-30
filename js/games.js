@@ -185,7 +185,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
     const data = await response.json();
     const games = data.games;
             
-    const container = document.getElementById("available-games-container");
+    container = document.getElementById("available-games-container");
     container.innerHTML = "";
 
     // Special box if no games are available
@@ -310,7 +310,7 @@ async function fetchHistoryGames(writerId, filters = { sports: [], locations: []
     const data = await response.json();
     const games = data.games;
             
-    const container = document.getElementById("history-container");
+    container = document.getElementById("history-container");
     container.innerHTML = "";
 
     // Special box if no history is found
