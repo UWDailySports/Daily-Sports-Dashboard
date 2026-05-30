@@ -4,13 +4,27 @@ let currGameId = null;
 
 function createSkeletonGameBox() {
     const skeleton = document.createElement("div");
-    skeleton.classList.add("game-box", "skeleton-game");
+    skeleton.classList.add("game-box", "skeleton-game-box");
 
     skeleton.innerHTML = `
-        <div class="skeleton skeleton-sport"></div>
-        <div class="skeleton skeleton-matchup"></div>
-        <div class="skeleton skeleton-location"></div>
-        <div class="skeleton skeleton-date"></div>
+            <div class = "skeleton-sport-container">
+                <div class = "skeleton-sport-box"></div>
+                <div class = "skeleton-notes-box"></div> 
+            </div>
+            <div class = "skeleton-matchup-container">
+                <img class = "skeleton-school-icon">
+                <div class = "skeleton-where"></div>
+                <img class="skeleton-school-icon">
+            </div>
+            <div class = "recap-container">
+                <div class="skeleton-home-recap"></div>
+                <p class="skeleton-recap-location"></p>
+            </div>
+            <div class = "skeleton-when-container">
+                <div class = "skeleton-date"></div>
+                <div class = "skeleton-time"></div>
+            </div>    
+            <div class = "skeleton-options-container"></div>
     `;
 
     return skeleton;

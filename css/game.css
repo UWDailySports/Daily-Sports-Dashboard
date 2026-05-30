@@ -18,7 +18,7 @@
         background-position: -200% 0;
     }
 }
-
+/*
 .skeleton-game {
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@
     width: 40%;
     height: 20px;
     border-radius: 6px;
-}
+}/*
 
 /* #region games-container */
 .games-container {
@@ -69,7 +69,7 @@
 /* #endregion */
 
 /* #region game-box */
-.game-box {
+.game-box, .skeleton-game-box {
     /* Layout */
     display: flex;
     align-items: center;
@@ -93,7 +93,7 @@
     overflow: hidden;   
 }
 
-.game-box:hover {
+.game-box:hover, .skeleton-game-box:hover {
     /* Size/Shape */
     border-color: #dcdcdc;
 
@@ -127,7 +127,7 @@
 /* #endregion */
 
 /* #region sport-container */
-.sport-container {
+.sport-container, .skeleton-sport-container {
     /* Layout */
     display: flex;
     flex: 0.5;
@@ -145,7 +145,7 @@
 /* #endregion */
 
 /* #region sport-box */
-.sport-box {
+.sport-box, .skeleton-sport-box {
     /* Layout */
     flex: 1;
 
@@ -165,7 +165,7 @@
 /* #endregion */
 
 /* #region notes-box */
-.notes-box {
+.notes-box, .skeleton-notes-box {
     /* Layout */
     flex: 1.5;
 
@@ -186,7 +186,7 @@
 /* #endregion */
 
 /* #region matchup-container */
-.matchup-container {
+.matchup-container, .skeleton-matchup-container {
     /* Layout */
     display: flex;
     flex: 0.7;
@@ -200,7 +200,7 @@
 /* #endregion */
 
 /* #region school-icon */
-.school-icon {
+.school-icon, .skeleton-school-icon {
     /* Layout */
     flex-shrink: 0;
     object-fit: contain;
@@ -213,7 +213,7 @@
 /* #endregion */ 
 
 /* #region where */
-.where {
+.where, .skeleton-where {
     /* Layout */
     display: flex;
     align-self: center;
@@ -228,7 +228,7 @@
 /* #endregion */
 
 /* #region recap-container */
-.recap-container {
+.recap-container, .skeleton-recap-container {
     /* Layout */
     flex: 0.6;
     display: flex;
@@ -248,7 +248,7 @@
 /* #endregion */    
 
 /* #region home-recap / away-recap */
-.home-recap, .away-recap {
+.home-recap, .away-recap, .skeleton-home-recap, .skeleton-away-recap {
     /* Layout */
     flex: 0 0 auto;
     display: flex;
@@ -278,7 +278,7 @@
     content: "Home Recap";
 }
 
-.away-recap{
+.away-recap {
     /* Background */
     background-color: var(--husky_gold);
 
@@ -296,7 +296,7 @@
 /* #endregion */
 
 /* #region recap-location */
-.recap-location {
+.recap-location, .skeleton-recap-location {
     /* Layout */
     flex: 0 0 auto;
     display: block;
@@ -317,7 +317,7 @@
 /* #endregion */
  
 /* #region when-container */
-.when-container {
+.when-container, .skeleton-when-container {
     /* Layout */
     flex: 0.6;
     display: flex;
@@ -335,7 +335,7 @@
 /* #endregion */
 
 /* #region date */
-.date {
+.date, .skeleton-date {
     /* Size /Shape */
     min-width: 0;
 
@@ -353,7 +353,7 @@
 /* #endregion */    
 
 /* #region time */
-.time {
+.time, .skeleton-time {
     /* Size / Shape */
     min-width: 0;
 
@@ -371,7 +371,7 @@
 /* #endregion */
 
 /* #region options-container */
-.options-container {
+.options-container, .skeleton-options-container {
     /* Layout */
     flex: 0.3;
     display: flex;
