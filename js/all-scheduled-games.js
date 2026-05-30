@@ -93,7 +93,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
             <div class = "writer">${name}</div>
             <div class = "options-container"> 
                 <button class = "game-option" data-game-id = "${gameId}" data-action="remove">REMOVE</button>
-                <button class = "game-option" onclick="openEditGameModal(game, 'all-games-filter-container')">EDIT</button>
+                <button class = "game-option" data-action = "edit">EDIT</button>
             </div>    
         `;
 
@@ -105,6 +105,11 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
 
             await remove(gameId);
             fetchAllScheduledGames(allScheduledFilters);
+        });
+
+        const editButton = gameBox.querySelector('[data-action="edit"]');
+        editButton.addEventListener("click", async (e) => {
+            openEditGameModal(game, "all-games-filter-container");
         });
     });
 } 
