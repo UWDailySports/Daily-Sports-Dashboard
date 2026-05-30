@@ -2,6 +2,19 @@
 
 let currGameId = null;
 
+function createSkeletonGameBox() {
+    const skeleton = document.createElement("div");
+    skeleton.classList.add("game-box", "skeleton-game");
+
+    skeleton.innerHTML = `
+        <div class="skeleton skeleton-sport"></div>
+        <div class="skeleton skeleton-matchup"></div>
+        <div class="skeleton skeleton-location"></div>
+        <div class="skeleton skeleton-date"></div>
+    `;
+
+    return skeleton;
+}
 
 async function getSportNames() {
     const response = await fetch("/.netlify/functions/get-sports");
@@ -60,6 +73,13 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [], 
 
         return;  
     }
+
+    let container = document.getElementById("scheduled-games-container");
+    container.innerHTML = "";
+
+    for (let i = 0; i < 6; i++) {
+        container.appendChild(createSkeletonGameBox());
+    }
             
     const response = await fetch("/.netlify/functions/scheduled-games", {
         method: "POST",
@@ -75,7 +95,7 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [], 
     const data = await response.json();
     const games = data.games;
 
-    const container = document.getElementById("scheduled-games-container");
+    container = document.getElementById("scheduled-games-container");
     container.innerHTML = "";
 
     // Special box if no games are scheduled
@@ -148,6 +168,14 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [], 
 //         (2) statusCode 500 if error in DB query
 // #region fetchAvailableGames() //
 async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
+
+    let container = document.getElementById("available-games-container");
+    container.innerHTML = "";
+
+    for (let i = 0; i < 6; i++) {
+        container.appendChild(createSkeletonGameBox());
+    }
+
     const response = await fetch("/.netlify/functions/available-games", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -266,6 +294,13 @@ async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
 //         (2) statusCode 500 if error in DB query
 // #region fetchHistoryGames() //
 async function fetchHistoryGames(writerId, filters = { sports: [], locations: [], months: [] }) {
+    let container = document.getElementById("history-container");
+    container.innerHTML = "";
+
+    for (let i = 0; i < 6; i++) {
+        container.appendChild(createSkeletonGameBox());
+    }
+
     const response = await fetch("/.netlify/functions/history-games", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

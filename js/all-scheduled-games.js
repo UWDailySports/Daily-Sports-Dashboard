@@ -21,6 +21,13 @@ tabHandlers["all-games"] = async function () {
 // #region fetchAllScheduledGames //
 
 async function fetchAllScheduledGames(filters = { sports: [], locations: [], months: [] }) {
+    let container = document.getElementById("all-games-container");
+    container.innerHTML = "";
+
+    for (let i = 0; i < 6; i++) {
+        container.appendChild(createSkeletonGameBox());
+    }
+
     const response = await fetch("/.netlify/functions/all-schedule", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
