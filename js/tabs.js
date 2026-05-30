@@ -9,7 +9,7 @@ window.onload = async function() {
 
     await fetchWriterData(user); 
             
-    const scheduledTabId = "production";
+    const scheduledTabId = "all-games";
     const scheduledButton = document.querySelector(`button[onclick="showTab(event, '${scheduledTabId}')"]`);
     const scheduledTab = document.getElementById(scheduledTabId);
 
