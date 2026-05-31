@@ -283,3 +283,10 @@
     transform: translateY(-2px);
 }
 /* #endregion */
+
+@media screen and (max-width: 768px) {
+    .writer-modal-content {
+        /* Misc */
+        overflow-x: auto;
+    }
+}
