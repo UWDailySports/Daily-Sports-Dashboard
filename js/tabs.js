@@ -85,6 +85,7 @@ tabHandlers["available-games"] = async function () {
 let invoicesLoaded = false;
 tabHandlers["invoices"] = async function() {
     if(invoicesLoaded === false) {
+        getPayPeriod();
         await fetchInvoices(currWriter.writer_id);
 
         invoicesLoaded = true;

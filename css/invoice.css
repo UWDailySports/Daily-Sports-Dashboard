@@ -21,11 +21,7 @@
 
     /* Size / Shape */
     min-height: 56px;
-    border: 1px solid rgba(153,255,153,.4);
     border-radius: 14px;
-
-    /* Background */
-    background-color: rgba(153, 255, 153, 0.5);
 
     /* Text */
     font-size: clamp(1rem, 1.35vw, 1.5rem);
