@@ -167,7 +167,7 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [], 
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region fetchAvailableGames() //
-async function fetchAvailableGames(filters = { sports: [], locations: [] }) {
+async function fetchAvailableGames(filters = { sports: [], locations: [], months: [] }) {
 
     let container = document.getElementById("available-games-container");
     container.innerHTML = "";
