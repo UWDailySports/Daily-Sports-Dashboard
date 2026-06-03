@@ -8,6 +8,7 @@
     /* Size/Shape */
     width: 92%;
     height: 82%;
+    max-height: 1000px;
     padding: 24px;
     border-radius: 24px;
 
@@ -147,8 +148,8 @@
 
     /* Size / Shape */
     width: 700px;
-    height: 60%;
-    max-height: 1000px;
+    height: 80%;
+    max-height: 1400px;
     padding: 20px;
     border-radius: 24px;
     border: none;
@@ -166,7 +167,7 @@
 
 .edit-writer-modal-content {
     /* Shape / Size */
-    height: 80%;
+    height: 85%;
 }
 /* #endregion */
 
