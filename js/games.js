@@ -272,14 +272,14 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
                 <button class = "game-option" data-action = "edit">EDIT</button>
             </div>    
             `;
-        }
-        
-        container.appendChild(gameBox);
 
-        const editButton = gameBox.querySelector('[data-action="edit"]');
-        editButton.addEventListener("click", async (e) => {
-            openEditGameModal(game, "all-games-filter-container");
-        });
+            const editButton = gameBox.querySelector('[data-action="edit"]');
+            editButton.addEventListener("click", async (e) => {
+                openEditGameModal(game, "all-games-filter-container");
+            });
+        }
+
+        container.appendChild(gameBox);
     });
 }
 // #endregion //

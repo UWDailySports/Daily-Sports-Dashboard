@@ -10,12 +10,12 @@ window.onload = async function() {
     await fetchWriterData(user);
 
     const button = document.querySelector(
-        `button[onclick="showTab(event, 'all-games')"]`
+        `button[onclick="showTab(event, 'scheduled-games')"]`
     );
 
     showTab(
         { currentTarget: button },
-        "all-games"
+        "scheduled-games"
     );
 };
 
