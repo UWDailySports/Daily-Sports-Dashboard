@@ -1,5 +1,37 @@
 // Functions for manging invoices
 
+async function getPayPeriod() {
+    const currMonth = new Date().getMonth();
+    let quarter = "";
+    let period = "";
+    let backgroundColor = ""
+   
+    if (currMonth >= 0 && currMonth <= 2) {
+        quarter = "Winter";
+        backgroundColor = "#B3E5FC";
+    } else if (currMonth >= 3 && currMonth <= 5) {
+        quarter = "Spring";
+        backgroundColor = "#C5E1A5"
+    } else if (currMonth >= 6 && currMonth <= 8) {
+        quarter = "Summer";
+        backgroundColor = "#FFF59D";
+    } else {
+        quarter = "Fall";
+        backgroundColor = "#EF9A9A";
+    }
+
+    if(currMonth % 3 === 0){
+        period = "1";
+    } else if (currMonth % 3 === 1) {
+        period = "2";
+    } else {
+        period = "3";
+    }
+
+    const container = document.getElementById("pay-period");
+    container.textContent = `Current Pay Period: ${quarter} ${period}`;
+    container.style.backgroundColor = backgroundColor; 
+}
 
 function openInvoiceModal() {
     document.getElementById("invoice-modal").style.display = "flex";
