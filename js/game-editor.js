@@ -8,7 +8,8 @@ let currentContainer = null;
 // Returns: None
 // Parameters: (1) containerId: container id to determine tab refresh 
 // #region openAddGameModal //
-async function openAddGameModal(currTab) {
+async function openAddGameModal(tab) {
+    currTab = tab;
 
     await loadSports("sport-input");
 
@@ -36,7 +37,7 @@ document.getElementById("add-game-confirm").onclick = async () => {
     resetCaches();
 
     if (currTab === "all-games") {
-        fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+        fetchAllScheduledGames(allScheduledFilters);
     }
 
     if (currTab === "my-games") {

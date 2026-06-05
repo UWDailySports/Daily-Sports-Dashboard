@@ -1,6 +1,7 @@
 // Functions for managing tabs and loading content for tabs
 
 window.tabHandlers = {};
+let currTab = null;
 
 window.onload = async function() {
     const user = netlifyIdentity.currentUser();
