@@ -159,8 +159,9 @@ async function loadWriters() {
 // Parameters: (1) gameId: id of game to edit
 //             (2) containerId: container id to determine tab refresh
 // #region openeditGameModal //
-async function openEditGameModal(game, currTab) {
+async function openEditGameModal(game, tab) {
     currGameId = game.game_id;
+    currTab = tab;
 
     await loadSports("edit-sport-input");
 
@@ -218,7 +219,7 @@ document.getElementById("delete-game-confirm").onclick = async () => {
     resetCaches();
 
     if (currTab === "all-games") {
-        fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+        fetchAllScheduledGames(allScheduledFilters);
     }
 
     if (currTab === "available-games") {
