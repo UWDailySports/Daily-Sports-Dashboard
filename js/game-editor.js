@@ -8,8 +8,7 @@ let currentContainer = null;
 // Returns: None
 // Parameters: (1) containerId: container id to determine tab refresh 
 // #region openAddGameModal //
-async function openAddGameModal(containerId) {
-    currentContainer = containerId;
+async function openAddGameModal(currTab) {
 
     await loadSports("sport-input");
 
@@ -36,15 +35,15 @@ document.getElementById("add-game-confirm").onclick = async () => {
 
     resetCaches();
 
-    if (currentContainer === "all-games-filter-container") {
+    if (currTab === "all-games") {
         fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
     }
 
-    if (currentContainer === "scheduled-games-filter-container") {
+    if (currTab === "my-games") {
         fetchMySchedule(currWriter.writer_id, myScheduleFilters);
     }
 
-    if (currentContainer === "available-games-filter-container") {
+    if (currTab === "available-games") {
         fetchAvailableGames(availableFilters);
     }
 };
@@ -159,9 +158,8 @@ async function loadWriters() {
 // Parameters: (1) gameId: id of game to edit
 //             (2) containerId: container id to determine tab refresh
 // #region openeditGameModal //
-async function openEditGameModal(game, containerId) {
+async function openEditGameModal(game, currTab) {
     currGameId = game.game_id;
-    currentContainer = containerId;
 
     await loadSports("edit-sport-input");
 
@@ -196,15 +194,15 @@ document.getElementById("edit-game-confirm").onclick = async () => {
 
     resetCaches();
 
-    if (currentContainer === "all-games-filter-container") {
+    if (currTab === "all-games") {
         fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
     }
 
-    if (currentContainer === "available-games-filter-container") {
+    if (currTab === "available-games") {
         fetchAvailableGames(availableFilters);
     }
 
-    if (currentContainer === "search-games") {
+    if (currTab === "search-games") {
         fetchSearchGameInfo();
     }
 };
@@ -218,19 +216,19 @@ document.getElementById("delete-game-confirm").onclick = async () => {
 
     resetCaches();
 
-    if (currentContainer === "all-games-filter-container") {
+    if (currTab === "all-games") {
         fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
     }
 
-    if (currentContainer === "available-games-filter-container") {
+    if (currTab === "available-games") {
         fetchAvailableGames(availableFilters);
     }
 
-    if (currentContainer === "scheduled-games-filter-container") {
+    if (currTab === "my-games") {
         fetchMySchedule(currWriter.writer_id, myScheduleFilters);
     }
     
-    if (currentContainer === "search-games") {
+    if (currTab === "search-games") {
         fetchSearchGameInfo();
     }
 };

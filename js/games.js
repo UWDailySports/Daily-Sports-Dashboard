@@ -275,7 +275,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 
             const editButton = gameBox.querySelector('[data-action="edit"]');
             editButton.addEventListener("click", async (e) => {
-                openEditGameModal(game, "all-games-filter-container");
+                openEditGameModal(game, "all-games");sh
             });
         }
 
