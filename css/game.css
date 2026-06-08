@@ -437,47 +437,136 @@
 
 /* #region Mobile Styles */
 @media screen and (max-width: 768px) {
-    .games-container {
-        /* Layout */
-        z-index: 1;
-
-        /* Size/Shape */
-        row-gap: 5px;
-
-        /* Misc */
-        pointer-events: auto;
-        -webkit-overflow-scrolling: touch;
-    }
 
     .game-box {
         display: flex;
-        gap: 5px;
+        flex-direction: column;
+        justify-content: center;
 
+        height: auto;
+        min-height: 200px;
+
+        padding: 12px;
+        gap: 20px;
+
+        align-items: center;
     }
 
+    /* Sport + Notes */
     .sport-container {
         display: flex;
-        flex-direction:row;
-        width: 100%;
-        min-width: 0;
-        height: 50px;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 95%;
+        height: auto;
+        min-height: 30px;
     }
 
     .sport-box {
-        flex: 1; 
+        flex: none;
+        font-size: 18px;
     }
 
     .notes-box {
-        flex: 2;
+        flex: none;
+        font-size: 18px;
+        margin-left: auto;
     }
 
-    .game-info-container {
+    /* Team logos */
+    .matchup-container {
+        flex: none;
         width: 100%;
-        min-width: 0;
-        display: flex;
+        justify-content: center;
+        gap: 12px;
+        align-items: center;
     }
-}    
-/* #endregion */
+
+    .school-icon,
+    .washington-icon,
+    .opp-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .where {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Recap badge */
+    .recap-container {
+        flex: none;
+        width: 60%;
+        margin-top: 0;
+        gap: 4px;
+    }
+
+    .home-recap,
+    .away-recap {
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    .recap-location {
+        font-size: 13px;
+    }
+
+    /* Date / Time */
+    .when-container {
+        flex: none;
+        width: 100%;
+        align-items: center;
+    }
+
+    .date {
+        font-size: 16px;
+    }
+
+    .time {
+        font-size: 14px;
+    }
+
+    /* Writer */
+    .writer {
+        flex: none;
+        height: auto;
+        font-size: 14px;
+    }
+
+    /* Buttons */
+    .options-container {
+        flex: none;
+
+        width: 100%;
+        height: auto;
+
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        margin-right: 0;
+        gap: 8px;
+    }
+
+    .add,
+    .assign,
+    .edit,
+    .remove {
+        width: auto;
+
+        padding: 8px 14px;
+
+        border-radius: 8px;
+        background: #f3f4f6;
+
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
 
 /* #region Laptop Styles */
 @media screen and (min-width: 769px) and (max-width: 1800px){
