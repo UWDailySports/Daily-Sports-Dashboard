@@ -447,7 +447,7 @@
         min-height: 200px;
 
         padding: 12px;
-        gap: 20px;
+        gap: 30px;
 
         align-items: center;
     }
@@ -500,7 +500,7 @@
     /* Recap badge */
     .recap-container {
         flex: none;
-        width: 60%;
+        width: 40%;
         margin-top: 0;
         gap: 4px;
     }
@@ -549,13 +549,10 @@
         flex-wrap: wrap;
 
         margin-right: 0;
-        gap: 8px;
+        gap: 14px;
     }
 
-    .add,
-    .assign,
-    .edit,
-    .remove {
+    .game-option {
         width: auto;
 
         padding: 8px 14px;
@@ -563,7 +560,7 @@
         border-radius: 8px;
         background: #f3f4f6;
 
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 600;
     }
 }
