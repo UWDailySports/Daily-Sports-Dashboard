@@ -171,14 +171,23 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
+
+    body {
+        /* Layout */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .login-box {
         /* Layout */
         justify-self: center;
+        align-items: center;
         gap: 10%;
 
         /* Size/ Shape */
-        width: 90%;
-        height: 90%;
+        width: 95%;
+        height: 95%;
     }
 
     .login-box button {
