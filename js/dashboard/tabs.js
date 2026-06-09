@@ -72,11 +72,11 @@ tabHandlers["available-games"] = async function () {
     if (availableGamesLoaded === false) {
         await buildFilters(
             "available-games-filter-container",
-            availableFilters,
-            fetchAvailableGames
+            state.filters.availableGames,
+            filters => fetchAvailableGames(filters)
         );
 
-        await fetchAvailableGames(availableFilters);
+        await fetchAvailableGames(state.filters.availableGames);
 
         availableGamesLoaded = true;
     }
