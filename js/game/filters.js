@@ -1,10 +1,5 @@
 // Initialization and Functions for Filters
 
-let activeFilters = { sports: [], locations: [], months: [] };
-let myScheduleFilters = { sports: [], locations: [], months: [] };
-let availableFilters = { sports: [], locations: [], months: [] };
-let historyFilters = { sports: [], locations: [], months: [] };
-
 // Function: createGamesFilter
 // Purpose: Creates the filter for games based on the container and sets up event listeners for filter changes
 // Returns: None

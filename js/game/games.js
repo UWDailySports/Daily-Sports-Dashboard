@@ -322,11 +322,11 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
     if (!games || games.length === 0) {
         console.log("No scheduled games found.");
 
-    const noGames = document.createElement("div");
-    noGames.classList.add("no-games");
-    noGames.textContent = "No Games Scheduled";
+        const noGames = document.createElement("div");
+        noGames.classList.add("no-games");
+        noGames.textContent = "No Games Scheduled";
 
-    container.appendChild(noGames);
+        container.appendChild(noGames);
     }
 
     games.forEach(game => {
@@ -384,7 +384,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
             const gameId = e.target.getAttribute("data-game-id");
 
             await remove(gameId);
-            fetchAllScheduledGames(allScheduledFilters);
+            fetchAllScheduledGames(state.filters.allScheduledGames);
         });
 
         const editButton = gameBox.querySelector('[data-action="edit"]');
