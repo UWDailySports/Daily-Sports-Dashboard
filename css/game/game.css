@@ -468,6 +468,7 @@
     .sport-box {
         /* Layout */
         flex: none;
+        flex-wrap: wrap;
 
         /* Text */
         font-size: 18px;
@@ -476,12 +477,15 @@
     .notes-box {
         /* Layout */
         flex: none;
+        flex-wrap: wrap;
 
         /* Shape / Size */
         margin-left: auto;
 
         /* Text */
-        font-size: 18px;
+        font-size: 14px;
+        white-space: normal;
+        overflow-wrap: anywhere;
     }
 
     .matchup-container {
