@@ -267,7 +267,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
                 <div class = "time">${time}</div>
             </div>    
             <div class = "options-container"> 
-                <button class = "game-option" onclick = "signup(${gameId}, currWriter.writer_id)">ADD</button>
+                <button class = "game-option" onclick = "signup(${gameId}, state.currWriter.writer_id)">ADD</button>
                 <button class= "game-option" onclick="openAssignModal(${gameId})">ASSIGN</button>
                 <button class = "game-option" data-action = "edit">EDIT</button>
             </div>    
