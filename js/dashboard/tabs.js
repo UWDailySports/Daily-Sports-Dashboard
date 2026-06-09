@@ -56,11 +56,11 @@ tabHandlers["scheduled-games"] = async function () {
     if(myScheduleLoaded === false){
         await buildFilters(
             "scheduled-games-filter-container",
-            myScheduleFilters,
-            filters => fetchMySchedule(currWriter.writer_id, filters)
+            state.filters.myGames,
+            filters => fetchMySchedule(state.currWriter.writer_id, filters)
         );
 
-        await fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+        await fetchMySchedule(state.currWriter.writer_id, state.filters.myGames);
 
         myScheduleLoaded = true;
     }
