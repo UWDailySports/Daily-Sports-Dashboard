@@ -384,7 +384,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
             const gameId = e.target.getAttribute("data-game-id");
 
             await remove(gameId);
-            fetchAllScheduledGames(state.filters.allScheduledGames);
+            fetchAllScheduledGames(state.filters.allGames);
         });
 
         const editButton = gameBox.querySelector('[data-action="edit"]');
