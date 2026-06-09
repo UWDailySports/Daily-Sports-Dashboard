@@ -112,7 +112,7 @@ function createFilterDropdown(containerId, title, options, activeFilters, filter
                             >
                             ${label}
                         </label>
-                    `;
+                    `
                 }).join("")}
             </div>
         </div>
@@ -133,7 +133,7 @@ function createFilterDropdown(containerId, title, options, activeFilters, filter
                     .map(i => i.value);
 
             console.log("FILTERS:", activeFilters);
-            
+
             button.textContent =
                 `${title} (${activeFilters[filterKey].length}) ▼`;
 
