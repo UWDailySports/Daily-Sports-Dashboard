@@ -242,7 +242,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
                 <div class = "time">${time}</div>
             </div>    
             <div class = "options-container"> 
-                <button class = "game-option" onclick = "signup(${gameId}, currWriter.writer_id)">ADD</button>
+                <button class = "game-option" onclick = "signup(${gameId}, state.currWriter.writer_id)">ADD</button>
             </div>    
             `;
         }
@@ -295,7 +295,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 
 async function fetchAllScheduledGames(filters = { sports: [], locations: [], months: [] }) {
     console.log("FETCHING WITH:", filters);
-    
+
     let container = document.getElementById("all-games-container");
     container.innerHTML = "";
 
