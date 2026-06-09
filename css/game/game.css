@@ -439,127 +439,157 @@
 @media screen and (max-width: 768px) {
 
     .game-box {
+        /* Layout */
         display: flex;
         flex-direction: column;
         justify-content: center;
-
-        height: auto;
-        min-height: 200px;
-
-        padding: 12px;
+        align-items: center;
         gap: 30px;
 
-        align-items: center;
+        /* Shape / Size */
+        height: auto;
+        min-height: 200px;
+        padding: 12px;
     }
 
     /* Sport + Notes */
     .sport-container {
+        /* Layout */
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        /* Shape / Size */
         width: 95%;
         height: auto;
         min-height: 30px;
     }
 
     .sport-box {
+        /* Layout */
         flex: none;
+
+        /* Text */
         font-size: 18px;
     }
 
     .notes-box {
+        /* Layout */
         flex: none;
-        font-size: 18px;
+
+        /* Shape / Size */
         margin-left: auto;
+
+        /* Text */
+        font-size: 18px;
     }
 
-    /* Team logos */
     .matchup-container {
+        /* Layout */
         flex: none;
-        width: 100%;
         justify-content: center;
         gap: 12px;
         align-items: center;
+
+        /* Size / Shape */
+        width: 100%;
     }
 
-    .school-icon,
-    .washington-icon,
-    .opp-icon {
+    .school-icon {
+        /* Size / Shape */
         width: 50px;
         height: 50px;
     }
 
     .where {
+        /* Layout */
+        justify-content: center;
+        align-items: center;
+
+        /* Text */
         font-size: 20px;
         font-weight: bold;
         text-align: center;
-        justify-content: center;
-        align-items: center;
     }
 
-    /* Recap badge */
     .recap-container {
+        /* Layout */
         flex: none;
+        gap: 4px;
+
+        /* Size / Shape */
         width: 40%;
         margin-top: 0;
-        gap: 4px;
     }
 
-    .home-recap,
-    .away-recap {
+    .home-recap, .away-recap {
+        /* Size / Shape */
         padding: 6px;
+
+        /* Text */
         font-size: 14px;
     }
 
     .recap-location {
+        /* Text */
         font-size: 13px;
     }
 
-    /* Date / Time */
     .when-container {
+        /* Layout */
         flex: none;
-        width: 100%;
         align-items: center;
+
+        /* Size / Shape */
+        width: 100%;        
     }
 
     .date {
+        /* Text */
         font-size: 16px;
     }
 
     .time {
+        /* Text */
         font-size: 14px;
     }
 
-    /* Writer */
     .writer {
+        /* Layout */
         flex: none;
+
+        /* Size / Shape */
         height: auto;
+
+        /* Text */
         font-size: 14px;
     }
 
-    /* Buttons */
     .options-container {
+        /* Layout */
         flex: none;
-
-        width: 100%;
-        height: auto;
-
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-
-        margin-right: 0;
         gap: 14px;
+
+        /* Shape / Size */
+        margin-right: 0;
+        width: 100%;
+        height: auto;
+        
     }
 
     .game-option {
+        /* Size / Shape */
         width: auto;
-
         padding: 8px 14px;
-
         border-radius: 8px;
+
+        /* Background */
         background: #f3f4f6;
 
+        /* Text */
         font-size: 18px;
         font-weight: 600;
     }

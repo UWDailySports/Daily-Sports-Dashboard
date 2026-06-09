@@ -1,6 +1,5 @@
-let currWriter = null;
 
-// Initialize Netlify Identity / Logging in
+// #region Netlify Login //
 netlifyIdentity.on("init", async user => {
     console.log("Netlify Identity Initialized:", user);
 
@@ -11,8 +10,9 @@ netlifyIdentity.on("init", async user => {
 
     await fetchWriterData(user);
 });
+// #endregion //
 
-// Logging Out
+// #region Netlify Logout //
 document.getElementById("logout").onclick = function () {
     console.log("Attempting to log out...");
 
@@ -26,10 +26,19 @@ netlifyIdentity.on("logout", () => {
 
     window.location.href = "/";
  });
+ // #endregion //
 
 
+ // Function: fetchWriterData
+ // Purpose: Fetches the writer data for the logged in user and stores it in state
+ // Returns: currWriter: Object containing the writer data for the logged in user
+// Parameters: (1) user: The logged in user object from Netlify Identity
+// errors: (1) error if DB URL not set
+//         (2) statusCode 500 if error in DB query
+// #region fetchWriterData //
 async function fetchWriterData(user) {
     const email = user.email;
+
     const response = await fetch("/.netlify/functions/writer-data", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -45,23 +54,10 @@ async function fetchWriterData(user) {
         document.getElementById("greetingHeader").textContent = "Hi, Guest";
     }
 
-     return currWriter; 
+    return currWriter; 
 };
+// #endregion //
     
 
-document.querySelectorAll(".close-button").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const modal = btn.closest(".modal");
 
-        if (modal) modal.style.display = "none";
-    });
-});
-
-window.addEventListener("click", (event) => {
-    document.querySelectorAll(".modal").forEach(modal => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-});
 

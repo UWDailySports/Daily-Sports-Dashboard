@@ -82,6 +82,21 @@ tabHandlers["available-games"] = async function () {
     }
 };
 
+let allScheduledGamesLoaded = false;
+tabHandlers["all-games"] = async function () {
+    if(allScheduledGamesLoaded === false){
+        await buildFilters(
+            "all-games-filter-container",
+            allScheduledFilters,
+            filters => fetchAllScheduledGames(filters)
+        );
+
+        await fetchAllScheduledGames(allScheduledFilters);
+
+        allScheduledGamesLoaded = true;
+    }
+};
+
 
 let invoicesLoaded = false;
 tabHandlers["invoices"] = async function() {
