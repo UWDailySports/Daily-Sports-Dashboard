@@ -101,7 +101,7 @@ nav {
     border-radius: 10px;
 
     /* Background */
-    background-color: white;
+    background-color: whitesmoke;
 
     /* Text */ 
     font-family: 'figtree', sans-serif;
@@ -139,14 +139,15 @@ nav {
 
     /* Size/Shape */
     border: 1px solid #ccc;
+    width: 60%;
 
     /* Background */
     background-color: var(--husky_purple);
 
     /* Text */ 
     text-align: center;
-    font-weight: bold;
-    font-family: Calibri, Verdana, "Segoe UI", Arial, sans-serif;
+    font-weight: 500;
+    font-family: "Segoe UI", system-ui, sans-serif;
     color:white;
 
     /* Misc */
@@ -177,6 +178,8 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        /* Background */
     }
 
     .login-box {
@@ -186,13 +189,12 @@ nav {
         gap: 10%;
 
         /* Size/ Shape */
-        width: 95%;
-        height: 95%;
+        width: 80%;
+        height: 80%;
     }
 
     .login-box button {
         /* Size / Shape */
-        width: 80%;
         height: 10%;
         border-radius: 10px;
 
