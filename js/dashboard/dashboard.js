@@ -46,15 +46,14 @@ async function fetchWriterData(user) {
     });
 
     const data = await response.json();
-    currWriter = data.writer;
+    state.currWriter = data.writer;
 
-    if (currWriter && currWriter.first_name) {
-        document.getElementById("greetingHeader").textContent = `Hi, ${currWriter.first_name}!`;
+    if (state.currWriter && state.currWriter.first_name) {
+        document.getElementById("greetingHeader").textContent = `Hi, ${state.currWriter.first_name}!`;
     } else {
         document.getElementById("greetingHeader").textContent = "Hi, Guest";
     }
 
-    return currWriter; 
 };
 // #endregion //
     

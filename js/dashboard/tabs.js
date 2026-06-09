@@ -87,11 +87,11 @@ tabHandlers["all-games"] = async function () {
     if(allScheduledGamesLoaded === false){
         await buildFilters(
             "all-games-filter-container",
-            allScheduledFilters,
-            filters => fetchAllScheduledGames(filters)
+            state.filters.allGames,
+            filters => fetchAllScheduledGames(state.currWriter.writer_id, filters)
         );
 
-        await fetchAllScheduledGames(allScheduledFilters);
+        await fetchAllScheduledGames(state.currWriter.writer_id, state.filters.allGames);
 
         allScheduledGamesLoaded = true;
     }
@@ -102,7 +102,7 @@ let invoicesLoaded = false;
 tabHandlers["invoices"] = async function() {
     if(invoicesLoaded === false) {
         getPayPeriod();
-        await fetchInvoices(currWriter.writer_id);
+        await fetchInvoices(state.currWriter.writer_id);
 
         invoicesLoaded = true;
     }
@@ -113,10 +113,10 @@ tabHandlers["history"] = async function () {
     if(historyLoaded === false) {
         await buildFilters(
             "history-filter-container",
-            historyFilters,
-            filters => fetchHistoryGames(currWriter.writer_id, filters));
+            state.filters.historyGames,
+            filters => fetchHistoryGames(state.currWriter.writer_id, filters));
 
-        await fetchHistoryGames(currWriter.writer_id, historyFilters);
+        await fetchHistoryGames(state.currWriter.writer_id, state.filters.historyGames);
 
         historyLoaded = true;
     }

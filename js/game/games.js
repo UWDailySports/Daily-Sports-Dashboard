@@ -222,7 +222,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
         const gameBox = document.createElement("div");
         gameBox.classList.add("game-box");
 
-        if(currWriter.position == "Writer"){
+        if(state.currWriter.position == "Writer"){
             gameBox.innerHTML = `
             <div class = "sport-container">
                 <div class = "sport-box">${sport}</div>
@@ -247,7 +247,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
             `;
         }
 
-        if(currWriter.position == "Editor"){
+        if(state.currWriter.position == "Editor"){
             gameBox.innerHTML = `
             <div class = "sport-container">
                 <div class = "sport-box">${sport}</div>
@@ -509,7 +509,7 @@ async function signup(gameId, writerId) {
         if (data.success) {
             showToast("Successfully added game to schedule!", "success");
             resetCaches();
-            fetchAvailableGames(availableFilters);
+            fetchAvailableGames(state.filters.availableGames);
         } else {
             showToast("Failed to add game to schedule", "error");
         }
@@ -545,7 +545,7 @@ async function remove(gameId) {
         if (data.success) {
             showToast("Game removed from schedule", "success");
             resetCaches();
-            fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+            fetchMySchedule(state.currWriter.writer_id, state.filters.myGames);
         } else {
             showToast("Failed to remove game from schedule", "error")
         }
@@ -557,7 +557,7 @@ async function remove(gameId) {
 }   
 
 function resetCaches() {
-    myScheduleLoaded= false;
+    myScheduleLoaded = false;
     availableGamesLoaded = false;
     historyLoaded = false;
     allScheduledGamesLoaded = false;

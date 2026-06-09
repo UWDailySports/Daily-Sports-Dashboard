@@ -37,15 +37,15 @@ document.getElementById("add-game-confirm").onclick = async () => {
     resetCaches();
 
     if (currTab === "all-games") {
-        fetchAllScheduledGames(allScheduledFilters);
+        fetchAllScheduledGames(state.filters.allGames);
     }
 
     if (currTab === "my-games") {
-        fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+        fetchMySchedule(state.currWriter.writer_id, state.filters.myGames);
     }
 
     if (currTab === "available-games") {
-        fetchAvailableGames(availableFilters);
+        fetchAvailableGames(state.filters.availableGames);
     }
 };
 // #endregion //
@@ -93,7 +93,7 @@ async function addGame(sport, opponent, date, time, location, notes) {
 // Parameters: (1) gameId: id of the game 
 // #region openAssignModal //
 async function openAssignModal(gameId) {
-    currGameId = gameId;
+    state.currGameId = gameId;
 
     await loadWriters();
 
@@ -110,7 +110,7 @@ document.getElementById("confirm-assign").onclick = async () => {
         return;
     }
 
-    await signup(currGameId, writerId);
+    await signup(state.currGameId, writerId);
 
     assignModal.style.display = "none";
     
@@ -160,8 +160,8 @@ async function loadWriters() {
 //             (2) containerId: container id to determine tab refresh
 // #region openeditGameModal //
 async function openEditGameModal(game, tab) {
-    currGameId = game.game_id;
-    currTab = tab;
+    state.currGameId = game.game_id;
+    state.currTab = tab;
 
     await loadSports("edit-sport-input");
 
@@ -190,21 +190,21 @@ document.getElementById("edit-game-confirm").onclick = async () => {
         return;
     } 
 
-    await editGame(currGameId, sport, opponent, date, time, location, notes);
+    await editGame(state.currGameId, sport, opponent, date, time, location, notes);
 
     editModal.style.display = "none";
 
     resetCaches();
 
-    if (currTab === "all-games") {
-        fetchAllScheduledGames(currWriter.writer_id, allScheduledFilters);
+    if (state.currTab === "all-games") {
+        fetchAllScheduledGames(state.currWriter.writer_id, state.filters.allGames);
     }
 
-    if (currTab === "available-games") {
-        fetchAvailableGames(availableFilters);
+    if (state.currTab === "available-games") {
+        fetchAvailableGames(state.filters.availableGames);
     }
 
-    if (currTab === "search-games") {
+    if (state.currTab === "search-games") {
         fetchSearchGameInfo();
     }
 };
@@ -212,25 +212,25 @@ document.getElementById("edit-game-confirm").onclick = async () => {
 document.getElementById("delete-game-confirm").onclick = async () => {
     if (!confirm("Are you sure you want to delete this game?")) return;
 
-    await deleteGame(currGameId);
+    await deleteGame(state.currGameId);
 
     document.getElementById("edit-game-modal").style.display = "none";
 
     resetCaches();
 
-    if (currTab === "all-games") {
-        fetchAllScheduledGames(allScheduledFilters);
+    if (state.currTab === "all-games") {
+        fetchAllScheduledGames(state.currWriter.writer_id, state.filters.allGames);
     }
 
-    if (currTab === "available-games") {
-        fetchAvailableGames(availableFilters);
+    if (state.currTab === "available-games") {
+        fetchAvailableGames(state.filters.availableGames);
     }
 
-    if (currTab === "my-games") {
-        fetchMySchedule(currWriter.writer_id, myScheduleFilters);
+    if (state.currTab === "my-games") {
+        fetchMySchedule(state.currWriter.writer_id, state.filters.myGames);
     }
     
-    if (currTab === "search-games") {
+    if (state.currTab === "search-games") {
         fetchSearchGameInfo();
     }
 };
@@ -318,7 +318,7 @@ async function deleteGame(gameId) {
         if (data.success) {
             showToast("Game successfully deleted!", "success");
         } else {
-            showToast("Failed to delete game");
+            showToast("Failed to delete game", "error");
         }
 
     } catch (error) {
