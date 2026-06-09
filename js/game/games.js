@@ -294,6 +294,8 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 // #region fetchAllScheduledGames //
 
 async function fetchAllScheduledGames(filters = { sports: [], locations: [], months: [] }) {
+    console.log("FETCHING WITH:", filters);
+    
     let container = document.getElementById("all-games-container");
     container.innerHTML = "";
 

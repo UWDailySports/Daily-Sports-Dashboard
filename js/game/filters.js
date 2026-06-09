@@ -132,6 +132,8 @@ function createFilterDropdown(containerId, title, options, activeFilters, filter
                 [...menu.querySelectorAll("input:checked")]
                     .map(i => i.value);
 
+            console.log("FILTERS:", activeFilters);
+            
             button.textContent =
                 `${title} (${activeFilters[filterKey].length}) ▼`;
 
