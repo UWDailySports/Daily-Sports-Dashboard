@@ -298,7 +298,18 @@
 
 @media screen and (max-width: 768px) {
     .writer-modal-content {
+        /* Size / Shape */
+        width: 95%;
+        height: 95%;
+        
         /* Misc */
         overflow-x: auto;
+    }
+    
+    .writer-list-container {
+        /* Misc */
+        width: auto;
+        overflow-x: auto;
+        
     }
 }
