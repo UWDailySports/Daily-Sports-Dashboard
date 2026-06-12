@@ -299,7 +299,7 @@
 @media screen and (max-width: 768px) {
     .writer-modal-content {
         /* Size / Shape */
-        width: 95%;
+        width: 92%;
         height: 95%;
         
         /* Misc */
@@ -308,20 +308,11 @@
     
     .writer-list-container {
         /* Misc */
-        width: auto;
-        overflow-x: auto;
-    }
-    
-    .writer-list-entry-container {
-        /* Size / Shape */
-        width: auto;
-        
-        /* Misc */
         overflow-x: auto;
     }
     
     .writer-list-entry-section {
         /* Size / Shape */
-        width: 100px:
+        width: 200px:
     }
 }
