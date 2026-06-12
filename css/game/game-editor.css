@@ -299,7 +299,7 @@
     .add-game-modal-content, .edit-game-modal-content {
         /* Shape / Size */
         width: 95%;
-        height: 95%;
+        height: 100%;
     }
 
     .add-game-sections-container, .edit-game-sections-container {
