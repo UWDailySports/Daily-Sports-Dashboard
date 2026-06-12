@@ -151,6 +151,14 @@
 
         <div id = "settings" class = "tab-content">
             <div class = "settings-container">
+                <div class = "settings-option" onclick = "openSearchGamesModal()">
+                    <img class = "settings-icon" src = "/images/settings/search.png">
+                    <div class = "settings-title">Search Game</div>
+                </div> 
+                <div class = "settings-option" onclick = "openAddSeasonModal()">
+                    <img class = "settings-icon" src = "/images/settings/add-season.png">
+                    <div class = "settings-title">Add Season</div>
+                </div> 
                 <div class = "settings-option" onclick = "openWritersModal()">
                     <img class = "settings-icon" src = "/images/settings/writers.png">
                     <div class = "settings-title">Writers</div>
@@ -158,15 +166,7 @@
                  <div class = "settings-option" onclick = "openSportsModal()">
                     <img class = "settings-icon" src = "/images/settings/sports.png">
                     <div class = "settings-title">Sports</div>
-                </div>
-                <div class = "settings-option" onclick = "openAddSeasonModal()">
-                    <img class = "settings-icon" src = "/images/settings/add-season.png">
-                    <div class = "settings-title">Add Season</div>
-                </div>
-                <div class = "settings-option" onclick = "openSearchGamesModal()">
-                    <img class = "settings-icon" src = "/images/settings/search.png">
-                    <div class = "settings-title">Search Game</div>
-                </div>                                                                                               
+                </div>                                                                                             
             </div>
         </div>
 
@@ -238,7 +238,10 @@
             <h2>Writers</h2>
             <span class = "close-button" onclick = "closeModal('writers-modal')">&times;</span>
         </div>
-        <button class = "add-writer-button" onclick = "openAddWriterModal()">+ Add Writer</button>
+        <div class = "writer-options-container">
+            <input id="search-writers-input" type="text" placeholder="Search Writers" class="search-writers-input">  
+            <button class = "add-writer-button" onclick = "openAddWriterModal()">+ Add Writer</button>
+        </div>
         <div class = "writer-list-entry-container" style = "background: #36045a; color: white;">
             <div class = "writer-list-entry-section" style="color:white;">First Name</div>
             <div class = "writer-list-entry-section" style="color:white;">Last Name</div>
@@ -471,7 +474,7 @@
             <span class = "close-button">&times;</span>
         </div>
         <div class = "search-options-container">
-            <input id="search-games-input" type="text" placeholder="Search Games" class="search-games-input"/>  
+            <input id="search-games-input" type="text" placeholder="Search Games" class="search-games-input">  
             <div class = "add-game" onclick = "openAddGameModal()">+ Add Game</div>
         </div>      
         <div class = "search-games-list-title-container" style = "background: #360f5a;">

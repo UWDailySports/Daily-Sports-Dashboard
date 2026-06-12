@@ -29,6 +29,17 @@
 
 /* #region writer-list-title */
 
+/* #region writer-options-container */
+.writer-options-container {
+    /* Layout */
+    display: flex;
+
+    /* Size / Shape */
+    width: 100%;
+    height: 48px;
+}
+/* #endregion */
+
 /* #region writer-list-container */
 .writer-list-container {
     /* Layout */

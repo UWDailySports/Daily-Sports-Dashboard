@@ -140,6 +140,19 @@ async function fetchWriterInfo() {
         container.append(writerBox);    
 
     });
+
+        const searchWriterInput = document.getElementById("search-writers-input");
+
+    searchWriterInput.oninput = () => {
+        const term = searchWriterInput.value.toLowerCase();
+
+        document.querySelectorAll(".writer-list-entry-container").forEach(writer => {
+            writer.style.display =
+                writer.textContent.toLowerCase().includes(term)
+                    ? "flex"
+                    : "none";
+        });
+    };
 }
 // #endregion //
 
