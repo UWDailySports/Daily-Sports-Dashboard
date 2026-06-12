@@ -294,4 +294,17 @@
 }
 /* #endregion */
 
+/* #region Mobile Styles */
+@media screen and (max-width: 768px){
+    .add-game-modal-content, .edit-game-modal-content {
+        /* Shape / Size */
+        width: 95%;
+        height: 90%;
+    }
 
+    .add-game-sections-container, .edit-game-sections-container {
+        /* Layout */
+        grid-template-columns: 1fr;
+    }
+}
+/* #endregion */

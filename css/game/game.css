@@ -1,4 +1,4 @@
-
+/* #region skeleton */
 .skeleton {
     background: linear-gradient(
         90deg,
@@ -48,6 +48,7 @@
     height: 20px;
     border-radius: 6px;
 }
+/* #endregion */
 
 /* #region games-container */
 .games-container {
@@ -452,7 +453,6 @@
         padding: 12px;
     }
 
-    /* Sport + Notes */
     .sport-container {
         /* Layout */
         display: flex;
@@ -598,6 +598,7 @@
         font-weight: 600;
     }
 }
+/* #endregion */
 
 /* #region Laptop Styles */
 @media screen and (min-width: 769px) and (max-width: 1800px){
