@@ -47,6 +47,19 @@ async function fetchWriterInfo() {
 
     const container = document.getElementById("writer-list-container");
     container.innerHTML = "";
+    const writerTitle = document.getElementById("writer-list-title");
+    writerTitle.innerHTML =   `<div class = "writer-list-entry-section" style="color:white;">First Name</div>
+                        <div class = "writer-list-entry-section" style="color:white;">Last Name</div>
+                        <div class = "writer-list-entry-section" style="color:white; width: 7%;">Position</div>
+                        <div class = "writer-list-entry-section" style="color:white; width: 18%">Email</div>
+                        <div class = "writer-list-entry-section" style="color:white;">Phone</div>
+                        <div class = "writer-list-entry-section" style="color:white;">X</div>
+                        <div class = "writer-list-entry-section" style="color:white;">Headshot</div>
+                        <div class = "writer-list-entry-section" style="color:white;">Hire Date</div>
+                        <div class = "writer-list-entry-section" style="color:white;">End Date</div>
+                        <div class = "writer-list-entry-section" style="color:white; width: 5%;"></div>`;
+
+    container.append(writerTitle);
 
     writers.forEach(writer => {
         const first_name = writer.first_name;
@@ -141,7 +154,7 @@ async function fetchWriterInfo() {
 
     });
 
-        const searchWriterInput = document.getElementById("search-writers-input");
+    const searchWriterInput = document.getElementById("search-writers-input");
 
     searchWriterInput.oninput = () => {
         const term = searchWriterInput.value.toLowerCase();
