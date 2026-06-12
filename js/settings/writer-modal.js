@@ -47,7 +47,9 @@ async function fetchWriterInfo() {
 
     const container = document.getElementById("writer-list-container");
     container.innerHTML = "";
-    const writerTitle = document.getElementById("writer-list-title");
+    
+    const writerTitle = document.createElement("div");
+    writerTitle.className = "writer-list-title";
     writerTitle.innerHTML =   `<div class = "writer-list-entry-section" style="color:white;">First Name</div>
                         <div class = "writer-list-entry-section" style="color:white;">Last Name</div>
                         <div class = "writer-list-entry-section" style="color:white; width: 7%;">Position</div>
@@ -55,7 +57,7 @@ async function fetchWriterInfo() {
                         <div class = "writer-list-entry-section" style="color:white;">Phone</div>
                         <div class = "writer-list-entry-section" style="color:white;">X</div>
                         <div class = "writer-list-entry-section" style="color:white;">Headshot</div>
-                        <div class = "writer-list-entry-section" style="color:white;">Hire Date</div>
+                        <div class = "writer-list-entry-section " style="color:white;">Hire Date</div>
                         <div class = "writer-list-entry-section" style="color:white;">End Date</div>
                         <div class = "writer-list-entry-section" style="color:white; width: 5%;"></div>`;
 
