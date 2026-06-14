@@ -53,10 +53,10 @@ async function fetchWriterInfo() {
     writerTitle.innerHTML =   `<div class = "writer-list-entry-section" style="width: 10%; color:white;">First Name</div>
                         <div class = "writer-list-entry-section" style="width: 10%; color:white;">Last Name</div>
                         <div class = "writer-list-entry-section" style="width: 10%; color:white;">Position</div>
-                        <div class = "writer-list-entry-section" style="width: 20%; color:white;">Email</div>
+                        <div class = "writer-list-entry-section" style="width: 17%; color:white;">Email</div>
                         <div class = "writer-list-entry-section" style="width: 10%; color:white;">Phone</div>
                         <div class = "writer-list-entry-section" style="width: 10%; color:white;">X</div>
-                        <div class = "writer-list-entry-section" style="width: 5%; color:white;">Headshot</div>
+                        <div class = "writer-list-entry-section" style="width: 8%; color:white;">Headshot</div>
                         <div class = "writer-list-entry-section " style="width: 10%; color:white;">Hire Date</div>
                         <div class = "writer-list-entry-section" style="width: 10%; color:white;">End Date</div>
                         <div class = "writer-list-entry-section" style="width: 5%; color:white;"></div>`;
@@ -110,15 +110,15 @@ async function fetchWriterInfo() {
         <div class = "writer-list-entry-section" style = "width: 10%;">${first_name}</div>
         <div class = "writer-list-entry-section" style = "width: 10%;">${last_name}</div>
         <div class = "writer-list-entry-section" style = "width: 10%;">${position}</div>
-        <div class = "writer-list-entry-section" style = "width: 20%;">${email}</div>      
+        <div class = "writer-list-entry-section" style = "width: 17%;">${email}</div>      
         <div class = "writer-list-entry-section" style = "width: 10%;">${phone}</div>
         ${x
             ? `<a class="writer-list-entry-section" style = "width: 10%;" href="${x}" target="_blank">${x_short}</a>`
             : `<div class="writer-list-entry-section" style = "width: 10%;"></div>`
         }
         ${headshot
-            ? `<a class="writer-list-entry-section" style = "width: 5%;" href="${headshot}" target="_blank">Link</a>`
-            : `<div class="writer-list-entry-section" style = "width: 5%;"></div>`
+            ? `<a class="writer-list-entry-section" style = "width: 8%;" href="${headshot}" target="_blank">Link</a>`
+            : `<div class="writer-list-entry-section" style = "width: 8%;"></div>`
         }
         <div class = "writer-list-entry-section" style = "width: 10%;">${hire_date_formatted}</div>
         <div class = "writer-list-entry-section" style = "width: 10%;">${end_date_formatted}</div>
