@@ -117,17 +117,19 @@
 .writer-list-entry-section {
     /* Layout */
     display: flex;
-    align-items: center;
-    flex: 0 0 auto;
+    flex-shrink: 1;
 
     /* Size/Shape */
     height: 100%;
-    padding-left: 12px;
+    min-width: 0;
 
     /* Text */
     font-size: 14px;
     font-weight: 400;
     color: #2c2c2c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 /* #endregion */
 
