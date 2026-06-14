@@ -118,6 +118,7 @@
     /* Layout */
     display: flex;
     flex-shrink: 1;
+    align-items: center;
 
     /* Size/Shape */
     height: 100%;

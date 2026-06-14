@@ -22,7 +22,9 @@ exports.handler = async (event) => {
 
     // Query all writers
     const query = `SELECT * FROM "Writers" 
-                    ORDER BY end_date DESC, first_name ASC, last_name ASC`;
+                    ORDER BY end_date DESC, CASE position WHEN 'Editor' THEN 1 WHEN 'Copy' THEN 2 WHEN 'Writer' THEN 3 WHEN 'Shadow' THEN 4 ELSE 5 END,
+                    first_name ASC, last_name ASC`;
+                    
     const result = await client.query(query);
 
     await client.end();
