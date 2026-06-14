@@ -61,7 +61,7 @@
 /* #endregion */
 
 /* #region writer-list-entry-container */
-.writer-list-entry-container {
+.writer-list-title, .writer-list-entry-container {
     /* Layout */
     display: flex;
     align-items: center;
@@ -92,24 +92,13 @@
 /* #region writer-list-title */
 .writer-list-title {
     /* Layout */
-    display: flex;
-    align-items: center;
     position: sticky;
     top: 0;
     z-index: 2;
 
-    /* Size/Shape */
-    min-height: 64px;
-    padding: 0 14px;
-    border-radius: 16px;
-    border: 1px solid rgba(54,15,90,.08);
-
     /* Background */
     background: var(--husky_purple);
     box-shadow: 0 4px 12px rgba(0,0,0,.05);
-
-    /* Misc */
-    transition: box-shadow .1s ease;
 }
 /* #endregion */
 
