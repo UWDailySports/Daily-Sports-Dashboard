@@ -92,7 +92,7 @@ async function fetchWriterInfo() {
         if(hire_date === null & position === "Shadow") {
             hire_date_formatted = "Shadow";
         } else {
-            hire_date_formatted = new Date(hire_date).toLocaleDateString("en-US", {month: "long", day: "numeric", year: "numeric"});
+            hire_date_formatted = new Date(hire_date).toLocaleDateString("en-US");
         }
 
         let end_date = writer.end_date;
