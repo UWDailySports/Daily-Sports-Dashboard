@@ -20,7 +20,7 @@ userSchoolSearchInput.addEventListener("input", () => {
 
     userSchoolResultsContainer.innerHTML = "";
 
-    if (!search) return;
+    if (!userSchoolSearch) return;
 
     const matches = schools.filter(school => 
                                     school.school.toLowerCase().includes(userSchoolSearch)).slice(0, 10);
