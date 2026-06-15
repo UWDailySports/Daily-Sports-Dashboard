@@ -13,11 +13,14 @@ const state = {
     }
 };
 
-const school_info = fetch("/.netlify/functions/get-user-school", {
+const userSchoolResponse = await fetch("/.netlify/functions/get-user-school", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ }) 
 }); 
+
+const data = await userSchoolResponse.json();
+const school_info = data.userSchoolInfo.rows[0];
 
 const school = school_info.school;
 
