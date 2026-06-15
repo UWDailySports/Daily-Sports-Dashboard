@@ -1,33 +1,31 @@
 import { neon } from "@neondatabase/serverless";
+
 const sql = neon(process.env.DATABASE_URL);
 
 export async function handler(event) {
-    const query = event.queryStringParameters?.q || "";
-
-    if (!query) {
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ schools: [] })
-        };
-    }
-
     try {
+        const query = event.queryStringParameters?.q || "";
+
+        if (!query) {
+            return {
+                statusCode: 200,
+                body: JSON.stringify({ schools: [] })
+            };
+        }
+
         const search = `%${query.toLowerCase()}%`;
 
-        const result = await client.query(
-            `
+        const result = await sql`
             SELECT school_id, school
             FROM "Schools"
-            WHERE LOWER(school) LIKE $1
+            WHERE LOWER(school) LIKE ${search}
             ORDER BY school
             LIMIT 10
-            `,
-            [search]
-        );
+        `;
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ schools: result.rows })
+            body: JSON.stringify({ schools: result })
         };
 
     } catch (err) {
