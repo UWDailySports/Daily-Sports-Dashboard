@@ -16,14 +16,14 @@ const userSchoolSearchInput = document.getElementById("user-school-search");
 const userSchoolResultsContainer = document.getElementById("user-school-results");
 
 userSchoolSearchInput.addEventListener("input", () => {
-    const search = userSchoolSearchInput.value.toLowerCase();
+    const userSchoolSearch = userSchoolSearchInput.value.toLowerCase();
 
     userSchoolResultsContainer.innerHTML = "";
 
     if (!search) return;
 
     const matches = schools.filter(school => 
-                                    school.school.toLowerCase().includes(search)).slice(0, 10);
+                                    school.school.toLowerCase().includes(userSchoolSearch)).slice(0, 10);
 
     matches.forEach(school => {
         const option = document.createElement("div");
