@@ -26,7 +26,7 @@ searchInput.addEventListener("input", () => {
 
     const matches = schools
         .filter(school =>
-            school.school_name.toLowerCase().startsWith(search)
+            school.school.toLowerCase().startsWith(search)
         )
         .slice(0, 10); 
 
