@@ -70,9 +70,7 @@ async function updateUserSchool(selectedSchool) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            school_id: selectedSchool.school_id
-        })
+        body: JSON.stringify({ selectedSchool })
     });
 
     state.school = selectedSchool;

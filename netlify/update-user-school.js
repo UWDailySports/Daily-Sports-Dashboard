@@ -9,7 +9,10 @@ exports.handler = async (event) => {
     await client.connect();
 
     try {
-        const { school_id } = JSON.parse(event.body); 
+        const { selectedSchool } = JSON.parse(event.body); 
+
+        const getIdQuery = `SELECT school_id FROM "Schools" WHERE school = $1;`
+        const schoolId = client.query(getIdQuery, selectedSchool);
 
         const query = `
             UPDATE "User_School"
@@ -17,7 +20,7 @@ exports.handler = async (event) => {
             WHERE row = 1
             RETURNING *;
         `;
-        await client.query(query, school_id);
+        await client.query(query, schoolId);
 
         return {
             statusCode: 200,
