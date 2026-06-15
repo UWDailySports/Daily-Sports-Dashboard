@@ -187,18 +187,19 @@ const addWriterModal = document.getElementById("add-writer-modal");
 document.getElementById("add-writer-confirm").onclick = async () => {
     const first_name = document.getElementById("new-writer-first-name").value;
     const last_name = document.getElementById("new-writer-last-name").value;
+    const position = document.getElementById("new-writer-position").value;
     const email = document.getElementById("new-writer-email").value;
     const phone = document.getElementById("new-writer-phone").value;
     const x  = document.getElementById("new-writer-x").value;
     const headshot = document.getElementById("new-writer-headshot").value;
     const hire_date = document.getElementById("new-writer-hire-date").value;
 
-    if(!first_name || !last_name || !email) {
+    if(!first_name || !last_name || !position || !email) {
         alert("Please fill in all required fields");
         return;
-    } 
+    } ``
 
-    await addWriter(first_name, last_name, email, phone, x, headshot, hire_date);
+    await addWriter(first_name, last_name, position,email, phone, x, headshot, hire_date);
 
     addWriterModal.style.display = "none";
 };
@@ -211,23 +212,24 @@ document.getElementById("add-writer-confirm").onclick = async () => {
 // Returns: None
 // Parameters: (1) first_name: writer's first name
 //             (2) last_name: writer's last name
-//             (3) email: writer's email
-//             (4) phone: writer's phone number 
-//             (5) hire_date: date that writer is hired
-//             (6) x: link to writer's X account
-//             (7) headshot: link to writer's headshot
+//             (3) position: writer's position
+//             (4) email: writer's email
+//             (5) phone: writer's phone number
+//             (6) hire_date: date that writer is hired
+//             (7) x: link to writer's X account
+//             (8) headshot: link to writer's headshot
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region addWriter() //
 
-async function addWriter(first_name, last_name, email, phone, x, headshot, hire_date) {
+async function addWriter(first_name, last_name, position, email, phone, x, headshot, hire_date) {
     try {
         const response = await fetch("/.netlify/functions/add-writer", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ first_name, last_name, email, phone, x, headshot, hire_date })
+            body: JSON.stringify({ first_name, last_name, position, email, phone, x, headshot, hire_date })
         });
 
         const text = await response.text();
