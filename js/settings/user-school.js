@@ -75,4 +75,14 @@ async function updateUserSchool(selectedSchool) {
 
     state.school = selectedSchool;
 
+    document.documentElement.style.setProperty(
+        "--primary_color",
+        state.school.color_1
+    ); 
+
+    document.documentElement.style.setProperty(
+        "--secondary_color",
+        state.school.color_2
+    );
+
 }
