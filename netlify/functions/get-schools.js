@@ -15,13 +15,13 @@ exports.handler = async (event) => {
     // Base query
     const query = `SELECT * FROM "Schools"`;
 
-    const schools = await client.query(query);
+    const result = await client.query(query);
 
     await client.end();
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ schools : schools }),
+      body: JSON.stringify({ schools : result.rows }),
     };
   } catch (err) {
     console.error("Error fetching games:", err);
