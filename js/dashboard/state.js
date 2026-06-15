@@ -23,9 +23,9 @@ async function fetchUserSchoolInfo() {
     }); 
 
     const userSchooldata = await userSchoolResponse.json();
-    const school= userSchooldata.userSchoolInfo.rows[0];
+    const userSchool = userSchooldata.userSchoolInfo.rows[0];
 
-    state.school = school.school;
+    state.school = userSchool;
 
     document.documentElement.style.setProperty(
         "--primary_color",
