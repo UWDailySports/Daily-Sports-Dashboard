@@ -19,8 +19,8 @@ const userSchoolResponse = await fetch("/.netlify/functions/get-user-school", {
     body: JSON.stringify({ }) 
 }); 
 
-const data = await userSchoolResponse.json();
-const school_info = data.userSchoolInfo.rows[0];
+const userSchooldata = await userSchoolResponse.json();
+const school_info = userSchooldata.userSchoolInfo.rows[0];
 
 const school = school_info.school;
 
@@ -34,6 +34,3 @@ document.documentElement.style.setProperty(
     school_info.color_2
 );
 
-console.log(school);
-console.log(school_info.color_1);
-console.log(school_info.color_2);
