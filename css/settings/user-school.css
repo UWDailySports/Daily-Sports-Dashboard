@@ -1,5 +1,7 @@
 .user-school-search-container {
     position: relative;
+
+    height: 300px;
 }
 
 .user-school-results {

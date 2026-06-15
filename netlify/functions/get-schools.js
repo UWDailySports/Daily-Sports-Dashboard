@@ -15,7 +15,7 @@ exports.handler = async (event) => {
     // Base query
     const query = `SELECT * FROM "Schools"`;
 
-    const schools = await client.query(query, values);
+    const schools = await client.query(query);
 
     await client.end();
 
