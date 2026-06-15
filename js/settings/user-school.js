@@ -34,10 +34,10 @@ searchInput.addEventListener("input", () => {
         const option = document.createElement("div");
 
         option.classList.add("user-school-option");
-        option.textContent = school.school_name;
+        option.textContent = school.school;
 
         option.addEventListener("click", () => {
-            searchInput.value = school.school_name;
+            searchInput.value = school.school;
 
             selectedSchool = school; // <-- save whole object
 
