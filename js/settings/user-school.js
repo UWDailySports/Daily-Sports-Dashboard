@@ -1,3 +1,3 @@
 function openUserSchoolModal() {
-    const container = 
+    const container = null;
 }
