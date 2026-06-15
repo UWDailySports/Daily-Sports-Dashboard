@@ -166,7 +166,11 @@
                  <div class = "settings-option" onclick = "openSportsModal()">
                     <img class = "settings-icon" src = "/images/settings/sports.png">
                     <div class = "settings-title">Sports</div>
-                </div>                                                                                             
+                </div>      
+                <div class = "settings-option" onclick = "openUserSchoolModal()">
+                    <img class = "settings-icon" src = "/images/settings/sports.png">
+                    <div class = "settings-title">User School</div>
+                </div>                                                                                       
             </div>
         </div>
 
@@ -598,6 +602,24 @@
             </div>    
         </div>
         <div id="edit-game-confirm" class = "edit-game-confirm">Edit Game</div>
+    </div>
+</div>
+
+<div id = "user-school-modal" class = "modal">
+    <div class = "user-school-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 10px;">
+            <h2>User School</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class="school-search-container">
+            <input
+                type="text"
+                id="school-search"
+                placeholder="Search schools..."
+                autocomplete="on">
+
+            <div id="school-results" class="school-results"></div>
+        </div>
     </div>
 </div>
 
