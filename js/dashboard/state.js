@@ -30,3 +30,7 @@ document.documentElement.style.setProperty(
     "--secondary_color",
     school_info.color_2
 );
+
+console.log(school);
+console.log(school_info.color_1);
+console.log(school_info.color_2);
