@@ -3,11 +3,11 @@
     --my_school: "Washington";
 
     /* Colors */
-    --husky_purple: #33006f;
-    --hp_hover: #4a1a7a;
-    --husky_gold: #B7A57A;
+    --primary_color: #33006f;
+    --secondary_color: #B7A57A;
 
     /* Text */
     font-family: "Segoe UI", system-ui, sans-serif;
+    --dash_font: "Segoe UI", system-ui, sans-serif;
 
 }

@@ -291,6 +291,11 @@ async function openEditWriterModal(writer) {
         const hire_date = document.getElementById("edit-writer-hire-date").value || null;
         const end_date = document.getElementById("edit-writer-end-date").value || null;
 
+        if(position === "SP"){
+            alert("Please select a valid position");
+            return;
+        }
+
         if (!first_name || !last_name || !position || !email) {
             alert("Please fill in all required fields");
             return;
@@ -402,11 +407,6 @@ async function openEditWriterModal(writer) {
  }
 // #endregion //
 
-
-
-function closeModal(modal) {
-    modal.style.display = "none";
-}
 
 
 

@@ -94,7 +94,7 @@
 
 /* #region edit-sport / delete-sport */
 .edit-sport, .delete-sport {
-    color: var(--husky_purple);
+    color: var(--primary_color);
 }
 /* #endregion */
 
@@ -109,7 +109,7 @@
     border-radius: 14px;
 
     /* Background */
-    background: var(--husky_purple);
+    background: var(--primary_color);
     box-shadow: 0 8px 18px rgba(54,15,90,.18);
 
     /* Text */
@@ -126,7 +126,7 @@
 
 .add-sport-button:hover {
     /* Background */
-    background: var(--hp_hover);
+    background: var(--secondary_color);
     box-shadow: 0 14px 24px rgba(54,15,90,.25);
 
     /* Misc */
@@ -197,7 +197,7 @@
     /* Text */
     font-size: 20px;
     font-weight: 600;
-    color: var(--husky_purple);
+    color: var(--primary_color);
 
     /* Size / Shape */
     padding-left: 4px;
@@ -236,7 +236,7 @@
 .add-sport-box:focus, .edit-sport-box:focus {
     /* Misc */
     outline: none;
-    border-color: var(--husky_purple);
+    border-color: var(--primary_color);
 }
 /* #endregion */
 
@@ -249,7 +249,7 @@
     border-radius: 16px;
 
     /* Background */
-    background: var(--husky_purple);
+    background: var(--primary_color);
 
     /* Text */
     color: white;
@@ -265,7 +265,7 @@
 
 .add-sport-confirm:hover, .edit-sport-confirm:hover {
     /* Background */
-    background: var(--hp_hover);
+    background: var(--secondary_color);
     box-shadow:
         0 10px 22px rgba(54,15,90,.22);
 

@@ -49,7 +49,7 @@
     /* Size/Shape */
     width: 15%;
     padding: 12px;
-    border: 2px solid var(--husky_purple);
+    border: 2px solid var(--primary_color);
     border-radius: 8px;   
     outline: none;
 
@@ -119,7 +119,7 @@
     z-index: 2;
 
     /* Background */
-    background: var(--husky_purple);
+    background: var(--primary_color);
     box-shadow: 0 4px 12px rgba(0,0,0,.05);
 }
 /* #endregion */
@@ -147,7 +147,7 @@
 
 /* #region edit-writer / delete-writer */
 .edit-writer, .delete-writer {
-    color: var(--husky_purple);
+    color: var(--primary_color);
 }
 /* #endregion */
 
@@ -166,7 +166,7 @@
     border-radius: 14px;
 
     /* Background */
-    background: var(--husky_purple);
+    background: var(--primary_color);
     box-shadow: 0 8px 18px rgba(54,15,90,.18);
 
     /* Text */
@@ -183,7 +183,7 @@
 
 .add-writer-button:hover {
     /* Background */
-    background: var(--hp_hover);
+    background: var(--secondary_color);
     box-shadow: 0 14px 24px rgba(54,15,90,.25);
 
     /* Misc */
@@ -257,7 +257,7 @@
     /* Text */
     font-size: 20px;
     font-weight: 600;
-    color: var(--husky_purple);
+    color: var(--primary_color);
 
     /* Size / Shape */
     padding-left: 4px;
@@ -296,13 +296,23 @@
 .add-writer-box:focus, .edit-writer-box:focus {
     /* Misc */
     outline: none;
-    border-color: var(--husky_purple);
+    border-color: var(--primary_color);
 }
 
 #new-writer-hire-date, #edit-writer-hire-date, #edit-writer-end-date {
     /* Text */
     font-family: "Segoe UI", system-ui, sans-serif;
 }
+
+#new-writer-position, #edit-writer-position {
+    /* Layout */
+    gap: 15px;
+
+    /* Text */
+    font-family: var(--dash_font);
+}
+
+
 /* #endregion */
 
 /* #region add-writer-confirm, edit-writer-confirm */
@@ -314,7 +324,7 @@
     border-radius: 16px;
 
     /* Background */
-    background: var(--husky_purple);
+    background: var(--primary_color);
 
     /* Text */
     color: white;
@@ -330,7 +340,7 @@
 
 .add-writer-confirm:hover, .edit-writer-confirm:hover {
     /* Background */
-    background: var(--hp_hover);
+    background: var(--secondary_color);
     box-shadow:
         0 10px 22px rgba(54,15,90,.22);
 
@@ -339,6 +349,7 @@
 }
 /* #endregion */
 
+/* #region Mobile Styles */
 @media screen and (max-width: 768px) {
     .writers-modal-content {
         /* Size / Shape */
@@ -359,3 +370,4 @@
         width: 800px;
     }
 }
+/* #endregion */

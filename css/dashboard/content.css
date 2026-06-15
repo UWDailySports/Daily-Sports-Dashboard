@@ -100,7 +100,7 @@
     background: rgba(54,15,90,.08);
     
     /* Text */
-    color: var(--husky_purple);
+    color: var(--primary_color);
 
     /* Misc */
     transform: translateY(-1px);
@@ -110,7 +110,7 @@
 /* #region active-tab */
 .active-tab {
     /* Background */
-    background: var(--husky_purple); 
+    background: var(--primary_color); 
     box-shadow: 0 8px 18px rgba(54,15,90,.25);       
 
     /* Text */ 

@@ -39,7 +39,7 @@
     border-radius: 14px;
 
     /* Background */
-    background-color: var(--husky_purple);
+    background-color: var(--primary_color);
 
     /* Text */ 
     text-align: center;
@@ -54,7 +54,7 @@
 
 .add-game:hover {
     /* Background */
-    background: var(--hp_hover);
+    background: var(--secondary_color);
 }
 /* #endregion */
 
@@ -120,7 +120,7 @@
     /* Text */
     font-size: 20px;
     font-weight: 600;
-    color: var(--husky_purple);
+    color: var(--primary_color);
 
     /* Size / Shape */
     padding-left: 4px;
@@ -159,7 +159,7 @@
 .add-game-box:focus, .edit-game-box:focus {
     /* Misc */
     outline: none;
-    border-color: var(--husky_purple);
+    border-color: var(--primary_color);
 }
 /* #endregion */
 
@@ -177,7 +177,7 @@
     border-radius: 16px;
 
     /* Background */
-    background: var(--husky_purple);
+    background: var(--primary_color);
 
     /* Text */
     color: white;
@@ -199,7 +199,7 @@
 
 .add-game-confirm:hover, .edit-game-confirm:hover, .delete-game-confirm:hover {
     /* Background */
-    background: var(--hp_hover);
+    background: var(--secondary_color);
     box-shadow:
         0 10px 22px rgba(54,15,90,.22);
 
@@ -273,7 +273,7 @@
     border-radius: 16px;
 
     /* Background */
-    background-color: var(--husky_purple);
+    background-color: var(--primary_color);
 
     /* Text */ 
     font-size: 17px;
@@ -289,7 +289,7 @@
 
 #confirm-assign:hover {
     transform: translateY(-2px);
-    background: var(--hp_hover);
+    background: var(--secondary_color);
     box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 /* #endregion */

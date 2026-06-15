@@ -48,7 +48,7 @@
     /* Text */
     text-align: center;
     font-weight: bold; 
-    color: var(--husky_purple);
+    color: var(--primary_color);
         
     /* Misc */    
 }
@@ -68,7 +68,7 @@
     height: 30px;
 
     /* Text */ 
-    color: var(--husky_purple);
+    color: var(--primary_color);
         
     /* Misc */
     cursor: pointer;
@@ -80,7 +80,7 @@
     background: rgba(54,15,90,.08);
 
     /* Text */
-    color: var(--husky_purple);
+    color: var(--primary_color);
 } 
 
 @media screen and (max-width: 768px){
@@ -142,7 +142,7 @@
 
     /* Text */
     font-size: 24px;
-    color: var(--husky_purple);
+    color: var(--primary_color);
 
     /* Misc */
     cursor: pointer;
@@ -187,7 +187,7 @@
 
     /* Text */
     font-size: 16px;
-    color: var(--husky_purple);
+    color: var(--primary_color);
     text-align: left;
 
     /* Misc */
@@ -197,7 +197,7 @@
 
 .list-option:hover {
     /* Background */
-    background: var(--hp_hover);
+    background: var(--secondary_color);
     color: white;
 }
 /* #endregion */

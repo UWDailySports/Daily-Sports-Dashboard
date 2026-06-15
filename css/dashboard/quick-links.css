@@ -77,7 +77,7 @@
     /* Text */
     font-weight: 600;
     font-size: 20px;
-    color: var(--husky_purple);
+    color: var(--primary_color);
 
     /* Misc */
     cursor: pointer;
@@ -155,7 +155,7 @@
 
     /* Text */
     text-decoration: none;
-    color: var(--husky_purple);
+    color: var(--primary_color);
     font-size: clamp(1rem,1.25vw,1.5rem);
     font-weight: 500;
 

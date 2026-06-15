@@ -269,7 +269,7 @@
 
 .home-recap {
     /* Background */
-    background-color: var(--husky_purple);
+    background-color: var(--primary_color);
 
     /* Text */ 
     color: white;
@@ -416,7 +416,7 @@
     font-size: clamp(0.75rem, 1.2vw, 1.35rem);
     font-family: "Segoe UI", system-ui, sans-serif;
     text-align: center;
-    color: var(--husky_purple);
+    color: var(--primary_color);
 
     /* Misc */
     cursor: pointer;
@@ -424,7 +424,7 @@
 
 .game-option:hover {
     /* Background */
-    background: var(--husky_purple);
+    background: var(--primary_color);
 
     /* Text */
     color: white;

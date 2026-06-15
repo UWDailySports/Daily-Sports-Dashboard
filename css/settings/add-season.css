@@ -127,7 +127,7 @@
     background:
         linear-gradient(
             135deg,
-            var(--husky_purple) 0%,
+            var(--primary_color) 0%,
             #4d1d80 100%
         );
 

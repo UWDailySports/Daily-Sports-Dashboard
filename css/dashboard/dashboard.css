@@ -52,7 +52,7 @@ body {
     border-radius: 10px;
 
     /*Background*/
-    background: var(--husky_purple);
+    background: var(--primary_color);
     box-shadow:
         0 10px 30px rgba(54, 15, 90, 0.18),
         inset 0 1px 0 rgba(255,255,255,0.08);
@@ -91,7 +91,7 @@ body {
 
 
     /*Background*/
-    background-color: var(--husky_purple);
+    background-color: var(--primary_color);
 
 
     /*Text*/
@@ -139,7 +139,7 @@ body {
     border-radius: 10px;
 
     /* Background */
-    background-color:var(--husky_purple);
+    background-color:var(--primary_color);
     box-shadow: 0 8px 20px rgba(54,15,90,.2);
 
     /* Text */

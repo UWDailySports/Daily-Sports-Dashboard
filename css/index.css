@@ -8,7 +8,7 @@ body {
     /* Background */
     background-size: cover;
     background-attachment: fixed;
-    background-color: var(--husky_purple);
+    background-color: var(--primary_color);
 
     /* Text */ 
         
@@ -31,7 +31,7 @@ nav {
     margin-bottom: 50px;
 
     /* Background */
-    background-color:var(--husky_purple);
+    background-color:var(--primary_color);
 
     /* Text */
     text-align: center; 
@@ -142,7 +142,7 @@ nav {
     width: 60%;
 
     /* Background */
-    background-color: var(--husky_purple);
+    background-color: var(--primary_color);
 
     /* Text */ 
     text-align: center;
@@ -166,7 +166,7 @@ nav {
     /* Text */ 
     text-align: center;
     font-family: "figtree", sans-serif;
-    color: var(--husky_purple);
+    color: var(--primary_color);
         
     /* Misc */        
 }
@@ -280,7 +280,7 @@ nav {
 
     /* Background */
     background-attachment: fixed;
-    background-color:var(--husky_purple);
+    background-color:var(--primary_color);
 
     /* Text */ 
     text-align: center;

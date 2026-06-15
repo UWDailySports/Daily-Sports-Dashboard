@@ -1,6 +1,6 @@
 /* ===== COLOR SYSTEM ===== */
 :root {
-    --purple: var(--husky_purple);
+    --purple: var(--primary_color);
     --purple-hover: #4c1d7a;
     --purple-light: #ede9f5;
 

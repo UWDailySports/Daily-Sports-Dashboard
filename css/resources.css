@@ -37,7 +37,7 @@
     border-radius: 10px;
 
     /* Background */
-    background-color: var(--husky_purple);
+    background-color: var(--primary_color);
     box-shadow:
         0 10px 25px rgba(0,0,0,0.15),
         inset 0 1px 0 rgba(255,255,255,0.08);
@@ -49,7 +49,7 @@
 
 .resources-box:hover {
     /* Background */
-    background: var(--hp_hover);
+    background: var(--secondary_color);
     box-shadow:
         0 14px 35px rgba(0,0,0,0.22),
         inset 0 1px 0 rgba(255,255,255,0.1);
@@ -171,7 +171,7 @@
 
     /* Text */
     text-decoration: none;
-    color: var(--husky_purple);
+    color: var(--primary_color);
     font-size: 22px;
 
     /* Misc */
