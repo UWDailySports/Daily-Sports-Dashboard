@@ -13,7 +13,7 @@ exports.handler = async (event) => {
     await client.connect();
 
     // Base query
-    let query = `SELECT * FROM "User_School" JOIN "Schools" ON "Schools.school_id = User_School.school_id`;
+    let query = `SELECT * FROM "User_School" JOIN "Schools" ON "Schools".school_id = "User_School".school_id`;
 
     const userSchoolInfo = await client.query(query);
 
