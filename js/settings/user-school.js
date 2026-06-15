@@ -4,6 +4,7 @@
 // Parameters: None
 // #region openAddGameModal //
 let selectedSchool = [];
+let schools = [];
 async function openUserSchoolModal() {
 
     await loadSchools();
@@ -58,7 +59,6 @@ document.getElementById("confirm-user-school").addEventListener("click", async (
     document.getElementById("user-school-modal").style.display = "none";
 });
 
-let schools = [];
 async function loadSchools() {
     const response = await fetch("/.netlify/functions/get-schools");
     const data = await response.json();
