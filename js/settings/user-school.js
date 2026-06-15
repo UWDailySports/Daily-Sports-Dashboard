@@ -23,7 +23,7 @@ userSchoolSearchInput.addEventListener("input", () => {
     if (!userSchoolSearch) return;
 
     const matches = schools.filter(school => 
-                                    school.school.toLowerCase().includes(userSchoolSearch)).slice(0, 10);
+        school.school.toLowerCase().includes(userSchoolSearch)).slice(0, 10);
 
     matches.forEach(school => {
         const option = document.createElement("div");
@@ -58,7 +58,9 @@ async function loadSchools() {
     const response = await fetch("/.netlify/functions/get-schools");
     const data = await response.json();
 
-    schools = data.schools;
+    const schools = data.schools;
+
+    return schools;
 }
 
 async function updateUserSchool(userSchool) {
