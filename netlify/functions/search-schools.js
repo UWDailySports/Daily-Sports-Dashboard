@@ -11,16 +11,31 @@ export async function handler(event) {
         };
     }
 
-    const result = await sql`
-        SELECT school_id, school
-        FROM "Schools"
-        WHERE LOWER(school) LIKE ${'%' + query.toLowerCase() + '%'}
-        ORDER BY school
-        LIMIT 10
-    `;
+    try {
+        const search = `%${query.toLowerCase()}%`;
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify({ schools: result })
-    };
+        const result = await client.query(
+            `
+            SELECT school_id, school
+            FROM "Schools"
+            WHERE LOWER(school) LIKE $1
+            ORDER BY school
+            LIMIT 10
+            `,
+            [search]
+        );
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify({ schools: result.rows })
+        };
+
+    } catch (err) {
+        console.error("search-schools error:", err);
+
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ error: "Database error" })
+        };
+    }
 }
