@@ -3,9 +3,6 @@
 // Returns: None
 // Parameters: None
 // #region openAddGameModal //
-const input = document.getElementById("user-school-search");
-const resultsBox = document.getElementById("user-school-results");
-const hiddenInput = document.getElementById("user-school-id");
 let selectedSchool = null;
 let debounceTimer;
 async function openUserSchoolModal() {
