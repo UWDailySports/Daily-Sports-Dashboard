@@ -4,10 +4,11 @@
     /* Layout */
     flex: 1;
     display: grid;
-    justify-content: center;
     box-sizing: border-box;
+    align-content: start;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 20px;
+    gap: 20px;
+    column-gap: 20px;
     padding: 4px 6px 4px 6px;
 
     /* Size/Shape */
