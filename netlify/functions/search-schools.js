@@ -10,7 +10,7 @@ export async function handler(event) {
 
     const result = await sql`
         SELECT school_id, school
-        FROM schools
+        FROM "Schools"
         WHERE LOWER(school) LIKE ${'%' + query.toLowerCase() + '%'}
         ORDER BY school
         LIMIT 10
