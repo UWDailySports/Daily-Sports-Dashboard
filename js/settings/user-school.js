@@ -4,74 +4,124 @@
 // Parameters: None
 // #region openAddGameModal //
 let schools = [];
+let filteredSchools = [];
+let selectedIndex = -1;
+let selectedSchool = null;
 async function openUserSchoolModal() {
 
     await loadSchools();
 
     document.getElementById("user-school-modal").style.display = "flex";
+
+    selectedSchool = null;
+    selectedIndex = -1;
+
+    document.getElementById("user-school-search").value = "";
+    document.getElementById("user-school-id").value = "";
+    document.getElementById("user-school-results").innerHTML = "";
 };    
 
 const userSchoolModal = document.getElementById("user-school-modal");
 
-const userSchoolSearchInput = document.getElementById("user-school-search");
-const userSchoolResultsContainer = document.getElementById("user-school-results");
+const input = document.getElementById("user-school-search");
+const resultsBox = document.getElementById("user-school-results");
+const hiddenInput = document.getElementById("user-school-id");
 
-userSchoolSearchInput.addEventListener("input", () => {
-    const userSchoolSearch = userSchoolSearchInput.value.toLowerCase();
+input.addEventListener("input", () => {
+    const query = input.value.toLowerCase().trim();
 
-    userSchoolResultsContainer.innerHTML = "";
+    selectedSchool = null;
+    hiddenInput.value = "";
 
-    if (!userSchoolSearch) return;
-
-    const matches = schools.filter(school => 
-        school.school.toLowerCase().includes(userSchoolSearch)).slice(0, 10);
-
-    matches.forEach(school => {
-        const option = document.createElement("div");
-
-        option.className = "user-school-option";
-        option.textContent = school.school;
-
-        option.addEventListener("click", () => {
-            userSchoolSearchInput.value = school.school;
-
-            userSchoolResultsContainer.innerHTML = "";
-        });
-
-        userSchoolResultsContainer.appendChild(option);
-    });
-});
-
-document.getElementById("confirm-user-school").onclick = async () => {
-    const userSchool = document.getElementById("user-school-select").value;
-
-    if (!userSchool) {
-        alert("Please select a school");
+    if (!query) {
+        resultsBox.innerHTML = "";
         return;
     }
 
-    await updateUserSchool(userSchool);
+    filteredSchools = schools
+        .filter(s => s.school.toLowerCase().includes(query))
+        .slice(0, 10);
 
-    userSchoolModal.style.display = "none";
+    selectedIndex = -1;
+    renderResults();
+});
+
+input.addEventListener("keydown", (e) => {
+    if (!filteredSchools.length) return;
+
+    if (e.key === "ArrowDown") {
+        selectedIndex = Math.min(selectedIndex + 1, filteredSchools.length - 1);
+        renderResults();
+    }
+
+    if (e.key === "ArrowUp") {
+        selectedIndex = Math.max(selectedIndex - 1, 0);
+        renderResults();
+    }
+
+    if (e.key === "Enter") {
+        if (selectedIndex >= 0) {
+            selectSchool(filteredSchools[selectedIndex]);
+        }
+    }
+});
+
+document.getElementById("confirm-user-school").onclick = async () => {
+    if (!selectedSchool) {
+        alert("Please select a school from the list");
+        return;
+    }
+
+    await updateUserSchool(selectedSchool.school_id);
+
+    document.getElementById("user-school-modal").style.display = "none";
 };
 
 async function loadSchools() {
     const response = await fetch("/.netlify/functions/get-schools");
     const data = await response.json();
 
-    schools = data.schools;
+    schools = data.schools || [];
 
     return schools;
 }
 
-async function updateUserSchool(userSchool) {
-await fetch("/.netlify/functions/update-user-school", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        school_id: userSchool.school_id
-    })
-});
+function renderResults() {
+    resultsBox.innerHTML = "";
+
+    filteredSchools.forEach((school, index) => {
+        const div = document.createElement("div");
+        div.className = "user-school-option";
+
+        if (index === selectedIndex) {
+            div.classList.add("active");
+        }
+
+        div.textContent = school.school;
+
+        div.addEventListener("click", () => selectSchool(school));
+
+        resultsBox.appendChild(div);
+    });
+}
+
+function selectSchool(school) {
+    selectedSchool = school;
+
+    input.value = school.school;
+    hiddenInput.value = school.school_id;
+
+    resultsBox.innerHTML = "";
+}
+
+async function updateUserSchool(schoolId) {
+    await fetch("/.netlify/functions/update-user-school", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            school_id: schoolId
+        })
+    });
 }
