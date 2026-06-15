@@ -12,84 +12,18 @@ async function openUserSchoolModal() {
     await loadSchools();
 
     document.getElementById("user-school-modal").style.display = "flex";
-
-    selectedSchool = null;
-    selectedIndex = -1;
-
-    document.getElementById("user-school-search").value = "";
-    document.getElementById("user-school-id").value = "";
-    document.getElementById("user-school-results").innerHTML = "";
 };    
 
 const userSchoolModal = document.getElementById("user-school-modal");
 
-const input = document.getElementById("user-school-search");
-const resultsBox = document.getElementById("user-school-results");
-const hiddenInput = document.getElementById("user-school-id");
-
-input.addEventListener("input", () => {
-    const query = input.value.trim();
-
-    selectedSchool = null;
-    hiddenInput.value = "";
-    selectedIndex = -1;
-
-    clearTimeout(debounceTimer);
-
-    if (!query) {
-        resultsBox.innerHTML = "";
-        return;
-    }
-
-    debounceTimer = setTimeout(async () => {
-        const res = await fetch(`/.netlify/functions/search-schools?q=${encodeURIComponent(query)}`);
-        const data = await res.json();
-
-        renderResults(data.schools || []);
-    }, 200);
-});
-
-input.addEventListener("keydown", (e) => {
-    if (!currentResults.length) return;
-
-    if (e.key === "ArrowDown") {
-        selectedIndex = Math.min(selectedIndex + 1, currentResults.length - 1);
-        highlight();
-    }
-
-    if (e.key === "ArrowUp") {
-        selectedIndex = Math.max(selectedIndex - 1, 0);
-        highlight();
-    }
-
-    if (e.key === "Enter") {
-        if (selectedIndex >= 0) {
-            selectSchool(currentResults[selectedIndex]);
-        }
-    }
-});
-
-function highlight() {
-    const items = document.querySelectorAll(".user-school-option");
-
-    items.forEach((el, i) => {
-        el.classList.toggle("active", i === selectedIndex);
-    });
-}
-
 document.getElementById("confirm-user-school").addEventListener("click", async () => {
+    const selectedSchool = document.getElementById("user-school-search").value;
     if (!selectedSchool) {
         alert("Please select a school");
         return;
     }
 
-    await fetch("/.netlify/functions/update-user-school", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            school_id: selectedSchool.school_id
-        })
-    });
+    updateUserSchool(selectSchool);
 
     document.getElementById("user-school-modal").style.display = "none";
 });
@@ -130,14 +64,17 @@ function selectSchool(school) {
     resultsBox.innerHTML = "";
 }
 
-async function updateUserSchool(schoolId) {
+async function updateUserSchool(selectedSchool) {
     await fetch("/.netlify/functions/update-user-school", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            school_id: schoolId
+            school_id: selectedSchool.school_id
         })
     });
+
+    state.school = selectedSchool;
+
 }
