@@ -1,5 +1,7 @@
 const state = {
 
+    school: null,
+
     currWriter: null,
     currGameId: null,
     currTab: null,
@@ -21,17 +23,17 @@ async function fetchUserSchoolInfo() {
     }); 
 
     const userSchooldata = await userSchoolResponse.json();
-    const school_info = userSchooldata.userSchoolInfo.rows[0];
+    const school= userSchooldata.userSchoolInfo.rows[0];
 
-    const school = school_info.school;
+    school = school.school;
 
     document.documentElement.style.setProperty(
         "--primary_color",
-        school_info.color_1
+        school.color_1
     ); 
 
     document.documentElement.style.setProperty(
         "--secondary_color",
-        school_info.color_2
+        school.color_2
     );
 }
