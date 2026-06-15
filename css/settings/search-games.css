@@ -68,6 +68,11 @@
     transition: box-shadow .1s ease;   
 }
 
+.search-games-list-title-container {
+    /* Background */
+    background: var(--primary_color);
+}
+
 .search-games-list-entry-container {
     /* Background */
     box-shadow:

@@ -72,6 +72,10 @@
     box-shadow:
         0 8px 20px rgba(54,15,90,.10);
 }
+
+#sport-list-title {
+    background: var(--primary_color);
+}
 /* #endregion */
 
 /* #region sport-list-entry-section */
