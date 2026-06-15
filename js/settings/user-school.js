@@ -3,6 +3,7 @@
 // Returns: None
 // Parameters: None
 // #region openAddGameModal //
+let schools = [];
 async function openUserSchoolModal() {
 
     await loadSchools();
@@ -58,7 +59,7 @@ async function loadSchools() {
     const response = await fetch("/.netlify/functions/get-schools");
     const data = await response.json();
 
-    const schools = data.schools;
+    schools = data.schools;
 
     return schools;
 }
