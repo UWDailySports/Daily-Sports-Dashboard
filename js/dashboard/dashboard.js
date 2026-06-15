@@ -9,6 +9,7 @@ netlifyIdentity.on("init", async user => {
     }
 
     await fetchWriterData(user);
+    await fetchUserSchoolInfo();
 });
 // #endregion //
 
