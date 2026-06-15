@@ -8,7 +8,7 @@ async function fetchSchools() {
         const response = await fetch("/.netlify/functions/get-schools", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ sports, conferences, schools })
+            body: JSON.stringify({ })
         });
 
     } catch (error) {
