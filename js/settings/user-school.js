@@ -4,6 +4,8 @@
 // Parameters: None
 // #region openAddGameModal //
 let selectedSchool = null;
+let selectedIndex = -1;
+let currentResults = [];
 let debounceTimer;
 async function openUserSchoolModal() {
 
@@ -30,6 +32,7 @@ input.addEventListener("input", () => {
 
     selectedSchool = null;
     hiddenInput.value = "";
+    selectedIndex = -1;
 
     clearTimeout(debounceTimer);
 
@@ -47,24 +50,32 @@ input.addEventListener("input", () => {
 });
 
 input.addEventListener("keydown", (e) => {
-    if (!filteredSchools.length) return;
+    if (!currentResults.length) return;
 
     if (e.key === "ArrowDown") {
-        selectedIndex = Math.min(selectedIndex + 1, filteredSchools.length - 1);
-        renderResults();
+        selectedIndex = Math.min(selectedIndex + 1, currentResults.length - 1);
+        highlight();
     }
 
     if (e.key === "ArrowUp") {
         selectedIndex = Math.max(selectedIndex - 1, 0);
-        renderResults();
+        highlight();
     }
 
     if (e.key === "Enter") {
         if (selectedIndex >= 0) {
-            selectSchool(filteredSchools[selectedIndex]);
+            selectSchool(currentResults[selectedIndex]);
         }
     }
 });
+
+function highlight() {
+    const items = document.querySelectorAll(".user-school-option");
+
+    items.forEach((el, i) => {
+        el.classList.toggle("active", i === selectedIndex);
+    });
+}
 
 document.getElementById("confirm-user-school").addEventListener("click", async () => {
     if (!selectedSchool) {
@@ -92,10 +103,12 @@ async function loadSchools() {
     return schools;
 }
 
-function renderResults(schools) {
+function renderResults(results) {
+    currentResults = results;
+
     resultsBox.innerHTML = "";
 
-    schools.forEach((school) => {
+    results.forEach((school, index) => {
         const div = document.createElement("div");
         div.className = "user-school-option";
         div.textContent = school.school;
