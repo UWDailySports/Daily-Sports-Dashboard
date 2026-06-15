@@ -1,3 +1,6 @@
+import { neon } from "@neondatabase/serverless";
+const sql = neon(process.env.DATABASE_URL);
+
 export async function handler(event) {
     const query = event.queryStringParameters?.q || "";
 
