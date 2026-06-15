@@ -21,7 +21,7 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ school : schools }),
+      body: JSON.stringify({ schools : schools }),
     };
   } catch (err) {
     console.error("Error fetching games:", err);

@@ -3,7 +3,7 @@
 // Returns: None
 // Parameters: None
 // #region openAddGameModal //
-let selectedSchool = [];
+let selectedSchool = null;
 let schools = [];
 async function openUserSchoolModal() {
 
