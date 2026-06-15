@@ -25,15 +25,15 @@ async function fetchUserSchoolInfo() {
     const userSchooldata = await userSchoolResponse.json();
     const school= userSchooldata.userSchoolInfo.rows[0];
 
-    school = school.school;
+    state.school = school.school;
 
     document.documentElement.style.setProperty(
         "--primary_color",
-        school.color_1
+        state.school.color_1
     ); 
 
     document.documentElement.style.setProperty(
         "--secondary_color",
-        school.color_2
+        state.school.color_2
     );
 }
