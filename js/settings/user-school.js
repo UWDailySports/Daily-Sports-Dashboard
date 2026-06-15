@@ -23,7 +23,7 @@ document.getElementById("confirm-user-school").addEventListener("click", async (
         return;
     }
 
-    updateUserSchool(selectSchool);
+    updateUserSchool(selectedSchool);
 
     document.getElementById("user-school-modal").style.display = "none";
 });
