@@ -16,7 +16,7 @@ const userSchoolSearchInput = document.getElementById("user-school-search");
 const userSchoolResultsContainer = document.getElementById("user-school-results");
 
 userSchoolSearchInput.addEventListener("input", () => {
-    const search = searchInput.value.toLowerCase();
+    const search = userSchoolSearchInput.value.toLowerCase();
 
     userSchoolResultsContainer.innerHTML = "";
 
