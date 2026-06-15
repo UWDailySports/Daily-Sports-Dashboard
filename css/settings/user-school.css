@@ -33,18 +33,17 @@
     /* Layout */
     display: flex;
     box-sizing: border-box;
+    align-items: center;
 
     /* Size / Shape */
     width: 100%;
     height: 50px;
-    border-radius: 15px;
-    border: 1px solid gray;
     padding-left: 20px; 
     
     /* Text */
     font-family: var(--dash_font);
     color: black;
-    font-size: clamp(16px, 1vh, 20px);
+    font-size: clamp(16px, 1vh, 32px);
 
     /* Misc */
     cursor: pointer;

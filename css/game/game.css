@@ -281,7 +281,7 @@
 
 .away-recap {
     /* Background */
-    background-color: var(--husky_gold);
+    background-color: var(--secondary_color);
 
     /* Text */ 
     color: black;
