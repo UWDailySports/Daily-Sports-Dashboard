@@ -3,10 +3,7 @@
 // Returns: None
 // Parameters: None
 // #region openAddGameModal //
-let selectedSchool = null;
-let selectedIndex = -1;
-let currentResults = [];
-let debounceTimer;
+let selectedSchool = [];
 async function openUserSchoolModal() {
 
     await loadSchools();
@@ -16,52 +13,57 @@ async function openUserSchoolModal() {
 
 const userSchoolModal = document.getElementById("user-school-modal");
 
+const searchInput = document.getElementById("user-school-search");
+const resultsContainer = document.getElementById("user-school-results");
+
+searchInput.addEventListener("input", () => {
+    const search = searchInput.value.trim().toLowerCase();
+
+    resultsContainer.innerHTML = "";
+
+    if (!search) return;
+
+    const matches = schools
+        .filter(school =>
+            school.school_name.toLowerCase().startsWith(search)
+        )
+        .slice(0, 10); 
+
+    matches.forEach(school => {
+        const option = document.createElement("div");
+
+        option.classList.add("user-school-option");
+        option.textContent = school.school_name;
+
+        option.addEventListener("click", () => {
+            searchInput.value = school.school_name;
+
+            selectedSchool = school; // <-- save whole object
+
+            resultsContainer.innerHTML = "";
+        });
+
+        resultsContainer.appendChild(option);
+    });
+});
+
 document.getElementById("confirm-user-school").addEventListener("click", async () => {
-    const selectedSchool = document.getElementById("user-school-search").value;
     if (!selectedSchool) {
         alert("Please select a school");
         return;
     }
 
-    updateUserSchool(selectedSchool);
+    await updateUserSchool(selectedSchool);
 
     document.getElementById("user-school-modal").style.display = "none";
 });
 
+let schools = [];
 async function loadSchools() {
     const response = await fetch("/.netlify/functions/get-schools");
     const data = await response.json();
 
     schools = data.schools || [];
-
-    return schools;
-}
-
-function renderResults(results) {
-    currentResults = results;
-
-    resultsBox.innerHTML = "";
-
-    results.forEach((school, index) => {
-        const div = document.createElement("div");
-        div.className = "user-school-option";
-        div.textContent = school.school;
-
-        div.addEventListener("click", () => {
-            selectSchool(school);
-        });
-
-        resultsBox.appendChild(div);
-    });
-}
-
-function selectSchool(school) {
-    selectedSchool = school;
-
-    input.value = school.school;
-    hiddenInput.value = school.school_id;
-
-    resultsBox.innerHTML = "";
 }
 
 async function updateUserSchool(selectedSchool) {
