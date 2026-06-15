@@ -3,10 +3,11 @@
 // Returns: None
 // Parameters: None
 // #region openAddGameModal //
-let schools = [];
-let filteredSchools = [];
-let selectedIndex = -1;
+const input = document.getElementById("user-school-search");
+const resultsBox = document.getElementById("user-school-results");
+const hiddenInput = document.getElementById("user-school-id");
 let selectedSchool = null;
+let debounceTimer;
 async function openUserSchoolModal() {
 
     await loadSchools();
@@ -28,22 +29,24 @@ const resultsBox = document.getElementById("user-school-results");
 const hiddenInput = document.getElementById("user-school-id");
 
 input.addEventListener("input", () => {
-    const query = input.value.toLowerCase().trim();
+    const query = input.value.trim();
 
     selectedSchool = null;
     hiddenInput.value = "";
+
+    clearTimeout(debounceTimer);
 
     if (!query) {
         resultsBox.innerHTML = "";
         return;
     }
 
-    filteredSchools = schools
-        .filter(s => s.school.toLowerCase().includes(query))
-        .slice(0, 10);
+    debounceTimer = setTimeout(async () => {
+        const res = await fetch(`/.netlify/functions/search-schools?q=${encodeURIComponent(query)}`);
+        const data = await res.json();
 
-    selectedIndex = -1;
-    renderResults();
+        renderResults(data.schools || []);
+    }, 200);
 });
 
 input.addEventListener("keydown", (e) => {
@@ -66,16 +69,22 @@ input.addEventListener("keydown", (e) => {
     }
 });
 
-document.getElementById("confirm-user-school").onclick = async () => {
+document.getElementById("confirm-user-school").addEventListener("click", async () => {
     if (!selectedSchool) {
-        alert("Please select a school from the list");
+        alert("Please select a school");
         return;
     }
 
-    await updateUserSchool(selectedSchool.school_id);
+    await fetch("/.netlify/functions/update-user-school", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            school_id: selectedSchool.school_id
+        })
+    });
 
     document.getElementById("user-school-modal").style.display = "none";
-};
+});
 
 async function loadSchools() {
     const response = await fetch("/.netlify/functions/get-schools");
@@ -86,20 +95,17 @@ async function loadSchools() {
     return schools;
 }
 
-function renderResults() {
+function renderResults(schools) {
     resultsBox.innerHTML = "";
 
-    filteredSchools.forEach((school, index) => {
+    schools.forEach((school) => {
         const div = document.createElement("div");
         div.className = "user-school-option";
-
-        if (index === selectedIndex) {
-            div.classList.add("active");
-        }
-
         div.textContent = school.school;
 
-        div.addEventListener("click", () => selectSchool(school));
+        div.addEventListener("click", () => {
+            selectSchool(school);
+        });
 
         resultsBox.appendChild(div);
     });
