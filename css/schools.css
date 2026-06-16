@@ -31,7 +31,7 @@ body {
     padding-left: 2%;
     
     /* Background */
-    background-color: #36045a;
+    background-color: #0085CA;
 
     /* Text */
     font-size: 36px;
@@ -130,9 +130,7 @@ body {
     width: 100%;
     height: 85%;
     border-radius: 5px;
-
-    /* Background */
-    background-color: transparent;
+    border: 2px solid white;
 
     /* Misc */
     overflow-x: hidden;
@@ -179,6 +177,8 @@ body {
     width: auto;
     object-fit: contain;
 }
+/* #endregion */
+
 /* #region school-divider */
 .school-divider {
     /* Layout */
@@ -234,7 +234,7 @@ body {
 }
 /* #endregion */
 
-/* region school-nickname */
+/* #region school-nickname */
 .school-nickname {
     /* Layout */
     display: flex;
@@ -267,7 +267,7 @@ body {
     /* Text */
     font-size: 20px;
     font-weight: bold;
-    font-family: "Supria Sans", Verdana, "Segoe UI", Arial, sans-serif;
+    font-family: var(--dash_font);
     color: white;
 }
 /* #endregion */
@@ -276,19 +276,149 @@ body {
 .conference-filter-container {
     /* Layout */
     display: flex;
-    align-items: center;
-    gap: 4%;
+    flex-direction: column;
+    align-content: start;
+    gap: 10px;
     
     /* Layout */
     width: 15%;
-    height: 100%;
-    padding-left: 2%;
-    padding-right: 2%;
+    height: 94%;
+    padding: 15px;
     border-radius: 5px;
+    margin-bottom: 1%;
     border: 2px solid #ffffff;
 
     /* Background */
     background-color: transparent;
+
+    /* Text */
+    text-align: center;
+    font-family: var(--dash_font);
+    color: white;
 }
 /* #endregion */
 
+/* #region filter-by-container */
+.schools-filter-by-container {
+    /* Layout */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    /* Size / Shape */
+    width: 100%;
+    height: 80px;
+}
+/* #endregion */
+
+/* #region filter-by-option */
+.schools-filter-by-option {
+    /* Layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Size / Shape */
+    height: 100%;
+    border-radius: 10px;
+    
+    /* Background */
+    background: white;
+
+    /* Text */
+    font-family: var(--dash_font);
+    color: black;
+
+    /* Misc */
+    cursor: pointer;
+}
+
+.schools-filter-by-option:hover {
+    /* Background */
+    background: gray;
+}
+
+.schools-filter-by-option.active {
+    /* Background */
+    background: lightblue;
+}
+/* #endregion */
+
+/* #region filter-sections-container */
+.schools-filter-sections-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    /* Size / Shape */
+    border: 1px red solid;
+}
+/* #endregion */
+
+.schools-filter-section-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    /* Size / Shape */
+    width: 100%;
+    height: 200px;
+    border: 1px solid white;
+}
+
+.schools-filter-section-search-container {
+    position: relative;
+    height: 300px;
+    width: 100%; 
+}
+
+.schools-filter-section-search {
+    /* Layout */
+    display: flex;
+    box-sizing: border-box;
+
+    /* Size / Shape */
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    padding-left: 20px; 
+    
+    /* Text */
+    font-family: var(--dash_font);
+    color: black;
+    font-size: clamp(16px, 1vh, 20px);
+}
+
+
+.schools-filter-section-search-results {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.schools-filter-section-search-option {
+    /* Layout */
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+
+    /* Size / Shape */
+    width: 100%;
+    height: 50px;
+    padding-left: 20px; 
+    
+    /* Text */
+    font-family: var(--dash_font);
+    color: black;
+    font-size: clamp(16px, 1vh, 32px);
+
+    /* Misc */
+    cursor: pointer;
+}
+
+.schools-filter-section-search-option:hover {
+    background: #eee;
+}
