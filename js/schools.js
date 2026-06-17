@@ -34,30 +34,30 @@ async function buildFilters(filterType) {
 }
 
 async function buildSchoolFilters() {
-    const selectSchoolFilterContainer = document.createElement("div");
-    selectSchoolFilterContainer.className = "schools-filter-section-container";
+    const selectSchoolFilterSchoolContainer = document.createElement("div");
+    selectSchoolFilterSchoolContainer.className = "schools-filter-section-container";
 
-    const selectSchoolFilterTitle = document.createElement("div");
-    selectSchoolFilterTitle.className = "schools-filter-section-title";
-    selectSchoolFilterTitle.innerHTML = "Select A School";
-    selectSchoolFilterContainer.append(selectSchoolFilterTitle);
+    const selectSchoolFilterSchoolTitle = document.createElement("div");
+    selectSchoolFilterSchoolTitle.className = "schools-filter-section-title";
+    selectSchoolFilterSchoolTitle.innerHTML = "Select A School";
+    selectSchoolFilterSchoolContainer.append(selectSchoolFilterSchoolTitle);
 
-    const selectSchoolFilterSearchContainer = document.createElement("div");
-    selectSchoolFilterSearchContainer.className = "schools-filter-section-search-container";
-    selectSchoolFilterContainer.append(selectSchoolFilterSearchContainer);
+    const selectSchoolFilterSchoolSearchContainer = document.createElement("div");
+    selectSchoolFilterSchoolSearchContainer.className = "schools-filter-section-search-container";
+    selectSchoolFilterSchoolContainer.append(selectSchoolFilterSchoolSearchContainer);
 
-    const selectSchoolFilterSearch = document.createElement("input");
-    selectSchoolFilterSearch.className = "schools-filter-section-search";
-    selectSchoolFilterSearchContainer.append(selectSchoolFilterSearch);
+    const selectSchoolFilterSchoolSearch = document.createElement("input");
+    selectSchoolFilterSchoolSearch.className = "schools-filter-section-search";
+    selectSchoolFilterSchoolSearchContainer.append(selectSchoolFilterSchoolSearch);
 
-    const selectSchoolFilterSearchResultsContainer = document.createElement("div");
-    selectSchoolFilterSearchResultsContainer.className = "schools-filter-section-search-results";
-    selectSchoolFilterSearchContainer.appendChild(selectSchoolFilterSearchResultsContainer);
+    const selectSchoolFilterSchoolSearchResultsContainer = document.createElement("div");
+    selectSchoolFilterSchoolSearchResultsContainer.className = "schools-filter-section-search-results";
+    selectSchoolFilterSchoolSearchContainer.appendChild(selectSchoolFilterSchoolSearchResultsContainer);
 
-    selectSchoolFilterSearch.addEventListener("input", () => {
-        const search = selectSchoolFilterSearch.value.trim().toLowerCase();
+    selectSchoolFilterSchoolSearch.addEventListener("input", () => {
+        const search = selectSchoolFilterSchoolSearch.value.trim().toLowerCase();
 
-        selectSchoolFilterSearchResultsContainer.innerHTML = "";
+        selectSchoolFilterSchoolSearchResultsContainer.innerHTML = "";
 
         if (!search) return;
 
@@ -74,31 +74,49 @@ async function buildSchoolFilters() {
             option.textContent = school.school;
 
             option.addEventListener("click", () => {
-                selectSchoolFilterSearch.value = school.school;
+                selectSchoolFilterSchoolSearch.value = school.school;
 
                 selectedSchool = school; // <-- save whole object
 
-                selectSchoolFilterSearchResultsContainer.innerHTML = "";
+                selectSchoolFilterSchoolSearchResultsContainer.innerHTML = "";
             });
 
-            selectSchoolFilterSearchResultsContainer.appendChild(option);
+            selectSchoolFilterSchoolSearchResultsContainer.appendChild(option);
         });
     });
 
-    filterContainer.appendChild(selectSchoolFilterContainer);
+    filterContainer.appendChild(selectSchoolFilterSchoolContainer);
 
-    const selectSchoolFilterSportContainer = document.createElement("div");
-    selectSchoolFilterSportContainer.className = "schools-filter-section-container";
+    const selectSchoolFilterSchoolSportContainer = document.createElement("div");
+    selectSchoolFilterSchoolSportContainer.className = "schools-filter-section-container";
 
-    const selectSchoolFilterSportTitle = document.createElement("div");
-    selectSchoolFilterSportTitle.className = "schools-filter-section-title";
-    selectSchoolFilterSportTitle.innerHTML = "Select Sports";
-    selectSchoolFilterSportContainer.append(selectSchoolFilterSportTitle);
+    const selectSchoolFilterSchoolSportTitle = document.createElement("div");
+    selectSchoolFilterSchoolSportTitle.className = "schools-filter-section-title";
+    selectSchoolFilterSchoolSportTitle.innerHTML = "Select Sports";
+    selectSchoolFilterSchoolSportContainer.append(selectSchoolFilterSchoolSportTitle);
 
-    const selectSchoolFilterSportOptionsContainer = document.createElement("div");
-    selectSchoolFilterSportOptionsContainer.className = "schools-filter-section-sport-container"
+    const selectSchoolFilterSchoolSportOptionsContainer = document.createElement("div");
+    selectSchoolFilterSchoolSportOptionsContainer.className = "schools-filter-section-sports-container"
+    
+    const sports = await getSportNames();
+    sports.forEach(sport => {
+        const optionContainer = document.createElement("div");
+        optionContainer.className = "schools-filter-checkbox-container";
 
-    filterContainer.append()
+        const checkbox = document.createElement("option");
+        checkbox.className = "schools-filter-checkbox";
+        checkbox.value = sport.sport;
+        optionContainer.append(checkbox);
+
+        const sportName = document.createElement("div");
+        sportName.className = "schools-filter-checkbox-name";
+        sportName.innerHTML = sport.sport;
+        optionContainer.append(sportName);
+
+        selectSchoolFilterSportOptionsContainer.append(optionContainer);
+    });
+
+    filterContainer.append(selectSchoolFilterSchoolSportContainer);
 }
 
 async function fetchSchools(filter) {
