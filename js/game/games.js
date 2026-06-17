@@ -332,52 +332,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
     }
 
     games.forEach(game => {
-        const gameId = game.game_id;
-        const sport = game.sport;
-        const opp = game.opponent;
-        const location = game.location;
-        const date = game.date;
-        const time = game.time;
-        const notes = game.notes;
-        const name = game.first_name + " " + game.last_name;
-        let where = "";
-        let recap_css = "";
-                                
-        if(location == "Seattle, Wash. " || location == "Seattle, Wash."){
-            where = "vs";
-            recap_css = "home-recap"
-        } else {
-            where = "@";
-            recap_css = "away-recap"
-        }
-
-        const gameBox = document.createElement("div");
-        gameBox.classList.add("game-box");
-
-        gameBox.innerHTML = `
-            <div class = "sport-container">
-                <div class = "sport-box">${sport}</div>
-                <div class = "notes-box">${notes}</div> 
-            </div>
-            <div class = "matchup-container">
-                <img class = "school-icon" src = "/images/schools/${state.school.school}.webp" alt = "UW">
-                <div class = "where">${where}</div>
-                <img class="school-icon" src="/images/schools/${opp}.webp" alt="${opp}">
-            </div>
-            <div class = "recap-container">
-                <div class="${recap_css}"></div>
-                <p class="recap-location">${location}</p>
-            </div>
-            <div class = "when-container">
-                <div class = "date">${formatDate(date)}</div>
-                <div class = "time">${time}</div>
-            </div>
-            <div class = "writer">${name}</div>
-            <div class = "options-container"> 
-                <button class = "game-option" data-game-id = "${gameId}" data-action="remove">REMOVE</button>
-                <button class = "game-option" data-action = "edit">EDIT</button>
-            </div>    
-        `;
+        const gameBox = createGameBox(game, buttons = ["edit", "remove"]);
 
         container.appendChild(gameBox);
 
@@ -565,3 +520,71 @@ function resetCaches() {
     allScheduledGamesLoaded = false;
 }
 // #endregion //
+
+function createGameBox(game, options = []) {
+
+    const sport = game.sport;
+    const notes = game.notes || "";
+    const opponent = game.opponent;
+    const location = game.location;
+    const homeRecap = location.trim() === "Seattle, Wash.";
+    const where = homeRecap ? "vs" : "@";
+    const recapCSS = homeRecap ? "home-recap" : "away-recap";
+    const date = game.date;
+    const time = game.time;
+    const writer = (game.first_name || "") + " " + (game.last_name || "");
+
+    const gameId = game.game_id;
+    const writerId = game.writer_id;
+
+    let gameOptions = "";
+
+    for (const option of options) {
+        switch (option) {
+            case "add":
+                gameOptions += `<button class="game-option" data-action = "add-game">ADD</button>`;
+                break;
+
+            case "assign":
+                gameOptions += `<button class="game-option" data-action = "assign-game">ASSIGN</button>`;
+                break;
+
+            case "edit":
+                gameOptions += `<button class="game-option" data-action = "edit-game">EDIT</button>`;
+                break;
+
+            case "remove":
+                gameOptions += `<button class="game-option" data-action = "remove-game">REMOVE</button>`;
+                break;
+        }
+    }
+
+    const gameBox = document.createElement("div");
+    gameBox.className = "game-box";
+
+    gameBox.innerHTML = `
+        <div class = "sport-container">
+            <div class = "sport-box">${sport}</div>
+            <div class = "notes-box">${notes}</div> 
+        </div>
+        <div class = "matchup-container">
+            <img class = "school-icon" src = "/images/schools/${state.school.school}.webp" alt = "UW">
+            <div class = "where">${where}</div>
+            <img class="school-icon" src="/images/schools/${opponent}.webp" alt="${opponent}">
+        </div>
+        <div class = "recap-container">
+            <div class="${recapCSS}"></div>
+            <p class="recap-location">${location}</p>
+        </div>
+        <div class = "when-container">
+            <div class = "date">${formatDate(date)}</div>
+            <div class = "time">${time}</div>
+        </div>
+        <div class = "writer">${writer}</div>
+        <div class = "options-container"> 
+            ${gameOptions}
+        </div>    
+        `;
+
+    return gameBox;
+}
