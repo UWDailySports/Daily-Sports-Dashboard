@@ -110,50 +110,7 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [], 
     }
 
     games.forEach(game => {
-        const gameId = game.game_id;
-        const sport = game.sport;
-        const opp = game.opponent;
-        const location = game.location;
-        const date = game.date;
-        const time = game.time;
-        const notes = game.notes;
-        let where = "";
-        let recap_css = "";
-                                
-        if(location == "Seattle, Wash. " || location == "Seattle, Wash."){
-            where = "vs";
-            recap_css = "home-recap"
-        } else {
-            where = "@";
-            recap_css = "away-recap"
-        }
-
-        const gameBox = document.createElement("div");
-        gameBox.classList.add("game-box");
-
-        gameBox.innerHTML = `
-            <div class = "sport-container">
-                <div class = "sport-box">${sport}</div>
-                <div class = "notes-box">${notes}</div> 
-            </div>
-            <div class = "matchup-container">
-                <img class = "school-icon" src = "/images/schools/${state.school.school}.webp" alt = "UW">
-                <div class = "where">${where}</div>
-                <img class="school-icon" src="/images/schools/${opp}.webp" alt="${opp}">
-            </div>
-            <div class = "recap-container">
-                <div class="${recap_css}"></div>
-                <p class="recap-location">${location}</p>
-            </div>
-            <div class = "when-container">
-                <div class = "date">${formatDate(date)}</div>
-                <div class = "time">${time}</div>
-            </div>    
-            <div class = "options-container">
-                <button class = "game-option" onclick = "remove(${gameId})">REMOVE</button>
-            </div>
-            `;
-
+        const gameBox = createGameBox(game, options = ["remove"], tab = "my-games");
         container.appendChild(gameBox);
     });
 }
@@ -199,88 +156,21 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
         container.appendChild(noGames);
     }
 
-    games.forEach(game => {
-        const gameId = game.game_id;
-        const sport = game.sport;
-        const opp = game.opponent;
-        const location = game.location;
-        const date = game.date;
-        const time = game.time;
-        const notes = game.notes;
-        let where = "";
-        let recap = "";
-        let recap_css = "";
-                                
-        if(location == "Seattle, Wash. " || location == "Seattle, Wash."){
-            where = "vs";
-            recap_css = "home-recap"
-        } else {
-            where = "@";
-            recap_css = "away-recap"
-        }
+    const currWriterPosition = state.currWriter.position;
 
-        const gameBox = document.createElement("div");
-        gameBox.classList.add("game-box");
+    if(currWriterPosition === "Writer") {
+        games.forEach(game => {
+            const gameBox = createGameBox(game, options = ["add"], tab = "available-games");
+            container.appendChild(gameBox);
+        })
+    }
 
-        if(state.currWriter.position == "Writer"){
-            gameBox.innerHTML = `
-            <div class = "sport-container">
-                <div class = "sport-box">${sport}</div>
-                <div class = "notes-box">${notes}</div> 
-            </div>
-            <div class = "matchup-container">
-                <img class = "school-icon" src = "/images/schools/${state.school.school}.webp" alt = "UW">
-                <div class = "where">${where}</div>
-                <img class="school-icon" src="/images/schools/${opp}.webp" alt="${opp}">
-            </div>    
-            <div class = "recap-container">
-                <div class="${recap_css}"></div>
-                <p class="recap-location">${location}</p>
-            </div>
-            <div class = "when-container">
-                <div class = "date">${formatDate(date)}</div>
-                <div class = "time">${time}</div>
-            </div>    
-            <div class = "options-container"> 
-                <button class = "game-option" onclick = "signup(${gameId}, state.currWriter.writer_id)">ADD</button>
-            </div>    
-            `;
-        }
-
-        if(state.currWriter.position == "Editor"){
-            gameBox.innerHTML = `
-            <div class = "sport-container">
-                <div class = "sport-box">${sport}</div>
-                <div class = "notes-box">${notes}</div> 
-            </div>
-            <div class = "matchup-container">
-                <img class = "school-icon" src = "/images/schools/${state.school.school}.webp" alt = "UW">
-                <div class = "where">${where}</div>
-                <img class="school-icon" src="/images/schools/${opp}.webp" alt="${opp}">
-            </div>    
-            <div class = "recap-container">
-                <div class="${recap_css}"></div>
-                <p class="recap-location">${location}</p>
-            </div>
-            <div class = "when-container">
-                <div class = "date">${formatDate(date)}</div>
-                <div class = "time">${time}</div>
-            </div>    
-            <div class = "options-container"> 
-                <button class = "game-option" onclick = "signup(${gameId}, state.currWriter.writer_id)">ADD</button>
-                <button class= "game-option" onclick="openAssignModal(${gameId})">ASSIGN</button>
-                <button class = "game-option" data-action = "edit">EDIT</button>
-            </div>    
-            `;
-
-            const editButton = gameBox.querySelector('[data-action="edit"]');
-            editButton.addEventListener("click", async (e) => {
-                openEditGameModal(game, "all-games");
-            });
-        }
-
-        container.appendChild(gameBox);
-    });
+    if(currWriterPosition === "Editor" || currWriter === "EIC" || currWriter === "Copy") {
+        games.forEach(game => {
+            const gameBox = createGameBox(game, options = ["add", "edit"]);
+            container.appendChild(gameBox);
+        })
+    }
 }
 // #endregion //
 
@@ -333,21 +223,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
 
     games.forEach(game => {
         const gameBox = createGameBox(game, buttons = ["edit", "remove"]);
-
         container.appendChild(gameBox);
-
-        const removeButton = gameBox.querySelector('[data-action="remove"]');
-        removeButton.addEventListener("click", async (e) => {
-            const gameId = e.target.getAttribute("data-game-id");
-
-            await remove(gameId);
-            fetchAllScheduledGames(state.filters.allGames);
-        });
-
-        const editButton = gameBox.querySelector('[data-action="edit"]');
-        editButton.addEventListener("click", async (e) => {
-            openEditGameModal(game, "all-games");
-        });
     });
 } 
 // #endregion //
@@ -393,48 +269,7 @@ async function fetchHistoryGames(writerId, filters = { sports: [], locations: []
     }
 
     games.forEach(game => {
-        const gameId = game.game_id;
-        const sport = game.sport;
-        const opp = game.opponent;
-        const location = game.location;
-        const date = game.date;
-        const time = game.time;
-        const notes = game.notes;
-        let where = "";
-        let recap = "";
-        let recap_css = "";
-                                
-        if(location == "Seattle, Wash. " || location == "Seattle, Wash."){
-            where = "vs";
-            recap_css = "home-recap"
-        } else {
-            where = "@";
-            recap_css = "away-recap"
-        }
-
-        const gameBox = document.createElement("div");
-        gameBox.classList.add("game-box");
-
-        gameBox.innerHTML = `
-            <div class = "sport-container">
-                <div class = "sport-box">${sport}</div>
-                <div class = "notes-box">${notes}</div> 
-            </div>
-            <div class = "matchup-container">
-                <img class = "school-icon" src = "/images/schools/${state.school.school}.webp" alt = "UW">
-                <div class = "where">${where}</div>
-                <img class="school-icon" src="/images/schools/${opp}.webp" alt="${opp}">
-            </div>
-            <div class = "recap-container">
-                <div class="${recap_css}"></div>
-                <p class="recap-location">${location}</p>
-            </div>
-            <div class = "when-container">
-                <div class = "date">${formatDateWithYear(date)}</div>
-                <div class = "time">${time}</div>   
-            </div>
-        `;
-
+        const gameBox = createGameBox(game, options = [], tab = "history-games");
         container.appendChild(gameBox);
     });
 }
@@ -521,7 +356,7 @@ function resetCaches() {
 }
 // #endregion //
 
-function createGameBox(game, options = []) {
+function createGameBox(game, options = [], tab) {
 
     const sport = game.sport;
     const notes = game.notes || "";
@@ -543,18 +378,38 @@ function createGameBox(game, options = []) {
         switch (option) {
             case "add":
                 gameOptions += `<button class="game-option" data-action = "add-game">ADD</button>`;
+                const addButton = gameBox.querySelector('[data-action="add-game"]');
+                addButton.addEventListener("click", async (e) => {
+                    await signup(gameId);
+                    refreshCurrentTab(tab);
+                });                
                 break;
 
             case "assign":
                 gameOptions += `<button class="game-option" data-action = "assign-game">ASSIGN</button>`;
+                const assignButton = gameBox.querySelector('[data-action="assign-game"]');
+                assignButton.addEventListener("click", async (e) => {
+                    await openAssignGameModal(gameId);
+                    refreshCurrentTab(tab);
+                });                
                 break;
 
             case "edit":
                 gameOptions += `<button class="game-option" data-action = "edit-game">EDIT</button>`;
+                const editButton = gameBox.querySelector('[data-action="edit-game"]');
+                editButton.addEventListener("click", async (e) => {
+                    refreshCurrentTab(tab);
+                });
                 break;
 
             case "remove":
                 gameOptions += `<button class="game-option" data-action = "remove-game">REMOVE</button>`;
+                const removeButton = gameBox.querySelector('[data-action="remove-game"]');
+                removeButton.addEventListener("click", async (e) => {
+                    const gameId = e.target.getAttribute("data-game-id");
+                    await remove(gameId);
+                    refreshCurrentTab(tab);
+                });
                 break;
         }
     }
@@ -587,4 +442,20 @@ function createGameBox(game, options = []) {
         `;
 
     return gameBox;
+}
+
+function refreshCurrentTab(tab) {
+    switch(tab) {
+        case "all-games":
+            return fetchAllScheduledGames(state.filters.allGames);
+
+        case "available-games":
+            return fetchAvailableGames(state.filters.availableGames);
+
+        case "my-games":
+            return fetchMySchedule(state.filters.mySchedule);
+
+        case "history-games":
+            return fetchHistoryGames(state.filters.history);
+    }
 }

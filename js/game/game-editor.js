@@ -91,7 +91,7 @@ async function addGame(sport, opponent, date, time, location, notes) {
 // Returns: None
 // Parameters: (1) gameId: id of the game 
 // #region openAssignModal //
-async function openAssignModal(gameId) {
+async function openAssignGameModal(gameId) {
     state.currGameId = gameId;
 
     await loadWriters();
