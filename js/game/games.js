@@ -102,6 +102,7 @@ async function fetchMySchedule(filters = { sports: [], locations: [], months: []
     createSkeletonGameBoxes(container);
             
     const myGames = await fetchGames("my-games", filters);
+    container.innerHTML = "";
 
     if (!myGames || myGames.length === 0) {
         noGames(container, "No Games in Schedule");
@@ -129,6 +130,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
     createSkeletonGameBoxes(container);
 
     const availableGames = await fetchGames("available-games", filters);
+    container.innerHTML = "";
 
     if (!availableGames || availableGames.length === 0) {
         noGames(container, "No Available Games");
@@ -168,6 +170,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
     createSkeletonGameBoxes(container);
 
     const allGames = await fetchGames("all-games", filters);
+    container.innerHTML = "";
 
     if (!allGames || allGames.length === 0) {
         noGames(container, "No Games in Schedule");
@@ -196,6 +199,7 @@ async function fetchHistoryGames(filters = { sports: [], locations: [], months: 
     createSkeletonGameBoxes(container);
 
     const historyGames = await fetchGames("history-games", filters);
+    container.innerHTML = "";
 
     if (!historyGames || historyGames.length === 0) {
         noGames(container, "No Games in History");
