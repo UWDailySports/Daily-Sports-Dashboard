@@ -96,7 +96,7 @@ async function loadSports(selectId) {
 //         (2) statusCode 500 if error in DB query
 // #region fetchMySchedule() //
 async function fetchMySchedule(filters = { sports: [], locations: [], months: [] }) {
-    const container = document.getElementById("scheduled-games-container");
+    const container = document.getElementById("my-games-container");
     container.innerHTML = "";
 
     createSkeletonGameBoxes(container);
@@ -193,7 +193,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
 //         (2) statusCode 500 if error in DB query
 // #region fetchHistoryGames() //
 async function fetchHistoryGames(filters = { sports: [], locations: [], months: [] }) {
-    const container = document.getElementById("history-container");
+    const container = document.getElementById("history-games-container");
     container.innerHTML = "";
 
     createSkeletonGameBoxes(container);

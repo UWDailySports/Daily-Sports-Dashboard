@@ -108,7 +108,7 @@ tabHandlers["invoices"] = async function() {
 };    
 
 let historyLoaded = false;
-tabHandlers["history"] = async function () {
+tabHandlers["history-games"] = async function () {
     if(historyLoaded === false) {
         await buildFilters(
             "history-games-filter-container",

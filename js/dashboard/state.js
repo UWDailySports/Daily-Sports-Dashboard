@@ -8,7 +8,7 @@ const state = {
     currTab: null,
 
     filters: {
-        active: { sports: [], locations: [] },
+        active: { sports: [], locations: [], months: [] },
         myGames: { sports: [], locations: [] },
         availableGames: { sports: [], locations: [] },
         historyGames: { sports: [], locations: [], months: [] },
