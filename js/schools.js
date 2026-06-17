@@ -95,7 +95,19 @@ async function buildSchoolsFiltersSchools() {
     selectSchoolFilterSchoolSportOptionsContainer.className = "schools-filter-section-sports-container";
     selectSchoolFilterSchoolSportContainer.append(selectSchoolFilterSchoolSportOptionsContainer);
     
-    const sports = await getSports();
+    const response = await fetch("/.netlify/functions/get-sport-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+    });
+
+    if (!response.ok) {
+        console.log("Failed to fetch sport info. Status:", response.status);
+        return;
+    }
+
+    const data = await response.json();
+    const sports = data.sports;
+    
     sports.forEach(sport => {
         const optionContainer = document.createElement("div");
         optionContainer.className = "schools-filter-checkbox-container";
