@@ -167,7 +167,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 
     if(currWriterPosition === "Editor" || currWriter === "EIC" || currWriter === "Copy") {
         games.forEach(game => {
-            const gameBox = createGameBox(game, options = ["add", "edit"], tab = "available-games");
+            const gameBox = createGameBox(game, options = ["add", "assign", "edit"], tab = "available-games");
             container.appendChild(gameBox);
         })
     }
