@@ -121,4 +121,10 @@ async function fetchSchools(filter) {
     if(filter === "conferences");
 }
 
+async function getSportNames() {
+    const response = await fetch("/.netlify/functions/get-sports");
+    const data = await response.json();
+
+    return data.sports.map(s => s.sport);
+}
 
