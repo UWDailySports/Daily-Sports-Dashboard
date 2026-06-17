@@ -9,15 +9,15 @@ exports.handler = async (event) => {
     await client.connect();
 
     try {
-        const { sport_id, name, sid, email, phone } = JSON.parse(event.body); 
+        const { sport_id, sport, abbreviation, sid, email, phone } = JSON.parse(event.body); 
 
         const query = `
             UPDATE "Sports"
-            SET sport = $2, sid = $3, sid_email = $4, sid_phone = $5
+            SET sport = $2, abbreviation = $3, sid = $4, sid_email = $5, sid_phone = $6
             WHERE sport_id = $1
             RETURNING *;
         `;
-        await client.query(query, [sport_id, name, sid, email, phone]);
+        await client.query(query, [sport_id, sport, abbreviation, sid, email, phone]);
 
         return {
             statusCode: 200,
