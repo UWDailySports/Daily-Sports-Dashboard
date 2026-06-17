@@ -2,27 +2,53 @@
 
 let currGameId = null;
 
-function createSkeletonGameBox() {
-    const skeleton = document.createElement("div");
-    skeleton.classList.add("game-box", "skeleton-game");
+function createSkeletonGameBoxes(container) {
+    for(let i = 0; i < 6; i++){
+        const skeleton = document.createElement("div");
+        skeleton.classList.add("game-box", "skeleton-game");
 
-    skeleton.innerHTML = `
-        <div class="skeleton skeleton-sport"></div>
-        <div class="skeleton skeleton-matchup"></div>
-        <div class="skeleton skeleton-location"></div>
-        <div class="skeleton skeleton-date"></div>
-    `;
+        skeleton.innerHTML = `
+            <div class="skeleton skeleton-sport"></div>
+            <div class="skeleton skeleton-matchup"></div>
+            <div class="skeleton skeleton-location"></div>
+            <div class="skeleton skeleton-date"></div>
+        `;
 
-    return skeleton;
+        container.appendChild(skeleton);
+    }
 }
 
+function noGames(container, message) {
+    console.log("No scheduled games found.");
+
+    const noGames = document.createElement("div");
+    noGames.classList.add("no-games");
+    noGames.textContent = message;
+
+    container.appendChild(noGames);
+}
+
+// Function: getSportNames
+// Purpose: Returns the names of all sports in DB
+// Returns: names of sports
+// Parameters: None
+// exceptions: (1) 500 if error with DB
+// #region getSportNames()
 async function getSportNames() {
     const response = await fetch("/.netlify/functions/get-sports");
     const data = await response.json();
 
     return data.sports.map(s => s.sport);
 }
+// #endregion //
 
+
+// Function: getSports
+// Purpose: Returns the objects of all sports in DB
+// Returns: sports as objects
+// Parameters: None
+// exceptions: (1) 500 if error with DB
+// #region getSports()
 async function getSports() {
     const response = await fetch("/.netlify/functions/get-sports");
 
@@ -34,7 +60,9 @@ async function getSports() {
 
     return data.sports;
 }
+// #endregion //
 
+// #region loadSports
 async function loadSports(selectId) {
     const sports = await getSports();
 
@@ -67,49 +95,19 @@ async function loadSports(selectId) {
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region fetchMySchedule() //
-async function fetchMySchedule(writerId, filters = { sports: [], locations: [], months: [] }) {
-    if (!writerId) {
-        console.log("Writer ID is missing!");
-
-        return;  
-    }
-
-    let container = document.getElementById("scheduled-games-container");
+async function fetchMySchedule(filters = { sports: [], locations: [], months: [] }) {
+    const container = document.getElementById("scheduled-games-container");
     container.innerHTML = "";
 
-    for (let i = 0; i < 6; i++) {
-        container.appendChild(createSkeletonGameBox());
-    }
+    createSkeletonGameBoxes(container);
             
-    const response = await fetch("/.netlify/functions/scheduled-games", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ writerId, filters }) 
-    });
+    const myGames = await fetchGames("my-games", filters);
 
-    if (!response.ok) {
-        console.log("Failed to fetch my scheduled games. Status:", response.status);
-        return;
+    if (!myGames || myGames.length === 0) {
+        noGames(container, "No Games in Schedule");
     }
 
-    const data = await response.json();
-    const games = data.games;
-
-    container = document.getElementById("scheduled-games-container");
-    container.innerHTML = "";
-
-    // Special box if no games are scheduled
-    if (!games || games.length === 0) {
-        console.log("No scheduled games found.");
-
-        const noGames = document.createElement("div");
-        noGames.classList.add("no-games");
-        noGames.textContent = "No Games in Schedule";
-
-        container.appendChild(noGames);
-    }
-
-    games.forEach(game => {
+    myGames.forEach(game => {
         const gameBox = createGameBox(game, options = ["remove"], tab = "my-games");
         container.appendChild(gameBox);
     });
@@ -125,48 +123,28 @@ async function fetchMySchedule(writerId, filters = { sports: [], locations: [], 
 //         (2) statusCode 500 if error in DB query
 // #region fetchAvailableGames() //
 async function fetchAvailableGames(filters = { sports: [], locations: [], months: [] }) {
-
-    let container = document.getElementById("available-games-container");
+    const container = document.getElementById("available-games-container");
     container.innerHTML = "";
 
-    for (let i = 0; i < 6; i++) {
-        container.appendChild(createSkeletonGameBox());
-    }
+    createSkeletonGameBoxes(container);
 
-    const response = await fetch("/.netlify/functions/available-games", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ filters }) 
-    });
+    const availableGames = await fetchGames("available-games", filters);
 
-    const data = await response.json();
-    const games = data.games;
-            
-    container = document.getElementById("available-games-container");
-    container.innerHTML = "";
-
-    // Special box if no games are available
-    if (!games || games.length === 0) {
-        console.log("No available games found.");
-
-        const noGames = document.createElement("div");
-        noGames.classList.add("no-games");
-        noGames.textContent = "No Games Available";
-
-        container.appendChild(noGames);
+    if (!availableGames || availableGames.length === 0) {
+        noGames(container, "No Available Games");
     }
 
     const currWriterPosition = state.currWriter.position;
 
     if(currWriterPosition === "Writer") {
-        games.forEach(game => {
+        availableGames.forEach(game => {
             const gameBox = createGameBox(game, options = ["add"], tab = "available-games");
             container.appendChild(gameBox);
         })
     }
 
-    if(currWriterPosition === "Editor" || currWriter === "EIC" || currWriter === "Copy") {
-        games.forEach(game => {
+    if(currWriterPosition === "Editor" || currWriterPosition === "EIC" || currWriterPosition === "Copy") {
+        availableGames.forEach(game => {
             const gameBox = createGameBox(game, options = ["add", "assign", "edit"], tab = "available-games");
             container.appendChild(gameBox);
         })
@@ -184,44 +162,18 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 // #region fetchAllScheduledGames //
 
 async function fetchAllScheduledGames(filters = { sports: [], locations: [], months: [] }) {
-    console.log("FETCHING WITH:", filters);
-
-    let container = document.getElementById("all-games-container");
+    const container = document.getElementById("all-games-container");
     container.innerHTML = "";
 
-    for (let i = 0; i < 6; i++) {
-        container.appendChild(createSkeletonGameBox());
+    createSkeletonGameBoxes(container);
+
+    const allGames = await fetchGames("all-games", filters);
+
+    if (!allGames || allGames.length === 0) {
+        noGames(container, "No Games in Schedule");
     }
 
-    const response = await fetch("/.netlify/functions/all-schedule", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ filters }) 
-    });
-
-    if (!response.ok) {
-        console.log("Failed to fetch all scheduled games. Status:", response.status);
-        return;
-    }
-
-    const data = await response.json();
-    const games = data.games;
-
-    container = document.getElementById("all-games-container");
-    container.innerHTML = "";
-
-    // Special box if no games are scheduled
-    if (!games || games.length === 0) {
-        console.log("No scheduled games found.");
-
-        const noGames = document.createElement("div");
-        noGames.classList.add("no-games");
-        noGames.textContent = "No Games Scheduled";
-
-        container.appendChild(noGames);
-    }
-
-    games.forEach(game => {
+    allGames.forEach(game => {
         const gameBox = createGameBox(game, options = ["edit", "remove"], tab = "all-games");
         container.appendChild(gameBox);
     });
@@ -237,38 +189,19 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region fetchHistoryGames() //
-async function fetchHistoryGames(writerId, filters = { sports: [], locations: [], months: [] }) {
-    let container = document.getElementById("history-container");
+async function fetchHistoryGames(filters = { sports: [], locations: [], months: [] }) {
+    const container = document.getElementById("history-container");
     container.innerHTML = "";
 
-    for (let i = 0; i < 6; i++) {
-        container.appendChild(createSkeletonGameBox());
+    createSkeletonGameBoxes(container);
+
+    const historyGames = await fetchGames("history-games", filters);
+
+    if (!historyGames || historyGames.length === 0) {
+        noGames(container, "No Games in History");
     }
 
-    const response = await fetch("/.netlify/functions/history-games", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ writerId, filters }) 
-    });
-
-    const data = await response.json();
-    const games = data.games;
-            
-    container = document.getElementById("history-container");
-    container.innerHTML = "";
-
-    // Special box if no history is found
-    if (!games || games.length === 0) {
-        console.log("No history  found.");
-
-        const noGames = document.createElement("div");
-        noGames.classList.add("no-games");
-        noGames.textContent = "No Games in History";
-
-        container.appendChild(noGames);
-    }
-
-    games.forEach(game => {
+    historyGames.forEach(game => {
         const gameBox = createGameBox(game, options = [], tab = "history-games");
         container.appendChild(gameBox);
     });
@@ -285,15 +218,13 @@ async function fetchHistoryGames(writerId, filters = { sports: [], locations: []
 //         (2) statusCode 500 if error in DB query
 // #region signup() //
 async function signup(gameId, writerId) {
-    console.log("Game ID: ", gameId, "  Writer ID: ", writerId);
-
     try {
         const response = await fetch("/.netlify/functions/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ gameId: gameId, writerId: writerId })
+            body: JSON.stringify({ gameId, writerId })
         });
 
         const data = await response.json();
@@ -312,6 +243,7 @@ async function signup(gameId, writerId) {
     }
 } 
 // #endregion //
+
 
 // Function: remove
 // Purpose: Removes the user from a game they were signed up for
@@ -337,7 +269,7 @@ async function remove(gameId) {
         if (data.success) {
             showToast("Game removed from schedule", "success");
             resetCaches();
-            fetchMySchedule(state.currWriter.writer_id, state.filters.myGames);
+            fetchMySchedule(state.filters.myGames);
         } else {
             showToast("Failed to remove game from schedule", "error")
         }
@@ -424,7 +356,7 @@ function createGameBox(game, options = [], tab) {
         const addButton = gameBox.querySelector('[data-action="add-game"]');
         if(addButton){
             addButton.addEventListener("click", async (e) => {
-                await signup(gameId);
+                await signup(gameId, state.currWriter.writer_id);
                 refreshCurrentTab(tab);
             });
         }  
@@ -470,4 +402,46 @@ function refreshCurrentTab(tab) {
         case "history-games":
             return fetchHistoryGames(state.filters.history);
     }
+}
+
+async function fetchGames(tab, filters) {
+    let fetchEndpoint = "";
+    let fetchBody = null;
+
+    switch(tab){
+        case "all-games": 
+            fetchEndpoint = "/.netlify/functions/get-all-games";
+            fetchBody = JSON.stringify({ filters });
+            break;
+
+        case "my-games": 
+            fetchEndpoint = "/.netlify/functions/get-my-games";
+            fetchBody = JSON.stringify({ writerId: state.currWriter.writer_id, filters });
+            break;
+
+        case "available-games": 
+            fetchEndpoint = "/.netlify/functions/get-available-games";
+            fetchBody = JSON.stringify({ filters }); 
+            break;
+
+        case "history-games":
+            fetchEndpoint = "/.netlify/functions/get-history-games";
+            fetchBody = JSON.stringify({ writerId: state.currWriter.writer_id, filters });
+            break;   
+    }
+
+    const response = await fetch(fetchEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: fetchBody
+    });
+
+    if (!response.ok) {
+        console.log("Failed to fetch games. Status:", response.status);
+        return;
+    }
+
+    const data = await response.json();
+
+    return data.games;
 }
