@@ -167,7 +167,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 
     if(currWriterPosition === "Editor" || currWriter === "EIC" || currWriter === "Copy") {
         games.forEach(game => {
-            const gameBox = createGameBox(game, options = ["add", "edit"]);
+            const gameBox = createGameBox(game, options = ["add", "edit"], tab = "available-games");
             container.appendChild(gameBox);
         })
     }
@@ -406,7 +406,6 @@ function createGameBox(game, options = [], tab) {
                 gameOptions += `<button class="game-option" data-action = "remove-game">REMOVE</button>`;
                 const removeButton = gameBox.querySelector('[data-action="remove-game"]');
                 removeButton.addEventListener("click", async (e) => {
-                    const gameId = e.target.getAttribute("data-game-id");
                     await remove(gameId);
                     refreshCurrentTab(tab);
                 });
