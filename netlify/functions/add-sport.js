@@ -11,14 +11,14 @@ exports.handler = async (event) => {
     await client.connect();
 
     try {
-        const { sport_name, sid, sid_email, sid_phone } = JSON.parse(event.body);
+        const { sport_name, abbreviation, sid, sid_email, sid_phone } = JSON.parse(event.body);
 
         const insertSportQuery = `
-            INSERT INTO "Sports" (sport, sid, sid_email, sid_phone)
-            VALUES ($1, $2, $3, $4)
+            INSERT INTO "Sports" (sport, abbreviation, sid, sid_email, sid_phone)
+            VALUES ($1, $2, $3, $4, $5)
             RETURNING *;
         `;
-        const result = await client.query(insertSportQuery, [sport_name, sid, sid_email, sid_phone]);
+        const result = await client.query(insertSportQuery, [sport_name, abbreviation, sid, sid_email, sid_phone]);
 
         return {
             statusCode: 200,

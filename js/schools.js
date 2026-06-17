@@ -107,7 +107,7 @@ async function buildSchoolsFiltersSchools() {
 
         const sportName = document.createElement("div");
         sportName.className = "schools-filter-checkbox-name";
-        sportName.innerHTML = sport.sport;
+        sportName.innerHTML = sport.abbreviation;
         optionContainer.append(sportName);
 
         selectSchoolFilterSchoolSportOptionsContainer.append(optionContainer);

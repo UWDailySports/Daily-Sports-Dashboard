@@ -379,6 +379,7 @@
         <button class = "add-sport-button" onclick = "openAddSportModal()">+ Add Sport</button>
         <div id = "sport-list-title" class = "sport-list-entry-container">
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Sport</div>
+            <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Abbreviation</div>
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">SID</div>
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Email</div>
             <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Phone</div>
@@ -400,6 +401,12 @@
                     Sport <span class="required">*</span>
                 </div>
                 <input type = "text" id = "new-sport-name" class = "add-sport-box" placeholder="Sport Name">
+            </div>
+            <div class = "add-sport-section">
+                <div class="add-sport-box-title">
+                    Abbreviation <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-sport-abbreviation" class = "add-sport-box" placeholder="Sport Abbreviation">
             </div>
             <div class = "add-sport-section">
                 <div class="add-sport-box-title">
@@ -435,6 +442,12 @@
                 </div>
                 <input type = "text" id = "edit-sport-name" class = "edit-sport-box" placeholder="Sport Name">
             </div>
+            <div class = "edit-sport-section">
+                <div class="edit-sport-box-title">
+                    Abbreviation <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-sport-abbreviation" class = "edit-sport-box" placeholder="Sport Name">
+            </div>            
             <div class = "edit-sport-section">
                 <div class="edit-sport-box-title">
                     SID <span class="required">*</span>

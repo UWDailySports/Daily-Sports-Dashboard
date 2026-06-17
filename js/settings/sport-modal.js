@@ -54,6 +54,7 @@ async function fetchSportInfo() {
 
     for (const sport of sports) {
         const sportName = sport.sport;
+        const sportAbbreviation = sport.abbreviation
         const sid = sport.sid;
         const email = sport.sid_email;
 
@@ -68,6 +69,7 @@ async function fetchSportInfo() {
         
         sportBox.innerHTML = `
             <div class = "sport-list-entry-section">${sportName}</div>
+            <div class = "sport-list-entry-section">${sportAbbreviation}</div>            
             <div class = "sport-list-entry-section">${sid}</div>
             <div class = "sport-list-entry-section">${email}</div>
             <div class = "sport-list-entry-section">${phone}</div>
@@ -121,16 +123,17 @@ const addSportModal = document.getElementById("add-sport-modal");
 
 document.getElementById("add-sport-confirm").onclick = async () => {
     const sport_name = document.getElementById("new-sport-name").value;
+    const sportAbbreviation = document.getElementById("new-sport-abbreviation").value;
     const sid = document.getElementById("new-sport-sid").value;
     const sid_email = document.getElementById("new-sport-email").value;
     const sid_phone = document.getElementById("new-sport-phone").value;
 
-    if(!sport_name || !sid || !sid_email) {
+    if(!sport_name || !sportAbbreviation || !sid || !sid_email) {
         alert("Please fill in all required fields");
         return;
     } 
 
-    await addSport(sport_name, sid, sid_email, sid_phone);
+    await addSport(sport_name, sportAbbreviation, sid, sid_email, sid_phone);
 
     addSportModal.style.display = "none";
 };
@@ -147,14 +150,14 @@ document.getElementById("add-sport-confirm").onclick = async () => {
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region addSport() //
-async function addSport(sport_name, sid, sid_email, sid_phone) {
+async function addSport(sport_name, sportAbbreviation, sid, sid_email, sid_phone) {
     try {
         const response = await fetch("/.netlify/functions/add-sport", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ sport_name, sid, sid_email, sid_phone })
+            body: JSON.stringify({ sport_name, sportAbbreviation, sid, sid_email, sid_phone })
         });
 
         const text = await response.text();
@@ -190,6 +193,7 @@ async function openEditSportModal(sport) {
     const editSportModal = document.getElementById("edit-sport-modal");
 
     document.getElementById("edit-sport-name").value = sport.sport;
+    document.getElementById("edit-sport-abrreviation").value = sport.abbreviation;
     document.getElementById("edit-sport-sid").value = sport.sid || "";
     document.getElementById("edit-sport-email").value = sport.sid_email || "";
     document.getElementById("edit-sport-phone").value = sport.sid_phone || "";
@@ -198,16 +202,17 @@ async function openEditSportModal(sport) {
 
     document.getElementById("edit-sport-confirm").onclick = async () => {
         const name = document.getElementById("edit-sport-name").value;
+        const abbreviation = document.getElementById("edit-sport-abbreviation").value;
         const sid = document.getElementById("edit-sport-sid").value;
         const email = document.getElementById("edit-sport-email").value;
         const phone = document.getElementById("edit-sport-phone").value;
 
-        if (!name || !sid || !email) {
+        if (!name || !abbreviation || !sid || !email) {
             alert("Please fill in all required fields");
             return;
         }
 
-        await editSport(sport.sport_id, name, sid, email, phone);
+        await editSport(sport.sport_id, abbreviation, name, sid, email, phone);
 
         editSportModal.style.display = "none";
 
@@ -228,14 +233,14 @@ async function openEditSportModal(sport) {
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region editSport() //
-async function editSport(sport_id,name, sid, email, phone) {
+async function editSport(sport_id, abbreviation, name, sid, email, phone) {
     try {
         const response = await fetch("/.netlify/functions/edit-sport", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ sport_id, name, sid, email, phone })
+            body: JSON.stringify({ sport_id,abbreviation, name, sid, email, phone })
         });
 
     } catch (error) {
