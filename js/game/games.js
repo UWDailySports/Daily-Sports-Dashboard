@@ -432,7 +432,7 @@ function createGameBox(game, options = [], tab) {
         const assignButton = gameBox.querySelector('[data-action="assign-game"]');
         if(assignButton){
             assignButton.addEventListener("click", async (e) => {
-            await openAssignGameModal(gameId);
+                await openAssignGameModal(gameId);
                 refreshCurrentTab(tab);
             }); 
         }
