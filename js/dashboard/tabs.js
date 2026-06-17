@@ -10,12 +10,12 @@ window.onload = async function() {
     await fetchWriterData(user);
 
     const button = document.querySelector(
-        `button[onclick="showTab(event, 'scheduled-games')"]`
+        `button[onclick="showTab(event, 'my-games')"]`
     );
 
     showTab(
         { currentTarget: button },
-        "scheduled-games"
+        "my-games"
     );
 };
 
@@ -51,15 +51,15 @@ tabHandlers["production"] = function() {
 
 
 let myScheduleLoaded = false;
-tabHandlers["scheduled-games"] = async function () {
+tabHandlers["my-games"] = async function () {
     if(myScheduleLoaded === false){
         await buildFilters(
-            "scheduled-games-filter-container",
+            "my-games-filter-container",
             state.filters.myGames,
-            filters => fetchMySchedule(state.currWriter.writer_id, filters)
+            filters => fetchMySchedule(filters)
         );
 
-        await fetchMySchedule(state.currWriter.writer_id, state.filters.myGames);
+        await fetchMySchedule(state.filters.myGames);
 
         myScheduleLoaded = true;
     }
@@ -111,11 +111,11 @@ let historyLoaded = false;
 tabHandlers["history"] = async function () {
     if(historyLoaded === false) {
         await buildFilters(
-            "history-filter-container",
+            "history-games-filter-container",
             state.filters.historyGames,
-            filters => fetchHistoryGames(state.currWriter.writer_id, filters));
+            filters => fetchHistoryGames(filters));
 
-        await fetchHistoryGames(state.currWriter.writer_id, state.filters.historyGames);
+        await fetchHistoryGames(state.filters.historyGames);
 
         historyLoaded = true;
     }
