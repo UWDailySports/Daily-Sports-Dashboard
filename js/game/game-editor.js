@@ -1,7 +1,6 @@
 // All editor-specific game functions 
 // Add game, Assign game, edit game, Delete game
 
-let currentContainer = null;
 
 // Function: openAddGameModal
 // Purpose: Opens the modal for adding a game
@@ -9,7 +8,7 @@ let currentContainer = null;
 // Parameters: (1) containerId: container id to determine tab refresh 
 // #region openAddGameModal //
 async function openAddGameModal(tab) {
-    currTab = tab;
+    state.currTab = tab;
 
     await loadSports("sport-input");
 

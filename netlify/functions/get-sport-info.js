@@ -14,16 +14,19 @@ exports.handler = async (event) => {
         });
 
         await client.connect();
+        
         console.log("Connected to DB");
 
         const query = 'SELECT * FROM "Sports" ORDER BY sport';
         const result = await client.query(query);
+
         await client.end();
 
         return {
             statusCode: 200,
             body: JSON.stringify({ sports: result.rows })
         };
+
     } catch (err) {
         console.error("Error fetching sports:", err);
         return {

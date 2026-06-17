@@ -4,6 +4,7 @@ const state = {
 
     currWriter: null,
     currGameId: null,
+    
     currTab: null,
 
     filters: {

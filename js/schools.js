@@ -11,6 +11,8 @@ window.onload = async function() {
     buildSchoolsFilterContainer("School");
 }
 
+
+
 async function buildSchoolsFilterContainer(filterType) {
     //await loadSports();
 
@@ -107,7 +109,7 @@ async function buildSchoolsFiltersSchools() {
 
     const data = await response.json();
     const sports = data.sports;
-    
+
     sports.forEach(sport => {
         const optionContainer = document.createElement("div");
         optionContainer.className = "schools-filter-checkbox-container";
