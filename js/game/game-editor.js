@@ -144,8 +144,8 @@ async function loadWriters() {
 // Parameters: (1) gameId: id of game to edit
 //             (2) containerId: container id to determine tab refresh
 // #region openeditGameModal //
-async function openEditGameModal(gameId) {
-    state.currGameId = gameId;
+async function openEditGameModal(game) {
+    state.currGameId = game.gameId;
 
     await loadSports("edit-sport-input");
 

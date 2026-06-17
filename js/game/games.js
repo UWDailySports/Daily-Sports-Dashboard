@@ -440,7 +440,7 @@ function createGameBox(game, options = [], tab) {
         const editButton = gameBox.querySelector('[data-action="edit-game"]');
         if(editButton){
             editButton.addEventListener("click", async (e) => {
-                await openEditGameModal(gameId);
+                await openEditGameModal(game);
                 refreshCurrentTab(tab);
             });  
         }
