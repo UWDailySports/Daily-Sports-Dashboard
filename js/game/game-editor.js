@@ -7,9 +7,7 @@
 // Returns: None
 // Parameters: (1) containerId: container id to determine tab refresh 
 // #region openAddGameModal //
-async function openAddGameModal(tab) {
-    state.currTab = tab;
-
+async function openAddGameModal() {
     await loadSports("sport-input");
 
     document.getElementById("add-game-modal").style.display = "flex";
@@ -34,18 +32,6 @@ document.getElementById("add-game-confirm").onclick = async () => {
     addModal.style.display = "none";
 
     resetCaches();
-
-    if (currTab === "all-games") {
-        fetchAllScheduledGames(state.filters.allGames);
-    }
-
-    if (currTab === "my-games") {
-        fetchMySchedule(state.currWriter.writer_id, state.filters.myGames);
-    }
-
-    if (currTab === "available-games") {
-        fetchAvailableGames(state.filters.availableGames);
-    }
 };
 // #endregion //
 
@@ -158,9 +144,8 @@ async function loadWriters() {
 // Parameters: (1) gameId: id of game to edit
 //             (2) containerId: container id to determine tab refresh
 // #region openeditGameModal //
-async function openEditGameModal(game, tab) {
-    state.currGameId = game.game_id;
-    state.currTab = tab;
+async function openEditGameModal(gameId) {
+    state.currGameId = gameId;
 
     await loadSports("edit-sport-input");
 
@@ -194,18 +179,6 @@ document.getElementById("edit-game-confirm").onclick = async () => {
     editModal.style.display = "none";
 
     resetCaches();
-
-    if (state.currTab === "all-games") {
-        fetchAllScheduledGames(state.currWriter.writer_id, state.filters.allGames);
-    }
-
-    if (state.currTab === "available-games") {
-        fetchAvailableGames(state.filters.availableGames);
-    }
-
-    if (state.currTab === "search-games") {
-        fetchSearchGameInfo();
-    }
 };
 
 document.getElementById("delete-game-confirm").onclick = async () => {
@@ -216,22 +189,6 @@ document.getElementById("delete-game-confirm").onclick = async () => {
     document.getElementById("edit-game-modal").style.display = "none";
 
     resetCaches();
-
-    if (state.currTab === "all-games") {
-        fetchAllScheduledGames(state.currWriter.writer_id, state.filters.allGames);
-    }
-
-    if (state.currTab === "available-games") {
-        fetchAvailableGames(state.filters.availableGames);
-    }
-
-    if (state.currTab === "my-games") {
-        fetchMySchedule(state.currWriter.writer_id, state.filters.myGames);
-    }
-    
-    if (state.currTab === "search-games") {
-        fetchSearchGameInfo();
-    }
 };
 // #endregion //
 
