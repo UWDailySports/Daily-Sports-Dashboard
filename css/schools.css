@@ -449,7 +449,7 @@ body {
 .schools-filter-checkbox {
     /* Shape / Size */
     width: 90%;
-    height: 90%;
+    aspect-ratio: 1/1;
     border: 1px white solid;
 }
 
