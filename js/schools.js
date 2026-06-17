@@ -8,16 +8,16 @@ console.log(filterContainer);
 window.onload = async function() {
     filterContainer = document.getElementById("schools-filter-sections-container");
 
-    buildFilters("None");
+    buildSchoolsFilterContainer("None");
 }
 
-async function buildFilters(filterType) {
+async function buildSchoolsFilterContainer(filterType) {
     //await loadSports();
 
     filterContainer.innerHTML = "";
 
     if(filterType === "School"){
-        buildSchoolFilters();
+        buildSchoolFiltersSchools();
     }
 
     if(filterType === "Sport") {
@@ -33,7 +33,7 @@ async function buildFilters(filterType) {
     }
 }
 
-async function buildSchoolFilters() {
+async function buildSchoolsFiltersSchools() {
     const selectSchoolFilterSchoolContainer = document.createElement("div");
     selectSchoolFilterSchoolContainer.className = "schools-filter-section-container";
 
@@ -113,7 +113,7 @@ async function buildSchoolFilters() {
         sportName.innerHTML = sport.sport;
         optionContainer.append(sportName);
 
-        selectSchoolFilterSportOptionsContainer.append(optionContainer);
+        selectSchoolFilterSchoolSportOptionsContainer.append(optionContainer);
     });
 
     filterContainer.append(selectSchoolFilterSchoolSportContainer);
