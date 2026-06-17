@@ -17,7 +17,7 @@ async function buildSchoolsFilterContainer(filterType) {
     filterContainer.innerHTML = "";
 
     if(filterType === "School"){
-        buildSchoolFiltersSchools();
+        buildSchoolsFiltersSchools();
     }
 
     if(filterType === "Sport") {
