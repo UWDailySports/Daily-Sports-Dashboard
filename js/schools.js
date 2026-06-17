@@ -8,7 +8,7 @@ console.log(filterContainer);
 window.onload = async function() {
     filterContainer = document.getElementById("schools-filter-sections-container");
 
-    buildSchoolsFilterContainer("None");
+    buildSchoolsFilterContainer("School");
 }
 
 async function buildSchoolsFilterContainer(filterType) {
@@ -21,15 +21,11 @@ async function buildSchoolsFilterContainer(filterType) {
     }
 
     if(filterType === "Sport") {
-        buildSportFilters();
+        //buildSportFilters();
     }   
 
     if(filterType === "Conference") {
-        buildConferenceFilters();
-    }
-
-    if(filterType === "None"){
-        buildSchoolFilters();
+        //buildConferenceFilters();
     }
 }
 
