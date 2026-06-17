@@ -422,27 +422,35 @@ function createGameBox(game, options = [], tab) {
         `;
 
         const addButton = gameBox.querySelector('[data-action="add-game"]');
-        addButton.addEventListener("click", async (e) => {
-            await signup(gameId);
-            refreshCurrentTab(tab);
-        });   
+        if(addButton){
+            addButton.addEventListener("click", async (e) => {
+                await signup(gameId);
+                refreshCurrentTab(tab);
+            });
+        }  
         
         const assignButton = gameBox.querySelector('[data-action="assign-game"]');
-        assignButton.addEventListener("click", async (e) => {
-        await openAssignGameModal(gameId);
-            refreshCurrentTab(tab);
-        }); 
+        if(assignButton){
+            assignButton.addEventListener("click", async (e) => {
+            await openAssignGameModal(gameId);
+                refreshCurrentTab(tab);
+            }); 
+        }
         
         const editButton = gameBox.querySelector('[data-action="edit-game"]');
-        editButton.addEventListener("click", async (e) => {
-            refreshCurrentTab(tab);
-        });  
+        if(editButton){
+            editButton.addEventListener("click", async (e) => {
+                refreshCurrentTab(tab);
+            });  
+        }
         
         const removeButton = gameBox.querySelector('[data-action="remove-game"]');
-        removeButton.addEventListener("click", async (e) => {
-            await remove(gameId);
-            refreshCurrentTab(tab);
-        });        
+        if(removeButton){
+            removeButton.addEventListener("click", async (e) => {
+                await remove(gameId);
+                refreshCurrentTab(tab);
+            });     
+        }   
 
     return gameBox;
 }
