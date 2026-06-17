@@ -428,18 +428,18 @@ body {
     /* Layout */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
+    gap: 10px;
 
     /* Shape / Size */
     width: 100%;
-    height: 400px;
+    height: 600px;
     border: 1px green solid;
 }
 
 .schools-filter-checkbox-container {
     /* Layout */
     display: flex;
-    gap: 3px;
+    gap: 10px;
 
     /* Shape / Size */
     height: 20px;
