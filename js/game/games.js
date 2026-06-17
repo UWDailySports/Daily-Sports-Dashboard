@@ -222,7 +222,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
     }
 
     games.forEach(game => {
-        const gameBox = createGameBox(game, buttons = ["edit", "remove"]);
+        const gameBox = createGameBox(game, options = ["edit", "remove"], tab = "all-games");
         container.appendChild(gameBox);
     });
 } 
@@ -377,38 +377,19 @@ function createGameBox(game, options = [], tab) {
     for (const option of options) {
         switch (option) {
             case "add":
-                gameOptions += `<button class="game-option" data-action = "add-game">ADD</button>`;
-                const addButton = gameBox.querySelector('[data-action="add-game"]');
-                addButton.addEventListener("click", async (e) => {
-                    await signup(gameId);
-                    refreshCurrentTab(tab);
-                });                
+                gameOptions += `<button class="game-option" data-action = "add-game">ADD</button>`;               
                 break;
 
             case "assign":
-                gameOptions += `<button class="game-option" data-action = "assign-game">ASSIGN</button>`;
-                const assignButton = gameBox.querySelector('[data-action="assign-game"]');
-                assignButton.addEventListener("click", async (e) => {
-                    await openAssignGameModal(gameId);
-                    refreshCurrentTab(tab);
-                });                
+                gameOptions += `<button class="game-option" data-action = "assign-game">ASSIGN</button>`;        
                 break;
 
             case "edit":
                 gameOptions += `<button class="game-option" data-action = "edit-game">EDIT</button>`;
-                const editButton = gameBox.querySelector('[data-action="edit-game"]');
-                editButton.addEventListener("click", async (e) => {
-                    refreshCurrentTab(tab);
-                });
                 break;
 
             case "remove":
                 gameOptions += `<button class="game-option" data-action = "remove-game">REMOVE</button>`;
-                const removeButton = gameBox.querySelector('[data-action="remove-game"]');
-                removeButton.addEventListener("click", async (e) => {
-                    await remove(gameId);
-                    refreshCurrentTab(tab);
-                });
                 break;
         }
     }
@@ -439,6 +420,29 @@ function createGameBox(game, options = [], tab) {
             ${gameOptions}
         </div>    
         `;
+
+        const addButton = gameBox.querySelector('[data-action="add-game"]');
+        addButton.addEventListener("click", async (e) => {
+            await signup(gameId);
+            refreshCurrentTab(tab);
+        });   
+        
+        const assignButton = gameBox.querySelector('[data-action="assign-game"]');
+        assignButton.addEventListener("click", async (e) => {
+        await openAssignGameModal(gameId);
+            refreshCurrentTab(tab);
+        }); 
+        
+        const editButton = gameBox.querySelector('[data-action="edit-game"]');
+        editButton.addEventListener("click", async (e) => {
+            refreshCurrentTab(tab);
+        });  
+        
+        const removeButton = gameBox.querySelector('[data-action="remove-game"]');
+        removeButton.addEventListener("click", async (e) => {
+            await remove(gameId);
+            refreshCurrentTab(tab);
+        });        
 
     return gameBox;
 }
