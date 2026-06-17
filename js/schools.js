@@ -92,9 +92,10 @@ async function buildSchoolsFiltersSchools() {
     selectSchoolFilterSchoolSportContainer.append(selectSchoolFilterSchoolSportTitle);
 
     const selectSchoolFilterSchoolSportOptionsContainer = document.createElement("div");
-    selectSchoolFilterSchoolSportOptionsContainer.className = "schools-filter-section-sports-container"
+    selectSchoolFilterSchoolSportOptionsContainer.className = "schools-filter-section-sports-container";
+    selectSchoolFilterSchoolSportContainer.append(selectSchoolFilterSchoolSportOptionsContainer);
     
-    const sports = await getSportNames();
+    const sports = await getSports();
     sports.forEach(sport => {
         const optionContainer = document.createElement("div");
         optionContainer.className = "schools-filter-checkbox-container";
@@ -121,10 +122,15 @@ async function fetchSchools(filter) {
     if(filter === "conferences");
 }
 
-async function getSportNames() {
+async function getSports() {
     const response = await fetch("/.netlify/functions/get-sports");
+
+    console.log("response:", response);
+
     const data = await response.json();
 
-    return data.sports.map(s => s.sport);
+    console.log("sports data:", data);
+
+    return data.sports;
 }
 
