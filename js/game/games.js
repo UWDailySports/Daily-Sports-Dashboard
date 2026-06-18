@@ -167,6 +167,7 @@ async function fetchHistoryGames(filters = { sports: [], locations: [], months: 
 }
 // #endregion //
 
+
 // Function: fetchGames 
 // Purpose: fecthes the games for the tab given filters
 // Returns: games that meet criteria
@@ -350,6 +351,7 @@ function resetCaches() {
 // errors: (1) 500 if error with DB
 // #region refreshCurrentTab //
 function refreshCurrentTab(tab) {
+    console.log("refreshing tab: ", tab)
     switch(tab) {
         case "all-games":
             return fetchAllScheduledGames(state.filters.allGames);
