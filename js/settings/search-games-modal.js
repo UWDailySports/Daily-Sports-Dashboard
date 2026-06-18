@@ -123,3 +123,106 @@ async function fetchSearchGameInfo() {
     };
 }     
 // #endregion //
+
+// Function: openAddGameModal
+// Purpose: Opens the modal for adding a game
+// Returns: None
+// Parameters: (1) containerId: container id to determine tab refresh 
+// #region openAddGameModal //
+async function openAddGameModal() {
+    await loadSports("sport-input");
+
+    document.getElementById("add-game-modal").style.display = "flex";
+};    
+
+const addModal = document.getElementById("add-game-modal");
+
+document.getElementById("add-game-confirm").onclick = async () => {
+    const sport = document.getElementById("sport-input").value;
+    const opponent = document.getElementById("opponent-input").value;
+    const location = document.getElementById("location-input").value;
+    const date = document.getElementById("date-input").value;
+    const time = document.getElementById("time-input").value;
+    const notes = document.getElementById("notes-input").value;
+
+    if(!sport || !opponent || !location || !date || !time) {
+        alert("Please fill in all required fields");
+    } 
+
+    await addGame(sport, opponent, date, time, location, notes);
+    
+    addModal.style.display = "none";
+
+    resetCaches();
+};
+// #endregion //
+
+
+// Function: addGame
+// Purpose: Adds the new game into the DB
+// Returns: None
+// Parameters: (1) sport: game's sport
+//             (2) opponent: game's opponent
+//             (3) date: date of game (MM-DD-YYYY)
+//             (4) location: location of game (City, St.)
+//             (5) notes: additional info for game (postseason, season opener, etc)
+// errors: (1) error if DB URL not set
+//         (2) statusCode 500 if error in DB query
+// #region addGame() //
+async function addGame(sport, opponent, date, time, location, notes) {
+    try {
+        const response = await fetch("/.netlify/functions/add-game", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ sport, opponent, date, time, location, notes })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            showToast("New game successfully added!", "success");
+        } else {
+            showToast("Failed to add new game", "error")
+        }
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error adding game to schedule.");
+    }
+};
+// #endregion //
+
+// Function: deleteGame
+// Purpose: Deletes a game from the DB
+// Returns: None
+// Parameters: (1) gameId: id of game to delete
+// errors: (1) error if DB URL not set
+//         (2) statusCode 500 if error in DB query
+// #region deleteGame() //
+async function deleteGame(gameId) {
+    try {
+        const response = await fetch("/.netlify/functions/delete-game", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ gameId })
+        });
+
+       const data = await response.json();
+
+        if (data.success) {
+            showToast("Game successfully deleted!", "success");
+        } else {
+            showToast("Failed to delete game", "error");
+        }
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error deleting game.");
+    }
+}
+// #endregion //
+
