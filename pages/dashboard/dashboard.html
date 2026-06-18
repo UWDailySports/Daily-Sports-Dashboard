@@ -11,43 +11,35 @@
 <link rel = "stylesheet" href = "/css/dashboard/toast.css">
 <link rel = "stylesheet" href = "/css/game/filters.css">
 <link rel = "stylesheet" href = "/css/game/game.css">
-<link rel = "stylesheet" href = "/css/game/game-editor.css"> `
+<link rel = "stylesheet" href = "/css/game/game-editor.css"> 
 <link rel = "stylesheet" href = "/css/invoice.css">
 <link rel = "stylesheet" href = "/css/resources.css">
 <link rel = "stylesheet" href = "/css/modal.css">
-<link rel="icon" type="image/x-icon" href="./images/favicon.ico?v=2">
+<link rel = "icon" type="image/x-icon" href="./images/favicon.ico?v=2">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <meta charset="UTF-8">
 
 <body>
     <div class="account">
-        <p id = "greetingHeader">Hi Test Page!</p>
+        <p id = "greetingHeader">Hi Guest!</p>
         <button id = "logout" class = "logout" onclick="logout()">Logout</button>
     </div>
-    <div class="page">
+     <div class="page">
 
     <div class="tab-container">
         <button class="tab-button" onclick="showTab(event, 'production')">Production</button>
-        <button class="tab-button" onclick="showTab(event, 'scheduled-games')">My Games</button>
+        <button class="tab-button" onclick="showTab(event, 'my-games')">My Games</button>
         <button class="tab-button" onclick="showTab(event, 'available-games')">Available</button>
         <button class="tab-button" onclick="showTab(event, 'invoices')">Invoices</button>
-        <button class="tab-button" onclick="showTab(event, 'history')">History</button>
+        <button class="tab-button" onclick="showTab(event, 'history-games')">History</button>
         <button class="tab-button" onclick ="showTab(event, 'resources')">Resources</button>
     </div>
 
     <div class="main">
         <div class="content">
-
-            <div id="production" class="tab-content">
-                <iframe 
-                src="https://docs.google.com/spreadsheets/d/1ReZfEgHbrBQnmULJR40Ko-4otU7xScpkCjUSmtFUXQI/edit"
-                width="100%" 
-                height="100%" 
-                style="border:none;">
-                </iframe>
-            </div>          
-
+            <div id="production" class="tab-content"></div>        
+    
             <div id="my-games" class="tab-content">
                 <div id="my-games-filter-container" class="games-filter-container"></div>       
                 <div id = "my-games-container" class = "games-container"></div>
@@ -90,8 +82,8 @@
         </div>
 
             <div id="history-games" class="tab-content">
-                <div id = "history-games-filter-container" class = "history-filter-container"></div>
-                <div id ="history-games--container" class = "games-container"></div>
+                <div id = "history-games-filter-container" class = "games-filter-container"></div>
+                <div id ="history-games-container" class = "games-container"></div>
             </div>
 
         <div id = "resources" class = "tab-content">
@@ -162,26 +154,48 @@
         </div>
 
     </div> 
-<div id = "toast-container"></div>    
+    <div id = "toast-container"></div>    
 </div>
 
-<div class="bottom">
-    <p>The Daily Sports 2026</p>
-</div>
-
-<div id="invoice-modal" class= "modal">
-    <div class="add-invoice-modal-content">
-        <div class = "modal-header">
-            <h2>Add Invoice</h2>
-            <span class="close-button">&times;</span>
+    <div class="bottom">
+        <p>The Daily Sports 2026</p>
     </div>
-        <input type = "date" id="invoice-date-input" class = "add-invoice-box" placeholder="Date">
-        <input type = "number" id="invoice-total-input" class = "add-invoice-box" placeholder="Total Amount">
-        <input type = "text" id="invoice-link-input" class = "add-invoice-box" placeholder="Link to Invoice (Optional)">
 
-        <button id="confirm-invoice" class = "add-invoice-confirm">Add Invoice</button>
+    <!--MODALS-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div id="invoice-modal" class= "modal">
+        <div class="add-invoice-modal-content">
+            <div class = "modal-header">
+                <h2>Add Invoice</h2>
+                <span class="close-button">&times;</span>
+        </div>
+            <input type = "date" id="invoice-date-input" class = "add-invoice-box" placeholder="Date">
+            <input type = "number" id="invoice-total-input" class = "add-invoice-box" placeholder="Total Amount">
+            <input type = "text" id="invoice-link-input" class = "add-invoice-box" placeholder="Link to Invoice (Optional)">
+
+            <button id="confirm-invoice" class = "add-invoice-confirm">Add Invoice</button>
+        </div>
     </div>
-</div>   
+
+
+ 
+
+ 
+
+
+  
+
+  
+
+  
+
+
+
+ 
+
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
 
 </body>
 
@@ -197,7 +211,6 @@
 <script src = "/js/game/game-actions.js"></script>
 <script src = "/js/invoice.js"></script>
 <script src = "/js/modal.js"></script>
-<script src = "/js/settings/user-school.js"></script>
 <script src = "/js/tools.js"></script>
 
  
