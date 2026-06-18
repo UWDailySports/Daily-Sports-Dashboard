@@ -151,18 +151,6 @@ document.getElementById("edit-game-confirm").onclick = async () => {
     refreshCurrentTab(state.currTab);
 };
 
-document.getElementById("delete-game-confirm").onclick = async () => {
-    if (!confirm("Are you sure you want to delete this game?")) return;
-
-    await deleteGame(state.currGameId);
-
-    document.getElementById("edit-game-modal").style.display = "none";
-
-    resetCaches();
-    refreshCurrentTab(state.currTab);
-};
-// #endregion //
-
 
 // Function: loadGameInfo
 // Purpose: Loads the info for a game to pre-fill the edit game modal
