@@ -9,29 +9,24 @@ const fileInput = document.getElementById("season-file-input");
 
 let selectedFile = null;
 
-// click to browse
 dropZone.addEventListener("click", () => {
     fileInput.click();
 });
 
-// file selected manually
 fileInput.addEventListener("change", (e) => {
     selectedFile = e.target.files[0];
     showFileName();
 });
 
-// drag over
 dropZone.addEventListener("dragover", (e) => {
     e.preventDefault();
     dropZone.classList.add("dragover");
 });
 
-// drag leave
 dropZone.addEventListener("dragleave", () => {
     dropZone.classList.remove("dragover");
 });
 
-// drop file
 dropZone.addEventListener("drop", (e) => {
     e.preventDefault();
     dropZone.classList.remove("dragover");
@@ -52,7 +47,6 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
         return;
     }
 
-    // read uploaded excel file
     const fileData = await selectedFile.arrayBuffer();
 
     const workbook = XLSX.read(fileData, {
@@ -74,18 +68,14 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
 
         if (!date) return;
 
-        // Case 1: already a JS Date
         if (date instanceof Date) {
-            // No conversion needed
         }
 
-        // Case 2: Excel serial number
         else if (typeof date === "number") {
             date = XLSX.SSF.parse_date_code(date);
             date = new Date(date.y, date.m - 1, date.d);
         }
 
-        // Case 3: string fallback (MM/DD/YYYY)
         else if (typeof date === "string") {
             const [month, day, year] = date.split("/");
             date = new Date(year, month - 1, day);
