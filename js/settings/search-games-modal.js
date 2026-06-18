@@ -7,6 +7,8 @@
 // Parameters: None
 // #region openSearchGamesModal() //
 async function openSearchGamesModal() {
+    state.currTab = "search-game";
+
     await fetchSearchGameInfo(); 
 
     document.getElementById("search-games-modal").style.display = "flex";
@@ -194,35 +196,4 @@ async function addGame(sport, opponent, date, time, location, notes) {
 };
 // #endregion //
 
-// Function: deleteGame
-// Purpose: Deletes a game from the DB
-// Returns: None
-// Parameters: (1) gameId: id of game to delete
-// errors: (1) error if DB URL not set
-//         (2) statusCode 500 if error in DB query
-// #region deleteGame() //
-async function deleteGame(gameId) {
-    try {
-        const response = await fetch("/.netlify/functions/delete-game", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ gameId })
-        });
-
-       const data = await response.json();
-
-        if (data.success) {
-            showToast("Game successfully deleted!", "success");
-        } else {
-            showToast("Failed to delete game", "error");
-        }
-
-    } catch (error) {
-        console.error("Error:", error);
-        alert("Error deleting game.");
-    }
-}
-// #endregion //
 

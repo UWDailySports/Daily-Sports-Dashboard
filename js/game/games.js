@@ -365,6 +365,10 @@ async function refreshCurrentTab() {
         case "history-games":
             return await fetchHistoryGames(state.filters.historyGames);
             break;
+
+        case "search-games":
+            return await fetchSearchGameInfo();
+            break;    
     }
 }
 // #endregion //
