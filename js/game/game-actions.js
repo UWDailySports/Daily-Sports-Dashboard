@@ -155,6 +155,7 @@ document.getElementById("delete-game-confirm").onclick = async () => {
     resetCaches();
     await deleteGame(state.currGameId);
     
+    editModal.style.display = "none";
 }
 
 

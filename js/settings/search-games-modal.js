@@ -155,7 +155,6 @@ document.getElementById("add-game-confirm").onclick = async () => {
     
     addModal.style.display = "none";
 
-    resetCaches();
     refreshCurrentTab(state.currTab);
 };
 // #endregion //
@@ -189,6 +188,8 @@ async function addGame(sport, opponent, date, time, location, notes) {
         } else {
             showToast("Failed to add new game", "error")
         }
+        
+        resetCaches();
 
     } catch (error) {
         console.error("Error:", error);
