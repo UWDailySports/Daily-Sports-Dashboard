@@ -163,6 +163,22 @@
 }
 /* #endregion */
 
+/* #region modal-options-container */
+.modal-options-container {
+    /* Layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+
+    /* Size / Shape */
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/* #endregion */
+
 /* #region add-game-confirm, edit-game-confirm */
 .add-game-confirm, .edit-game-confirm, .delete-game-confirm {
     /* Layout */
@@ -171,7 +187,7 @@
     align-items: center;
 
     /* Size / Shape */
-    width: 60%;
+    width: 40%;
     height: 50px;
     border: none;
     border-radius: 16px;

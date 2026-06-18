@@ -156,6 +156,7 @@ document.getElementById("add-game-confirm").onclick = async () => {
     addModal.style.display = "none";
 
     resetCaches();
+    refreshCurrentTab(state.currTab);
 };
 // #endregion //
 

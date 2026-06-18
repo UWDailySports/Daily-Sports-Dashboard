@@ -148,8 +148,14 @@ document.getElementById("edit-game-confirm").onclick = async () => {
     editModal.style.display = "none";
 
     resetCaches();
-    refreshCurrentTab(state.currTab);
+    refreshCurrentTab(state.currTab); 
 };
+
+document.getElementById("delete-game-confirm").onclick = async () => {
+    resetCaches();
+    await deleteGame(state.currGameId);
+    
+}
 
 
 // Function: loadGameInfo
