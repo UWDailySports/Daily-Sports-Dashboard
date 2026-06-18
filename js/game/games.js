@@ -296,7 +296,7 @@ function createGameBox(game, options = [], tab) {
         if(addButton){
             addButton.addEventListener("click", async (e) => {
                 await signup(gameId, state.currWriter.writer_id);
-                await refreshCurrentTab(tab);
+                refreshCurrentTab(tab);
             });
         }  
         
@@ -304,7 +304,7 @@ function createGameBox(game, options = [], tab) {
         if(assignButton){
             assignButton.addEventListener("click", async (e) => {
                 await openAssignGameModal(gameId);
-                await refreshCurrentTab(tab);
+                refreshCurrentTab(tab);
             }); 
         }
         
@@ -312,7 +312,7 @@ function createGameBox(game, options = [], tab) {
         if(editButton){
             editButton.addEventListener("click", async (e) => {
                 await openEditGameModal(game);
-                await refreshCurrentTab(tab);
+                refreshCurrentTab(tab);
             });  
         }
         
@@ -320,7 +320,7 @@ function createGameBox(game, options = [], tab) {
         if(removeButton){
             removeButton.addEventListener("click", async (e) => {
                 await remove(gameId);
-                await refreshCurrentTab(tab);
+                refreshCurrentTab(tab);
             });     
         }   
 
@@ -354,19 +354,19 @@ function refreshCurrentTab(tab) {
     console.log("refreshing tab: ", tab)
     switch(tab) {
         case "all-games":
-            return fetchAllScheduledGames(state.filters.allGames);
+            await fetchAllScheduledGames(state.filters.allGames);
             break;
 
         case "available-games":
-            return fetchAvailableGames(state.filters.availableGames);
+            await fetchAvailableGames(state.filters.availableGames);
             break;
 
         case "my-games":
-            return fetchMySchedule(state.filters.myGames);
+            await fetchMySchedule(state.filters.myGames);
             break;
 
         case "history-games":
-            return fetchHistoryGames(state.filters.historyGames);
+            await fetchHistoryGames(state.filters.historyGames);
             break;
     }
     console.log(tab, "refreshd!");
