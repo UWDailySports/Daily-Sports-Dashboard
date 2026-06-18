@@ -95,7 +95,7 @@
     display: grid;
     align-self: stretch;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 10px;
 }
 /* #endregion */
 
@@ -208,7 +208,7 @@
         box-shadow .1s ease;
 }
 
-.delete-game.confirm {
+.delete-game-confirm {
     /* Background */
     background: darkred;
 }
