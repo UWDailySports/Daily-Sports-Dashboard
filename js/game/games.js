@@ -1,10 +1,10 @@
 // Functions for getting the user's scheduled games and available games
 
-// Function: createSkeletonGameBoxes
-// Purpose: creates a skeleton game boxes while the actual games are being fetched
+// Function: createSkeletonGameBoxes 
+// Purpose: creates a skeleton box while games are fetched
 // Returns: None
-// Parameters: (1) container: the container to add skeletons to
-// Errors: None
+// Parameters: (1) container: container to put the skeleton in
+// errors: None
 // #region createSkeletonGameBoxes //
 function createSkeletonGameBoxes(container) {
     for(let i = 0; i < 6; i++){
@@ -25,12 +25,12 @@ function createSkeletonGameBoxes(container) {
 
 
 // Function: noGames
-// Purpose: creates a no games block if the fetch returns 0 games
+// Purpose: adds a "No Games" box if there are no games for a given section
 // Returns: None
-// Parameters: (1) container: container to add block to
-//             (2) message: message to add inside the no games block
-// Errors: None
-// #region noGames //  
+// Parameters: (1) container: container to put the skeleton in
+//             (2) message: message to put inside the "No Games" box
+// errors: None
+// #region noGames //
 function noGames(container, message) {
     console.log("No scheduled games found.");
 
@@ -43,15 +43,15 @@ function noGames(container, message) {
 // #endregion //
 
 
-// Function: fetchMyGames
+// Function: fetchMySchedule
 // Purpose: Fetches the info for the games the user is scheduled to cover and shows games in dashboard
 // Returns: None
 // Parameters: (1) writerId: id of writer to get schedule for
 //             (2) filters: Filters for games. Can filter by sport and/or location
-// Errors: (1) error if DB URL not set
+// errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
-// #region fetchMyGames() //
-async function fetchMyGames(filters = { sports: [], locations: [], months: [] }) {
+// #region fetchMySchedule() //
+async function fetchMySchedule(filters = { sports: [], locations: [], months: [] }) {
     const container = document.getElementById("my-games-container");
     container.innerHTML = "";
 
@@ -111,15 +111,14 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 // #endregion //
 
 
-// Function: fetchAllGames
+// Function: fetchAllScheduledGames
 // Purpose: Fetches the info for all scheduled games and shows games in dashboard
 // Returns: None
 // Parameters: (1) filters: Filters for games. Can filter by sport and/or location
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
-// #region fetchAllGames //
-
-async function fetchAllGames(filters = { sports: [], locations: [], months: [] }) {
+// #region fetchAllScheduledGames //
+async function fetchAllScheduledGames(filters = { sports: [], locations: [], months: [] }) {
     const container = document.getElementById("all-games-container");
     container.innerHTML = "";
 
@@ -169,86 +168,66 @@ async function fetchHistoryGames(filters = { sports: [], locations: [], months: 
 // #endregion //
 
 
-// Function: signup
-// Purpose: Signs the user up to cover a game 
-// Returns: None
-// Parameters: (1) gameId: id of game to sign up for
-//             (2) writerId: id of writer signing up for game
-// errors: (1) error if DB URL not set
-//         (2) statusCode 500 if error in DB query
-// #region signup() //
-async function signup(gameId, writerId) {
-    try {
-        const response = await fetch("/.netlify/functions/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ gameId, writerId })
-        });
+// Function: fetchGames 
+// Purpose: fecthes the games for the tab given filters
+// Returns: games that meet criteria
+// Parameters: (1) tab: current tab to get games for
+//             (2) filters for games
+// errors: (1) 500 if error with DB
+// #region fetchGames //
+async function fetchGames(tab, filters) {
+    let fetchEndpoint = "";
+    let fetchBody = null;
 
-        const data = await response.json();
+    switch(tab){
+        case "all-games": 
+            fetchEndpoint = "/.netlify/functions/get-all-games";
+            fetchBody = JSON.stringify({ filters });
+            break;
 
-        if (data.success) {
-            showToast("Successfully added game to schedule!", "success");
-            resetCaches();
-            fetchAvailableGames(state.filters.availableGames);
-        } else {
-            showToast("Failed to add game to schedule", "error");
-        }
+        case "my-games": 
+            fetchEndpoint = "/.netlify/functions/get-my-games";
+            fetchBody = JSON.stringify({ writerId: state.currWriter.writer_id, filters });
+            break;
 
-    } catch (error) {
-        console.error("Error:", error);
-        alert("Error adding game to assignments.");
+        case "available-games": 
+            fetchEndpoint = "/.netlify/functions/get-available-games";
+            fetchBody = JSON.stringify({ filters }); 
+            break;
+
+        case "history-games":
+            fetchEndpoint = "/.netlify/functions/get-history-games";
+            fetchBody = JSON.stringify({ writerId: state.currWriter.writer_id, filters });
+            break;   
     }
-} 
-// #endregion //
 
+    const response = await fetch(fetchEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: fetchBody
+    });
 
-// Function: remove
-// Purpose: Removes the user from a game they were signed up for
-// Returns: None
-// Parameters: (1) gameId: id of game to remove from
-// errors: (1) error if DB URL not set
-//         (2) statusCode 500 if error in DB query
-// #region remove() //
-async function remove(gameId) {
-    console.log("Game ID: ", gameId);
-
-    try {
-        const response = await fetch("/.netlify/functions/remove", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ gameId: gameId})
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            showToast("Game removed from schedule", "success");
-            resetCaches();
-            fetchMyGames(state.filters.myGames);
-        } else {
-            showToast("Failed to remove game from schedule", "error")
-        }
-
-    } catch (error) {
-        console.error("Error:", error);
-        alert("Error removing game from assignments.");
+    if (!response.ok) {
+        console.log("Failed to fetch games. Status:", response.status);
+        return;
     }
-}   
 
-function resetCaches() {
-    myScheduleLoaded = false;
-    availableGamesLoaded = false;
-    historyLoaded = false;
-    allScheduledGamesLoaded = false;
+    const data = await response.json();
+
+    return data.games;
 }
 // #endregion //
 
-function createGameBox(game, options = [], tab) {
+
+// Function: createGameBox
+// Purpose: creates a box for a game with info
+// Returns: box of game to add to game container
+// Parameters: (1) game: game object to make box for
+//             (2) options: options to add to the game (add, assign, edit, etc)
+//             (3) tab: current tab to update
+// errors: None
+// #region createGameBox //
+function createGameBox(game, options = []) {
 
     const sport = game.sport;
     const notes = game.notes || "";
@@ -317,7 +296,6 @@ function createGameBox(game, options = [], tab) {
         if(addButton){
             addButton.addEventListener("click", async (e) => {
                 await signup(gameId, state.currWriter.writer_id);
-                refreshCurrentTab(tab);
             });
         }  
         
@@ -325,7 +303,6 @@ function createGameBox(game, options = [], tab) {
         if(assignButton){
             assignButton.addEventListener("click", async (e) => {
                 await openAssignGameModal(gameId);
-                refreshCurrentTab(tab);
             }); 
         }
         
@@ -333,7 +310,6 @@ function createGameBox(game, options = [], tab) {
         if(editButton){
             editButton.addEventListener("click", async (e) => {
                 await openEditGameModal(game);
-                refreshCurrentTab(tab);
             });  
         }
         
@@ -341,126 +317,54 @@ function createGameBox(game, options = [], tab) {
         if(removeButton){
             removeButton.addEventListener("click", async (e) => {
                 await remove(gameId);
-                refreshCurrentTab(tab);
             });     
         }   
 
     return gameBox;
 }
+// #endregion //
 
-function refreshCurrentTab(tab) {
-    switch(tab) {
+
+// Function: resetCaches
+// Purpose: resets caches when a game is updated
+// Returns: None
+// Parameters: None
+// errors: None
+// #region resetCaches //
+function resetCaches() {
+    myScheduleLoaded = false;
+    availableGamesLoaded = false;
+    historyLoaded = false;
+    allScheduledGamesLoaded = false;
+}
+// #endregion //
+
+
+// Function: refreshCurrentTab
+// Purpose: refreshes the current tab when a game is added/edited/removed
+// Returns: None
+// Parameters: (1) tab: tab to refresh
+// errors: (1) 500 if error with DB
+// #region refreshCurrentTab //
+async function refreshCurrentTab() {
+    console.log("refreshing tab: ", state.currTab);
+
+    switch(state.currTab) {
         case "all-games":
-            return fetchAllGames(state.filters.allGames);
+            return await fetchAllScheduledGames(state.filters.allGames);
+            break;
 
         case "available-games":
-            return fetchAvailableGames(state.filters.availableGames);
+            return await fetchAvailableGames(state.filters.availableGames);
+            break;
 
         case "my-games":
-            return fetchMygames(state.filters.mySchedule);
-
-        case "history-games":
-            return fetchHistoryGames(state.filters.history);
-    }
-}
-
-async function fetchGames(tab, filters) {
-    let fetchEndpoint = "";
-    let fetchBody = null;
-
-    switch(tab){
-        case "all-games": 
-            fetchEndpoint = "/.netlify/functions/get-all-games";
-            fetchBody = JSON.stringify({ filters });
-            break;
-
-        case "my-games": 
-            fetchEndpoint = "/.netlify/functions/get-my-games";
-            fetchBody = JSON.stringify({ writerId: state.currWriter.writer_id, filters });
-            break;
-
-        case "available-games": 
-            fetchEndpoint = "/.netlify/functions/get-available-games";
-            fetchBody = JSON.stringify({ filters }); 
+            return await fetchMySchedule(state.filters.myGames);
             break;
 
         case "history-games":
-            fetchEndpoint = "/.netlify/functions/get-history-games";
-            fetchBody = JSON.stringify({ writerId: state.currWriter.writer_id, filters });
-            break;   
+            return await fetchHistoryGames(state.filters.historyGames);
+            break;
     }
-
-    const response = await fetch(fetchEndpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: fetchBody
-    });
-
-    if (!response.ok) {
-        console.log("Failed to fetch games. Status:", response.status);
-        return;
-    }
-
-    const data = await response.json();
-
-    return data.games;
-}
-
-// Function: getSportNames
-// Purpose: Returns the names of all sports in DB
-// Returns: names of sports
-// Parameters: None
-// exceptions: (1) 500 if error with DB
-// #region getSportNames()
-async function getSportNames() {
-    const response = await fetch("/.netlify/functions/get-sports");
-    const data = await response.json();
-
-    return data.sports.map(s => s.sport);
-}
-// #endregion //
-
-
-// Function: getSports
-// Purpose: Returns the objects of all sports in DB
-// Returns: sports as objects
-// Parameters: None
-// exceptions: (1) 500 if error with DB
-// #region getSports()
-async function getSports() {
-    const response = await fetch("/.netlify/functions/get-sports");
-
-    console.log("response:", response);
-
-    const data = await response.json();
-
-    console.log("sports data:", data);
-
-    return data.sports;
-}
-// #endregion //
-
-// #region loadSports
-async function loadSports(selectId) {
-    const sports = await getSports();
-
-    console.log("sports:", sports);
-
-    const select = document.getElementById(selectId);
-
-    console.log("select:", select);
-
-    select.innerHTML = "";
-
-    sports.forEach(sport => {
-        console.log("adding:", sport);
-
-        const option = document.createElement("option");
-
-        option.value = sport.sport;
-        option.textContent = sport.sport;
-
-        select.appendChild(option);
-    });
 }
 // #endregion //

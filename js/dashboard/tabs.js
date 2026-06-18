@@ -20,6 +20,10 @@ window.onload = async function() {
 };
 
 window.showTab = function(event, tabId) {
+
+    state.currTab = tabId; 
+    console.log(state.currTab);
+
     const tabs = document.getElementsByClassName("tab-content");
     const buttons = document.getElementsByClassName("tab-button");
 
@@ -28,7 +32,6 @@ window.showTab = function(event, tabId) {
 
     event.currentTarget.classList.add("active-tab");
     document.getElementById(tabId).style.display = "flex";
-    
 
     if (tabHandlers[tabId]) {
         tabHandlers[tabId]();
@@ -56,10 +59,10 @@ tabHandlers["my-games"] = async function () {
         await buildFilters(
             "my-games-filter-container",
             state.filters.myGames,
-            filters => fetchMyGames(filters)
+            filters => fetchMySchedule(filters)
         );
 
-        await fetchMyGames(state.filters.myGames);
+        await fetchMySchedule(state.filters.myGames);
 
         myScheduleLoaded = true;
     }
@@ -87,10 +90,10 @@ tabHandlers["all-games"] = async function () {
         await buildFilters(
             "all-games-filter-container",
             state.filters.allGames,
-            filters => fetchAllGames(filters)
+            filters => fetchAllScheduledGames(filters)
         );
 
-        await fetchAllGames(state.filters.allGames);
+        await fetchAllScheduledGames(state.filters.allGames);
 
         allScheduledGamesLoaded = true;
     }
@@ -120,4 +123,3 @@ tabHandlers["history-games"] = async function () {
         historyLoaded = true;
     }
 };
-
