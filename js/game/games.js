@@ -369,6 +369,7 @@ function refreshCurrentTab(tab) {
             return fetchHistoryGames(state.filters.historyGames);
             break;
     }
+    console.log(tab, "refreshd!");
 }
 // #endregion //
 
