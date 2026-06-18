@@ -7,7 +7,7 @@
 // Parameters: None
 // #region openSearchGamesModal() //
 async function openSearchGamesModal() {
-    state.currTab = "search-game";
+    state.currTab = "search-games";
 
     await fetchSearchGameInfo(); 
 
