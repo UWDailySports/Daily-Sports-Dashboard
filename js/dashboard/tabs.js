@@ -56,10 +56,10 @@ tabHandlers["my-games"] = async function () {
         await buildFilters(
             "my-games-filter-container",
             state.filters.myGames,
-            filters => fetchMySchedule(filters)
+            filters => fetchMyGames(filters)
         );
 
-        await fetchMySchedule(state.filters.myGames);
+        await fetchMyGames(state.filters.myGames);
 
         myScheduleLoaded = true;
     }
@@ -87,10 +87,10 @@ tabHandlers["all-games"] = async function () {
         await buildFilters(
             "all-games-filter-container",
             state.filters.allGames,
-            filters => fetchAllScheduledGames(filters)
+            filters => fetchAllGames(filters)
         );
 
-        await fetchAllScheduledGames(state.filters.allGames);
+        await fetchAllGames(state.filters.allGames);
 
         allScheduledGamesLoaded = true;
     }

@@ -1,7 +1,11 @@
 // Functions for getting the user's scheduled games and available games
 
-let currGameId = null;
-
+// Function: createSkeletonGameBoxes
+// Purpose: creates a skeleton game boxes while the actual games are being fetched
+// Returns: None
+// Parameters: (1) container: the container to add skeletons to
+// Errors: None
+// #region createSkeletonGameBoxes //
 function createSkeletonGameBoxes(container) {
     for(let i = 0; i < 6; i++){
         const skeleton = document.createElement("div");
@@ -17,7 +21,16 @@ function createSkeletonGameBoxes(container) {
         container.appendChild(skeleton);
     }
 }
+// #endregion //
 
+
+// Function: noGames
+// Purpose: creates a no games block if the fetch returns 0 games
+// Returns: None
+// Parameters: (1) container: container to add block to
+//             (2) message: message to add inside the no games block
+// Errors: None
+// #region noGames //  
 function noGames(container, message) {
     console.log("No scheduled games found.");
 
@@ -27,75 +40,18 @@ function noGames(container, message) {
 
     container.appendChild(noGames);
 }
-
-// Function: getSportNames
-// Purpose: Returns the names of all sports in DB
-// Returns: names of sports
-// Parameters: None
-// exceptions: (1) 500 if error with DB
-// #region getSportNames()
-async function getSportNames() {
-    const response = await fetch("/.netlify/functions/get-sports");
-    const data = await response.json();
-
-    return data.sports.map(s => s.sport);
-}
 // #endregion //
 
 
-// Function: getSports
-// Purpose: Returns the objects of all sports in DB
-// Returns: sports as objects
-// Parameters: None
-// exceptions: (1) 500 if error with DB
-// #region getSports()
-async function getSports() {
-    const response = await fetch("/.netlify/functions/get-sports");
-
-    console.log("response:", response);
-
-    const data = await response.json();
-
-    console.log("sports data:", data);
-
-    return data.sports;
-}
-// #endregion //
-
-// #region loadSports
-async function loadSports(selectId) {
-    const sports = await getSports();
-
-    console.log("sports:", sports);
-
-    const select = document.getElementById(selectId);
-
-    console.log("select:", select);
-
-    select.innerHTML = "";
-
-    sports.forEach(sport => {
-        console.log("adding:", sport);
-
-        const option = document.createElement("option");
-
-        option.value = sport.sport;
-        option.textContent = sport.sport;
-
-        select.appendChild(option);
-    });
-}
-// #endregion //
-
-// Function: fetchMySchedule
+// Function: fetchMyGames
 // Purpose: Fetches the info for the games the user is scheduled to cover and shows games in dashboard
 // Returns: None
 // Parameters: (1) writerId: id of writer to get schedule for
 //             (2) filters: Filters for games. Can filter by sport and/or location
-// errors: (1) error if DB URL not set
+// Errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
-// #region fetchMySchedule() //
-async function fetchMySchedule(filters = { sports: [], locations: [], months: [] }) {
+// #region fetchMyGames() //
+async function fetchMyGames(filters = { sports: [], locations: [], months: [] }) {
     const container = document.getElementById("my-games-container");
     container.innerHTML = "";
 
@@ -155,15 +111,15 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 // #endregion //
 
 
-// Function: fetchAllScheduledGames
+// Function: fetchAllGames
 // Purpose: Fetches the info for all scheduled games and shows games in dashboard
 // Returns: None
 // Parameters: (1) filters: Filters for games. Can filter by sport and/or location
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
-// #region fetchAllScheduledGames //
+// #region fetchAllGames //
 
-async function fetchAllScheduledGames(filters = { sports: [], locations: [], months: [] }) {
+async function fetchAllGames(filters = { sports: [], locations: [], months: [] }) {
     const container = document.getElementById("all-games-container");
     container.innerHTML = "";
 
@@ -273,7 +229,7 @@ async function remove(gameId) {
         if (data.success) {
             showToast("Game removed from schedule", "success");
             resetCaches();
-            fetchMySchedule(state.filters.myGames);
+            fetchMyGames(state.filters.myGames);
         } else {
             showToast("Failed to remove game from schedule", "error")
         }
@@ -395,13 +351,13 @@ function createGameBox(game, options = [], tab) {
 function refreshCurrentTab(tab) {
     switch(tab) {
         case "all-games":
-            return fetchAllScheduledGames(state.filters.allGames);
+            return fetchAllGames(state.filters.allGames);
 
         case "available-games":
             return fetchAvailableGames(state.filters.availableGames);
 
         case "my-games":
-            return fetchMySchedule(state.filters.mySchedule);
+            return fetchMygames(state.filters.mySchedule);
 
         case "history-games":
             return fetchHistoryGames(state.filters.history);
@@ -449,3 +405,62 @@ async function fetchGames(tab, filters) {
 
     return data.games;
 }
+
+// Function: getSportNames
+// Purpose: Returns the names of all sports in DB
+// Returns: names of sports
+// Parameters: None
+// exceptions: (1) 500 if error with DB
+// #region getSportNames()
+async function getSportNames() {
+    const response = await fetch("/.netlify/functions/get-sports");
+    const data = await response.json();
+
+    return data.sports.map(s => s.sport);
+}
+// #endregion //
+
+
+// Function: getSports
+// Purpose: Returns the objects of all sports in DB
+// Returns: sports as objects
+// Parameters: None
+// exceptions: (1) 500 if error with DB
+// #region getSports()
+async function getSports() {
+    const response = await fetch("/.netlify/functions/get-sports");
+
+    console.log("response:", response);
+
+    const data = await response.json();
+
+    console.log("sports data:", data);
+
+    return data.sports;
+}
+// #endregion //
+
+// #region loadSports
+async function loadSports(selectId) {
+    const sports = await getSports();
+
+    console.log("sports:", sports);
+
+    const select = document.getElementById(selectId);
+
+    console.log("select:", select);
+
+    select.innerHTML = "";
+
+    sports.forEach(sport => {
+        console.log("adding:", sport);
+
+        const option = document.createElement("option");
+
+        option.value = sport.sport;
+        option.textContent = sport.sport;
+
+        select.appendChild(option);
+    });
+}
+// #endregion //
