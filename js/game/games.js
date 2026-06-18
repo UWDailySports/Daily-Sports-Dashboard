@@ -227,7 +227,7 @@ async function fetchGames(tab, filters) {
 //             (3) tab: current tab to update
 // errors: None
 // #region createGameBox //
-function createGameBox(game, options = [], tab) {
+function createGameBox(game, options = []) {
 
     const sport = game.sport;
     const notes = game.notes || "";
@@ -296,7 +296,7 @@ function createGameBox(game, options = [], tab) {
         if(addButton){
             addButton.addEventListener("click", async (e) => {
                 await signup(gameId, state.currWriter.writer_id);
-                await refreshCurrentTab(tab);
+                await refreshCurrentTab();
             });
         }  
         
@@ -304,7 +304,7 @@ function createGameBox(game, options = [], tab) {
         if(assignButton){
             assignButton.addEventListener("click", async (e) => {
                 await openAssignGameModal(gameId);
-                await refreshCurrentTab(tab);
+                await refreshCurrentTab();
             }); 
         }
         
@@ -312,7 +312,7 @@ function createGameBox(game, options = [], tab) {
         if(editButton){
             editButton.addEventListener("click", async (e) => {
                 await openEditGameModal(game);
-                await refreshCurrentTab(tab);
+                await refreshCurrentTab();
             });  
         }
         
@@ -320,7 +320,7 @@ function createGameBox(game, options = [], tab) {
         if(removeButton){
             removeButton.addEventListener("click", async (e) => {
                 await remove(gameId);
-                await refreshCurrentTab(tab);
+                await refreshCurrentTab();
             });     
         }   
 
@@ -350,26 +350,25 @@ function resetCaches() {
 // Parameters: (1) tab: tab to refresh
 // errors: (1) 500 if error with DB
 // #region refreshCurrentTab //
-function refreshCurrentTab(tab) {
-    console.log("refreshing tab: ", tab)
-    switch(tab) {
+async function refreshCurrentTab() {
+    console.log("refreshing tab: ", state.currTab);
+    switch(state.currTab) {
         case "all-games":
-            return fetchAllScheduledGames(state.filters.allGames);
+            return await fetchAllScheduledGames(state.filters.allGames);
             break;
 
         case "available-games":
-            return fetchAvailableGames(state.filters.availableGames);
+            return await fetchAvailableGames(state.filters.availableGames);
             break;
 
         case "my-games":
-            return fetchMySchedule(state.filters.myGames);
+            return await fetchMySchedule(state.filters.myGames);
             break;
 
         case "history-games":
-            return fetchHistoryGames(state.filters.historyGames);
+            return await fetchHistoryGames(state.filters.historyGames);
             break;
     }
-    console.log(tab, "refreshd!");
 }
 // #endregion //
 
