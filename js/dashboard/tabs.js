@@ -22,6 +22,7 @@ window.onload = async function() {
 window.showTab = function(event, tabId) {
 
     state.currTab = tabId; 
+    console.log(state.currTab);
 
     const tabs = document.getElementsByClassName("tab-content");
     const buttons = document.getElementsByClassName("tab-button");

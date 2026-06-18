@@ -296,7 +296,6 @@ function createGameBox(game, options = []) {
         if(addButton){
             addButton.addEventListener("click", async (e) => {
                 await signup(gameId, state.currWriter.writer_id);
-                await refreshCurrentTab();
             });
         }  
         
@@ -304,7 +303,6 @@ function createGameBox(game, options = []) {
         if(assignButton){
             assignButton.addEventListener("click", async (e) => {
                 await openAssignGameModal(gameId);
-                await refreshCurrentTab();
             }); 
         }
         
@@ -312,7 +310,6 @@ function createGameBox(game, options = []) {
         if(editButton){
             editButton.addEventListener("click", async (e) => {
                 await openEditGameModal(game);
-                await refreshCurrentTab();
             });  
         }
         
@@ -320,7 +317,6 @@ function createGameBox(game, options = []) {
         if(removeButton){
             removeButton.addEventListener("click", async (e) => {
                 await remove(gameId);
-                await refreshCurrentTab();
             });     
         }   
 
@@ -356,7 +352,7 @@ async function refreshCurrentTab() {
         console.warn("NO CURRENT TAB SET ❌");
         return;
     }
-    
+
     switch(state.currTab) {
         case "all-games":
             return await fetchAllScheduledGames(state.filters.allGames);

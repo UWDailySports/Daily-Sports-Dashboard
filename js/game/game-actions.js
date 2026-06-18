@@ -61,7 +61,7 @@ async function remove(gameId) {
         if (data.success) {
             showToast("Game removed from schedule", "success");
             resetCaches();
-            fetchMySchedule(state.filters.myGames);
+            refreshCurrentTab(state.currTab);
         } else {
             showToast("Failed to remove game from schedule", "error")
         }
@@ -102,6 +102,7 @@ document.getElementById("confirm-assign").onclick = async () => {
     assignModal.style.display = "none";
     
     resetCaches();
+    refreshCurrentTab(state.currTab);
 };
 // #endregion //
 
@@ -147,6 +148,7 @@ document.getElementById("edit-game-confirm").onclick = async () => {
     editModal.style.display = "none";
 
     resetCaches();
+    refreshCurrentTab(state.currTab);
 };
 
 document.getElementById("delete-game-confirm").onclick = async () => {
@@ -157,6 +159,7 @@ document.getElementById("delete-game-confirm").onclick = async () => {
     document.getElementById("edit-game-modal").style.display = "none";
 
     resetCaches();
+    refreshCurrentTab(state.currTab);
 };
 // #endregion //
 
