@@ -20,7 +20,9 @@ window.onload = async function() {
 };
 
 window.showTab = function(event, tabId) {
-    state.currTab = tabId;
+
+    state.currTab = tabId; 
+
     const tabs = document.getElementsByClassName("tab-content");
     const buttons = document.getElementsByClassName("tab-button");
 
@@ -29,7 +31,6 @@ window.showTab = function(event, tabId) {
 
     event.currentTarget.classList.add("active-tab");
     document.getElementById(tabId).style.display = "flex";
-    
 
     if (tabHandlers[tabId]) {
         tabHandlers[tabId]();

@@ -352,6 +352,11 @@ function resetCaches() {
 // #region refreshCurrentTab //
 async function refreshCurrentTab() {
     console.log("refreshing tab: ", state.currTab);
+    if (!state.currTab) {
+        console.warn("NO CURRENT TAB SET ❌");
+        return;
+    }
+    
     switch(state.currTab) {
         case "all-games":
             return await fetchAllScheduledGames(state.filters.allGames);
