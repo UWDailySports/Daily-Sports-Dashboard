@@ -18,7 +18,7 @@ async function showAllSchools() {
     const schoolContainer = document.getElementById("schools-container");
 
     schools.forEach(school => {
-        console.log(school.school);
+        console.log("Current School:", school.school);
         const schoolBox = createSchoolBox(school, sections = ["school", "acronym", "nickname", "conference", "location"]);
 
         schoolContainer.appendChild(schoolBox);
