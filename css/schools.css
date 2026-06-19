@@ -212,7 +212,8 @@ body {
     height: 100%;
 
     /* Text */
-    font-size: clamp(14px, 1vh, 28px);
+    font-family: var(--dash_font);
+    font-size: clamp(12px, 18vh, 24px);
     color: white;
 }
 /* #endregion */
