@@ -28,6 +28,7 @@ async function showAllSchools() {
 function createSchoolBox(school, sections = []) {
     const schoolBox = document.createElement("div");
     schoolBox.className = "school-box";
+    schoolBox.style("background: ${school.color_1}");
 
     const schoolLogoContainer = document.createElement("div");
     schoolLogoContainer.className = "school-logo-container";

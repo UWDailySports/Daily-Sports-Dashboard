@@ -209,6 +209,7 @@ body {
 
     /* Text */
     font-size: clamp(14px, 1vh, 28px);
+    color: white;
 }
 /* #endregion */
 
