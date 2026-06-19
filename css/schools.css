@@ -166,8 +166,8 @@ body {
     justify-content: center;
 
     /* Size / Shape */
+    height: 90px;
     aspect-ratio: 1/1;
-    height: 90%;
     object-fit: contain;
     border-radius: 5px;
 
