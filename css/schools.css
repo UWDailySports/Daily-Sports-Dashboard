@@ -167,8 +167,8 @@ body {
 
     /* Size / Shape */
     height: 90px;
-    aspect-ratio: 1/1;
-    object-fit: contain;
+    width: 90px;
+    object-fit: scale-down;
     border-radius: 5px;
 
 }
