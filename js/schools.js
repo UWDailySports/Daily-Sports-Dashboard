@@ -26,13 +26,17 @@ async function showAllSchools() {
 }
 
 function createSchoolBox(school, sections = []) {
+    let schoolLogo = "/images/schools/${school.school}.webp";
+    if(school.use_logo_2){
+        scoolLogo = "/images/schools/${school.school}2.webp"
+    }  
     const schoolBox = document.createElement("div");
     schoolBox.className = "school-box";
     schoolBox.style.background = school.color_1;
 
     const schoolLogoContainer = document.createElement("div");
     schoolLogoContainer.className = "school-logo-container";
-    schoolLogoContainer.innerHTML = `<img class = "school-logo" src = "/images/schools/${school.school}.webp">`;
+    schoolLogoContainer.innerHTML = `<img class = "school-logo" src = ${schoolLogo}>`;
     schoolBox.appendChild(schoolLogoContainer);
 
     let divider = document.createElement("div");

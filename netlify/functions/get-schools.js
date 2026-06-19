@@ -13,7 +13,7 @@ exports.handler = async (event) => {
     await client.connect();
 
     // Base query
-    const query = `SELECT * FROM "Schools"`;
+    const query = `SELECT * FROM "Schools" ORDER BY school ASC`;
 
     const result = await client.query(query);
 
