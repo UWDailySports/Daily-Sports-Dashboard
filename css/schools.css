@@ -16,6 +16,9 @@ body {
     /* Misc */
     overflow-x: hidden;
     overflow: hidden;
+
+    /* Text */
+    font-family: var(--dash_font);
 }
 /* #endregion */
 
@@ -163,8 +166,9 @@ body {
     justify-content: center;
 
     /* Size / Shape */
-    width: 10%;
+    aspect-ratio: 1/1;
     height: 90%;
+    object-fit: contain;
     border-radius: 5px;
 
 }
