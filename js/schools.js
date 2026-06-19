@@ -9,6 +9,7 @@ window.onload = async function() {
     const response = await fetch("/.netlify/functions/get-schools");
     const data = await response.json();
     schools = data.schools;   
+    console.log(schools);
 
     showAllSchools();
 }
@@ -17,6 +18,7 @@ async function showAllSchools() {
     const schoolContainer = document.getElementById("schools-container");
 
     schools.forEach(school => {
+        console.log(school.school);
         const schoolBox = createSchoolBox(school, sections = ["school", "acronym", "nickname", "conference", "location"]);
 
         schoolContainer.appendChild(schoolBox);
