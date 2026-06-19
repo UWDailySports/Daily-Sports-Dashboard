@@ -272,6 +272,31 @@
 }
 
 @media screen and (max-width: 768px){
+    .search-game-modal-content {
+        /* Size / Shape */
+        width: 95%;
+        height: 95%;
+
+        /* Misc */
+        overflow-x: auto;
+    }
+
+    .search-games-list-title-container {
+        /* Misc */
+        overflow-x: auto;
+    }
+
+    .search-games-list-entry-container {
+        /* Misc */
+        overflow-x: auto;
+    }
+
+    .search-games-list-entry-section {
+        /* Size / SHape */
+        width: 150px;
+    }
+
+
     .edit-search-games-confirm {
         /* Layout */
 
