@@ -180,7 +180,7 @@ body {
 /* #endregion */
 
 /* #region school-divider */
-.school-divider {
+.school-box-divider {
     /* Layout */
     display: flex;
     align-items: center;
@@ -196,79 +196,19 @@ body {
 }
 /* #endregion */
 
-/* #region school-name */
-.school-name {
+/* #region school-box-section*/
+.school-box-section {
     /* Layout */
     display: flex;
     align-items: center;
     justify-content: center;
 
-    /* Size / Shape */
-    width: 20%;
+    /* Size/ Shape */
+    width: 16%;
     height: 100%;
 
     /* Text */
-    font-size: 24px;
-    font-weight: bold;
-    font-family: "Supria Sans", Verdana, "Segoe UI", Arial, sans-serif;
-    color: white;
-}
-/* #endregion */
-
-/* #region school-acronym */
-.school-acronym {
-    /* Layout */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* Size / Shape */
-    width: 20%;
-    height: 100%;
-
-    /* Text */
-    font-size: 24px;
-    font-weight: bold;
-    font-family: "Supria Sans", Verdana, "Segoe UI", Arial, sans-serif;
-    color: white;
-}
-/* #endregion */
-
-/* #region school-nickname */
-.school-nickname {
-    /* Layout */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* Size / Shape */
-    width: 20%;
-    height: 100%;
-
-    /* Text */
-    font-size: 24px;
-    font-weight: bold;
-    font-family: "Supria Sans", Verdana, "Segoe UI", Arial, sans-serif;
-    color: white;
-}
-/* #endregion */
-
-/* #region school-location */
-.school-location {
-    /* Layout */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* Size / Shape */
-    width: 25%;
-    height: 100%;
-
-    /* Text */
-    font-size: 20px;
-    font-weight: bold;
-    font-family: var(--dash_font);
-    color: white;
+    font-size: clamp(14px, 1vh, 28px);
 }
 /* #endregion */
 
@@ -455,6 +395,8 @@ body {
     /* Misc */
     cursor: pointer;
 }
+
+.schools-filter-checkbox.active 
 
 
 .schools-filter-checkbox-name {
