@@ -107,11 +107,12 @@ async function fetchWriterInfo() {
         }
         <div class = "writer-list-entry-section writer-list-entry-hire-date">${hire_date_formatted}</div>
         <div class = "writer-list-entry-section writer-list-entry-end-date">${end_date_formatted}</div>
-        <div class="list-options">
-            <div class = "list-option edit-writer-option">Edit</div>
-            <div class = "list-option delete-writer-option">Delete</div>
-        </div>
-        <button class = "writer-list-entry-section writer-list-entry-options list-options-button">&hellip;</button>
+        <button class = "writer-list-entry-section writer-list-entry-options list-options-button">&hellip;
+            <div class="list-options">
+                <div class = "list-option edit-writer-option">Edit</div>
+                <div class = "list-option delete-writer-option">Delete</div>
+            </div>
+        </button>
         `
 
         writerBox.querySelector(".edit-writer-option").addEventListener("click", () => openEditWriterModal(writer)); 
