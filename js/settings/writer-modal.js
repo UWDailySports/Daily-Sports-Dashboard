@@ -46,7 +46,6 @@ async function fetchWriterInfo() {
     const writers = data.writers;
 
     const container = document.getElementById("writer-table-container");
-    container.innerHTML = "";
 
     writers.forEach(writer => {
         const first_name = writer.first_name;
