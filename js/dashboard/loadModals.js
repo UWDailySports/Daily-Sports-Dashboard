@@ -1,7 +1,7 @@
-loadModals();
-
 async function loadModals() {
     const container = document.getElementById("modal-container");
+
+    console.log("container:", container);
 
     const files = [
         "/html/modals/add-season-modal.html",
@@ -18,3 +18,5 @@ async function loadModals() {
         container.innerHTML += await response.text();
     }
 }
+
+window.addEventListener("DOMContentLoaded", loadModals);
