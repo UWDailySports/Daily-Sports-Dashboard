@@ -98,7 +98,7 @@ async function fetchWriterInfo() {
         <div id = "writer-list-email" class = "writer-list-entry-section">${email}</div>      
         <div id = "writer-list-phone" class = "writer-list-entry-section">${phone}</div>
         ${x
-            ? `<a id = "writer-list-x" class="writer-list-entry-section"href="${x}" target="_blank">${x_short}</a>`
+            ? `<a id = "writer-list-x" class="writer-list-entry-section" href="${x}" target="_blank">${x_short}</a>`
             : `<div id = "writer-list-x" class="writer-list-entry-section"></div>`
         }
         ${headshot
