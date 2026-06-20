@@ -68,17 +68,17 @@ async function fetchSportInfo() {
         sportBox.textContent = sportName;
         
         sportBox.innerHTML = `
-            <div class = "sport-list-entry-section">${sportName}</div>
-            <div class = "sport-list-entry-section">${sportAbbreviation}</div>            
-            <div class = "sport-list-entry-section">${sid}</div>
-            <div class = "sport-list-entry-section">${email}</div>
-            <div class = "sport-list-entry-section">${phone}</div>
-            <div class = "sport-list-entry-section" style = "width:15%;"></div>
+            <div id = "sport-list-sport" class = "sport-list-entry-section">${sportName}</div>
+            <div id = "sport-list-abbreviation" class = "sport-list-entry-section">${sportAbbreviation}</div>            
+            <div id = "sport-list-sid" class = "sport-list-entry-section">${sid}</div>
+            <div id = "sport-list-email" class = "sport-list-entry-section">${email}</div>
+            <div id = "sport-list-phone" class = "sport-list-entry-section">${phone}</div>
+            <div id = "sport-list-blank" class = "sport-list-entry-section"></div>
             <div class="list-options">
                 <div class = "list-option edit-sport-option">Edit</div>
                 <div class = "list-option delete-sport-option">Delete</div>
             </div>
-            <div class = "list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1.5%;">&hellip;</div>
+            <div id = "sport-list-options" class = "list-options-button">&hellip;</div>
         `;
         sportBox.querySelector(".edit-sport-option").addEventListener("click", () => openEditSportModal(sport)); 
         sportBox.querySelector(".delete-sport-option").addEventListener("click", () => deleteSport(sport.sport_id));

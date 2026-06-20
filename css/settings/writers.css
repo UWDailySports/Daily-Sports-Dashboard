@@ -78,17 +78,23 @@
     background: #f8f9fc;
         
     /* Misc */
-    overflow: auto;
+    overflow-y: auto; 
 }
 /* #endregion */
 
-/* #region writer-list-entry-container */
-.writer-list-title, .writer-list-entry-container {
+.writer-list-entry-container:hover {
+    /* Background */
+    box-shadow:
+        0 8px 20px rgba(54,15,90,.10);
+}
+/* #endregion */
+
+/* #region writer-list-title */
+.writer-list-title-container, .writer-list-entry-container {
     /* Layout */
     display: flex;
     align-items: center;
     position: relative;
-    box-sizing: border-box;
 
     /* Size/Shape */
     min-height: 64px;
@@ -101,31 +107,23 @@
     box-shadow: 0 4px 12px rgba(0,0,0,.05);
 
     /* Misc */  
-    transition: box-shadow .1s ease;  
+    transition: box-shadow .1s ease;   
 }
 
-.writer-list-entry-container:hover {
+.writer-list-title-container {
+    /* Background */
+    background: var(--primary_color);
+}
+
+.writer-list-entry-container {
     /* Background */
     box-shadow:
         0 8px 20px rgba(54,15,90,.10);
 }
 /* #endregion */
 
-/* #region writer-list-title */
-.writer-list-title {
-    /* Layout */
-    position: sticky;
-    top: 0;
-    z-index: 2;
-
-    /* Background */
-    background: var(--primary_color);
-    box-shadow: 0 4px 12px rgba(0,0,0,.05);
-}
-/* #endregion */
-
 /* #region writer-list-entry-section */
-.writer-list-entry-section {
+.writer-list-entry-section, .writer-list-title-section {
     /* Layout */
     display: flex;
     flex-shrink: 1;
@@ -142,6 +140,57 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.writer-list-title-section {
+    /* Text */
+    color: white;
+    font-weight: bold;
+}
+
+#writer-title-first-name, #writer-list-first-name {
+    /* Size / Shape */
+    width: 10%;
+}
+
+#writer-title-last-name, #writer-list-last-name {
+    /* Size / Shape */
+    width: 10%;
+}
+
+#writer-title-email, #writer-list-email {
+    /* Size / Shape */
+    width: 17%;
+}
+
+#writer-title-phone, #writer-list-phone {
+    /* Size / Shape */
+    width: 10%;
+}
+
+#writer-title-x, #writer-list-x {
+    /* Size / Shape */
+    width: 10%;
+}
+
+#writer-title-headshot, #writer-list-headshot {
+    /* Size / Shape */
+    width: 8%;
+}
+
+#writer-title-hire-date, #writer-list-hire-date {
+    /* Size / Shape */
+    width: 10%;
+}
+
+#writer-title-end-date, #writer-list-end-date {
+    /* Size / Shape */
+    width: 10%;
+}
+
+#writer-title-options, #writer-list-options {
+    /* Size / Shape */
+    width: 5%;
 }
 /* #endregion */
 
@@ -353,21 +402,60 @@
 @media screen and (max-width: 768px) {
     .writers-modal-content {
         /* Size / Shape */
-        width: 92%;
+        width: 95%;
         height: 95%;
         
         /* Misc */
         overflow-x: auto;
     }
     
-    .writer-list-container {
-        /* Misc */
-        overflow-x: auto;
-    }
-    
-    .writer-list-entry-section {
+    #writer-title-first-name, #writer-list-first-name {
         /* Size / Shape */
-        width: 800px;
+        width: 100px;
+    }
+
+    #writer-title-last-name, #writer-list-last-name {
+        /* Size / Shape */
+        width: 100px;
+    }
+
+    #writer-title-email, #writer-list-email {
+        /* Size / Shape */
+        width: 170px;
+    }
+
+    #writer-title-phone, #writer-list-phone {
+        /* Size / Shape */
+        width: 100px;
+    }
+
+    #writer-title-x, #writer-list-x {
+        /* Size / Shape */
+        width: 100px;
+    }
+
+    #writer-title-headshot, #writer-list-headshot {
+        /* Size / Shape */
+        width: 80px;
+    }
+
+    #writer-title-hire-date, #writer-list-hire-date {
+        /* Size / Shape */
+        width: 100px;
+    }
+
+    #writer-title-end-date, #writer-list-end-date {
+        /* Size / Shape */
+        width: 100px;
+    }
+
+    #writer-title-options, #writer-list-options {
+        /* Size / Shape */
+        width: 50px;
+        margin-bottom: 1%;
+
+        /* Txt */
+        font-size: 30px
     }
 }
 /* #endregion */

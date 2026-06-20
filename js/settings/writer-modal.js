@@ -47,21 +47,6 @@ async function fetchWriterInfo() {
 
     const container = document.getElementById("writer-list-container");
     container.innerHTML = "";
-    
-    const writerTitle = document.createElement("div");
-    writerTitle.className = "writer-list-title";
-    writerTitle.innerHTML =   `<div class = "writer-list-entry-section" style="width: 10%; color:white;">First Name</div>
-                        <div class = "writer-list-entry-section" style="width: 10%; color:white;">Last Name</div>
-                        <div class = "writer-list-entry-section" style="width: 10%; color:white;">Position</div>
-                        <div class = "writer-list-entry-section" style="width: 17%; color:white;">Email</div>
-                        <div class = "writer-list-entry-section" style="width: 10%; color:white;">Phone</div>
-                        <div class = "writer-list-entry-section" style="width: 10%; color:white;">X</div>
-                        <div class = "writer-list-entry-section" style="width: 8%; color:white;">Headshot</div>
-                        <div class = "writer-list-entry-section " style="width: 10%; color:white;">Hire Date</div>
-                        <div class = "writer-list-entry-section" style="width: 10%; color:white;">End Date</div>
-                        <div class = "writer-list-entry-section" style="width: 5%; color:white;"></div>`;
-
-    container.append(writerTitle);
 
     writers.forEach(writer => {
         const first_name = writer.first_name;
@@ -107,26 +92,26 @@ async function fetchWriterInfo() {
         writerBox.classList.add("writer-list-entry-container");
 
         writerBox.innerHTML = `
-        <div class = "writer-list-entry-section" style = "width: 10%;">${first_name}</div>
-        <div class = "writer-list-entry-section" style = "width: 10%;">${last_name}</div>
-        <div class = "writer-list-entry-section" style = "width: 10%;">${position}</div>
-        <div class = "writer-list-entry-section" style = "width: 17%;">${email}</div>      
-        <div class = "writer-list-entry-section" style = "width: 10%;">${phone}</div>
+        <div id = "writer-list-first-name" class = "writer-list-entry-section">${first_name}</div>
+        <div id = "writer-list-last-name" class = "writer-list-entry-section">${last_name}</div>
+        <div id = "writer-list-position" class = "writer-list-entry-section">${position}</div>
+        <div id = "writer-list-email" class = "writer-list-entry-section">${email}</div>      
+        <div id = "writer-list-phone" class = "writer-list-entry-section">${phone}</div>
         ${x
-            ? `<a class="writer-list-entry-section" style = "width: 10%;" href="${x}" target="_blank">${x_short}</a>`
-            : `<div class="writer-list-entry-section" style = "width: 10%;"></div>`
+            ? `<a id = "writer-list-x" class="writer-list-entry-section"href="${x}" target="_blank">${x_short}</a>`
+            : `<div id = "writer-list-x" class="writer-list-entry-section"></div>`
         }
         ${headshot
-            ? `<a class="writer-list-entry-section" style = "width: 8%;" href="${headshot}" target="_blank">Link</a>`
-            : `<div class="writer-list-entry-section" style = "width: 8%;"></div>`
+            ? `<a id = "writer-list-headshot" class="writer-list-entry-section" href="${headshot}" target="_blank">Link</a>`
+            : `<div id = "writer-list-headshot" class="writer-list-entry-section"></div>`
         }
-        <div class = "writer-list-entry-section" style = "width: 10%;">${hire_date_formatted}</div>
-        <div class = "writer-list-entry-section" style = "width: 10%;">${end_date_formatted}</div>
+        <div id = "writer-list-hire-date" class = "writer-list-entry-section">${hire_date_formatted}</div>
+        <div id = "writer-list-end-date" class = "writer-list-entry-section">${end_date_formatted}</div>
         <div class="list-options">
             <div class = "list-option edit-writer-option">Edit</div>
             <div class = "list-option delete-writer-option">Delete</div>
         </div>
-        <button class = "writer-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1%;">&hellip;</button>
+        <button id = "writer-list-options" class = "writer-list-entry-section list-options-button">&hellip;</button>
         `
 
         writerBox.querySelector(".edit-writer-option").addEventListener("click", () => openEditWriterModal(writer)); 
