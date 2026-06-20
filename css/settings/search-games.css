@@ -27,6 +27,18 @@
 }
 /* #endregion */
 
+.search-games-table-container {
+    /* Layout */
+    display: grid;
+
+    /* Size / Shape */
+    width: 100%;
+    height: 80%;
+
+    /* Misc */
+    overflow-x: auto;
+}
+
 /* #region search-games-list-container */
 .search-games-list-container {
     /* Layout */
@@ -95,6 +107,122 @@
     font-size: 14px;
     font-weight: 400;
     color: #2c2c2c; 
+}
+
+.search-games-title-section {
+    /* Text */
+    color:white;
+    font-weight: bold;
+}
+
+#search-games-title-id {
+    /* Size / Shape */
+    width: 5%;
+}
+
+#search-games-title-date {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-title-sport {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-title-opponent {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-title-location {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-title-time {
+    /* Size / Shape */
+    width: 5%;
+}
+
+#search-games-title-notes {
+    /* Size / Shape */
+    width: 5%;
+}
+
+#search-games-title-writer {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-title-covered {
+    /* Layout */
+    justify-content: center;
+
+    /* Size / Shape */
+    width: 5%;
+}
+
+#search-games-title-options {
+    /* Size / Shape */
+    width: 5%;
+}
+
+#search-games-entry-id {
+    /* Size / Shape */
+    width: 5%;
+}
+
+#search-games-entry-date {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-entry-sport {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-entry-opponent {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-entry-location {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-entry-time {
+    /* Size / Shape */
+    width: 5%;
+}
+
+#search-games-entry-notes {
+    /* Size / Shape */
+    width: 5%;
+}
+
+#search-games-entry-writer {
+    /* Size / Shape */
+    width: 15%;
+}
+
+#search-games-entry-covered {
+    /* Layout */
+    justify-content: center;
+
+    /* Size / Shape */
+    width: 5%;
+}
+
+#search-games-entry-options {
+    /* Size / Shape */
+    width: 5%;
+    margin-bottom: 1%;
+
+    /* Text */
+    font-size: 30px; 
 }
 /* #endregion */
 
@@ -281,19 +409,119 @@
         overflow-x: auto;
     }
 
-    .search-games-list-title-container {
-        /* Misc */
-        overflow-x: auto;
-    }
-
-    .search-games-list-entry-container {
-        /* Misc */
-        overflow-x: auto;
-    }
-
     .search-games-list-entry-section {
         /* Size / SHape */
+        width: 300px;
+    }
+
+        #search-games-title-id {
+        /* Size / Shape */
+        width: 50px;
+    }
+
+    #search-games-title-date {
+        /* Size / Shape */
         width: 150px;
+    }
+
+    #search-games-title-sport {
+        /* Size / Shape */
+        width: 150px;
+    }
+
+    #search-games-title-opponent {
+        /* Size / Shape */
+        width: 150px;
+    }
+
+    #search-games-title-location {
+        /* Size / Shape */
+        width: 150px;
+    }
+
+    #search-games-title-time {
+        /* Size / Shape */
+        width: 50px;
+    }
+
+    #search-games-title-notes {
+        /* Size / Shape */
+        width: 50px;
+    }
+
+    #search-games-title-writer {
+        /* Size / Shape */
+        width: 150px;
+    }
+
+    #search-games-title-covered {
+        /* Layout */
+        justify-content: center;
+
+        /* Size / Shape */
+        width: 50px;
+    }
+
+    #search-games-title-options {
+        /* Size / Shape */
+        width: 50px;
+    }
+
+    #search-games-entry-id {
+        /* Size / Shape */
+        width: 50px;
+    }
+
+    #search-games-entry-date {
+        /* Size / Shape */
+        width: 150px;
+    }
+
+    #search-games-entry-sport {
+        /* Size / Shape */
+        width: 150px;
+    }
+
+    #search-games-entry-opponent {
+        /* Size / Shape */
+        width: 150px;
+    }
+
+    #search-games-entry-location {
+        /* Size / Shape */
+        width: 150px;
+    }
+
+    #search-games-entry-time {
+        /* Size / Shape */
+        width: 50px;
+    }
+
+    #search-games-entry-notes {
+        /* Size / Shape */
+        width: 50px;
+    }
+
+    #search-games-entry-writer {
+        /* Size / Shape */
+        width: 150px;
+    }
+
+    #search-games-entry-covered {
+        /* Layout */
+        justify-content: center;
+
+        /* Size / Shape */
+        width: 50px;
+    }
+
+    #search-games-entry-options {
+        /* Size / Shape */
+        width: 50px;
+        margin-bottom: 1%;
+
+        /* Text */
+        font-size: 20px; 
     }
 
 

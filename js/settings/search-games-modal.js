@@ -64,25 +64,25 @@ async function fetchSearchGameInfo() {
         const gameBox = document.createElement("div");
         gameBox.classList.add("search-games-list-entry-container");
         gameBox.innerHTML = `
-            <div class = "search-games-list-entry-section" style="width: 5%;">${id}</div>
-            <div class = "search-games-list-entry-section" style="width: 15%;">${date}</div>
-            <div class = "search-games-list-entry-section" style="width: 15%;">${sport}</div>
-            <div class = "search-games-list-entry-section" style="width: 15%;">${opponent}</div>
-            <div class = "search-games-list-entry-section" style="width: 15%;">${location}</div>
-            <div class = "search-games-list-entry-section" style="width: 5%;">${time}</div>
+            <div id = "search-games-entry-id" class = "search-games-list-entry-section">${id}</div>
+            <div id = "search-games-entry-date" class = "search-games-list-entry-section">${date}</div>
+            <div id = "search-games-entry-sport" class = "search-games-list-entry-section">${sport}</div>
+            <div id = "search-games-entry-opponent" class = "search-games-list-entry-section">${opponent}</div>
+            <div id = "search-games-entry-location" class = "search-games-list-entry-section">${location}</div>
+            <div id = "search-games-entry-time" class = "search-games-list-entry-section">${time}</div>
             ${notes ? `
-                <div class="search-games-list-notes-container">
+                <div id = "search-games-entry-notes" class="search-games-list-notes-container">
                     <div class="notes-icon">i</div>
                     <div class="notes-modal">${notes}</div>
                 </div>
-            ` : `<div class = "search-games-list-notes-container"></div>`}
-            <div class = "search-games-list-entry-section" style="width: 15%;">${name}</div>
-            <div class = "search-games-list-entry-section" style="width: 5%; justify-content: center; font-size: 18px;">${covered}</div>
+            ` : `<div id = "search-games-entry-notes" class = "search-games-list-notes-container"></div>`}
+            <div id = "search-games-entry-writer" class = "search-games-list-entry-section">${name}</div>
+            <div id = "search-games-entry-covered" class = "search-games-list-entry-section">${covered}</div>
             <div class="list-options">
                 <div class = "list-option edit-game-option">Edit</div>
                 <div class = "list-option delete-game-option">Delete</div>
             </div>
-            <button class = "search-games-list-entry-section list-options-button" style="width: 5%; font-size: 30px; margin-bottom: 1%;">&hellip;</button>
+            <button id = "search-games-entry-options" class = "search-games-list-entry-section list-options-button">&hellip;</button>
          `;       
          
         gameBox.querySelector(".edit-game-option").addEventListener("click", () => openEditGameModal(game, "search-games")); 
