@@ -46,7 +46,6 @@ async function fetchSearchGameInfo() {
     }
 
     const container = document.getElementById("search-games-table-container");
-    container.innerHTML = "";
 
     for (const game of games) {
         const id = game.game_id;

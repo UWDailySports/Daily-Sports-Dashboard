@@ -196,7 +196,7 @@
     white-space: normal;
 }
 
-.search-games-notes:hover .notes-modal {
+.search-games-notes:hover .search-games-notes-modal {
     /* Layout */
     display: block;
 }
