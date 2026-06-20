@@ -91,9 +91,13 @@
 /* #region writer-list-title */
 .writer-list-title-container, .writer-list-entry-container {
     /* Layout */
-    display: flex;
+    display: grid;
+    grid-template-columns:
+        10% 10% 10% 17% 10%
+        10% 8% 10% 10% 5%;
+
     align-items: center;
-    position: absolute;
+    position: relative;
 
     /* Size/Shape */
     min-height: 64px;
@@ -147,55 +151,6 @@
     font-weight: bold;
 }
 
-#writer-title-first-name, #writer-list-first-name {
-    /* Size / Shape */
-    width: 10%;
-}
-
-#writer-title-last-name, #writer-list-last-name {
-    /* Size / Shape */
-    width: 10%;
-}
-
-#writer-title-position, #writer-list-position {
-    /* Size / Shape */
-    width: 10%;
-}
-
-#writer-title-email, #writer-list-email {
-    /* Size / Shape */
-    width: 17%;
-}
-
-#writer-title-phone, #writer-list-phone {
-    /* Size / Shape */
-    width: 10%;
-}
-
-#writer-title-x, #writer-list-x {
-    /* Size / Shape */
-    width: 10%;
-}
-
-#writer-title-headshot, #writer-list-headshot {
-    /* Size / Shape */
-    width: 8%;
-}
-
-#writer-title-hire-date, #writer-list-hire-date {
-    /* Size / Shape */
-    width: 10%;
-}
-
-#writer-title-end-date, #writer-list-end-date {
-    /* Size / Shape */
-    width: 10%;
-}
-
-#writer-title-options, #writer-list-options {
-    /* Size / Shape */
-    width: 5%;
-}
 /* #endregion */
 
 /* #region edit-writer / delete-writer */
