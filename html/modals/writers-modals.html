@@ -1,0 +1,137 @@
+<!--Writers Modal-->
+<div id = "writers-modal" class = "modal">
+    <div class = "writers-modal-content">
+        <div class = "modal-header">
+            <h2>Writers</h2>
+            <span class = "close-button" onclick = "closeModal('writers-modal')">&times;</span>
+        </div>
+        <div class = "modal-options-container">
+            <input id="search-writers-input" type="text" placeholder="Search Writers" class="search-writers-input">  
+            <button class = "add-writer-button" onclick = "openAddWriterModal()">+ Add Writer</button>
+        </div>
+         <div id = "writer-table-container" class = "writer-table-container">
+            <div class= "writer-table-header">
+                <div class = "writer-table-header-section writer-table-first-name">First Name</div>
+                <div class = "writer-table-header-section writer-table-last-name">Last Name</div>
+                <div class = "writer-table-header-section writer-table-position">Position</div>
+                <div class = "writer-table-header-section writer-table-email">Email</div>
+                <div class = "writer-table-header-section writer-table-phone">Phone</div>
+                <div class = "writer-table-header-section writer-table-x">X</div>
+                <div class = "writer-table-header-section writer-table-headshot">Headshot</div>
+                <div class = "writer-table-header-section writer-table-hire-date">Hire Date</div>
+                <div class = "writer-table-header-section writer-table-end-date">End Date</div>
+                <div class = "writer-table-header-section writer-table-options"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Add Writer Modal-->
+<div id = "add-writer-modal" class = "modal">
+    <div class = "add-writer-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 30px;">
+            <h2>Add Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "add-writer-section-container">
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">First Name <span class="required">*</span></div>
+                <input type = "text" id = "new-writer-first-name" class = "add-writer-box" placeholder="First Name">
+            </div>
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">Last Name <span class="required">*</span></div>
+                    <input type = "text" id = "new-writer-last-name" class = "add-writer-box" placeholder="Last Name">
+            </div>
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">Position <span class="required">*</span></div>
+                <select type = "text" id = "new-writer-position" class = "add-writer-box" placeholder="Writer Position">
+                    <option value="">Select Position</option>
+                    <option value="Writer">Writer</option>
+                    <option value="Editor">Editor</option>
+                    <option value="Shadow">Shadow</option>
+                    <option value="EIC">EIC</option>
+                    <option value="EIC">Copy</option>
+                </select>
+            </div>            
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">Email <span class="required">*</span></div>
+                <input type = "text" id = "new-writer-email" class = "add-writer-box" placeholder="Writer Email">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">Phone</div>
+                <input type = "text" id = "new-writer-phone" class = "add-writer-box" placeholder="Writer Phone">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">X</div>
+                <input type = "text" id = "new-writer-x" class = "add-writer-box" placeholder="Writer X">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">Headshot</div>
+                <input type = "text" id = "new-writer-headshot" class = "add-writer-box" placeholder="Writer Headshot">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">Hire Date</div>
+                <input type = "date" id = "new-writer-hire-date" class = "add-writer-box" placeholder="Hire Date">
+            </div>
+        </div>
+        <button id = "add-writer-confirm" class = "add-writer-confirm">Add Writer</button>
+    </div>
+</div> 
+
+
+<!--Edit Writer Modal-->
+<div id = "edit-writer-modal" class = "modal">
+    <div class = "edit-writer-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 30px;">
+            <h2>Add Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "edit-writer-section-container">
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">First Name <span class="required">*</span></div>
+                <input type = "text" id = "edit-writer-first-name" class = "edit-writer-box" placeholder="First Name">
+            </div>
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">Last Name <span class="required">*</span></div>
+                    <input type = "text" id = "edit-writer-last-name" class = "edit-writer-box" placeholder="Last Name">
+            </div>
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">Position <span class="required">*</span></div>
+                <select type = "text" id = "edit-writer-position" class = "edit-writer-box" placeholder="Writer Position">
+                    <option value="">Select Position</option>
+                    <option value="Writer">Writer</option>
+                    <option value="Editor">Editor</option>
+                    <option value="Shadow">Shadow</option>
+                    <option value="EIC">EIC</option>
+                    <option value="EIC">Copy</option>
+                </select>
+            </div>            
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">Email <span class="required">*</span></div>
+                <input type = "text" id = "edit-writer-email" class = "edit-writer-box" placeholder="Writer Email">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">Phone</div>
+                <input type = "text" id = "edit-writer-phone" class = "edit-writer-box" placeholder="Writer Phone">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">X</div>
+                <input type = "text" id = "edit-writer-x" class = "edit-writer-box" placeholder="Writer X">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">Headshot</div>
+                <input type = "text" id = "edit-writer-headshot" class = "edit-writer-box" placeholder="Writer Headshot">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">Hire Date</div>
+                <input type = "date" id = "edit-writer-hire-date" class = "edit-writer-box" placeholder="Hire Date">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">End Date</div>
+                <input type = "date" id = "edit-writer-end-date" class = "edit-writer-box" placeholder="End Date">
+            </div>
+        </div>
+        <button id = "edit-writer-confirm" class = "edit-writer-confirm">Edit Writer</button>
+    </div>
+</div> 

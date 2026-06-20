@@ -1,0 +1,79 @@
+<!--Search Games Modal-->
+<div id = "search-games-modal" class = "modal">
+    <div class = "search-games-modal-content">
+        <div class = "modal-header">
+            <h2>Search Games</h2>
+            <span class = "close-button">&times;</span>
+        </div>
+        <div class = "modal-options-container">
+            <input id="search-games-input" type="text" placeholder="Search Games" class="search-games-input">  
+            <div class = "add-game" onclick = "openAddGameModal()">+ Add Game</div>
+        </div>   
+        <div id = "search-games-table-container" class = "search-games-table-container">
+            <div class = "search-games-table-header">
+                <div class = "search-games-table-header-section search-games-id">ID</div>
+                <div class = "search-games-table-header-section search-games-date">Date</div>
+                <div class = "search-games-table-header-section search-games-sport">Sport</div>
+                <div class = "search-games-table-header-section search-games-opponent">Opponent</div>
+                <div class = "search-games-table-header-section search-games-location">Location</div>
+                <div class = "search-games-table-header-section search-games-time">Time</div>
+                <div class = "search-games-table-header-section search-games-notes">Notes</div>
+                <div class = "search-games-table-header-section search-games-writer">Writer</div>
+                <div class = "search-games-table-header-section search-games-covered">Covered</div>
+                <div class = "search-games-table-header-section search-games-options"></div>
+            </div>                    
+        </div>
+    </div>
+</div>
+
+
+<!--Add Game Modal-->
+<div id="add-game-modal" class="modal">
+    <div class="add-game-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 10px;">
+            <h2>Add Game</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "add-game-sections-container">
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Sport <span class = "required">*</span>
+                </div>
+                <select id="sport-input" class = "add-game-box">
+                    <option value="">Select a sport</option>
+                </select>  
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Opponent <span class = "required">*</span>
+                </div>
+                <input type="text" id="opponent-input" class = "add-game-box" placeholder="Opponent">
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Location <span class = "required">*</span>
+                </div>                
+                <input type="text" id="location-input" class = "add-game-box" placeholder="Location">
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Date <span class = "required">*</span>
+                </div>                
+                <input type="date" id="date-input" class = "add-game-box">
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Time <span class = "required">*</span>
+                </div>                 
+                <input type="text" id="time-input" class = "add-game-box" placeholder="Time">
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Notes
+                </div>             
+                <input type="text" id="notes-input" class = "add-game-box" placeholder="Notes">
+            </div>    
+        </div>
+        <div id="add-game-confirm" class = "add-game-confirm">Add Game</div>
+    </div>
+</div>

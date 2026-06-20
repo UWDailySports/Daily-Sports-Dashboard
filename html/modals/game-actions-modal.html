@@ -1,0 +1,68 @@
+<!--Assign Modal-->
+<div id="assign-modal" class="modal">
+    <div class="assign-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 15px;">
+            <h2>Assign Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <select id="writer-select">
+            <option value="">Select a writer</option>
+        </select>
+        <button id="confirm-assign">Assign</button>
+    </div>
+</div>
+
+ 
+<!--Edit Game Modal-->
+<div id="edit-game-modal" class="modal">
+    <div class="edit-game-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 10px;">
+            <h2>Edit Game</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "edit-game-sections-container">
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Sport <span class = "required">*</span>
+                </div>
+                <select id="edit-sport-input" class = "edit-game-box">
+                    <option value="">Select a sport</option>
+                </select>  
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Opponent <span class = "required">*</span>
+                </div>
+                <input type="text" id="edit-opponent-input" class = "edit-game-box" placeholder="Opponent">
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Location <span class = "required">*</span>
+                </div>                
+                <input type="text" id="edit-location-input" class = "edit-game-box" placeholder="Location">
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Date <span class = "required">*</span>
+                </div>                
+                <input type="date" id="edit-date-input" class = "edit-game-box">
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Time <span class = "required">*</span>
+                </div>                 
+                <input type="text" id="edit-time-input" class = "edit-game-box" placeholder="Time">
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Notes
+                </div>             
+                <input type="text" id="edit-notes-input" class = "edit-game-box" placeholder="Notes">
+            </div>    
+        </div>
+        <div class = "modal-options-container">
+            <div id = delete-game-confirm class = "delete-game-confirm">Delete Game</div>
+            <div id="edit-game-confirm" class = "edit-game-confirm">Edit Game</div>
+        </div>
+    </div>
+</div>
