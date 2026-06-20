@@ -108,7 +108,7 @@ async function fetchWriterInfo() {
         <div class = "writer-table-entry-section writer-table-hire-date">${hire_date_formatted}</div>
         <div class = "writer-table-entry-section writer-table-end-date">${end_date_formatted}</div>
         <div class = "writer-table-entry-section writer-table-options list-options-button">&hellip;
-            <div class="list-options>
+            <div class="list-options">
                 <div class = "list-option edit-writer-option">Edit</div>
                 <div class = "list-option delete-writer-option">Delete</div>
             </div>
