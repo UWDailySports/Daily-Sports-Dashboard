@@ -45,7 +45,7 @@ async function fetchSearchGameInfo() {
         return;
     }
 
-    const container = document.getElementById("search-games-list-container");
+    const container = document.getElementById("search-games-table-container");
     container.innerHTML = "";
 
     for (const game of games) {
@@ -62,7 +62,7 @@ async function fetchSearchGameInfo() {
             : `<span style="color: green;">&#10004;</span>`;
 
         const gameBox = document.createElement("div");
-        gameBox.classList.add("search-games-list-entry-container");
+        gameBox.classList.add("search-games-table-entry");
         gameBox.innerHTML = `
             <div class = "search-games-table-entry-section search-games-id">${id}</div>
             <div class = "search-games-table-entry-section search-games-date">${date}</div>

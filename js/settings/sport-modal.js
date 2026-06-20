@@ -49,7 +49,7 @@ async function fetchSportInfo() {
         return;
     }
 
-    const container = document.getElementById("sport-list-container");
+    const container = document.getElementById("sport-table-container");
 
     for (const sport of sports) {
         const sportName = sport.sport;
@@ -63,8 +63,7 @@ async function fetchSportInfo() {
         }    
 
         const sportBox = document.createElement("div");
-        sportBox.classList.add("sport-list-entry-container");
-        sportBox.textContent = sportName;
+        sportBox.classList.add("sport-table-entry");
         
         sportBox.innerHTML = `
             <div class = "sport-table-entry-section sport-table-sport">${sportName}</div>
@@ -80,7 +79,7 @@ async function fetchSportInfo() {
                 </div>
             </div>
         `;
-        
+
         sportBox.querySelector(".edit-sport-option").addEventListener("click", () => openEditSportModal(sport)); 
         sportBox.querySelector(".delete-sport-option").addEventListener("click", () => deleteSport(sport.sport_id));
 
