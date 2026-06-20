@@ -10,10 +10,10 @@
 async function openWritersModal() {
     await fetchWriterInfo();
 
-    document.getElementById("writers-modal").style.display = "flex"; 
+    const writersModal = document.getElementById("writers-modal");
+    writersModal.style.display = "flex"; 
 };
 
-const writersModal = document.getElementById("writers-modal");
 
 document.addEventListener("click", () => {
     document.querySelectorAll(".list-options").forEach(options => {
@@ -164,10 +164,9 @@ async function fetchWriterInfo() {
 // #region addWriterModal() //
 
 async function openAddWriterModal() {
-    document.getElementById("add-writer-modal").style.display = "flex";
+    const addWriterModal = document.getElementById("add-writer-modal");
+    addWriterModal.style.display = "flex";
 }    
-
-const addWriterModal = document.getElementById("add-writer-modal");
 
 document.getElementById("add-writer-confirm").onclick = async () => {
     const first_name = document.getElementById("new-writer-first-name").value;
