@@ -92,26 +92,26 @@ async function fetchWriterInfo() {
         writerBox.classList.add("writer-list-entry-container");
 
         writerBox.innerHTML = `
-        <div id = "writer-list-first-name" class = "writer-list-entry-section">${first_name}</div>
-        <div id = "writer-list-last-name" class = "writer-list-entry-section">${last_name}</div>
-        <div id = "writer-list-position" class = "writer-list-entry-section">${position}</div>
-        <div id = "writer-list-email" class = "writer-list-entry-section">${email}</div>      
-        <div id = "writer-list-phone" class = "writer-list-entry-section">${phone}</div>
+        <div class = "writer-list-entry-section writer-list-entry-first-name">${first_name}</div>
+        <div class = "writer-list-entry-section writer-list-entry-last-name">${last_name}</div>
+        <div class = "writer-list-entry-section writer-list-entry-position">${position}</div>
+        <div class = "writer-list-entry-section writer-list-entry-email">${email}</div>      
+        <div class = "writer-list-entry-section writer-list-entry-phone">${phone}</div>
         ${x
-            ? `<a id = "writer-list-x" class="writer-list-entry-section" href="${x}" target="_blank">${x_short}</a>`
-            : `<div id = "writer-list-x" class="writer-list-entry-section"></div>`
+            ? `<a class = "writer-list-entry-section writer-list-entry-x" href="${x}" target="_blank">${x_short}</a>`
+            : `<div class = "writer-list-entry-section writer-list-entry-x"></div>`
         }
         ${headshot
-            ? `<a id = "writer-list-headshot" class="writer-list-entry-section" href="${headshot}" target="_blank">Link</a>`
-            : `<div id = "writer-list-headshot" class="writer-list-entry-section"></div>`
+            ? `<a class = "writer-list-entry-section writer-list-entry-headshot" href="${headshot}" target="_blank">Link</a>`
+            : `<div class = "writer-list-entry-section writer-list-entry-headshot"></div>`
         }
-        <div id = "writer-list-hire-date" class = "writer-list-entry-section">${hire_date_formatted}</div>
-        <div id = "writer-list-end-date" class = "writer-list-entry-section">${end_date_formatted}</div>
+        <div class = "writer-list-entry-section writer-list-entry-hire-date">${hire_date_formatted}</div>
+        <div class = "writer-list-entry-section writer-list-entry-end-date">${end_date_formatted}</div>
         <div class="list-options">
             <div class = "list-option edit-writer-option">Edit</div>
             <div class = "list-option delete-writer-option">Delete</div>
         </div>
-        <button id = "writer-list-options" class = "writer-list-entry-section list-options-button">&hellip;</button>
+        <button class = "writer-list-entry-section writer-list-entry-options list-options-button">&hellip;</button>
         `
 
         writerBox.querySelector(".edit-writer-option").addEventListener("click", () => openEditWriterModal(writer)); 

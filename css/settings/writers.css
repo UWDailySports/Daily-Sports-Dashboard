@@ -92,9 +92,7 @@
 .writer-list-title-container, .writer-list-entry-container {
     /* Layout */
     display: grid;
-    grid-template-columns:
-        10% 10% 10% 17% 10%
-        10% 8% 10% 10% 5%;
+    grid-template-columns: 10% 10% 10% 17% 10% 10% 8% 10% 10% 5%;
 
     align-items: center;
     position: relative;
@@ -126,10 +124,9 @@
 /* #endregion */
 
 /* #region writer-list-entry-section */
-.writer-list-entry-section, .writer-list-title-section {
+.writer-list-title-section, .writer-list-entry-section {
     /* Layout */
     display: flex;
-    flex-shrink: 1;
     align-items: center;
 
     /* Size/Shape */
@@ -145,10 +142,60 @@
     white-space: nowrap;
 }
 
-.writer-list-title-section {
+.writer-list-title-section, .writer-list-entry-section {
     /* Text */
     color: white;
     font-weight: bold;
+}
+
+.writer-list-title-first-name, .writer-list-entry-first-name {
+    /* Size / Shape */
+    width: 10%;
+}
+
+.writer-list-title-last-name, .writer-list-entry-last-name {
+    /* Size / Shape */
+    width: 10%;
+}
+
+.writer-list-title-position, .writer-list-entry-position {
+    /* Size / Shape */
+    width: 10%;
+}
+
+.writer-list-title-email, .writer-list-entry-email {
+    /* Size / Shape */
+    width: 17%;
+}
+
+.writer-list-title-phone, .writer-list-entry-phone {
+    /* Size / Shape */
+    width: 10%;
+}
+
+.writer-list-title-x, .writer-list-entry-x {
+    /* Size / Shape */
+    width: 10%;
+}
+
+.writer-list-title-headshot, .writer-list-entry-headshot {
+    /* Size / Shape */
+    width: 8%;
+}
+
+.writer-list-title-hire-date, .writer-list-entry-hire-date {
+    /* Size / Shape */
+    width: 10%;
+}
+
+.writer-list-title-end-date, .writer-list-entry-end-date {
+    /* Size / Shape */
+    width: 10%;
+}
+
+.writer-list-title-options, .writer-list-entry-options {
+    /* Size / Shape */
+    width: 10%;
 }
 
 /* #endregion */
