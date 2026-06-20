@@ -27,18 +27,6 @@
 }
 /* #endregion */
 
-.search-games-table-container {
-    /* Layout */
-    display: grid;
-
-    /* Size / Shape */
-    width: 100%;
-    height: 80%;
-
-    /* Misc */
-    overflow-x: auto;
-}
-
 /* #region search-games-list-container */
 .search-games-list-container {
     /* Layout */
@@ -414,14 +402,14 @@
         width: 300px;
     }
 
-        #search-games-title-id {
+    #search-games-title-id {
         /* Size / Shape */
         width: 50px;
     }
 
     #search-games-title-date {
         /* Size / Shape */
-        width: 150px;
+        width: 125px;
     }
 
     #search-games-title-sport {
@@ -441,12 +429,17 @@
 
     #search-games-title-time {
         /* Size / Shape */
-        width: 50px;
+        width: 75px;
     }
 
     #search-games-title-notes {
+        /* Layout */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         /* Size / Shape */
-        width: 50px;
+        width: 75px;
     }
 
     #search-games-title-writer {
@@ -459,7 +452,7 @@
         justify-content: center;
 
         /* Size / Shape */
-        width: 50px;
+        width: 75px;
     }
 
     #search-games-title-options {
@@ -524,6 +517,19 @@
         font-size: 20px; 
     }
 
+    .search-games-input {
+        /* Size / Shape */
+        width: 50%;
+    }
+
+    .add-game {
+        /* Size / Shape */
+        width: 30%;
+        
+        /* Text */
+        font-size: 14px;
+
+    }
 
     .edit-search-games-confirm {
         /* Layout */

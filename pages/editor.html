@@ -239,7 +239,9 @@
                 <input id="search-writers-input" type="text" placeholder="Search Writers" class="search-writers-input">  
                 <button class = "add-writer-button" onclick = "openAddWriterModal()">+ Add Writer</button>
             </div>
-            <div id = "writer-list-container" class = "writer-list-container"></div>
+            <div class = "modal-table-container">
+                <div id = "writer-list-container" class = "writer-list-container"></div>
+            </div>
         </div>
     </div>
 
@@ -372,15 +374,17 @@
                 <span class = "close-button">&times;</span>
             </div>
             <button class = "add-sport-button" onclick = "openAddSportModal()">+ Add Sport</button>
-            <div id = "sport-list-title" class = "sport-list-entry-container">
-                <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Sport</div>
-                <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Abbreviation</div>
-                <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">SID</div>
-                <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Email</div>
-                <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Phone</div>
-                <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white"></div>
-            </div>
-            <div class = "sport-list-container" id = "sport-list-container"></div>
+            <div class = "modal-table-container">
+                <div id = "sport-list-title" class = "sport-list-entry-container">
+                    <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Sport</div>
+                    <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Abbreviation</div>
+                    <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">SID</div>
+                    <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Email</div>
+                    <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white">Phone</div>
+                    <div class = "sport-list-entry-section" style="font-size: 18px; font-weight: bold;color:white"></div>
+                </div>
+                <div class = "sport-list-container" id = "sport-list-container"></div>
+            </div> 
         </div>
     </div>
 
@@ -497,7 +501,7 @@
                 <input id="search-games-input" type="text" placeholder="Search Games" class="search-games-input">  
                 <div class = "add-game" onclick = "openAddGameModal()">+ Add Game</div>
             </div>   
-            <div class = "search-games-table-container">   
+            <div class = "modal-table-container">   
                 <div id = "search-games-list-title" class = "search-games-list-title-container">
                     <div id = "search-games-title-id" class = "search-games-list-entry-section search-games-title-section">ID</div>
                     <div id = "search-games-title-date" class = "search-games-list-entry-section search-games-title-section">Date</div>
@@ -507,7 +511,7 @@
                     <div id = "search-games-title-time" class = "search-games-list-entry-section search-games-title-section">Time</div>
                     <div id = "search-games-title-notes" class = "search-games-list-entry-section search-games-title-section">Notes</div>
                     <div id = "search-games-title-writer" class = "search-games-list-entry-section search-games-title-section">Writer</div>
-                    <div id = "search-games-title-covered" lass = "search-games-list-entry-section search-games-title-section">Covered</div>
+                    <div id = "search-games-title-covered" class = "search-games-list-entry-section search-games-title-section">Covered</div>
                     <div id = "search-games-title-options" class="search-games-list-entry-section search-games-title-section"></div>
                 </div>
                 <div id = "search-games-list-container" class = "search-games-list-container"></div>
