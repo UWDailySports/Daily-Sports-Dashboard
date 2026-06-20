@@ -42,7 +42,8 @@
     background: #f8f9fc;
         
     /* Misc */
-    overflow-y: auto;   
+    overflow-y: auto;  
+    scrollbar-gutter: stable; 
 }
 /* #endregion */
 
