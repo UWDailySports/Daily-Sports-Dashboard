@@ -13,10 +13,13 @@ async function loadModals() {
         "/html/modals/writers-modal.html"
     ];
 
-    for (const file of files) {
-        const response = await fetch(file);
-        container.innerHTML += await response.text();
-    }
+for (const file of files) {
+    const response = await fetch(file);
+
+    console.log(file, response.status);
+
+    container.innerHTML += await response.text();
+}
 }
 
 window.addEventListener("DOMContentLoaded", loadModals);
