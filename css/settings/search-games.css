@@ -147,7 +147,7 @@
     justify-content: center;
 
     /* Size / Shape */
-    width: 5%; 
+    width: 10%; 
 }
 
 .search-games-notes-icon {
@@ -203,7 +203,7 @@
 
 .search-games-writer {
     /* Size / Shape */
-    width: 15%;
+    width: 10%;
 }
 
 .search-games-covered {
