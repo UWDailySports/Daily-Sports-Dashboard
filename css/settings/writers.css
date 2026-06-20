@@ -29,8 +29,8 @@
 
 /* #region writer-list-title */
 
-/* #region writer-options-container */
-.writer-options-container {
+/* #region modal-options-container */
+.modal-options-container {
     /* Layout */
     display: flex;
 
@@ -63,7 +63,7 @@
 /* #endregion */
 
 /* #region writer-list-container */
-.writer-list-container {
+.writer-table-container {
     /* Layout */
     flex: 1;
     display: flex;
@@ -90,7 +90,7 @@
 /* #endregion */
 
 /* #region writer-list-title */
-.writer-list-title-container, .writer-list-entry-container {
+.writer-table-header, .writer-table-entry {
     /* Layout */
     display: flex;
     align-items: center;
@@ -110,12 +110,12 @@
     transition: box-shadow .1s ease;   
 }
 
-.writer-list-title-container {
+.writer-table-header {
     /* Background */
     background: var(--primary_color);
 }
 
-.writer-list-entry-container {
+.writer-table-entry {
     /* Background */
     box-shadow:
         0 8px 20px rgba(54,15,90,.10);
@@ -123,7 +123,7 @@
 /* #endregion */
 
 /* #region writer-list-entry-section */
-.writer-list-title-section, .writer-list-entry-section {
+.writer-table-header-section, .writer-table-entry-section {
     /* Layout */
     display: flex;
     flex-shrink: 1;
@@ -142,62 +142,60 @@
     white-space: nowrap;
 }
 
-.writer-list-title-section {
+.writer-table-header-section {
     /* Text */
     color: white;
-    font-weight: bold;
 }
 
-.writer-list-title-first-name, .writer-list-entry-first-name {
+.writer-table-first-name {
     /* Size / Shape */
     width: 10%;
 }
 
-.writer-list-title-last-name, .writer-list-entry-last-name {
+.writer-table-last-name {
     /* Size / Shape */
     width: 10%;
 }
 
-.writer-list-title-position, .writer-list-entry-position {
+.writer-table-position {
     /* Size / Shape */
     width: 10%;
 }
 
-.writer-list-title-email, .writer-list-entry-email {
+.writer-table-email {
     /* Size / Shape */
     width: 17%;
 }
 
-.writer-list-title-phone, .writer-list-entry-phone {
+.writer-table-phone {
     /* Size / Shape */
     width: 10%;
 }
 
-.writer-list-title-x, .writer-list-entry-x {
+.writer-table-x {
     /* Size / Shape */
     width: 10%;
 }
 
-.writer-list-title-headshot, .writer-list-entry-headshot {
+.writer-table-headshot {
     /* Size / Shape */
     width: 8%;
 }
 
-.writer-list-title-hire-date, .writer-list-entry-hire-date {
+.writer-table-hire-date {
     /* Size / Shape */
     width: 10%;
 }
 
-.writer-list-title-end-date, .writer-list-entry-end-date {
+.writer-table-end-date {
     /* Size / Shape */
     width: 10%;
 }
 
-.writer-list-title-options, .writer-list-entry-options {
+.writer-table-options {
     /* Size / Shape */
     width: 5%;
 }
-
 /* #endregion */
 
 /* #region edit-writer / delete-writer */

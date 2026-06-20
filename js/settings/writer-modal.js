@@ -45,7 +45,7 @@ async function fetchWriterInfo() {
     const data = await response.json();
     const writers = data.writers;
 
-    const container = document.getElementById("writer-list-container");
+    const container = document.getElementById("writer-table-container");
     container.innerHTML = "";
 
     writers.forEach(writer => {
@@ -89,30 +89,30 @@ async function fetchWriterInfo() {
         }
 
         const writerBox = document.createElement("div");
-        writerBox.classList.add("writer-list-entry-container");
+        writerBox.classList.add("writer-table-entry");
 
         writerBox.innerHTML = `
-        <div class = "writer-list-entry-section writer-list-entry-first-name">${first_name}</div>
-        <div class = "writer-list-entry-section writer-list-entry-last-name">${last_name}</div>
-        <div class = "writer-list-entry-section writer-list-entry-position">${position}</div>
-        <div class = "writer-list-entry-section writer-list-entry-email">${email}</div>      
-        <div class = "writer-list-entry-section writer-list-entry-phone">${phone}</div>
+        <div class = "writer-table-entry-section writer-table-first-name">${first_name}</div>
+        <div class = "writer-table-entry-section writer-table-last-name">${last_name}</div>
+        <div class = "writer-table-entry-section writer-table-position">${position}</div>
+        <div class = "writer-table-entry-section writer-table-email">${email}</div>      
+        <div class = "writer-table-entry-section writer-table-phone">${phone}</div>
         ${x
-            ? `<a class = "writer-list-entry-section writer-list-entry-x" href="${x}" target="_blank">${x_short}</a>`
-            : `<div class = "writer-list-entry-section writer-list-entry-x"></div>`
+            ? `<a class = "writer-table-entry-section writer-table-x" href="${x}" target="_blank">${x_short}</a>`
+            : `<div class = "writer-table-entry-section writer-table-x"></div>`
         }
         ${headshot
-            ? `<a class = "writer-list-entry-section writer-list-entry-headshot" href="${headshot}" target="_blank">Link</a>`
-            : `<div class = "writer-list-entry-section writer-list-entry-headshot"></div>`
+            ? `<a class = "writer-table-entry-section writer-table-headshot" href="${headshot}" target="_blank">Link</a>`
+            : `<div class = "writer-table-entry-section writer-table-headshot"></div>`
         }
-        <div class = "writer-list-entry-section writer-list-entry-hire-date">${hire_date_formatted}</div>
-        <div class = "writer-list-entry-section writer-list-entry-end-date">${end_date_formatted}</div>
-        <button class = "writer-list-entry-section writer-list-entry-options list-options-button">&hellip;
-            <div class="list-options">
+        <div class = "writer-table-entry-section writer-table-hire-date">${hire_date_formatted}</div>
+        <div class = "writer-table-entry-section writer-table-end-date">${end_date_formatted}</div>
+        <div class = "writer-table-entry-section writer-table-options list-options-button">&hellip;
+            <div class="list-options>
                 <div class = "list-option edit-writer-option">Edit</div>
                 <div class = "list-option delete-writer-option">Delete</div>
             </div>
-        </button>
+        </div>
         `
 
         writerBox.querySelector(".edit-writer-option").addEventListener("click", () => openEditWriterModal(writer)); 
