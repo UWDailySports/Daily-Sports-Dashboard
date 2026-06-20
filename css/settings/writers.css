@@ -127,6 +127,7 @@
 .writer-list-title-section, .writer-list-entry-section {
     /* Layout */
     display: flex;
+    flex-shrink: 1;
     align-items: center;
 
     /* Size/Shape */
