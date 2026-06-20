@@ -93,7 +93,7 @@
     /* Layout */
     display: flex;
     align-items: center;
-    position: relative;
+    position: absolute;
 
     /* Size/Shape */
     min-height: 64px;
