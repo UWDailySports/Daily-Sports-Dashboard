@@ -81,12 +81,6 @@
     overflow-y: auto; 
     scrollbar-gutter: stable;
 }
-
-.writer-list-entry-container:hover {
-    /* Background */
-    box-shadow:
-        0 8px 20px rgba(54,15,90,.10);
-}
 /* #endregion */
 
 /* #region writer-list-title */
@@ -111,16 +105,16 @@
 }
 
 .writer-table-header {
-    /* Background */
-    background: var(--primary_color);
-
-    /* Make header stick to top of the scrollable container so widths match */
+    /* Layout */
     position: sticky;
     top: 0;
     z-index: 2;
+
+    /* Background */
+    background: var(--primary_color);
 }
 
-.writer-table-entry {
+.writer-table-entry:hover {
     /* Background */
     box-shadow:
         0 8px 20px rgba(54,15,90,.10);
@@ -198,8 +192,15 @@
 }
 
 .writer-table-options {
+    /* Layout */
+    display: flex;
+    justify-content: center;
+
     /* Size / Shape */
     width: 5%;
+
+    /* Text */
+    font-size: 30px;
 }
 /* #endregion */
 

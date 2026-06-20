@@ -56,7 +56,7 @@ async function fetchSearchGameInfo() {
         const location = game.location;
         const time = game.time;
         const notes = game.notes || "";
-        const name = (game.first_name || "") + " " + (game.last_name || "");
+        const writer = (game.first_name || "") + " " + (game.last_name || "");
         const covered = game.available
             ? `<span style="color: red;">&#10006;</span>`
             : `<span style="color: green;">&#10004;</span>`;
@@ -64,25 +64,26 @@ async function fetchSearchGameInfo() {
         const gameBox = document.createElement("div");
         gameBox.classList.add("search-games-list-entry-container");
         gameBox.innerHTML = `
-            <div id = "search-games-entry-id" class = "search-games-list-entry-section">${id}</div>
-            <div id = "search-games-entry-date" class = "search-games-list-entry-section">${date}</div>
-            <div id = "search-games-entry-sport" class = "search-games-list-entry-section">${sport}</div>
-            <div id = "search-games-entry-opponent" class = "search-games-list-entry-section">${opponent}</div>
-            <div id = "search-games-entry-location" class = "search-games-list-entry-section">${location}</div>
-            <div id = "search-games-entry-time" class = "search-games-list-entry-section">${time}</div>
+            <div class = "search-games-table-entry-section search-games-id">${id}</div>
+            <div class = "search-games-table-entry-section search-games-date">${date}</div>
+            <div class = "search-games-table-entry-section search-games-sport">${sport}</div>
+            <div class = "search-games-table-entry-section search-games-opponent">${opponent}</div>
+            <div class = "search-games-table-entry-section search-games-location">${location}</div>
+            <div class = "search-games-table-entry-section search-games-time">${time}</div>
             ${notes ? `
-                <div id = "search-games-entry-notes" class="search-games-list-notes-container">
-                    <div class="notes-icon">i</div>
-                    <div class="notes-modal">${notes}</div>
+                <div class = "search-games-table-entry-section search-games-notes">
+                    <div class="search-games-notes-icon">i</div>
+                    <div class="search-games-notes-modal">${notes}</div>
                 </div>
-            ` : `<div id = "search-games-entry-notes" class = "search-games-list-notes-container"></div>`}
-            <div id = "search-games-entry-writer" class = "search-games-list-entry-section">${name}</div>
-            <div id = "search-games-entry-covered" class = "search-games-list-entry-section">${covered}</div>
-            <div class="list-options">
-                <div class = "list-option edit-game-option">Edit</div>
-                <div class = "list-option delete-game-option">Delete</div>
+            ` : `<div class = "search-games-table-entry-section search-games-notes"></div>`}
+            <div class = "search-games-table-entry-section search-writer">${writer}</div>
+            <div class = "search-games-table-entry-section search-games-covered">${covered}</div>
+            <div class = "search-games-table-entry-section sport-table-options list-options-button">&hellip;
+                <div class="list-options">
+                    <div class = "list-option edit-game-option">Edit</div>
+                    <div class = "list-option delete-game-option">Delete</div>
+                </div>
             </div>
-            <button id = "search-games-entry-options" class = "search-games-list-entry-section list-options-button">&hellip;</button>
          `;       
          
         gameBox.querySelector(".edit-game-option").addEventListener("click", () => openEditGameModal(game, "search-games")); 

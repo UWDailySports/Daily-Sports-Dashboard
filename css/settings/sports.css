@@ -27,7 +27,7 @@
 /* #endregion */
 
 /* #region sport-list-container */
-.sport-list-container {
+.sport-table-container {
     /* Layout */
     flex: 1;
     display: flex;
@@ -42,13 +42,13 @@
     background: #f8f9fc;
         
     /* Misc */
-    overflow-y: auto;  
-    scrollbar-gutter: stable; 
+    overflow-y: auto; 
+    scrollbar-gutter: stable;
 }
 /* #endregion */
 
 /* #region sport-list-entry-container */
-.sport-list-title-container, .sport-list-entry-container {
+.sport-table-header, .sport-table-entry {
     /* Layout */
     display: flex;
     align-items: center;
@@ -68,73 +68,85 @@
     transition: box-shadow .1s ease;  
 }
 
-.sport-list-entry-container:hover {
+.sport-table-entry:hover {
     /* Background */
     box-shadow:
         0 8px 20px rgba(54,15,90,.10);
 }
 
-.sport-list-title-container {
+.sport-table-header {
+    /* Layout */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    /* Background */
     background: var(--primary_color);
 }
 /* #endregion */
 
 /* #region sport-list-entry-section */
-.sport-list-title-section, .sport-list-entry-section {
+.sport-table-header-section, .sport-table-entry-section {
     /* Layout */
     display: flex;
+    flex-shrink: 1;
     align-items: center;
 
     /* Size/Shape */
     height: 100%;
-    padding-left: 12px;
+    min-width: 0;
 
     /* Text */
     font-size: 14px;
     font-weight: 400;
     color: #2c2c2c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.sport-list-title-section {
+.sport-table-header-section {
     /* Text */
     color: white;
-    font-weight: bold;
 }
 
-#sport-title-sport, #sport-list-sport {
+.sport-table-sport {
     /* Size / Shape */
     width: 15%;
 }
 
-#sport-title-abbreviation, #sport-list-abbreviation {
+.sport-table-abbreviation {
     /* Size / Shape */
     width: 10%;
 }
 
-#sport-title-sid, #sport-list-sid {
+.sport-table-sid {
     /* Size / Shape */
     width: 20%;
 }
 
-#sport-title-email, #sport-list-email {
+.sport-table-email {
     /* Size / Shape */
     width: 20%;
 }
 
-#sport-title-phone, #sport-list-phone {
+.sport-table-phone {
     /* Size / Shape */
     width: 15%;
 }
 
-#sport-title-blank, #sport-list-blank {
+.sport-table-blank {
     /* Size / Shape */
     width: 15%;
 }
 
-#sport-title-options, #sport-list-options {
+.sport-table-options {
+    /* Layout */
+    display: flex;
+    justify-content: center;
+
     /* Size / Shape */
     width: 5%;
-    margin-bottom: 1%;
 
     /* Text */
     font-size: 30px;

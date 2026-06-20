@@ -235,7 +235,7 @@
                 <h2>Writers</h2>
                 <span class = "close-button" onclick = "closeModal('writers-modal')">&times;</span>
             </div>
-            <div class = "writer-options-container">
+            <div class = "modal-options-container">
                 <input id="search-writers-input" type="text" placeholder="Search Writers" class="search-writers-input">  
                 <button class = "add-writer-button" onclick = "openAddWriterModal()">+ Add Writer</button>
             </div>
@@ -386,18 +386,17 @@
                 <span class = "close-button">&times;</span>
             </div>
             <button class = "add-sport-button" onclick = "openAddSportModal()">+ Add Sport</button>
-            <div class = "modal-table-container">
-                <div id = "sport-list-title" class = "sport-list-title-container">
-                    <div id = "sport-title-sport" class = "sport-list-entry-section sport-list-title-section">Sport</div>
-                    <div id = "sport-title-abbreviation" class = "sport-list-entry-section sport-list-title-section">Abbreviation</div>
-                    <div id = "sport-title-sid" class = "sport-list-entry-section sport-list-title-section">SID</div>
-                    <div id = "sport-title-email" class = "sport-list-entry-section sport-list-title-section">Email</div>
-                    <div id = "sport-title-phone" class = "sport-list-entry-section sport-list-title-section">Phone</div>
-                    <div id = "sport-title-blank" class = "sport-list-entry-section sport-list-title-section"></div>
-                    <div id = "sport-title-options" class = "sport-list-entry-section sport-list-title-section">Options</div>
-                </div>
-                <div class = "sport-list-container" id = "sport-list-container"></div>
-            </div> 
+            <div class = "sport-table-container" id = "sport-table-container">
+                <div class = "sport-table-header">
+                    <div class = "sport-table-header-section sport-table-sport">Sport</div>
+                    <div class = "sport-table-header-section sport-table-abbreviation">Abbreviation</div>
+                    <div class = "sport-table-header-section sport-table-sid">SID</div>
+                    <div class = "sport-table-header-section sport-table-email">Email</div>
+                    <div class = "sport-table-header-section sport-table-phone">Phone</div>
+                    <div class = "sport-table-header-section sport-table-blank"></div>
+                    <div class = "sport-table-header-section sport-table-options">Options</div>
+                </div>                    
+            </div>
         </div>
     </div>
 
@@ -510,24 +509,23 @@
                 <h2>Search Games</h2>
                 <span class = "close-button">&times;</span>
             </div>
-            <div class = "search-options-container">
+            <div class = "modal-options-container">
                 <input id="search-games-input" type="text" placeholder="Search Games" class="search-games-input">  
                 <div class = "add-game" onclick = "openAddGameModal()">+ Add Game</div>
             </div>   
-            <div class = "modal-table-container">   
-                <div id = "search-games-list-title" class = "search-games-list-title-container">
-                    <div id = "search-games-title-id" class = "search-games-list-entry-section search-games-title-section">ID</div>
-                    <div id = "search-games-title-date" class = "search-games-list-entry-section search-games-title-section">Date</div>
-                    <div id = "search-games-title-sport" class = "search-games-list-entry-section search-games-title-section">Sport</div>
-                    <div id = "search-games-title-opponent" class = "search-games-list-entry-section search-games-title-section">Opponent</div>
-                    <div id = "search-games-title-location" class = "search-games-list-entry-section search-games-title-section">Location</div>
-                    <div id = "search-games-title-time" class = "search-games-list-entry-section search-games-title-section">Time</div>
-                    <div id = "search-games-title-notes" class = "search-games-list-entry-section search-games-title-section">Notes</div>
-                    <div id = "search-games-title-writer" class = "search-games-list-entry-section search-games-title-section">Writer</div>
-                    <div id = "search-games-title-covered" class = "search-games-list-entry-section search-games-title-section">Covered</div>
-                    <div id = "search-games-title-options" class="search-games-list-entry-section search-games-title-section">Options</div>
-                </div>
-                <div id = "search-games-list-container" class = "search-games-list-container"></div>
+            <div id = "search-games-table-container" class = "search-games-table-container">
+                <div class = "search-games-table-header">
+                    <div class = "search-games-table-header-section search-games-id">ID</div>
+                    <div class = "search-games-table-header-section search-games-date">Date</div>
+                    <div class = "search-games-table-header-section search-games-sport">Sport</div>
+                    <div class = "search-games-table-header-section search-games-opponent">Opponent</div>
+                    <div class = "search-games-table-header-section search-games-location">Location</div>
+                    <div class = "search-games-table-header-section search-games-time">Time</div>
+                    <div class = "search-games-table-header-section search-games-notes">Notes</div>
+                    <div class = "search-games-table-header-section search-games-writer">Writer</div>
+                    <div class = "search-games-table-header-section search-games-covered">Covered</div>
+                    <div class = "search-games-table-header-section search-games-options">Options</div>
+                </div>                    
             </div>
         </div>
     </div>

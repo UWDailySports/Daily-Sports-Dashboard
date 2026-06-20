@@ -28,7 +28,7 @@
 /* #endregion */
 
 /* #region search-games-list-container */
-.search-games-list-container {
+.search-games-table-container {
     /* Layout */
     flex: 1;
     display: flex;
@@ -43,12 +43,13 @@
     background: #f8f9fc;
         
     /* Misc */
-    overflow-y: auto;  
+    overflow-y: auto; 
+    scrollbar-gutter: stable;
 }
 /* #endregion */
 
 /* #region search-games-list-entry-container */
-.search-games-list-entry-container, .search-games-list-title-container {
+.search-games-table-header, .search-games-table-entry {
     /* Layout */
     display: flex;
     align-items: center;
@@ -68,12 +69,17 @@
     transition: box-shadow .1s ease;   
 }
 
-.search-games-list-title-container {
+.search-games-table-header {
+    /* Layout */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
     /* Background */
     background: var(--primary_color);
 }
 
-.search-games-list-entry-container {
+.search-games-table-entry:hover {
     /* Background */
     box-shadow:
         0 8px 20px rgba(54,15,90,.10);
@@ -81,97 +87,70 @@
 /* #endregion */
 
 /* #region search-games-list-entry-section */
-.search-games-list-entry-section {
+.search-games-table-header-section, .search-games-table-entry-section {
     /* Layout */
     display: flex;
+    flex-shrink: 1;
     align-items: center;
 
     /* Size/Shape */
-    width: 10%;
     height: 100%;
-    padding-left: 12px;
+    min-width: 0;
 
     /* Text */
     font-size: 14px;
     font-weight: 400;
-    color: #2c2c2c; 
+    color: #2c2c2c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.search-games-title-section {
+.search-games-table-header-section {
     /* Text */
-    color:white;
-    font-weight: bold;
+    color: white;
 }
 
-#search-games-title-id, #search-games-entry-id {
+.search-games-id {
     /* Size / Shape */
     width: 5%;
 }
 
-#search-games-title-date, #search-games-entry-date {
+.search-games-date {
+    /* Size / Shape */
+    width: 15%; 
+}
+
+.search-games-sport {
     /* Size / Shape */
     width: 15%;
 }
 
-#search-games-title-sport, #search-games-entry-sport {
+.search-games-opponent {
     /* Size / Shape */
     width: 15%;
 }
 
-#search-games-title-opponent, #search-games-entry-opponent {
+.search-games-location {
     /* Size / Shape */
     width: 15%;
 }
 
-#search-games-title-location, #search-games-entry-location {
-    /* Size / Shape */
-    width: 15%;
-}
-
-#search-games-title-time, #search-games-entry-time {
+.search-games-time {
     /* Size / Shape */
     width: 5%;
 }
 
-#search-games-title-notes, #search-games-entry-notes {
-    /* Size / Shape */
-    width: 5%;
-}
-
-#search-games-title-writer, #search-games-entry-writer {
-    /* Size / Shape */
-    width: 15%;
-}
-
-#search-games-title-covered, #search-games-entry-covered {
+.search-games-notes {
     /* Layout */
-    justify-content: center;
-
-    /* Size / Shape */
-    width: 5%;
-}
-
-#search-games-title-options, #search-games-entry-options {
-    /* Size / Shape */
-    width: 5%;
-}
-/* #endregion */
-
-/* #region search-games-list-notes-container */
-.search-games-list-notes-container {
-    /* Layout */
-    position: relative;  
     display: flex;
     justify-content: center;
-    align-items: center;
 
-    /* Size/Shape */
-    width: 5%;
+    /* Size / Shape */
+    width: 5%; 
 }
-/* #endregion */
 
-/* #region notes-icon */
-.notes-icon {
+.search-games-notes-icon {
     /* Layout */
     display: flex;
     justify-content: center;
@@ -192,10 +171,8 @@
     /* Misc */
     cursor: pointer;
 }
-/* #endregion */
 
-/* #region notes-modal */
-.notes-modal {
+.search-games-notes-modal {
     /* Layout */
     display: none;
     position: absolute;
@@ -218,24 +195,39 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     white-space: normal;
 }
-/* #endregion */
 
-/* #region hovering over notes container */
-.search-games-list-notes-container:hover .notes-modal {
+.search-games-notes:hover .notes-modal {
+    /* Layout */
     display: block;
 }
-/* #endregion */
 
-/* #region search-options-container */
-.search-options-container {
+.search-games-writer {
+    /* Size / Shape */
+    width: 15%;
+}
+
+.search-games-covered {
     /* Layout */
     display: flex;
+    justify-content: center;
 
     /* Size / Shape */
-    width: 100%;
-    height: 48px;
+    width: 5%;
+}
+
+.search-games-options {
+    /* Layout */
+    display: flex;
+    justify-content: center;
+
+    /* Size / Shape */
+    width: 5%;
+
+    /* Text */
+    font-size: 30px;
 }
 /* #endregion */
+
 
 /* #region search-games-input */
 .search-games-input {
@@ -294,14 +286,7 @@
     height: 8%;
     padding-left: 2%;
     border-radius: 10px;
-    border-color: black;
-
-    /* Background */
-
-    /* Text */ 
-    
-        
-    /* Misc */    
+    border-color: black; 
 }
 /* #endregion */
 

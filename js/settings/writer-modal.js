@@ -112,7 +112,7 @@ async function fetchWriterInfo() {
                 <div class = "list-option delete-writer-option">Delete</div>
             </div>
         </div>
-        `
+        `;
 
         writerBox.querySelector(".edit-writer-option").addEventListener("click", () => openEditWriterModal(writer)); 
         writerBox.querySelector(".delete-writer-option").addEventListener("click", () => deleteWriter(writer.writer_id));

@@ -50,7 +50,6 @@ async function fetchSportInfo() {
     }
 
     const container = document.getElementById("sport-list-container");
-    container.innerHTML = "";
 
     for (const sport of sports) {
         const sportName = sport.sport;
@@ -68,18 +67,20 @@ async function fetchSportInfo() {
         sportBox.textContent = sportName;
         
         sportBox.innerHTML = `
-            <div id = "sport-list-sport" class = "sport-list-entry-section">${sportName}</div>
-            <div id = "sport-list-abbreviation" class = "sport-list-entry-section">${sportAbbreviation}</div>            
-            <div id = "sport-list-sid" class = "sport-list-entry-section">${sid}</div>
-            <div id = "sport-list-email" class = "sport-list-entry-section">${email}</div>
-            <div id = "sport-list-phone" class = "sport-list-entry-section">${phone}</div>
-            <div id = "sport-list-blank" class = "sport-list-entry-section"></div>
-            <div class="list-options">
-                <div class = "list-option edit-sport-option">Edit</div>
-                <div class = "list-option delete-sport-option">Delete</div>
+            <div class = "sport-table-entry-section sport-table-sport">${sportName}</div>
+            <div class = "sport-table-entry-section sport-table-abbreviation">${sportAbbreviation}</div>            
+            <div class = "sport-table-entry-section sport-table-sid">${sid}</div>
+            <div class = "sport-table-entry-section sport-table-email">${email}</div>
+            <div class = "sport-table-entry-section sport-table-phone">${phone}</div>
+            <div class = "sport-table-entry-section sport-table-blank"></div>
+            <div class = "sport-table-entry-section sport-table-options list-options-button">&hellip;
+                <div class="list-options">
+                    <div class = "list-option edit-sport-option">Edit</div>
+                    <div class = "list-option delete-sport-option">Delete</div>
+                </div>
             </div>
-            <div id = "sport-list-options" class = "list-options-button">&hellip;</div>
         `;
+        
         sportBox.querySelector(".edit-sport-option").addEventListener("click", () => openEditSportModal(sport)); 
         sportBox.querySelector(".delete-sport-option").addEventListener("click", () => deleteSport(sport.sport_id));
 
