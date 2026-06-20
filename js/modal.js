@@ -1,3 +1,13 @@
+function openModal(modal) {
+    const currModal = document.getElementById(modal);
+    currModal.style.display = "flex";
+}
+
+function closeModal(modal){
+    const currModal = document.getElementById(modal);
+    currModal.style.display = "none";
+}
+
 document.querySelectorAll(".close-button").forEach(btn => {
     btn.addEventListener("click", () => {
         const modal = btn.closest(".modal");

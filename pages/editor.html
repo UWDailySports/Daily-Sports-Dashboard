@@ -200,7 +200,448 @@
         <p>The Daily Sports 2026</p>
     </div>
 
-    <div id="modal-container"></div>
+<!--Modals-->
+<!--Add Invoice Modal-->
+<div id="invoice-modal" class= "modal">
+    <div class="add-invoice-modal-content">
+        <div class = "modal-header">
+            <h2>Add Invoice</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <input type = "date" id="invoice-date-input" class = "add-invoice-box" placeholder="Date">
+        <input type = "number" id="invoice-total-input" class = "add-invoice-box" placeholder="Total Amount">
+        <input type = "text" id="invoice-link-input" class = "add-invoice-box" placeholder="Link to Invoice (Optional)">
+        <button id="confirm-invoice" class = "add-invoice-confirm">Add Invoice</button>
+    </div>
+</div>
+
+
+<!--Assign Modal-->
+<div id="assign-modal" class="modal">
+    <div class="assign-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 15px;">
+            <h2>Assign Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <select id="writer-select">
+            <option value="">Select a writer</option>
+        </select>
+        <button id="confirm-assign">Assign</button>
+    </div>
+</div>
+
+ 
+<!--Edit Game Modal-->
+<div id="edit-game-modal" class="modal">
+    <div class="edit-game-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 10px;">
+            <h2>Edit Game</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "edit-game-sections-container">
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Sport <span class = "required">*</span>
+                </div>
+                <select id="edit-sport-input" class = "edit-game-box">
+                    <option value="">Select a sport</option>
+                </select>  
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Opponent <span class = "required">*</span>
+                </div>
+                <input type="text" id="edit-opponent-input" class = "edit-game-box" placeholder="Opponent">
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Location <span class = "required">*</span>
+                </div>                
+                <input type="text" id="edit-location-input" class = "edit-game-box" placeholder="Location">
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Date <span class = "required">*</span>
+                </div>                
+                <input type="date" id="edit-date-input" class = "edit-game-box">
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Time <span class = "required">*</span>
+                </div>                 
+                <input type="text" id="edit-time-input" class = "edit-game-box" placeholder="Time">
+            </div>
+            <div class = "edit-game-section">
+                <div class = "edit-game-box-title">
+                    Notes
+                </div>             
+                <input type="text" id="edit-notes-input" class = "edit-game-box" placeholder="Notes">
+            </div>    
+        </div>
+        <div class = "modal-options-container">
+            <div id = delete-game-confirm class = "delete-game-confirm">Delete Game</div>
+            <div id="edit-game-confirm" class = "edit-game-confirm">Edit Game</div>
+        </div>
+    </div>
+</div>
+
+
+<!--Writers Modal-->
+<div id = "writers-modal" class = "modal">
+    <div class = "writers-modal-content">
+        <div class = "modal-header">
+            <h2>Writers</h2>
+            <span class = "close-button" onclick = "closeModal('writers-modal')">&times;</span>
+        </div>
+        <div class = "modal-options-container">
+            <input id="search-writers-input" type="text" placeholder="Search Writers" class="search-writers-input">  
+            <button class = "add-writer-button" onclick = "openAddWriterModal()">+ Add Writer</button>
+        </div>
+         <div id = "writer-table-container" class = "writer-table-container">
+            <div class= "writer-table-header">
+                <div class = "writer-table-header-section writer-table-first-name">First Name</div>
+                <div class = "writer-table-header-section writer-table-last-name">Last Name</div>
+                <div class = "writer-table-header-section writer-table-position">Position</div>
+                <div class = "writer-table-header-section writer-table-email">Email</div>
+                <div class = "writer-table-header-section writer-table-phone">Phone</div>
+                <div class = "writer-table-header-section writer-table-x">X</div>
+                <div class = "writer-table-header-section writer-table-headshot">Headshot</div>
+                <div class = "writer-table-header-section writer-table-hire-date">Hire Date</div>
+                <div class = "writer-table-header-section writer-table-end-date">End Date</div>
+                <div class = "writer-table-header-section writer-table-options"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Add Writer Modal-->
+<div id = "add-writer-modal" class = "modal">
+    <div class = "add-writer-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 30px;">
+            <h2>Add Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "add-writer-section-container">
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">First Name <span class="required">*</span></div>
+                <input type = "text" id = "new-writer-first-name" class = "add-writer-box" placeholder="First Name">
+            </div>
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">Last Name <span class="required">*</span></div>
+                    <input type = "text" id = "new-writer-last-name" class = "add-writer-box" placeholder="Last Name">
+            </div>
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">Position <span class="required">*</span></div>
+                <select type = "text" id = "new-writer-position" class = "add-writer-box" placeholder="Writer Position">
+                    <option value="">Select Position</option>
+                    <option value="Writer">Writer</option>
+                    <option value="Editor">Editor</option>
+                    <option value="Shadow">Shadow</option>
+                    <option value="EIC">EIC</option>
+                    <option value="EIC">Copy</option>
+                </select>
+            </div>            
+            <div class = "add-writer-section">
+                <div class="add-writer-box-title">Email <span class="required">*</span></div>
+                <input type = "text" id = "new-writer-email" class = "add-writer-box" placeholder="Writer Email">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">Phone</div>
+                <input type = "text" id = "new-writer-phone" class = "add-writer-box" placeholder="Writer Phone">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">X</div>
+                <input type = "text" id = "new-writer-x" class = "add-writer-box" placeholder="Writer X">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">Headshot</div>
+                <input type = "text" id = "new-writer-headshot" class = "add-writer-box" placeholder="Writer Headshot">
+            </div>
+            <div class = "add-writer-section">
+                <div class = "add-writer-box-title">Hire Date</div>
+                <input type = "date" id = "new-writer-hire-date" class = "add-writer-box" placeholder="Hire Date">
+            </div>
+        </div>
+        <button id = "add-writer-confirm" class = "add-writer-confirm">Add Writer</button>
+    </div>
+</div> 
+
+
+<!--Edit Writer Modal-->
+<div id = "edit-writer-modal" class = "modal">
+    <div class = "edit-writer-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 30px;">
+            <h2>Add Writer</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "edit-writer-section-container">
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">First Name <span class="required">*</span></div>
+                <input type = "text" id = "edit-writer-first-name" class = "edit-writer-box" placeholder="First Name">
+            </div>
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">Last Name <span class="required">*</span></div>
+                    <input type = "text" id = "edit-writer-last-name" class = "edit-writer-box" placeholder="Last Name">
+            </div>
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">Position <span class="required">*</span></div>
+                <select type = "text" id = "edit-writer-position" class = "edit-writer-box" placeholder="Writer Position">
+                    <option value="">Select Position</option>
+                    <option value="Writer">Writer</option>
+                    <option value="Editor">Editor</option>
+                    <option value="Shadow">Shadow</option>
+                    <option value="EIC">EIC</option>
+                    <option value="EIC">Copy</option>
+                </select>
+            </div>            
+            <div class = "edit-writer-section">
+                <div class="edit-writer-box-title">Email <span class="required">*</span></div>
+                <input type = "text" id = "edit-writer-email" class = "edit-writer-box" placeholder="Writer Email">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">Phone</div>
+                <input type = "text" id = "edit-writer-phone" class = "edit-writer-box" placeholder="Writer Phone">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">X</div>
+                <input type = "text" id = "edit-writer-x" class = "edit-writer-box" placeholder="Writer X">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">Headshot</div>
+                <input type = "text" id = "edit-writer-headshot" class = "edit-writer-box" placeholder="Writer Headshot">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">Hire Date</div>
+                <input type = "date" id = "edit-writer-hire-date" class = "edit-writer-box" placeholder="Hire Date">
+            </div>
+            <div class = "edit-writer-section">
+                <div class = "edit-writer-box-title">End Date</div>
+                <input type = "date" id = "edit-writer-end-date" class = "edit-writer-box" placeholder="End Date">
+            </div>
+        </div>
+        <button id = "edit-writer-confirm" class = "edit-writer-confirm">Edit Writer</button>
+    </div>
+</div> 
+
+<!--Sport Modal-->
+<div id = "sport-modal" class = "modal">
+    <div class = "sport-modal-content">
+        <div class = "modal-header">
+            <h2>Sports</h2>
+            <span class = "close-button">&times;</span>
+        </div>
+        <button class = "add-sport-button" onclick = "openAddSportModal()">+ Add Sport</button>
+        <div class = "sport-table-container" id = "sport-table-container">
+            <div class = "sport-table-header">
+                <div class = "sport-table-header-section sport-table-sport">Sport</div>
+                <div class = "sport-table-header-section sport-table-abbreviation">Abbreviation</div>
+                <div class = "sport-table-header-section sport-table-sid">SID</div>
+                <div class = "sport-table-header-section sport-table-email">Email</div>
+                <div class = "sport-table-header-section sport-table-phone">Phone</div>
+                <div class = "sport-table-header-section sport-table-blank"></div>
+                <div class = "sport-table-header-section sport-table-options"></div>
+            </div>                    
+        </div>
+    </div>
+</div>
+
+
+<!--Add Sport Modal-->
+<div id = "add-sport-modal" class = "modal">
+    <div class = "add-sport-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 15px;">
+            <h2>Add Sport</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "add-sport-section-container">
+            <div class = "add-sport-section">
+                <div class="add-sport-box-title">
+                    Sport <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-sport-name" class = "add-sport-box" placeholder="Sport Name">
+            </div>
+            <div class = "add-sport-section">
+                <div class="add-sport-box-title">
+                    Abbreviation <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-sport-abbreviation" class = "add-sport-box" placeholder="Sport Abbreviation">
+            </div>
+            <div class = "add-sport-section">
+                <div class="add-sport-box-title">
+                    SID <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-sport-sid" class = "add-sport-box" placeholder="SID Name">
+            </div>
+            <div class = "add-sport-section">
+                <div class="add-sport-box-title">
+                    SID Email <span class="required">*</span>
+                </div>
+                <input type = "text" id = "new-sport-email" class = "add-sport-box" placeholder="SID Email">
+            </div>
+            <div class = "add-sport-section">
+                <div class = "add-sport-box-title">SID Phone</div>
+                <input type = "text" id = "new-sport-phone" class = "add-sport-box" placeholder="SID Phone">
+            </div>
+        </div>    
+        <button id = "add-sport-confirm" class = "add-sport-confirm">Add Sport</button>
+    </div>  
+</div>
+
+
+<!--Edit Sport Modal-->
+<div id = "edit-sport-modal" class = "modal">
+    <div class = "edit-sport-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 15px;">
+            <h2>Edit Sport</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "edit-sport-section-container">
+            <div class = "edit-sport-section">
+                <div class="edit-sport-box-title">
+                    Sport <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-sport-name" class = "edit-sport-box" placeholder="Sport Name">
+            </div>
+            <div class = "edit-sport-section">
+                <div class="edit-sport-box-title">
+                    Abbreviation <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-sport-abbreviation" class = "edit-sport-box" placeholder="Sport Name">
+            </div>            
+            <div class = "edit-sport-section">
+                <div class="edit-sport-box-title">
+                    SID <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-sport-sid" class = "edit-sport-box" placeholder="SID Name">
+            </div>
+            <div class = "edit-sport-section">
+                <div class="edit-sport-box-title">
+                    SID Email <span class="required">*</span>
+                </div>
+                <input type = "text" id = "edit-sport-email" class = "edit-sport-box" placeholder="SID Email">
+            </div>
+            <div class = "edit-sport-section">
+                <div class = "edit-sport-box-title">SID Phone</div>
+                <input type = "text" id = "edit-sport-phone" class = "edit-sport-box" placeholder="SID Phone">
+            </div>
+        </div>    
+        <button id = "edit-sport-confirm" class = "edit-sport-confirm">Edit Sport</button>
+    </div>  
+</div>
+
+
+<!--Add Season Modal-->
+<div id="add-season-modal" class="modal">
+    <div class="add-season-modal-content">
+        <div class="modal-header">
+            <h2>Add Season</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div id="season-drop-zone" class="season-drop-zone">
+            <p>Browse or drop files here</p>
+            <input type="file" id="season-file-input" accept=".xlsx,.xls,.csv" hidden>
+        </div>
+        <button id="add-season-confirm" class="add-season-confirm">Add Season</button>
+    </div>
+</div> 
+
+
+<!--Search Games Modal-->
+<div id = "search-games-modal" class = "modal">
+    <div class = "search-games-modal-content">
+        <div class = "modal-header">
+            <h2>Search Games</h2>
+            <span class = "close-button">&times;</span>
+        </div>
+        <div class = "modal-options-container">
+            <input id="search-games-input" type="text" placeholder="Search Games" class="search-games-input">  
+            <div class = "add-game" onclick = "openAddGameModal()">+ Add Game</div>
+        </div>   
+        <div id = "search-games-table-container" class = "search-games-table-container">
+            <div class = "search-games-table-header">
+                <div class = "search-games-table-header-section search-games-id">ID</div>
+                <div class = "search-games-table-header-section search-games-date">Date</div>
+                <div class = "search-games-table-header-section search-games-sport">Sport</div>
+                <div class = "search-games-table-header-section search-games-opponent">Opponent</div>
+                <div class = "search-games-table-header-section search-games-location">Location</div>
+                <div class = "search-games-table-header-section search-games-time">Time</div>
+                <div class = "search-games-table-header-section search-games-notes">Notes</div>
+                <div class = "search-games-table-header-section search-games-writer">Writer</div>
+                <div class = "search-games-table-header-section search-games-covered">Covered</div>
+                <div class = "search-games-table-header-section search-games-options"></div>
+            </div>                    
+        </div>
+    </div>
+</div>
+
+
+<!--Add Game Modal-->
+<div id="add-game-modal" class="modal">
+    <div class="add-game-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 10px;">
+            <h2>Add Game</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class = "add-game-sections-container">
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Sport <span class = "required">*</span>
+                </div>
+                <select id="sport-input" class = "add-game-box">
+                    <option value="">Select a sport</option>
+                </select>  
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Opponent <span class = "required">*</span>
+                </div>
+                <input type="text" id="opponent-input" class = "add-game-box" placeholder="Opponent">
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Location <span class = "required">*</span>
+                </div>                
+                <input type="text" id="location-input" class = "add-game-box" placeholder="Location">
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Date <span class = "required">*</span>
+                </div>                
+                <input type="date" id="date-input" class = "add-game-box">
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Time <span class = "required">*</span>
+                </div>                 
+                <input type="text" id="time-input" class = "add-game-box" placeholder="Time">
+            </div>
+            <div class = "add-game-section">
+                <div class = "add-game-box-title">
+                    Notes
+                </div>             
+                <input type="text" id="notes-input" class = "add-game-box" placeholder="Notes">
+            </div>    
+        </div>
+        <div id="add-game-confirm" class = "add-game-confirm">Add Game</div>
+    </div>
+</div>
+
+
+<!--User School Modal-->
+<div id = "user-school-modal" class = "modal">
+    <div class = "user-school-modal-content">
+        <div class = "modal-header" style = "margin-bottom: 10px;">
+            <h2>User School</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        <div class="user-school-search-container">
+            <input id="user-school-search" class = "user-school-search" type="text" placeholder="Enter school">
+            <div id="user-school-results"></div>
+        </div>
+        <div id = "confirm-user-school" class = "confirm-user-school">Save</div>
+    </div>
+</div>
 </body>
 
 <!---- Java Scripts--> 
@@ -209,7 +650,6 @@
 <script src = "/js/dashboard/state.js"></script>
 <script src = "/js/dashboard/dashboard.js"></script>
 <script src = "/js/dashboard/tabs.js"></script>
-<script src = "/js/dashboard/loadModals.js"></script>
 <script src= "/js/lookup.js"></script>
 <script src = "/js/game/filters.js"></script>
 <script src = "/js/game/games.js"></script>

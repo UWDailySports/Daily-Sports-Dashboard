@@ -10,16 +10,9 @@
 async function openWritersModal() {
     await fetchWriterInfo();
 
-    const writersModal = document.getElementById("writers-modal");
-    writersModal.style.display = "flex"; 
+    document.getElementById("writers-modal").style.display = "flex"; 
 };
 
-
-document.addEventListener("click", () => {
-    document.querySelectorAll(".list-options").forEach(options => {
-        options.style.display = "none";
-    });
-});
 // #endregion //
 
 
@@ -165,7 +158,7 @@ async function fetchWriterInfo() {
 
 async function openAddWriterModal() {
     const addWriterModal = document.getElementById("add-writer-modal");
-    addWriterModal.style.display = "flex";
+    document.getElementById("add-writer-modal").style.display = "flex";
 }    
 
 document.getElementById("add-writer-confirm").onclick = async () => {
