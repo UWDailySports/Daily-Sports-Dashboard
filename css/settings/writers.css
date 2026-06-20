@@ -91,9 +91,7 @@
 /* #region writer-list-title */
 .writer-list-title-container, .writer-list-entry-container {
     /* Layout */
-    display: grid;
-    grid-template-columns: 10% 10% 10% 17% 10% 10% 8% 10% 10% 5%;
-
+    display: flex;
     align-items: center;
     position: relative;
 
@@ -143,7 +141,7 @@
     white-space: nowrap;
 }
 
-.writer-list-title-section, .writer-list-entry-section {
+.writer-list-title-section {
     /* Text */
     color: white;
     font-weight: bold;
