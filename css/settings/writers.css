@@ -78,7 +78,7 @@
     background: #f8f9fc;
         
     /* Misc */
-    overflow-y: auto; 
+    overflow-y: hidden; 
 }
 
 .writer-list-entry-container:hover {
