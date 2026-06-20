@@ -102,7 +102,7 @@
 
 #sport-title-sport, #sport-list-sport {
     /* Size / Shape */
-    width: 20%;
+    width: 15%;
 }
 
 #sport-title-abbreviation, #sport-list-abbreviation {
@@ -117,7 +117,7 @@
 
 #sport-title-email, #sport-list-email {
     /* Size / Shape */
-    width: 15%;
+    width: 20%;
 }
 
 #sport-title-phone, #sport-list-phone {
