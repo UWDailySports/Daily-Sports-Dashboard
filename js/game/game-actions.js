@@ -112,7 +112,7 @@ document.getElementById("confirm-assign").onclick = async () => {
 //             (2) containerId: container id to determine tab refresh
 // #region openeditGameModal //
 async function openEditGameModal(game) {
-    state.currGameId = game.game_id;
+    state.currGame = game;
 
     await loadSports("edit-sport-input");
 
