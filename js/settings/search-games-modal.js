@@ -9,16 +9,15 @@
 async function openSearchGamesModal() {
     state.currTab = "search-games";
 
-    const container = document.getElementById("search-games-modal").style.display = "flex"; 
-    const header = container.querySelector(".modal-table-header");
-    container.innerHTML = "";
-    container.appendChild(header);
+    await fetchSearchGameInfo(); 
 
-    await fetchSearchGameInfo();
+    document.getElementById("search-games-modal").style.display = "flex";
 };    
 
+const searchGamesModal = document.getElementById("search-games-modal");
+
 document.addEventListener("click", () => {
-    document.querySelectorAll(".modal-table-entry-options").forEach(options => {
+    document.querySelectorAll(".list-options").forEach(options => {
         options.style.display = "none";
     });
 });
@@ -62,26 +61,26 @@ async function fetchSearchGameInfo() {
             : `<span style="color: green;">&#10004;</span>`;
 
         const gameBox = document.createElement("div");
-        gameBox.classList.add("modal-table-entry");
+        gameBox.classList.add("search-games-table-entry");
         gameBox.innerHTML = `
-            <div class = "modal-table-entry-section search-games-id">${id}</div>
-            <div class = "modal-table-entry-section search-games-date">${date}</div>
-            <div class = "modal-table-entry-section search-games-sport">${sport}</div>
-            <div class = "modal-table-entry-section search-games-opponent">${opponent}</div>
-            <div class = "modal-table-entry-section search-games-location">${location}</div>
-            <div class = "modal-table-entry-section search-games-time">${time}</div>
+            <div class = "search-games-table-entry-section search-games-id">${id}</div>
+            <div class = "search-games-table-entry-section search-games-date">${date}</div>
+            <div class = "search-games-table-entry-section search-games-sport">${sport}</div>
+            <div class = "search-games-table-entry-section search-games-opponent">${opponent}</div>
+            <div class = "search-games-table-entry-section search-games-location">${location}</div>
+            <div class = "search-games-table-entry-section search-games-time">${time}</div>
             ${notes ? `
-                <div class = "modal-table-entry-section search-games-notes">
+                <div class = "search-games-table-entry-section search-games-notes">
                     <div class="search-games-notes-icon">i</div>
                     <div class="search-games-notes-modal">${notes}</div>
                 </div>
-            ` : `<div class = "modal-table-entry-section search-games-notes"></div>`}
-            <div class = "modal-table-entry-section search-games-writer">${writer}</div>
-            <div class = "modal-table-entry-section search-games-covered">${covered}</div>
-            <div class="modal-table-entry-section modal-table-entry-options-button">&hellip;
-                <div class="modal-table-entry-options">
-                    <div class="modal-table-entry-option edit-game-option">Edit</div>
-                    <div class="modal-table-entry-option delete-game-option">Delete</div>
+            ` : `<div class = "search-games-table-entry-section search-games-notes"></div>`}
+            <div class = "search-games-table-entry-section search-games-writer">${writer}</div>
+            <div class = "search-games-table-entry-section search-games-covered">${covered}</div>
+            <div class = "search-games-table-entry-section search-games-options list-options-button">&hellip;
+                <div class="list-options">
+                    <div class = "list-option edit-game-option">Edit</div>
+                    <div class = "list-option delete-game-option">Delete</div>
                 </div>
             </div>
          `;       
@@ -89,8 +88,8 @@ async function fetchSearchGameInfo() {
         gameBox.querySelector(".edit-game-option").addEventListener("click", () => openEditGameModal(game, "search-games")); 
         gameBox.querySelector(".delete-game-option").addEventListener("click", () => deleteGame(game.game_id, "search-games"));
 
-        const optionsButton = gameBox.querySelector(".modal-table-entry-options-button");
-        const options = gameBox.querySelector(".modal-table-entry-options");
+        const optionsButton = gameBox.querySelector(".list-options-button");
+        const options = gameBox.querySelector(".list-options");
 
         if(!optionsButton) console.log("Options button not found for game ID:", id);
         if(!options) console.log("Options menu not found for game ID:", id);
@@ -101,7 +100,7 @@ async function fetchSearchGameInfo() {
             console.log("clicked");
             e.stopPropagation();
 
-            document.querySelectorAll(".modal-table-entry-options").forEach(m => {
+            document.querySelectorAll(".list-options").forEach(m => {
                 if (m !== options) m.style.display = "none";
             });
 
@@ -117,7 +116,7 @@ async function fetchSearchGameInfo() {
     searchInput.oninput = () => {
         const term = searchInput.value.toLowerCase();
 
-        document.querySelectorAll(".modal-table-container").forEach(game => {
+        document.querySelectorAll(".search-games-list-entry-container").forEach(game => {
             game.style.display =
                 game.textContent.toLowerCase().includes(term)
                     ? "flex"
