@@ -385,6 +385,7 @@
     height: 52px;
     border: none;
     border-radius: 16px;
+    flex-shrink: 0; 
 
     /* Background */
     background: var(--primary_color);
@@ -505,11 +506,6 @@
     .add-writer-section, .edit-writer-section {
         /* Size / SHape */
         width: 80%;
-    }
-
-    .add-writer-confirm, .edit-writer-confirm {
-        /* Size / Shape */
-        height: 52px !important;
     }
 }
 /* #endregion */
