@@ -92,6 +92,8 @@
 
     /* Size/Shape */
     min-height: 64px;
+    min-width: 100%;
+    width: max-content;
     padding: 0 14px;
     border-radius: 16px;
     border: 1px solid rgba(54,15,90,.08);
@@ -112,6 +114,8 @@
 
     /* Background */
     background: var(--primary_color);
+
+    /* 
 }
 
 .writer-table-entry:hover {

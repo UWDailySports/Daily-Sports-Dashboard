@@ -58,6 +58,8 @@
     /* Size/Shape */
     min-height: 64px;
     padding: 0 14px;
+    min-width: 100%;
+    width: max-content;
     border-radius: 16px;
     border: 1px solid rgba(54,15,90,.08);
 
