@@ -482,6 +482,7 @@
         /* Misc */
         overflow-y:auto;
     }
+
     .search-writers-input {
         /* Size / Shape */
         width: 50%;
@@ -493,7 +494,16 @@
         
         /* Text */
         font-size: 14px;
+    }   
+    
+    .add-writer-section-container, .edit-writer-section-container {
+        /* Layout */
+        grid-template-columns: repeat(1, 1fr);
+    }
 
-    }    
+    .add-writer-section, .edit-writer-section {
+        /* Size / SHape */
+        width: 75%;
+    }
 }
 /* #endregion */

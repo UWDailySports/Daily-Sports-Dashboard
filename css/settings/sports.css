@@ -390,4 +390,9 @@
         /* Misc */
         overflow-y:auto;
     }
+
+    .add-sport-section, .edit-sport-section {
+        /* Size / Shape */
+        width: 75%;
+    }
 }
