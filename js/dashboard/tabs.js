@@ -33,35 +33,10 @@ window.showTab = function(event, tabId) {
     event.currentTarget.classList.add("active-tab");
     document.getElementById(tabId).style.display = "flex";
 
-    moveTabSlider(event.currentTarget);
-
-    if (tabHandlers[tabId]) {
+      if (tabHandlers[tabId]) {
         tabHandlers[tabId]();
     }
 };
-
-function moveTabSlider(button) {
-    const slider = document.getElementById("tab-slider");
-    const container = document.querySelector(".tab-container");
-
-    const containerRect = container.getBoundingClientRect();
-    const buttonRect = button.getBoundingClientRect();
-
-    const offsetLeft = buttonRect.left - containerRect.left;
-
-    slider.style.width = buttonRect.width + "px";
-    slider.style.transform = `translateX(${offsetLeft}px)`;
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-    const active = document.querySelector(".tab-button.active-tab")
-        || document.querySelector(".tab-button");
-
-    if (active) {
-        active.classList.add("active-tab");
-        moveTabSlider(active);
-    }
-});
 
 tabHandlers["production"] = function() {
     const container = document.getElementById("production");

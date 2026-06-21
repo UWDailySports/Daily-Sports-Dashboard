@@ -7,7 +7,6 @@
     align-items: center;
     gap: 20px;
     box-sizing: border-box;
-    position: relative;
 
     /* Size/Shape */
     width: 80%;
@@ -23,17 +22,6 @@
 
     /* Misc */    
     backdrop-filter: blur(12px);
-}
-
-#tab-slider {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    width: 0px;
-    background: #360f5a;
-    transition: transform 0.3s ease, width 0.3s ease;
-    border-radius: 4px;
 }
 /* #endregion */         
 
