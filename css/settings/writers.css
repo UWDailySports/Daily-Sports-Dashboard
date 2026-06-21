@@ -467,5 +467,14 @@
         /* Txt */
         font-size: 30px
     }
+
+    .add-writer-modal-content, .edit-writer-modal-content {
+        /* Size /Shape */
+        width: 95%;
+        height: 95%;
+
+        /* Misc */
+        overflow-y:auto;
+    }
 }
 /* #endregion */
