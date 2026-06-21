@@ -27,6 +27,65 @@
 }
 /* #endregion */
 
+/* #region search-games-list-container */
+.search-games-table-container {
+    /* Layout */
+    flex: 1;
+    display: flex;
+    flex-direction: column;   
+
+    /* Size/Shape */
+    width: 100%;
+    gap: 10px;
+    border-radius: 18px;
+
+    /* Background */
+    background: #f8f9fc;
+        
+    /* Misc */
+    overflow-y: auto; 
+    scrollbar-gutter: stable;
+}
+/* #endregion */
+
+/* #region search-games-list-entry-container */
+.search-games-table-header, .search-games-table-entry {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    /* Size/Shape */
+    min-height: 64px;
+    padding: 0 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(54,15,90,.08);
+
+    /* Background */
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+
+    /* Misc */  
+    transition: box-shadow .1s ease;   
+}
+
+.search-games-table-header {
+    /* Layout */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    /* Background */
+    background: var(--primary_color);
+}
+
+.search-games-table-entry:hover {
+    /* Background */
+    box-shadow:
+        0 8px 20px rgba(54,15,90,.10);
+}
+/* #endregion */
+
 /* #region search-games-list-entry-section */
 .search-games-table-header-section, .search-games-table-entry-section {
     /* Layout */
@@ -155,6 +214,20 @@
     /* Size / Shape */
     width: 5%;
 }
+
+.search-games-options {
+    /* Layout */
+    display: flex;
+    justify-content: center;
+
+    /* Size / Shape */
+    width: 5%;
+
+    /* Text */
+    font-size: 30px;
+}
+/* #endregion */
+
 
 /* #region search-games-input */
 .search-games-input {
