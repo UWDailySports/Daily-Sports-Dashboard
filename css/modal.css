@@ -66,6 +66,7 @@
     /* Size/Shape */
     width: 30px;
     height: 30px;
+    margin-right: 20px;
 
     /* Text */ 
     color: var(--primary_color);
@@ -81,7 +82,9 @@
 
     /* Text */
     color: var(--primary_color);
+    font-size: 40px; 
 } 
+/* #endregion */
 
 /* #region modal-options-container */
 .modal-options-container {
@@ -98,68 +101,90 @@
 /* #region modal-table-container */ 
 .modal-table-container {
     /* Layout */
-    display: grid;
+    flex: 1;
+    display: flex;
+    flex-direction: column;   
 
-    /* Size / Shape */
+    /* Size/Shape */
     width: 100%;
-    height: 80%;
+    gap: 10px;
+    border-radius: 18px;
 
+    /* Background */
+    background: #f8f9fc;
+        
     /* Misc */
-    overflow-x: auto;
+    overflow-y: auto; 
+    scrollbar-gutter: stable;
 }
 /* #endregion */
 
-@media screen and (max-width: 768px){
-    .close-button {
-        /* Layout */
+/* #region modal-table-header / modal-table-entry */
+.modal-table-header, .modal-table-entry {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    position: relative;
 
-        /* Size/Shape */
-        margin-right: 10px;
+    /* Size/Shape */
+    min-height: 64px;
+    padding: 0 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(54,15,90,.08);
 
-        /* Background */
+    /* Background */
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
 
-        /* Text */
-        font-size: 40px; 
-        
-        /* Misc */
-    }
+    /* Misc */  
+    transition: box-shadow .1s ease;  
 }
 
-@media screen and (min-width: 769px) and (max-width: 1800px){
-    .close-button {
-        /* Layout */
+.modal-table-header {
+    /* Layout */
+    position: sticky;
+    top: 0;
+    z-index: 2;
 
-        /* Size/Shape */
-        margin-right: 20px;
-
-        /* Background */
-
-        /* Text */
-        font-size: 40px; 
-        
-        /* Misc */
-    }
+    /* Background */
+    background: var(--primary_color);
 }
 
-@media screen and (min-width: 1801px){
-    .close-button {
-        /* Layout */
-
-        /* Size/Shape */
-        margin-right: 20px;
-
-        /* Background */
-
-        /* Text */
-        font-size: 40px; 
-        
-        /* Misc */
-    }
+.modal-table-entry:hover {
+    /* Background */
+    box-shadow:
+        0 8px 20px rgba(54,15,90,.10);
 }
 /* #endregion */
 
-/* #region list-options-button */
-.list-options-button {
+/* #region modal-table-header-section / modal-table-entry-section */
+.modal-table-header-section, .modal-table-entry-section {
+    /* Layout */
+    display: flex;
+    flex-shrink: 1;
+    align-items: center;
+
+    /* Size/Shape */
+    height: 100%;
+    min-width: 0;
+
+    /* Text */
+    font-size: 14px;
+    font-weight: 400;
+    color: #2c2c2c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.modal-table-header-section {
+    /* Text */
+    color: white;
+}
+/* #endregion */
+
+/* #region table-entry-options-button */
+.table-entry-options-button {
     /* Size / Shape */
     border: none;
 
@@ -175,14 +200,14 @@
     transition: background 0.1s ease;    
 }
 
-.list-options-button:hover, .list-options-button.active {
+.table-entry-options-button:hover, .table-entry-options-button.active {
     /* Background */
     background: rgba(54,15,90,.08);
 }
 /* #endregion */
 
 /* #region list-options */
-.list-options {
+.table-entry-options {
     /* Layout */
     display: none;
     position: absolute;
@@ -206,7 +231,7 @@
 /* #endregion */
 
 /* #region list-option */
-.list-option {
+.table-entry-option {
     /* Size / Shape */
     padding-left: 4px;
     border-radius: 8px;
@@ -221,7 +246,7 @@
     transition: background 0.2s ease;
 }
 
-.list-option:hover {
+.table-entry-option:hover {
     /* Background */
     background: var(--secondary_color);
     color: white;
@@ -246,3 +271,13 @@
     }
 }
 /* #endregion */
+
+/* #region Mobile Styles */
+@media screen and (max-width: 768px){
+    .close-button {
+        /* Size/Shape */
+        margin-right: 10px;
+    }
+}
+/* #endregion */
+

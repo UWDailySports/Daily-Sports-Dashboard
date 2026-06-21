@@ -81,28 +81,28 @@ async function fetchWriterInfo() {
         }
 
         const writerBox = document.createElement("div");
-        writerBox.classList.add("writer-table-entry");
+        writerBox.classList.add("modal-table-entry");
 
         writerBox.innerHTML = `
-        <div class = "writer-table-entry-section writer-table-first-name">${first_name}</div>
-        <div class = "writer-table-entry-section writer-table-last-name">${last_name}</div>
-        <div class = "writer-table-entry-section writer-table-position">${position}</div>
-        <div class = "writer-table-entry-section writer-table-email">${email}</div>      
-        <div class = "writer-table-entry-section writer-table-phone">${phone}</div>
+        <div class = "modal-table-entry-section writer-table-first-name">${first_name}</div>
+        <div class = "modal-table-entry-section writer-table-last-name">${last_name}</div>
+        <div class = "modal-table-entry-section writer-table-position">${position}</div>
+        <div class = "modal-table-entry-section writer-table-email">${email}</div>      
+        <div class = "modal-table-entry-section writer-table-phone">${phone}</div>
         ${x
-            ? `<a class = "writer-table-entry-section writer-table-x" href="${x}" target="_blank">${x_short}</a>`
-            : `<div class = "writer-table-entry-section writer-table-x"></div>`
+            ? `<a class = "modal-table-entry-section writer-table-x" href="${x}" target="_blank">${x_short}</a>`
+            : `<div class = "modal-table-entry-section writer-table-x"></div>`
         }
         ${headshot
-            ? `<a class = "writer-table-entry-section writer-table-headshot" href="${headshot}" target="_blank">Link</a>`
-            : `<div class = "writer-table-entry-section writer-table-headshot"></div>`
+            ? `<a class = "modal-table-entry-section writer-table-headshot" href="${headshot}" target="_blank">Link</a>`
+            : `<div class = "modal-table-entry-section writer-table-headshot"></div>`
         }
-        <div class = "writer-table-entry-section writer-table-hire-date">${hire_date_formatted}</div>
-        <div class = "writer-table-entry-section writer-table-end-date">${end_date_formatted}</div>
-        <div class = "writer-table-entry-section writer-table-options list-options-button">&hellip;
-            <div class="list-options">
-                <div class = "list-option edit-writer-option">Edit</div>
-                <div class = "list-option delete-writer-option">Delete</div>
+        <div class = "modal-table-entry-section writer-table-hire-date">${hire_date_formatted}</div>
+        <div class = "modal-table-entry-section writer-table-end-date">${end_date_formatted}</div>
+        <div class = "modal-table-entry-section writer-table-options modal-table-entry-option-button">&hellip;
+            <div class="modal-table-entry-option">
+                <div class = "modal-table-entry-option edit-writer-option">Edit</div>
+                <div class = "modal-table-entry-option delete-writer-option">Delete</div>
             </div>
         </div>
         `;
@@ -110,8 +110,8 @@ async function fetchWriterInfo() {
         writerBox.querySelector(".edit-writer-option").addEventListener("click", () => openEditWriterModal(writer)); 
         writerBox.querySelector(".delete-writer-option").addEventListener("click", () => deleteWriter(writer.writer_id));
 
-        const optionsBtn = writerBox.querySelector(".list-options-button");
-        const options = writerBox.querySelector(".list-options");
+        const optionsBtn = writerBox.querySelector(".modal-table-entry-option-button");
+        const options = writerBox.querySelector(".modal-table-entry-option");
 
         if (!optionsBtn) console.log("button not found");
         if (!options) console.log("menu not found");
@@ -122,7 +122,7 @@ async function fetchWriterInfo() {
             console.log("clicked");
             e.stopPropagation();
 
-            document.querySelectorAll(".list-options").forEach(m => {
+            document.querySelectorAll(".modal-table-entry-option").forEach(m => {
                 if (m !== options) m.style.display = "none";
             });
 
