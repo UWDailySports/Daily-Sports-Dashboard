@@ -187,6 +187,7 @@
 .modal-table-entry-options-button {
     /* Size / Shape */
     border: none;
+    width: 5%;
 
     /* Background */
     background: none;
