@@ -139,7 +139,7 @@ async function fetchWriterInfo() {
     searchWriterInput.oninput = () => {
         const term = searchWriterInput.value.toLowerCase();
 
-        document.querySelectorAll(".writer-list-entry-container").forEach(writer => {
+        document.querySelectorAll(".modal-table-container").forEach(writer => {
             writer.style.display =
                 writer.textContent.toLowerCase().includes(term)
                     ? "flex"
@@ -174,7 +174,7 @@ document.getElementById("add-writer-confirm").onclick = async () => {
     if(!first_name || !last_name || !position || !email) {
         alert("Please fill in all required fields");
         return;
-    } ``
+    } 
 
     await addWriter(first_name, last_name, position,email, phone, x, headshot, hire_date);
 

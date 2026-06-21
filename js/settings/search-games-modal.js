@@ -116,7 +116,7 @@ async function fetchSearchGameInfo() {
     searchInput.oninput = () => {
         const term = searchInput.value.toLowerCase();
 
-        document.querySelectorAll(".search-games-list-entry-container").forEach(game => {
+        document.querySelectorAll(".modal-table-container").forEach(game => {
             game.style.display =
                 game.textContent.toLowerCase().includes(term)
                     ? "flex"
