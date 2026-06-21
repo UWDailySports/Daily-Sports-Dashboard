@@ -386,14 +386,20 @@
         /* Size /Shape */
         width: 95%;
         height: 95%;
+         
 
         /* Misc */
         overflow-y:auto;
     }
 
+    .add-sport-section-container, .add-sport-section-container {
+        /* layout */
+        gap: 25px;
+    }
+
     .add-sport-section, .edit-sport-section {
         /* Size / Shape */
-        width: 75%;
-        min-width: 200px;
+        width: 80%;
+        min-width: 300px;
     }
 }
