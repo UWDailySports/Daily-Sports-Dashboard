@@ -336,37 +336,37 @@
 /* #endregion */
 
 @media screen and (max-width: 768px) {
-    #sport-title-sport, #sport-list-sport {
+    .sport-title-sport, .sport-list-sport {
         /* Size / Shape */
         width: 200px;
     }
 
-    #sport-title-abbreviation, #sport-list-abbreviation {
+    .sport-title-abbreviation, .sport-list-abbreviation {
         /* Size / Shape */
         width: 100px;
     }
 
-    #sport-title-sid, #sport-list-sid {
+    .sport-title-sid, .sport-list-sid {
         /* Size / Shape */
         width: 200px;
     }
 
-    #sport-title-email, #sport-list-email {
+    .sport-title-email, .sport-list-email {
         /* Size / Shape */
         width: 150px;
     }
 
-    #sport-title-phone, #sport-list-phone {
+    .sport-title-phone, .sport-list-phone {
         /* Size / Shape */
         width: 150px;
     }
 
-    #sport-title-blank, #sport-list-blank {
+    .sport-title-blank, .sport-list-blank {
         /* Size / Shape */
         width: 150px;
     }
 
-    #sport-title-options, #sport-list-options {
+    .sport-title-options, .sport-list-options {
         /* Size / Shape */
         width: 50px;
     }
