@@ -66,11 +66,9 @@
     /* Size/Shape */
     width: 30px;
     height: 30px;
-    margin-right: 20px;
 
     /* Text */ 
     color: var(--primary_color);
-    font-size: 40px; 
         
     /* Misc */
     cursor: pointer;
@@ -84,7 +82,6 @@
     /* Text */
     color: var(--primary_color);
 } 
-/* #endregion */
 
 /* #region modal-options-container */
 .modal-options-container {
@@ -101,93 +98,70 @@
 /* #region modal-table-container */ 
 .modal-table-container {
     /* Layout */
-    flex: 1;
-    display: flex;
-    flex-direction: column;   
+    display: grid;
 
-    /* Size/Shape */
+    /* Size / Shape */
     width: 100%;
-    gap: 10px;
-    border-radius: 18px;
+    height: 80%;
 
-    /* Background */
-    background: #f8f9fc;
-        
     /* Misc */
-    overflow-y: auto; 
-    scrollbar-gutter: stable;
+    overflow-x: auto;
 }
 /* #endregion */
 
-/* #region modal-table-header / modal-table-entry */
-.modal-table-header, .modal-table-entry {
-    /* Layout */
-    display: flex;
-    align-items: center;
-    position: relative;
+@media screen and (max-width: 768px){
+    .close-button {
+        /* Layout */
 
-    /* Size/Shape */
-    min-height: 64px;
-    padding: 0 14px;
-    border-radius: 16px;
-    border: 1px solid rgba(54,15,90,.08);
+        /* Size/Shape */
+        margin-right: 10px;
 
-    /* Background */
-    background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+        /* Background */
 
-    /* Misc */  
-    transition: box-shadow .1s ease;  
+        /* Text */
+        font-size: 40px; 
+        
+        /* Misc */
+    }
 }
 
-.modal-table-header {
-    /* Layout */
-    position: sticky;
-    top: 0;
-    z-index: 2;
+@media screen and (min-width: 769px) and (max-width: 1800px){
+    .close-button {
+        /* Layout */
 
-    /* Background */
-    background: var(--primary_color);
+        /* Size/Shape */
+        margin-right: 20px;
+
+        /* Background */
+
+        /* Text */
+        font-size: 40px; 
+        
+        /* Misc */
+    }
 }
 
-.modal-table-entry:hover {
-    /* Background */
-    box-shadow:
-        0 8px 20px rgba(54,15,90,.10);
-}
-/* #endregion */
+@media screen and (min-width: 1801px){
+    .close-button {
+        /* Layout */
 
-/* #region modal-table-header-section / modal-table-entry-section */
-.modal-table-header-section, .modal-table-entry-section {
-    /* Layout */
-    display: flex;
-    flex-shrink: 1;
-    align-items: center;
+        /* Size/Shape */
+        margin-right: 20px;
 
-    /* Size/Shape */
-    height: 100%;
-    min-width: 0;
+        /* Background */
 
-    /* Text */
-    font-size: 14px;
-    font-weight: 400;
-    color: #2c2c2c;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.modal-table-header-section {
-    /* Text */
-    color: white;
+        /* Text */
+        font-size: 40px; 
+        
+        /* Misc */
+    }
 }
 /* #endregion */
 
-/* #region table-entry-options-button */
-.modal-table-entry-options-button {
+/* #region list-options-button */
+.list-options-button {
     /* Size / Shape */
     border: none;
-    width: 5%;
 
     /* Background */
     background: none;
@@ -201,14 +175,14 @@
     transition: background 0.1s ease;    
 }
 
-.modal-table-entry-options-button:hover, .modal-table-entry-options-button.active {
+.list-options-button:hover, .list-options-button.active {
     /* Background */
     background: rgba(54,15,90,.08);
 }
 /* #endregion */
 
-/* #region modal-table-entry-options */
-.modal-table-entry-options {
+/* #region list-options */
+.list-options {
     /* Layout */
     display: none;
     position: absolute;
@@ -232,7 +206,7 @@
 /* #endregion */
 
 /* #region list-option */
-.modal-table-entry-option {
+.list-option {
     /* Size / Shape */
     padding-left: 4px;
     border-radius: 8px;
@@ -247,7 +221,7 @@
     transition: background 0.2s ease;
 }
 
-.modal-table-entry-option:hover {
+.list-option:hover {
     /* Background */
     background: var(--secondary_color);
     color: white;
@@ -272,13 +246,3 @@
     }
 }
 /* #endregion */
-
-/* #region Mobile Styles */
-@media screen and (max-width: 768px){
-    .close-button {
-        /* Size/Shape */
-        margin-right: 10px;
-    }
-}
-/* #endregion */
-
