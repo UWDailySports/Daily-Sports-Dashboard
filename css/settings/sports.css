@@ -394,5 +394,6 @@
     .add-sport-section, .edit-sport-section {
         /* Size / Shape */
         width: 75%;
+        min-width: 200px;
     }
 }
