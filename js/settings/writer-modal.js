@@ -8,9 +8,12 @@
 // #region openWritersModal() //
 
 async function openWritersModal() {
-    await fetchWriterInfo();
+    const writerContainer = document.getElementById("writers-modal").style.display = "flex"; 
+    const header = writerContainer.querySelector(".modal-table-header");
+    writerContainer.innerHTML = "";
+    writerContainer.appendChild(header);
 
-    document.getElementById("writers-modal").style.display = "flex"; 
+    await fetchWriterInfo();
 };
 
 // #endregion //
@@ -110,8 +113,8 @@ async function fetchWriterInfo() {
         writerBox.querySelector(".edit-writer-option").addEventListener("click", () => openEditWriterModal(writer)); 
         writerBox.querySelector(".delete-writer-option").addEventListener("click", () => deleteWriter(writer.writer_id));
 
-        const optionsBtn = writerBox.querySelector(".modal-table-entry-option-button");
-        const options = writerBox.querySelector(".modal-table-entry-option");
+        const optionsBtn = writerBox.querySelector(".modal-table-entry-options-button");
+        const options = writerBox.querySelector(".modal-table-entry-options");
 
         if (!optionsBtn) console.log("button not found");
         if (!options) console.log("menu not found");

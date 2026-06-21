@@ -9,12 +9,13 @@
 async function openSearchGamesModal() {
     state.currTab = "search-games";
 
-    await fetchSearchGameInfo(); 
+    const container = document.getElementById("search-games-modal").style.display = "flex"; 
+    const header = container.querySelector(".modal-table-header");
+    container.innerHTML = "";
+    container.appendChild(header);
 
-    document.getElementById("search-games-modal").style.display = "flex";
+    await fetchSearchGameInfo();
 };    
-
-const searchGamesModal = document.getElementById("search-games-modal");
 
 document.addEventListener("click", () => {
     document.querySelectorAll(".modal-table-entry-options").forEach(options => {

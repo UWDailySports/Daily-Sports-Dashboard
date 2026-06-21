@@ -7,9 +7,12 @@
 // Parameters: None
 // #region openSportsModal() //
 async function openSportsModal() {
-    await fetchSportInfo();
+    const sportContainer = document.getElementById("sport-modal").style.display = "flex"; 
+    const header = sportContainer.querySelector(".modal-table-header");
+    sportContainer.innerHTML = "";
+    sportContainer.appendChild(header);
 
-    document.getElementById("sport-modal").style.display = "flex";
+    
 };    
 
 const sportModal = document.getElementById("sport-modal");
