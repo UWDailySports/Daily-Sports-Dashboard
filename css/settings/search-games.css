@@ -111,37 +111,37 @@
     color: white;
 }
 
-.search-games-id {
+.search-games-table-id {
     /* Size / Shape */
     width: 5%;
 }
 
-.search-games-date {
+.search-games-table-date {
     /* Size / Shape */
     width: 15%; 
 }
 
-.search-games-sport {
+.search-games-table-sport {
     /* Size / Shape */
     width: 15%;
 }
 
-.search-games-opponent {
+.search-games-table-opponent {
     /* Size / Shape */
     width: 15%;
 }
 
-.search-games-location {
+.search-games-table-location {
     /* Size / Shape */
     width: 15%;
 }
 
-.search-games-time {
+.search-games-table-time {
     /* Size / Shape */
     width: 5%;
 }
 
-.search-games-notes {
+.search-games-table-notes {
     /* Layout */
     display: flex;
     justify-content: center;
@@ -150,7 +150,7 @@
     width: 10%; 
 }
 
-.search-games-notes-icon {
+.search-games-table-notes-icon {
     /* Layout */
     display: flex;
     justify-content: center;
@@ -172,7 +172,7 @@
     cursor: pointer;
 }
 
-.search-games-notes-modal {
+.search-games-table-notes-modal {
     /* Layout */
     display: none;
     position: absolute;
@@ -196,17 +196,17 @@
     white-space: normal;
 }
 
-.search-games-notes:hover .search-games-notes-modal {
+.search-games-table-notes:hover .search-games-table-notes-modal {
     /* Layout */
     display: block;
 }
 
-.search-games-writer {
+.search-games-table-writer {
     /* Size / Shape */
     width: 10%;
 }
 
-.search-games-covered {
+.search-games-table-covered {
     /* Layout */
     display: flex;
     justify-content: center;
@@ -215,7 +215,7 @@
     width: 5%;
 }
 
-.search-games-options {
+.search-games-table-options {
     /* Layout */
     display: flex;
     justify-content: center;
@@ -330,37 +330,37 @@
         width: 300px;
     }
 
-    .search-games-title-id, .search-games-entry-id {
+    .search-games-table-id {
         /* Size / Shape */
         width: 50px;
     }
 
-    .search-games-title-date, .search-games-entry-date {
+    .search-games-table-date {
         /* Size / Shape */
         width: 125px;
     }
 
-    .search-games-title-sport, .search-games-entry-sport {
+    .search-games-table-sport {
         /* Size / Shape */
         width: 150px;
     }
 
-    .search-games-title-opponent, .search-games-entry-opponent {
+    .search-games-table-opponent {
         /* Size / Shape */
         width: 150px;
     }
 
-    .search-games-title-location, .search-games-entry-location {
+    .search-games-table-location{
         /* Size / Shape */
         width: 150px;
     }
 
-    .search-games-title-time, .search-games-entry-time {
+    .search-games-table-time {
         /* Size / Shape */
         width: 75px;
     }
 
-    .search-games-title-notes, .search-games-entry-notes {
+    .search-games-table-notes {
         /* Layout */
         display: flex;
         justify-content: center;
@@ -370,12 +370,12 @@
         width: 75px;
     }
 
-    .search-games-title-writer, .search-games-entry-writer {
+    .search-games-table-writer {
         /* Size / Shape */
         width: 150px;
     }
 
-    .search-games-title-covered, .search-games-entry-covered {
+    .search-games-table-covered {
         /* Layout */
         justify-content: center;
 
@@ -383,7 +383,7 @@
         width: 75px;
     }
 
-    .search-games-title-options, .search-games-entry-options {
+    .search-games-table-options {
         /* Size / Shape */
         width: 50px;
         margin-bottom: 1%;

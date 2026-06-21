@@ -419,47 +419,47 @@
         overflow-x: auto;
     }
     
-    .writer-title-first-name, .writer-list-first-name {
+    .writer-table-first-name {
         /* Size / Shape */
         width: 100px;
     }
 
-    .writer-title-last-name, .writer-list-last-name {
+    .writer-table-last-name {
         /* Size / Shape */
         width: 100px;
     }
 
-    .writer-title-email, .writer-list-email {
+    .writer-table-email {
         /* Size / Shape */
         width: 170px;
     }
 
-    .writer-title-phone, .writer-list-phone {
+    .writer-table-phone {
         /* Size / Shape */
         width: 100px;
     }
 
-    .writer-title-x, .writer-list-x {
+    .writer-table-x {
         /* Size / Shape */
         width: 100px;
     }
 
-    .writer-title-headshot, .writer-list-headshot {
+    .writer-table-headshot {
         /* Size / Shape */
         width: 80px;
     }
 
-    .writer-title-hire-date, .writer-list-hire-date {
+    .writer-table-hire-date {
         /* Size / Shape */
         width: 100px;
     }
 
-    .writer-title-end-date, .writer-list-end-date {
+    .writer-table-end-date {
         /* Size / Shape */
         width: 100px;
     }
 
-    .writer-title-options, .writer-list-options {
+    .writer-table-options {
         /* Size / Shape */
         width: 50px;
         margin-bottom: 1%;

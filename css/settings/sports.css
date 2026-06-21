@@ -328,7 +328,7 @@
     /* Background */
     background: var(--secondary_color);
     box-shadow:
-        0 10px 22px rgba(54,15,90,.22);
+        0 10px 22px rgba(81, 71, 90, 0.22);
 
     /* Misc */
     transform: translateY(-2px);
@@ -336,37 +336,46 @@
 /* #endregion */
 
 @media screen and (max-width: 768px) {
-    .sport-title-sport, .sport-list-sport {
+    .sport-modal-content {
+        /* Size / Shape */
+        width: 95%;
+        height: 95%;
+        
+        /* Misc */
+        overflow-x: auto;
+    }
+    
+    .sport-table-sport {
         /* Size / Shape */
         width: 200px;
     }
 
-    .sport-title-abbreviation, .sport-list-abbreviation {
+    .sport-table-abbreviation {
         /* Size / Shape */
         width: 100px;
     }
 
-    .sport-title-sid, .sport-list-sid {
+    .sport-table-sid {
         /* Size / Shape */
         width: 200px;
     }
 
-    .sport-title-email, .sport-list-email {
+    .sport-table-email {
         /* Size / Shape */
         width: 150px;
     }
 
-    .sport-title-phone, .sport-list-phone {
+    .sport-table-phone {
         /* Size / Shape */
         width: 150px;
     }
 
-    .sport-title-blank, .sport-list-blank {
+    .sport-table-blank {
         /* Size / Shape */
         width: 150px;
     }
 
-    .sport-title-options, .sport-list-options {
+    .sport-table-options {
         /* Size / Shape */
         width: 50px;
     }
