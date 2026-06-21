@@ -42,7 +42,7 @@
     background: #f8f9fc;
         
     /* Misc */
-    overflow-y: auto; 
+    overflow: auto; 
     scrollbar-gutter: stable;
 }
 /* #endregion */
@@ -344,7 +344,7 @@
         /* Misc */
         overflow-x: auto;
     }
-    
+
     .sport-table-sport {
         /* Size / Shape */
         width: 200px;
