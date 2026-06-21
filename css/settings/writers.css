@@ -78,7 +78,7 @@
     background: #f8f9fc;
         
     /* Misc */
-    overflow-y: auto; 
+    overflow: auto;
     scrollbar-gutter: stable;
 }
 /* #endregion */
@@ -92,6 +92,8 @@
 
     /* Size/Shape */
     min-height: 64px;
+    min-width: 100%;
+    width: max-content;
     padding: 0 14px;
     border-radius: 16px;
     border: 1px solid rgba(54,15,90,.08);
@@ -112,6 +114,8 @@
 
     /* Background */
     background: var(--primary_color);
+
+    /* 
 }
 
 .writer-table-entry:hover {
@@ -125,7 +129,7 @@
 .writer-table-header-section, .writer-table-entry-section {
     /* Layout */
     display: flex;
-    flex-shrink: 1;
+    flex-shrink: 0;
     align-items: center;
 
     /* Size/Shape */
@@ -414,52 +418,54 @@
         /* Size / Shape */
         width: 95%;
         height: 95%;
-        
-        /* Misc */
-        overflow-x: auto;
     }
     
-    #writer-title-first-name, #writer-list-first-name {
+    .writer-table-first-name {
         /* Size / Shape */
         width: 100px;
     }
 
-    #writer-title-last-name, #writer-list-last-name {
+    .writer-table-last-name {
         /* Size / Shape */
         width: 100px;
     }
 
-    #writer-title-email, #writer-list-email {
+    .writer-table-position {
+        /* Size / Shape */
+        width: 100px;
+    }
+
+    .writer-table-email {
         /* Size / Shape */
         width: 170px;
     }
 
-    #writer-title-phone, #writer-list-phone {
+    .writer-table-phone {
+        /* Size / Shape */
+        width: 125px;
+    }
+
+    .writer-table-x {
         /* Size / Shape */
         width: 100px;
     }
 
-    #writer-title-x, #writer-list-x {
-        /* Size / Shape */
-        width: 100px;
-    }
-
-    #writer-title-headshot, #writer-list-headshot {
+    .writer-table-headshot {
         /* Size / Shape */
         width: 80px;
     }
 
-    #writer-title-hire-date, #writer-list-hire-date {
+    .writer-table-hire-date {
         /* Size / Shape */
         width: 100px;
     }
 
-    #writer-title-end-date, #writer-list-end-date {
+    .writer-table-end-date {
         /* Size / Shape */
         width: 100px;
     }
 
-    #writer-title-options, #writer-list-options {
+    .writer-table-options {
         /* Size / Shape */
         width: 50px;
         margin-bottom: 1%;
@@ -476,5 +482,18 @@
         /* Misc */
         overflow-y:auto;
     }
+    .search-writers-input {
+        /* Size / Shape */
+        width: 50%;
+    }
+
+    .add-writer-button {
+        /* Size / Shape */
+        width: 30%;
+        
+        /* Text */
+        font-size: 14px;
+
+    }    
 }
 /* #endregion */

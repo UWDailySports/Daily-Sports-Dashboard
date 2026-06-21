@@ -42,7 +42,7 @@
     background: #f8f9fc;
         
     /* Misc */
-    overflow-y: auto; 
+    overflow: auto; 
     scrollbar-gutter: stable;
 }
 /* #endregion */
@@ -56,6 +56,8 @@
 
     /* Size/Shape */
     min-height: 64px;
+    min-width: 100%;
+    width: max-content;
     padding: 0 14px;
     border-radius: 16px;
     border: 1px solid rgba(54,15,90,.08);
@@ -89,7 +91,7 @@
 .sport-table-header-section, .sport-table-entry-section {
     /* Layout */
     display: flex;
-    flex-shrink: 1;
+    flex-shrink: 0;
     align-items: center;
 
     /* Size/Shape */
@@ -328,7 +330,7 @@
     /* Background */
     background: var(--secondary_color);
     box-shadow:
-        0 10px 22px rgba(54,15,90,.22);
+        0 10px 22px rgba(81, 71, 90, 0.22);
 
     /* Misc */
     transform: translateY(-2px);
@@ -336,6 +338,15 @@
 /* #endregion */
 
 @media screen and (max-width: 768px) {
+    .sport-modal-content {
+        /* Size / Shape */
+        width: 95%;
+        height: 95%;
+        
+        /* Misc */
+        overflow-x: auto;
+    }
+
     .sport-table-sport {
         /* Size / Shape */
         width: 200px;

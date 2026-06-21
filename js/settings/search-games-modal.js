@@ -63,21 +63,21 @@ async function fetchSearchGameInfo() {
         const gameBox = document.createElement("div");
         gameBox.classList.add("search-games-table-entry");
         gameBox.innerHTML = `
-            <div class = "search-games-table-entry-section search-games-id">${id}</div>
-            <div class = "search-games-table-entry-section search-games-date">${date}</div>
-            <div class = "search-games-table-entry-section search-games-sport">${sport}</div>
-            <div class = "search-games-table-entry-section search-games-opponent">${opponent}</div>
-            <div class = "search-games-table-entry-section search-games-location">${location}</div>
-            <div class = "search-games-table-entry-section search-games-time">${time}</div>
+            <div class = "search-games-table-entry-section search-games-table-id">${id}</div>
+            <div class = "search-games-table-entry-section search-games-table-date">${date}</div>
+            <div class = "search-games-table-entry-section search-games-table-sport">${sport}</div>
+            <div class = "search-games-table-entry-section search-games-table-opponent">${opponent}</div>
+            <div class = "search-games-table-entry-section search-games-table-location">${location}</div>
+            <div class = "search-games-table-entry-section search-games-table-time">${time}</div>
             ${notes ? `
-                <div class = "search-games-table-entry-section search-games-notes">
-                    <div class="search-games-notes-icon">i</div>
-                    <div class="search-games-notes-modal">${notes}</div>
+                <div class = "search-games-table-entry-section search-games-table-notes">
+                    <div class="search-games-table-notes-icon">i</div>
+                    <div class="search-games-table-notes-modal">${notes}</div>
                 </div>
-            ` : `<div class = "search-games-table-entry-section search-games-notes"></div>`}
-            <div class = "search-games-table-entry-section search-games-writer">${writer}</div>
-            <div class = "search-games-table-entry-section search-games-covered">${covered}</div>
-            <div class = "search-games-table-entry-section search-games-options list-options-button">&hellip;
+            ` : `<div class = "search-games-table-entry-section search-games-table-notes"></div>`}
+            <div class = "search-games-table-entry-section search-games-table-writer">${writer}</div>
+            <div class = "search-games-table-entry-section search-games-table-covered">${covered}</div>
+            <div class = "search-games-table-entry-section search-games-table-options list-options-button">&hellip;
                 <div class="list-options">
                     <div class = "list-option edit-game-option">Edit</div>
                     <div class = "list-option delete-game-option">Delete</div>
