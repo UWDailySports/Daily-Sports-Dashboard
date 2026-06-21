@@ -70,6 +70,7 @@
 
     /* Text */ 
     color: var(--primary_color);
+    font-size: 40px; 
         
     /* Misc */
     cursor: pointer;
@@ -82,7 +83,6 @@
 
     /* Text */
     color: var(--primary_color);
-    font-size: 40px; 
 } 
 /* #endregion */
 
@@ -184,7 +184,7 @@
 /* #endregion */
 
 /* #region table-entry-options-button */
-.table-entry-options-button {
+.modal-table-entry-options-button {
     /* Size / Shape */
     border: none;
 
@@ -200,14 +200,14 @@
     transition: background 0.1s ease;    
 }
 
-.table-entry-options-button:hover, .table-entry-options-button.active {
+.modal-table-entry-options-button:hover, .modal-table-entry-options-button.active {
     /* Background */
     background: rgba(54,15,90,.08);
 }
 /* #endregion */
 
 /* #region list-options */
-.table-entry-options {
+.modal-table-entry-options {
     /* Layout */
     display: none;
     position: absolute;
@@ -231,7 +231,7 @@
 /* #endregion */
 
 /* #region list-option */
-.table-entry-option {
+.modal-table-entry-option {
     /* Size / Shape */
     padding-left: 4px;
     border-radius: 8px;
@@ -246,7 +246,7 @@
     transition: background 0.2s ease;
 }
 
-.table-entry-option:hover {
+.modal-table-entry-option:hover {
     /* Background */
     background: var(--secondary_color);
     color: white;
