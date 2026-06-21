@@ -77,7 +77,7 @@ async function fetchSearchGameInfo() {
             ` : `<div class = "modal-table-entry-section search-games-notes"></div>`}
             <div class = "modal-table-entry-section search-games-writer">${writer}</div>
             <div class = "modal-table-entry-section search-games-covered">${covered}</div>
-            <div class = "modal-table-entry-section search-games-options modal-table-entry-options-button">&hellip;
+            <div class = "modal-table-entry-section modal-table-entry-options modal-table-entry-options-button">&hellip;
                 <div class="modal-table-entry-options">
                     <div class = "modal-table-entry-option edit-game-option">Edit</div>
                     <div class = "modal-table-entry-option delete-game-option">Delete</div>

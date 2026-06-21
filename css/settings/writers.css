@@ -132,19 +132,6 @@
     width: 10%;
 }
 
-.writer-table-options {
-    /* Layout */
-    display: flex;
-    justify-content: center;
-
-    /* Size / Shape */
-    width: 5%;
-
-    /* Text */
-    font-size: 30px;
-}
-/* #endregion */
-
 /* #region edit-writer / delete-writer */
 .edit-writer, .delete-writer {
     color: var(--primary_color);

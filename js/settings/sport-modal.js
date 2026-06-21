@@ -72,7 +72,7 @@ async function fetchSportInfo() {
             <div class = "modal-table-entry-section sport-table-email">${email}</div>
             <div class = "modal-table-entry-section sport-table-phone">${phone}</div>
             <div class = "modal-table-entry-section sport-table-blank"></div>
-            <div class = "modal-table-entry-section sport-table-options modal-table-entry-options-button">&hellip;
+            <div class = "modal-table-entry-section modal-table-entry-options modal-table-entry-options-button">&hellip;
                 <div class="modal-table-entry-options">
                     <div class = "modal-table-entry-option edit-sport-option">Edit</div>
                     <div class = "modal-table-entry-option delete-sport-option">Delete</div>

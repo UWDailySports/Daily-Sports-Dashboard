@@ -156,20 +156,6 @@
     width: 5%;
 }
 
-.search-games-options {
-    /* Layout */
-    display: flex;
-    justify-content: center;
-
-    /* Size / Shape */
-    width: 5%;
-
-    /* Text */
-    font-size: 30px;
-}
-/* #endregion */
-
-
 /* #region search-games-input */
 .search-games-input {
     /* Layout */
