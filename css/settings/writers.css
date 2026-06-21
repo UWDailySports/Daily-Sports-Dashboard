@@ -430,6 +430,11 @@
         width: 100px;
     }
 
+    .writer-table-position {
+        /* Size / Shape */
+        width: 100px;
+    }
+
     .writer-table-email {
         /* Size / Shape */
         width: 170px;
@@ -437,7 +442,7 @@
 
     .writer-table-phone {
         /* Size / Shape */
-        width: 100px;
+        width: 125px;
     }
 
     .writer-table-x {
@@ -468,5 +473,19 @@
         /* Txt */
         font-size: 30px
     }
+
+    .search-writers-input {
+        /* Size / Shape */
+        width: 50%;
+    }
+
+    .add-writer-button {
+        /* Size / Shape */
+        width: 30%;
+        
+        /* Text */
+        font-size: 14px;
+
+    }    
 }
 /* #endregion */
