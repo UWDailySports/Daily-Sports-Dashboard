@@ -89,7 +89,7 @@
 .sport-table-header-section, .sport-table-entry-section {
     /* Layout */
     display: flex;
-    flex-shrink: 1;
+    flex-shrink: 0;
     align-items: center;
 
     /* Size/Shape */

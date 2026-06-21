@@ -90,7 +90,7 @@
 .search-games-table-header-section, .search-games-table-entry-section {
     /* Layout */
     display: flex;
-    flex-shrink: 1;
+    flex-shrink: 0;
     align-items: center;
 
     /* Size/Shape */

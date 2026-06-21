@@ -125,7 +125,7 @@
 .writer-table-header-section, .writer-table-entry-section {
     /* Layout */
     display: flex;
-    flex-shrink: 1;
+    flex-shrink: 0;
     align-items: center;
 
     /* Size/Shape */
@@ -414,9 +414,6 @@
         /* Size / Shape */
         width: 95%;
         height: 95%;
-        
-        /* Misc */
-        overflow-x: auto;
     }
     
     .writer-table-first-name {
