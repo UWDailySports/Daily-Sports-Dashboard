@@ -26,6 +26,65 @@
 }
 /* #endregion */
 
+/* #region sport-list-container */
+.sport-table-container {
+    /* Layout */
+    flex: 1;
+    display: flex;
+    flex-direction: column;   
+
+    /* Size/Shape */
+    width: 100%;
+    gap: 10px;
+    border-radius: 18px;
+
+    /* Background */
+    background: #f8f9fc;
+        
+    /* Misc */
+    overflow-y: auto; 
+    scrollbar-gutter: stable;
+}
+/* #endregion */
+
+/* #region sport-list-entry-container */
+.sport-table-header, .sport-table-entry {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    /* Size/Shape */
+    min-height: 64px;
+    padding: 0 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(54,15,90,.08);
+
+    /* Background */
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+
+    /* Misc */  
+    transition: box-shadow .1s ease;  
+}
+
+.sport-table-entry:hover {
+    /* Background */
+    box-shadow:
+        0 8px 20px rgba(54,15,90,.10);
+}
+
+.sport-table-header {
+    /* Layout */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    /* Background */
+    background: var(--primary_color);
+}
+/* #endregion */
+
 /* #region sport-list-entry-section */
 .sport-table-header-section, .sport-table-entry-section {
     /* Layout */
