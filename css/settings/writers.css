@@ -259,6 +259,7 @@
     /* Layout */
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 40px;
     box-sizing: border-box;
 
@@ -499,12 +500,16 @@
         /* Layout */
         grid-template-columns: repeat(1, 1fr);
         gap: 25px;
-        justify-content: center;
     }
 
     .add-writer-section, .edit-writer-section {
         /* Size / SHape */
         width: 80%;
+    }
+
+    .add-writer-confirm, .edit-writer-confirm {
+        /* Size / Shape */
+        height: 52px !important;
     }
 }
 /* #endregion */
