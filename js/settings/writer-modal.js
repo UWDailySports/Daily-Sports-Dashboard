@@ -8,14 +8,18 @@
 // #region openWritersModal() //
 
 async function openWritersModal() {
-    const writerContainer = document.getElementById("writers-modal").style.display = "flex"; 
-    const header = writerContainer.querySelector(".modal-table-header");
-    writerContainer.innerHTML = "";
-    writerContainer.appendChild(header);
-
     await fetchWriterInfo();
+
+    document.getElementById("writers-modal").style.display = "flex"; 
 };
 
+const writersModal = document.getElementById("writers-modal");
+
+document.addEventListener("click", () => {
+    document.querySelectorAll(".list-options").forEach(options => {
+        options.style.display = "none";
+    });
+});
 // #endregion //
 
 
@@ -84,28 +88,28 @@ async function fetchWriterInfo() {
         }
 
         const writerBox = document.createElement("div");
-        writerBox.classList.add("modal-table-entry");
+        writerBox.classList.add("writer-table-entry");
 
         writerBox.innerHTML = `
-        <div class = "modal-table-entry-section writer-table-first-name">${first_name}</div>
-        <div class = "modal-table-entry-section writer-table-last-name">${last_name}</div>
-        <div class = "modal-table-entry-section writer-table-position">${position}</div>
-        <div class = "modal-table-entry-section writer-table-email">${email}</div>      
-        <div class = "modal-table-entry-section writer-table-phone">${phone}</div>
+        <div class = "writer-table-entry-section writer-table-first-name">${first_name}</div>
+        <div class = "writer-table-entry-section writer-table-last-name">${last_name}</div>
+        <div class = "writer-table-entry-section writer-table-position">${position}</div>
+        <div class = "writer-table-entry-section writer-table-email">${email}</div>      
+        <div class = "writer-table-entry-section writer-table-phone">${phone}</div>
         ${x
-            ? `<a class = "modal-table-entry-section writer-table-x" href="${x}" target="_blank">${x_short}</a>`
-            : `<div class = "modal-table-entry-section writer-table-x"></div>`
+            ? `<a class = "writer-table-entry-section writer-table-x" href="${x}" target="_blank">${x_short}</a>`
+            : `<div class = "writer-table-entry-section writer-table-x"></div>`
         }
         ${headshot
-            ? `<a class = "modal-table-entry-section writer-table-headshot" href="${headshot}" target="_blank">Link</a>`
-            : `<div class = "modal-table-entry-section writer-table-headshot"></div>`
+            ? `<a class = "writer-table-entry-section writer-table-headshot" href="${headshot}" target="_blank">Link</a>`
+            : `<div class = "writer-table-entry-section writer-table-headshot"></div>`
         }
-        <div class = "modal-table-entry-section writer-table-hire-date">${hire_date_formatted}</div>
-        <div class = "modal-table-entry-section writer-table-end-date">${end_date_formatted}</div>
-        <div class="modal-table-entry-section modal-table-entry-options-button">&hellip;
-            <div class="modal-table-entry-options">
-                <div class="modal-table-entry-option edit-writer-option">Edit</div>
-                <div class="modal-table-entry-option delete-writer-option">Delete</div>
+        <div class = "writer-table-entry-section writer-table-hire-date">${hire_date_formatted}</div>
+        <div class = "writer-table-entry-section writer-table-end-date">${end_date_formatted}</div>
+        <div class = "writer-table-entry-section writer-table-options list-options-button">&hellip;
+            <div class="list-options">
+                <div class = "list-option edit-writer-option">Edit</div>
+                <div class = "list-option delete-writer-option">Delete</div>
             </div>
         </div>
         `;
@@ -113,8 +117,8 @@ async function fetchWriterInfo() {
         writerBox.querySelector(".edit-writer-option").addEventListener("click", () => openEditWriterModal(writer)); 
         writerBox.querySelector(".delete-writer-option").addEventListener("click", () => deleteWriter(writer.writer_id));
 
-        const optionsBtn = writerBox.querySelector(".modal-table-entry-options-button");
-        const options = writerBox.querySelector(".modal-table-entry-options");
+        const optionsBtn = writerBox.querySelector(".list-options-button");
+        const options = writerBox.querySelector(".list-options");
 
         if (!optionsBtn) console.log("button not found");
         if (!options) console.log("menu not found");
@@ -125,7 +129,7 @@ async function fetchWriterInfo() {
             console.log("clicked");
             e.stopPropagation();
 
-            document.querySelectorAll(".modal-table-entry-option").forEach(m => {
+            document.querySelectorAll(".list-options").forEach(m => {
                 if (m !== options) m.style.display = "none";
             });
 
@@ -142,7 +146,7 @@ async function fetchWriterInfo() {
     searchWriterInput.oninput = () => {
         const term = searchWriterInput.value.toLowerCase();
 
-        document.querySelectorAll(".modal-table-container").forEach(writer => {
+        document.querySelectorAll(".writer-list-entry-container").forEach(writer => {
             writer.style.display =
                 writer.textContent.toLowerCase().includes(term)
                     ? "flex"
@@ -160,9 +164,10 @@ async function fetchWriterInfo() {
 // #region addWriterModal() //
 
 async function openAddWriterModal() {
-    const addWriterModal = document.getElementById("add-writer-modal");
     document.getElementById("add-writer-modal").style.display = "flex";
 }    
+
+const addWriterModal = document.getElementById("add-writer-modal");
 
 document.getElementById("add-writer-confirm").onclick = async () => {
     const first_name = document.getElementById("new-writer-first-name").value;
@@ -177,7 +182,7 @@ document.getElementById("add-writer-confirm").onclick = async () => {
     if(!first_name || !last_name || !position || !email) {
         alert("Please fill in all required fields");
         return;
-    } 
+    } ``
 
     await addWriter(first_name, last_name, position,email, phone, x, headshot, hire_date);
 
