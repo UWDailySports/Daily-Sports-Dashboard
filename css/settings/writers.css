@@ -499,7 +499,9 @@
     
     .add-writer-section-container, .edit-writer-section-container {
         /* Layout */
-        grid-template-columns: repeat(1, 1fr);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 25px;
     }
 
