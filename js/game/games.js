@@ -295,14 +295,14 @@ function createGameBox(game, options = []) {
         const addButton = gameBox.querySelector('[data-action="add-game"]');
         if(addButton){
             addButton.addEventListener("click", async (e) => {
-                await signup(gameId, state.currWriter.writer_id);
+                await signup(game, state.currWriter.writer_id);
             });
         }  
         
         const assignButton = gameBox.querySelector('[data-action="assign-game"]');
         if(assignButton){
             assignButton.addEventListener("click", async (e) => {
-                await openAssignGameModal(gameId);
+                await openAssignGameModal(game);
             }); 
         }
         
@@ -316,7 +316,7 @@ function createGameBox(game, options = []) {
         const removeButton = gameBox.querySelector('[data-action="remove-game"]');
         if(removeButton){
             removeButton.addEventListener("click", async (e) => {
-                await remove(gameId);
+                await remove(game);
             });     
         }   
 

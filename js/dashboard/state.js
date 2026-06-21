@@ -3,7 +3,8 @@ const state = {
     school: null,
 
     currWriter: null,
-    currGameId: null,
+
+    currGame: null,
     
     currTab: null,
 

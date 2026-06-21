@@ -9,14 +9,14 @@
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region signup() //
-async function signup(gameId, writerId) {
+async function signup(game, writerId) {
     try {
         const response = await fetch("/.netlify/functions/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ gameId, writerId })
+            body: JSON.stringify({ gameId: state.currGame.game_id, writerId })
         });
 
         const data = await response.json();
@@ -44,16 +44,14 @@ async function signup(gameId, writerId) {
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region remove() //
-async function remove(gameId) {
-    console.log("Game ID: ", gameId);
-
+async function remove(game) {
     try {
         const response = await fetch("/.netlify/functions/remove", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ gameId: gameId})
+            body: JSON.stringify({ gameId: state.currGame.game_id})
         });
 
         const data = await response.json();
@@ -79,8 +77,8 @@ async function remove(gameId) {
 // Returns: None
 // Parameters: (1) gameId: id of the game 
 // #region openAssignModal //
-async function openAssignGameModal(gameId) {
-    state.currGameId = gameId;
+async function openAssignGameModal(game) {
+    state.currGame = game;
 
     await loadWriters();
 
@@ -97,7 +95,7 @@ document.getElementById("confirm-assign").onclick = async () => {
         return;
     }
 
-    await signup(state.currGameId, writerId);
+    await signup(state.currGame.game_id, writerId);
 
     assignModal.style.display = "none";
     
@@ -143,7 +141,7 @@ document.getElementById("edit-game-confirm").onclick = async () => {
         return;
     } 
 
-    await editGame(state.currGameId, sport, opponent, date, time, location, notes);
+    await editGame(state.currGame, sport, opponent, date, time, location, notes);
 
     editModal.style.display = "none";
 
@@ -153,7 +151,7 @@ document.getElementById("edit-game-confirm").onclick = async () => {
 
 document.getElementById("delete-game-confirm").onclick = async () => {
     resetCaches();
-    await deleteGame(state.currGameId);
+    await deleteGame(state.currGame);
     
     editModal.style.display = "none";
 }
@@ -192,14 +190,14 @@ async function loadGameInfo(gameId) {
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region editGame() //
-async function editGame(gameId, sport, opponent, date, time, location, notes) {
+async function editGame(game, sport, opponent, date, time, location, notes) {
     try {
         const response = await fetch("/.netlify/functions/edit-game", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ gameId, sport, opponent, date, time, location, notes })
+            body: JSON.stringify({ gameId: game.game_id, sport, opponent, date, time, location, notes })
         });
 
         const data = await response.json();
@@ -225,14 +223,14 @@ async function editGame(gameId, sport, opponent, date, time, location, notes) {
 // errors: (1) error if DB URL not set
 //         (2) statusCode 500 if error in DB query
 // #region deleteGame() //
-async function deleteGame(gameId) {
+async function deleteGame(game) {
     try {
         const response = await fetch("/.netlify/functions/delete-game", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ gameId })
+            body: JSON.stringify({ gameId: game.game_id })
         });
 
        const data = await response.json();
