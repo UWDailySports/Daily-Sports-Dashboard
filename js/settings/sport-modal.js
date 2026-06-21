@@ -7,18 +7,15 @@
 // Parameters: None
 // #region openSportsModal() //
 async function openSportsModal() {
-    const sportContainer = document.getElementById("sport-modal").style.display = "flex"; 
-    const header = sportContainer.querySelector(".modal-table-header");
-    sportContainer.innerHTML = "";
-    sportContainer.appendChild(header);
+    await fetchSportInfo();
 
-    
+    document.getElementById("sport-modal").style.display = "flex";
 };    
 
 const sportModal = document.getElementById("sport-modal");
 
 document.addEventListener("click", () => {
-    document.querySelectorAll(".modal-table-entry-options").forEach(options => {
+    document.querySelectorAll(".list-options").forEach(options => {
         options.style.display = "none";
     });
 });
@@ -66,19 +63,19 @@ async function fetchSportInfo() {
         }    
 
         const sportBox = document.createElement("div");
-        sportBox.classList.add("modal-table-entry");
+        sportBox.classList.add("sport-table-entry");
         
         sportBox.innerHTML = `
-            <div class = "modal-table-entry-section sport-table-sport">${sportName}</div>
-            <div class = "modal-table-entry-section sport-table-abbreviation">${sportAbbreviation}</div>            
-            <div class = "modal-table-entry-section sport-table-sid">${sid}</div>
-            <div class = "modal-table-entry-section sport-table-email">${email}</div>
-            <div class = "modal-table-entry-section sport-table-phone">${phone}</div>
-            <div class = "modal-table-entry-section sport-table-blank"></div>
-            <div class = "modal-table-entry-section modal-table-entry-options-button">&hellip;
-                <div class="modal-table-entry-options">
-                    <div class="modal-table-entry-option edit-sport-option">Edit</div>
-                    <div class="modal-table-entry-option delete-sport-option">Delete</div>
+            <div class = "sport-table-entry-section sport-table-sport">${sportName}</div>
+            <div class = "sport-table-entry-section sport-table-abbreviation">${sportAbbreviation}</div>            
+            <div class = "sport-table-entry-section sport-table-sid">${sid}</div>
+            <div class = "sport-table-entry-section sport-table-email">${email}</div>
+            <div class = "sport-table-entry-section sport-table-phone">${phone}</div>
+            <div class = "sport-table-entry-section sport-table-blank"></div>
+            <div class = "sport-table-entry-section sport-table-options list-options-button">&hellip;
+                <div class="list-options">
+                    <div class = "list-option edit-sport-option">Edit</div>
+                    <div class = "list-option delete-sport-option">Delete</div>
                 </div>
             </div>
         `;
@@ -86,8 +83,8 @@ async function fetchSportInfo() {
         sportBox.querySelector(".edit-sport-option").addEventListener("click", () => openEditSportModal(sport)); 
         sportBox.querySelector(".delete-sport-option").addEventListener("click", () => deleteSport(sport.sport_id));
 
-        const optionsBtn = sportBox.querySelector(".modal-table-entry-options-button");
-        const options = sportBox.querySelector(".modal-table-entry-options");
+        const optionsBtn = sportBox.querySelector(".list-options-button");
+        const options = sportBox.querySelector(".list-options");
 
         if (!optionsBtn) console.log("button not found");
         if (!options) console.log("menu not found");
@@ -98,7 +95,7 @@ async function fetchSportInfo() {
             console.log("clicked");
             e.stopPropagation();
 
-            document.querySelectorAll(".modal-table-entry-options").forEach(m => {
+            document.querySelectorAll(".list-options").forEach(m => {
                 if (m !== options) m.style.display = "none";
             });
 
