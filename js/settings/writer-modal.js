@@ -174,10 +174,10 @@ document.getElementById("add-writer-confirm").onclick = async () => {
     const last_name = document.getElementById("new-writer-last-name").value;
     const position = document.getElementById("new-writer-position").value;
     const email = document.getElementById("new-writer-email").value;
-    const phone = document.getElementById("new-writer-phone").value;
-    const x  = document.getElementById("new-writer-x").value;
-    const headshot = document.getElementById("new-writer-headshot").value;
-    const hire_date = document.getElementById("new-writer-hire-date").value;
+    const phone = document.getElementById("new-writer-phone").value || "";
+    const x  = document.getElementById("new-writer-x").value || "";
+    const headshot = document.getElementById("new-writer-headshot").value || "";
+    const hire_date = document.getElementById("new-writer-hire-date").value || null;
 
     if(!first_name || !last_name || !position || !email) {
         alert("Please fill in all required fields");
