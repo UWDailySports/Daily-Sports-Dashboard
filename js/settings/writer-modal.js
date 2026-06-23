@@ -73,8 +73,8 @@ async function fetchWriterInfo() {
 
         let hire_date = writer.hire_date;
         let hire_date_formatted = ""; 
-        if(hire_date === null & position === "Shadow") {
-            hire_date_formatted = "Shadow";
+        if(hire_date === null) {
+            hire_date_formatted = "NA";
         } else {
             hire_date_formatted = new Date(hire_date).toLocaleDateString("en-US");
         }
