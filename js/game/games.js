@@ -62,6 +62,7 @@ async function fetchMySchedule(filters = { sports: [], locations: [], months: []
 
     if (!myGames || myGames.length === 0) {
         noGames(container, "No Games in Schedule");
+        return;
     }
 
     myGames.forEach(game => {
@@ -90,6 +91,7 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 
     if (!availableGames || availableGames.length === 0) {
         noGames(container, "No Available Games");
+        return;
     }
 
     const currWriterPosition = state.currWriter.position;
@@ -129,6 +131,7 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
 
     if (!allGames || allGames.length === 0) {
         noGames(container, "No Games in Schedule");
+        return;
     }
 
     allGames.forEach(game => {
@@ -158,6 +161,7 @@ async function fetchHistoryGames(filters = { sports: [], locations: [], months: 
 
     if (!historyGames || historyGames.length === 0) {
         noGames(container, "No Games in History");
+        return;
     }
 
     historyGames.forEach(game => {
