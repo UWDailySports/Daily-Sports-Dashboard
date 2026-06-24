@@ -48,6 +48,7 @@ async function fetchWriterData(user) {
 
     const data = await response.json();
     state.currWriter = data.writer;
+    console.log("Fetched writer data:", state.currWriter.first_name, state.currWriter.last_name, state.currWriter.writer_id);
 
     if (state.currWriter && state.currWriter.first_name) {
         document.getElementById("greetingHeader").textContent = `Hi, ${state.currWriter.first_name}!`;

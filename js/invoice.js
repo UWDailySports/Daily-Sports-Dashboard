@@ -47,10 +47,10 @@ document.getElementById("confirm-invoice").addEventListener("click", async () =>
         return;
     }
 
-    await addInvoice(currWriter.writer_id, date, total, link);
+    await addInvoice(state.currWriter.writer_id, date, total, link);
     document.getElementById("invoice-modal").style.display = "none";
     
-    fetchInvoices(currWriter.writer_id);
+    fetchInvoices(state.currWriter.writer_id);
 });
 
 
