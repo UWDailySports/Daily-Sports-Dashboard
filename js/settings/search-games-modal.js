@@ -149,6 +149,7 @@ document.getElementById("add-game-confirm").onclick = async () => {
 
     if(!sport || !opponent || !location || !date || !time) {
         alert("Please fill in all required fields");
+        return;
     } 
 
     await addGame(sport, opponent, date, time, location, notes);
