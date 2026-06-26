@@ -209,8 +209,8 @@
     /* Size / Shape */
     width: 500px;
     height: 60%;
-    min-height: 625px;
-    max-height: 1000px;
+    min-height: 750px;
+    max-height: 1200px;
     padding: 20px;
     border-radius: 24px;
     border: none;
