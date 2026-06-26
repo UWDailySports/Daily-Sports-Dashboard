@@ -193,7 +193,7 @@ async function openEditSportModal(sport) {
     const editSportModal = document.getElementById("edit-sport-modal");
 
     document.getElementById("edit-sport-name").value = sport.sport;
-    document.getElementById("edit-sport-abrreviation").value = sport.abbreviation;
+    document.getElementById("edit-sport-abbreviation").value = sport.abbreviation;
     document.getElementById("edit-sport-sid").value = sport.sid || "";
     document.getElementById("edit-sport-email").value = sport.sid_email || "";
     document.getElementById("edit-sport-phone").value = sport.sid_phone || "";
