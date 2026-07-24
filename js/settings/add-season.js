@@ -58,6 +58,20 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
     const sheet = workbook.Sheets[sheetName];
 
     const rows = XLSX.utils.sheet_to_json(sheet, {defval: ""});
+    console.log("rows length:", rows.length);
+
+    const seen = new Set();
+    
+    rows.forEach((row, i) => {
+        const key = `${row.Event}|${row["Start Date"]}|${row["Start Time"]}`;
+    
+        if (seen.has(key)) {
+            console.warn("Duplicate row found:", i, key);
+        }
+    
+        seen.add(key);
+    });
+    
     console.log(Object.keys(rows[0]));
 
     rows.forEach(row => {
