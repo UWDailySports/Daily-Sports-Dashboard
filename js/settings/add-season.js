@@ -42,6 +42,7 @@ function showFileName() {
 }
 
 document.getElementById("add-season-confirm").addEventListener("click", async () => {
+    console.log("Upload button clicked");
     if (!selectedFile) {
         alert("Please upload a file");
         return;
