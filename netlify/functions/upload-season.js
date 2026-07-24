@@ -1,6 +1,7 @@
 const { Client } = require("pg");
 
 exports.handler = async (event) => {
+    console.log("upload-season called");
     const client = new Client({
         connectionString: process.env.DATABASE_URL,
         ssl: { require: true, rejectUnauthorized: false },
