@@ -33,7 +33,7 @@ document.addEventListener("click", () => {
 // #region fecthWriterInfo() //
 
 async function fetchWriterInfo() {
-    writerTableContainer.innerHTML = "";
+    writerTableContainer = document.getElementById("writer-table-container");
 
     const response = await fetch("/.netlify/functions/get-writer-info", {
         method: "POST",
@@ -47,8 +47,6 @@ async function fetchWriterInfo() {
 
     const data = await response.json();
     const writers = data.writers;
-
-    writerTableContainer = document.getElementById("writer-table-container");
 
     writers.forEach(writer => {
         const first_name = writer.first_name;
@@ -149,7 +147,7 @@ async function fetchWriterInfo() {
     searchWriterInput.oninput = () => {
         const term = searchWriterInput.value.toLowerCase();
 
-        document.querySelectorAll(".writer-table-container").forEach(writer => {
+        document.querySelectorAll(".writer-table-entry").forEach(writer => {
             writer.style.display =
                 writer.textContent.toLowerCase().includes(term)
                     ? "flex"
