@@ -46,7 +46,7 @@ async function fetchWriterInfo() {
     }
 
     writerTableContainer = document.getElementById("writer-table-container");
-    
+
     const data = await response.json();
     const writers = data.writers;
 
@@ -149,7 +149,7 @@ async function fetchWriterInfo() {
     searchWriterInput.oninput = () => {
         const term = searchWriterInput.value.toLowerCase();
 
-        document.querySelectorAll(".writer-table-container").forEach(writer => {
+        document.querySelectorAll(".writer-table-entry").forEach(writer => {
             writer.style.display =
                 writer.textContent.toLowerCase().includes(term)
                     ? "flex"
