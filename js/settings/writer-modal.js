@@ -1,7 +1,6 @@
 /* All Functions relating to the Writers Setting Option */
 
 let writerTableContainer = document.getElementById("writer-table-container");
-let writerRowsContainer = document.getElementById("writer-table-rows");
 
 // Function: openWritersModal
 // Purpose: Opens the modal for writer info 
@@ -46,6 +45,8 @@ async function fetchWriterInfo() {
         return;
     }
 
+    writerTableContainer = document.getElementById("writer-table-container");
+    
     const data = await response.json();
     const writers = data.writers;
 
@@ -139,7 +140,7 @@ async function fetchWriterInfo() {
                 options.style.display === "flex" ? "none" : "flex";
         });
 
-        writerRowsContainer.append(writerBox);    
+        writerTableContainer.append(writerBox);    
 
     });
 
@@ -148,7 +149,7 @@ async function fetchWriterInfo() {
     searchWriterInput.oninput = () => {
         const term = searchWriterInput.value.toLowerCase();
 
-        document.querySelectorAll(".writer-table-entry").forEach(writer => {
+        document.querySelectorAll(".writer-table-container").forEach(writer => {
             writer.style.display =
                 writer.textContent.toLowerCase().includes(term)
                     ? "flex"
