@@ -84,6 +84,16 @@
 /* #endregion */
 
 /* #region writer-list-title */
+.writer-table-rows {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    /* Size/Shape */
+    width: 100%;
+}
+
 .writer-table-header, .writer-table-entry {
     /* Layout */
     display: flex;

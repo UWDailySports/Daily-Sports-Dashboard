@@ -1,6 +1,7 @@
 /* All Functions relating to the Writers Setting Option */
 
 let writerTableContainer = document.getElementById("writer-table-container");
+let writerRowsContainer = document.getElementById("writer-table-rows");
 
 // Function: openWritersModal
 // Purpose: Opens the modal for writer info 
@@ -138,7 +139,7 @@ async function fetchWriterInfo() {
                 options.style.display === "flex" ? "none" : "flex";
         });
 
-        writerTableContainer.append(writerBox);    
+        writerRowsContainer.append(writerBox);    
 
     });
 

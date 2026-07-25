@@ -91,8 +91,8 @@ async function fetchSearchGameInfo() {
         const optionsButton = gameBox.querySelector(".list-options-button");
         const options = gameBox.querySelector(".list-options");
 
-        if(!optionsButton) console.log("Options button not found for game ID:", id);
-        if(!options) console.log("Options menu not found for game ID:", id);
+        if(!optionsButton) console.log("Options button not found for game ID:", game.game_id);
+        if(!options) console.log("Options menu not found for game ID:", game.game_id);
 
         options.addEventListener("click", e => e.stopPropagation());
 
@@ -116,7 +116,7 @@ async function fetchSearchGameInfo() {
     searchInput.oninput = () => {
         const term = searchInput.value.toLowerCase();
 
-        document.querySelectorAll(".search-games-table-container").forEach(game => {
+        document.querySelectorAll(".search-games-table-entry").forEach(game => {
             game.style.display =
                 game.textContent.toLowerCase().includes(term)
                     ? "flex"
