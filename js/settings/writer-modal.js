@@ -1,5 +1,6 @@
 /* All Functions relating to the Writers Setting Option */
 
+let writerTableContainer = document.getElementById("writer-table-container");
 
 // Function: openWritersModal
 // Purpose: Opens the modal for writer info 
@@ -32,6 +33,8 @@ document.addEventListener("click", () => {
 // #region fecthWriterInfo() //
 
 async function fetchWriterInfo() {
+    writerTableContainer.innerHTML = "";
+
     const response = await fetch("/.netlify/functions/get-writer-info", {
         method: "POST",
         headers: { "Content-Type": "application/json" }
@@ -45,7 +48,7 @@ async function fetchWriterInfo() {
     const data = await response.json();
     const writers = data.writers;
 
-    const container = document.getElementById("writer-table-container");
+    writerTableContainer = document.getElementById("writer-table-container");
 
     writers.forEach(writer => {
         const first_name = writer.first_name;
@@ -115,7 +118,7 @@ async function fetchWriterInfo() {
         `;
 
         writerBox.querySelector(".edit-writer-option").addEventListener("click", () => openEditWriterModal(writer)); 
-        writerBox.querySelector(".delete-writer-option").addEventListener("click", () => deleteWriter(writer.writer_id));
+        writerBox.querySelector(".delete-writer-option").addEventListener("click", () => { deleteWriter(writer.writer_id); fetchWriterInfo(); });
 
         const optionsBtn = writerBox.querySelector(".list-options-button");
         const options = writerBox.querySelector(".list-options");
@@ -187,6 +190,8 @@ document.getElementById("add-writer-confirm").onclick = async () => {
     await addWriter(first_name, last_name, position,email, phone, x, headshot, hire_date);
 
     addWriterModal.style.display = "none";
+
+    await fetchWriterInfo();
 };
 
 // #endregion //
