@@ -140,7 +140,7 @@ async function fetchWriterInfo() {
                 options.style.display === "flex" ? "none" : "flex";
         });
 
-        container.append(writerBox);    
+        writerTableContainer.append(writerBox);    
 
     });
 
