@@ -16,7 +16,7 @@ async function signup(game, writerId) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ gameId: game.game_id, writerId })
+            body: JSON.stringify({ gameId: state.currGame.game_id, writerId })
         });
 
         const data = await response.json();
@@ -51,7 +51,7 @@ async function remove(game) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ gameId: game.game_id})
+            body: JSON.stringify({ gameId: state.currGame.game_id})
         });
 
         const data = await response.json();
@@ -80,7 +80,7 @@ async function remove(game) {
 async function openAssignGameModal(game) {
     state.currGame = game;
 
-    await loadWriters();
+    await loadWriters("writer-select");
 
     document.getElementById("assign-modal").style.display = "flex";
 }   
