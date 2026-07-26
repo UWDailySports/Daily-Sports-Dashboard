@@ -51,7 +51,7 @@ async function remove(game) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ gameId: state.currGame.game_id})
+            body: JSON.stringify({ gameId: game.game_id})
         });
 
         const data = await response.json();
