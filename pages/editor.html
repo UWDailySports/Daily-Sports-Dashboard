@@ -18,6 +18,7 @@
 <link rel = "stylesheet" href = "/css/settings/writers.css">
 <link rel = "stylesheet" href = "/css/settings/sports.css">
 <link rel = "stylesheet" href = "/css/settings/add-season.css">
+<link rel= "stylesheet" href = "/css/settings/assign-beat.css">
 <link rel = "stylesheet" href = "/css/settings/search-games.css">
 <link rel = "stylesheet" href = "/css/modal.css">
 <link rel = "stylesheet" href = "/css/settings/user-school.css">
@@ -163,9 +164,13 @@
                 <div class = "settings-option" onclick = "openUserSchoolModal()">
                     <img class = "settings-icon" src = "/images/settings/user-school.png">
                     <div class = "settings-title">User School</div>
-                </div>                                                                                       
+                </div>  
+                <div class = "settings-option" onclick = "openAssignBeatModal()">
+                    <img class = "settings-icon" src = "/images/settings/sports.png">
+                    <div class = "settings-title">Assign Beat</div>
+                </div>    
+                </div>                                                                                     
             </div>
-        </div>
 
         </div>
 
@@ -457,7 +462,7 @@
                     <div class="edit-sport-box-title">
                         Abbreviation <span class="required">*</span>
                     </div>
-                    <input type = "text" id = "edit-sport-abbreviation" class = "edit-sport-box" placeholder="Sport Abbreviation">
+                    <input type = "text" id = "edit-sport-abbreviation" class = "edit-sport-box" placeholder="Sport Name">
                 </div>            
                 <div class = "edit-sport-section">
                     <div class="edit-sport-box-title">
@@ -633,6 +638,24 @@
         </div>
     </div>
 
+    <div id = "assign-beat-modal" class = "modal">
+        <div class = "assign-beat-modal-content">
+            <div class = "modal-header" style = "margin-bottom: 10px;">
+                <h2>Assign Beat</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class = "assign-beat-modal-section">
+                <div class = "assign-beat-section-title">Sport</div>
+                <select id = "assign-beat-sport" class = "assign-beat-section-box" placeholder = "Select a Sport"></select>
+            </div>
+            <div class = "assign-beat-modal-section">
+                <div class = "assign-beat-section-title">Writer</div>
+                <select id = "assign-beat-writer" class = "assign-beat-section-box" placeholder = "Select a Writer"></select>
+            </div>     
+            <div id= "confirm-assign-beat" class = "confirm-assign-beat">Assign Beat</div>       
+        </div>
+    </div>
+
     <div id = "user-school-modal" class = "modal">
         <div class = "user-school-modal-content">
             <div class = "modal-header" style = "margin-bottom: 10px;">
@@ -667,6 +690,7 @@
 <script src = "/js/settings/sport-modal.js"></script>
 <script src = "/js/settings/add-season.js"></script>
 <script src = "/js/settings/search-games-modal.js"></script>
+<script src = "/js/settings/assign-beat.js"></script>
 <script src = "/js/settings/user-school.js"></script>
 <script src = "/js/tools.js"></script>
 
