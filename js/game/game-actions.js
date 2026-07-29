@@ -10,13 +10,18 @@
 //         (2) statusCode 500 if error in DB query
 // #region signup() //
 async function signup(game, writerId) {
+   console.log("signup game:", game);
+    console.log("signup writer:", writerId);
+    console.log("signup called", game.game_id, writerId);
     try {
+        console.log("game:", game);
+        console.log("writerId:", writerId);
         const response = await fetch("/.netlify/functions/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ gameId: state.currGame.game_id, writerId })
+            body: JSON.stringify({ gameId: game.game_id, writerId })
         });
 
         const data = await response.json();
@@ -95,7 +100,7 @@ document.getElementById("confirm-assign").onclick = async () => {
         return;
     }
 
-    await signup(state.currGame.game_id, writerId);
+    await signup(game, writerId);
 
     assignModal.style.display = "none";
     
