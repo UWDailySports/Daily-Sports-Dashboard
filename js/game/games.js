@@ -62,7 +62,6 @@ async function fetchMySchedule(filters = { sports: [], locations: [], months: []
 
     if (!myGames || myGames.length === 0) {
         noGames(container, "No Games in Schedule");
-        return;
     }
 
     myGames.forEach(game => {
@@ -91,7 +90,6 @@ async function fetchAvailableGames(filters = { sports: [], locations: [], months
 
     if (!availableGames || availableGames.length === 0) {
         noGames(container, "No Available Games");
-        return;
     }
 
     const currWriterPosition = state.currWriter.position;
@@ -131,7 +129,6 @@ async function fetchAllScheduledGames(filters = { sports: [], locations: [], mon
 
     if (!allGames || allGames.length === 0) {
         noGames(container, "No Games in Schedule");
-        return;
     }
 
     allGames.forEach(game => {
@@ -161,7 +158,6 @@ async function fetchHistoryGames(filters = { sports: [], locations: [], months: 
 
     if (!historyGames || historyGames.length === 0) {
         noGames(container, "No Games in History");
-        return;
     }
 
     historyGames.forEach(game => {
@@ -232,6 +228,7 @@ async function fetchGames(tab, filters) {
 // errors: None
 // #region createGameBox //
 function createGameBox(game, options = []) {
+    console.log("game", game.game_id);
 
     const sport = game.sport;
     const notes = game.notes || "";
@@ -297,11 +294,17 @@ function createGameBox(game, options = []) {
         `;
 
         const addButton = gameBox.querySelector('[data-action="add-game"]');
+        
         if(addButton){
+            console.log("CREATING ADD BUTTON FOR:", game);
+        
             addButton.addEventListener("click", async (e) => {
+                console.log("ADD CLICKED");
+                console.log("CLICK GAME:", game);
+        
                 await signup(game, state.currWriter.writer_id);
             });
-        }  
+        } 
         
         const assignButton = gameBox.querySelector('[data-action="assign-game"]');
         if(assignButton){
