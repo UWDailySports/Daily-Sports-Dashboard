@@ -97,9 +97,9 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
         }
 
         if (date && !isNaN(date)) {
-            const yyyy = date.getUTCFullYear()
+            const yyyy = date.getUTCFullYear();
             const mm = String(date.getUTCMonth() + 1).padStart(2, "0");
-            const dd = String(date.getUTCDate().padStart(2, "0");
+            const dd = String(date.getUTCDate()).padStart(2, "0");
 
             row['Start Date'] = `${yyyy}-${mm}-${dd}`;
         }
