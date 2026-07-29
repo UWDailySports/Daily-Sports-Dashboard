@@ -42,7 +42,6 @@ function showFileName() {
 }
 
 document.getElementById("add-season-confirm").addEventListener("click", async () => {
-    console.log("Upload button clicked");
     if (!selectedFile) {
         alert("Please upload a file");
         return;
@@ -58,20 +57,6 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
     const sheet = workbook.Sheets[sheetName];
 
     const rows = XLSX.utils.sheet_to_json(sheet, {defval: ""});
-    console.log("rows length:", rows.length);
-
-    const seen = new Set();
-    
-    rows.forEach((row, i) => {
-        const key = `${row.Event}|${row["Start Date"]}|${row["Start Time"]}`;
-    
-        if (seen.has(key)) {
-            console.warn("Duplicate row found:", i, key);
-        }
-    
-        seen.add(key);
-    });
-    
     console.log(Object.keys(rows[0]));
 
     rows.forEach(row => {
@@ -80,6 +65,11 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
             return;
         }
         let date = row['Start Date'];
+
+        console.log(date);
+        console.log(date.toString());
+        console.log(date.toISOString());
+        console.log(date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate());
 
         if (!date) return;
 
@@ -97,9 +87,9 @@ document.getElementById("add-season-confirm").addEventListener("click", async ()
         }
 
         if (date && !isNaN(date)) {
-            const yyyy = date.getFullYear();
-            const mm = String(date.getMonth() + 1).padStart(2, "0");
-            const dd = String(date.getDate()).padStart(2, "0");
+            const yyyy = date.getUTCFullYear();
+            const mm = String(date.getUTCMonth() + 1).padStart(2, "0");
+            const dd = String(date.getUTCDate().padStart(2, "0");
 
             row['Start Date'] = `${yyyy}-${mm}-${dd}`;
         }
