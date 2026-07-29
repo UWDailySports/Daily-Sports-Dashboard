@@ -100,7 +100,7 @@ document.getElementById("confirm-assign").onclick = async () => {
         return;
     }
 
-    await signup(game, writerId);
+    await signup(state.currgame, writerId);
 
     assignModal.style.display = "none";
     
