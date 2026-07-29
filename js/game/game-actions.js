@@ -10,9 +10,6 @@
 //         (2) statusCode 500 if error in DB query
 // #region signup() //
 async function signup(game, writerId) {
-   console.log("signup game:", game);
-    console.log("signup writer:", writerId);
-    console.log("signup called", game.game_id, writerId);
     try {
         console.log("game:", game);
         console.log("writerId:", writerId);
